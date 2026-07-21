@@ -124,15 +124,16 @@ const staticTranslations = [
   ['.trusted-row:nth-of-type(1) .trusted-section-label', 'Local partners', 'Partner lokal'],
   ['.trusted-row:nth-of-type(2) .trusted-section-label', 'International partners', 'Partner internasional'],
   ['.intro-detail>p', 'Established in 2010, PT Taka Hydrocore Indonesia provides exploratory, geophysical, geotechnical, hydrogeological, environmental, and water-well drilling work for mining, oil and gas, infrastructure, contractor, and consulting clients.', 'Didirikan pada 2010, PT Taka Hydrocore Indonesia menyediakan pekerjaan eksplorasi, geofisika, geoteknik, hidrogeologi, lingkungan, dan pengeboran sumur air untuk klien pertambangan, minyak dan gas, infrastruktur, kontraktor, dan konsultan.'],
-  ['.intro-detail .arrow-link', 'Start a conversation <span>→</span>', 'Mulai diskusi <span>→</span>', 'html'],
+  ['.intro-detail .arrow-link', 'View company profile <span>→</span>', 'Lihat profil perusahaan <span>→</span>', 'html'],
   ['.intro-visual figcaption span', 'Offshore investigation', 'Investigasi offshore'],
   ['.intro-visual figcaption strong', 'Geotechnical drilling, sampling, and field testing support practical offshore engineering decisions.', 'Pengeboran geoteknik, sampling, dan pengujian lapangan mendukung keputusan engineering offshore.'],
   ['.credential-card-iso .credential-eyebrow', 'Integrated certification', 'Sertifikasi terintegrasi'],
   ['.credential-card-iso strong', 'ISO Certified', 'Sertifikasi ISO'],
-  ['.credential-card-iso>p', 'Three management systems supporting safer, cleaner, and more controlled project delivery.', 'Tiga sistem manajemen yang mendukung pelaksanaan proyek yang lebih aman, bersih, dan terkendali.'],
+  ['.credential-card-iso>p', 'Integrated ISO systems and Indonesian local SMK3 reference supporting safer, cleaner, and more controlled project delivery.', 'Sistem ISO terintegrasi dan referensi SMK3 lokal Indonesia mendukung pelaksanaan proyek yang lebih aman, bersih, dan terkendali.'],
   ['.iso-metric-list a:nth-child(1) small', 'Occupational Health & Safety', 'Kesehatan & Keselamatan Kerja'],
   ['.iso-metric-list a:nth-child(2) small', 'Environmental Management', 'Manajemen Lingkungan'],
   ['.iso-metric-list a:nth-child(3) small', 'Quality Management', 'Manajemen Mutu'],
+  ['.iso-metric-list a:nth-child(4) small', 'Indonesian Local Certificate', 'Sertifikat Lokal Indonesia'],
   ['.credential-card-skup .credential-eyebrow', 'MIGAS capability', 'Kapabilitas MIGAS'],
   ['.credential-card-skup strong', 'SKUP', 'SKUP'],
   ['.credential-card-skup>p', 'Registered oil and gas supporting capability with company rating for field service readiness.', 'Kapabilitas penunjang minyak dan gas terdaftar dengan peringkat perusahaan untuk kesiapan layanan lapangan.'],
@@ -164,28 +165,28 @@ const staticTranslations = [
   ['.service-onshore div>p:last-child', 'SPT, CPT, pressuremeter, field vane shear, sampling, and laboratory-backed soil investigation for land projects.', 'SPT, CPT, pressuremeter, field vane shear, sampling, dan investigasi tanah berbasis laboratorium untuk proyek darat.'],
   ['#qhse > .section-label', '<span>03</span> QHSE', '<span>03</span> QHSE', 'html'],
   ['.qhse-dossier-head .kicker', 'Health, Safety and Environment', 'Kesehatan, Keselamatan, dan Lingkungan'],
-  ['.qhse-dossier-head h2', 'HSE is our prime priority.', 'HSE adalah prioritas utama kami.'],
-  ['.qhse-dossier-head>p', 'THI applies and commits to a high HSE standard. Equipment is maintained properly and periodically, and load tested prior to mobilization.', 'THI menerapkan dan berkomitmen pada standar HSE yang tinggi. Peralatan dirawat dengan baik dan berkala, serta diuji beban sebelum mobilisasi.'],
-  ['.qhse-visual figcaption span', 'HSE Goal', 'Tujuan HSE'],
-  ['.qhse-visual figcaption strong', 'No accidents, no harm to people, no damage to the environment.', 'Tidak ada kecelakaan, tidak ada cedera pada manusia, dan tidak ada kerusakan lingkungan.'],
-  ['.qhse-register-title span', 'HSE standard', 'Standar HSE'],
-  ['.qhse-register-title strong', 'Prepared before mobilization', 'Disiapkan sebelum mobilisasi'],
-  ['.qhse-checklist article:nth-child(1) strong', 'Maintained equipment', 'Peralatan terawat'],
-  ['.qhse-checklist article:nth-child(1) p', 'Equipment is maintained properly and periodically to support safe field operations.', 'Peralatan dirawat dengan baik dan berkala untuk mendukung operasi lapangan yang aman.'],
-  ['.qhse-checklist article:nth-child(2) strong', 'Load tested', 'Uji beban'],
-  ['.qhse-checklist article:nth-child(2) p', 'Critical equipment is load tested prior to mobilization for operational readiness.', 'Peralatan kritis diuji beban sebelum mobilisasi untuk memastikan kesiapan operasional.'],
-  ['.qhse-checklist article:nth-child(3) strong', 'Oil company HSE experience', 'Pengalaman HSE perusahaan migas'],
-  ['.qhse-checklist article:nth-child(3) p', 'Site personnel have experience with HSE systems from BP, Pertamina, CNOOC, Medco, Santos, and mining contractors.', 'Personel lapangan memiliki pengalaman dengan sistem HSE dari BP, Pertamina, CNOOC, Medco, Santos, dan kontraktor pertambangan.'],
-  ['.qhse-checklist article:nth-child(4) strong', 'Continuous HSE readiness', 'Kesiapan HSE berkelanjutan'],
-  ['.qhse-checklist article:nth-child(4) p', 'CSMS, STOP card, AK3 Migas, training needs, fit-to-work personnel, and sea survival are continuously maintained.', 'CSMS, STOP card, AK3 Migas, kebutuhan pelatihan, personel fit-to-work, dan sea survival dijaga secara berkelanjutan.'],
-  ['.qhse-control-points>div:nth-child(1) strong', 'No accidents', 'Tanpa kecelakaan'],
-  ['.qhse-control-points>div:nth-child(1) p', 'Work is planned and executed to prevent occupational accidents in every assignment.', 'Pekerjaan direncanakan dan dijalankan untuk mencegah kecelakaan kerja di setiap penugasan.'],
-  ['.qhse-control-points>div:nth-child(2) strong', 'No harm to people', 'Tanpa cedera pada manusia'],
-  ['.qhse-control-points>div:nth-child(2) p', 'Personnel readiness, fit-to-work controls, and field supervision protect everyone involved.', 'Kesiapan personel, kontrol fit-to-work, dan supervisi lapangan melindungi semua pihak yang terlibat.'],
-  ['.qhse-control-points>div:nth-child(3) strong', 'No environmental damage', 'Tanpa kerusakan lingkungan'],
-  ['.qhse-control-points>div:nth-child(3) p', 'Environmental protection is embedded into offshore and onshore field activities.', 'Perlindungan lingkungan menjadi bagian dari aktivitas lapangan offshore maupun onshore.'],
-  ['.qhse-control-points>div:nth-child(4) strong', 'High HSE standard', 'Standar HSE tinggi'],
-  ['.qhse-control-points>div:nth-child(4) p', 'THI maintains HSE capability through client-system experience and continuous training.', 'THI menjaga kapabilitas HSE melalui pengalaman sistem klien dan pelatihan berkelanjutan.'],
+  ['.qhse-dossier-head h2', 'Prepared, checked, and controlled before work starts.', 'Disiapkan, diperiksa, dan dikendalikan sebelum pekerjaan dimulai.'],
+  ['.qhse-dossier-head>p', 'QHSE at THI is handled as field discipline: people are briefed, equipment is checked, critical gear is verified, and every scope is documented before execution.', 'QHSE di THI dijalankan sebagai disiplin lapangan: personel di-briefing, peralatan diperiksa, alat kritis diverifikasi, dan setiap scope didokumentasikan sebelum eksekusi.'],
+  ['.qhse-visual figcaption span', 'Field readiness', 'Kesiapan lapangan'],
+  ['.qhse-visual figcaption strong', 'Safe execution starts with practical controls that crews can follow on site.', 'Eksekusi aman dimulai dari kontrol praktis yang bisa dijalankan kru di lapangan.'],
+  ['.qhse-register-title span', 'QHSE controls', 'Kontrol QHSE'],
+  ['.qhse-register-title strong', 'Simple checks, clear responsibility', 'Pemeriksaan sederhana, tanggung jawab jelas'],
+  ['.qhse-checklist article:nth-child(1) strong', 'People readiness', 'Kesiapan personel'],
+  ['.qhse-checklist article:nth-child(1) p', 'Crews are briefed, fit to work, and aligned on the work method before activity begins.', 'Kru di-briefing, fit to work, dan memahami metode kerja sebelum aktivitas dimulai.'],
+  ['.qhse-checklist article:nth-child(2) strong', 'Equipment assurance', 'Jaminan peralatan'],
+  ['.qhse-checklist article:nth-child(2) p', 'Critical equipment is inspected, maintained, and load tested before mobilization.', 'Peralatan kritis diperiksa, dirawat, dan diuji beban sebelum mobilisasi.'],
+  ['.qhse-checklist article:nth-child(3) strong', 'Worksite control', 'Kontrol area kerja'],
+  ['.qhse-checklist article:nth-child(3) p', 'Hazards, access, lifting, marine activity, and emergency response are reviewed with the site team.', 'Bahaya, akses, lifting, aktivitas marine, dan respons darurat ditinjau bersama tim site.'],
+  ['.qhse-checklist article:nth-child(4) strong', 'Documented execution', 'Eksekusi terdokumentasi'],
+  ['.qhse-checklist article:nth-child(4) p', 'Records, certificates, toolbox talks, and reporting are kept visible throughout the job.', 'Catatan, sertifikat, toolbox talk, dan pelaporan dijaga tetap tersedia sepanjang pekerjaan.'],
+  ['.qhse-control-points>div:nth-child(1) strong', 'Plan the work', 'Rencanakan pekerjaan'],
+  ['.qhse-control-points>div:nth-child(1) p', 'Define the scope, method, crew, equipment, and HSE requirements before mobilization.', 'Tentukan scope, metode, kru, peralatan, dan kebutuhan HSE sebelum mobilisasi.'],
+  ['.qhse-control-points>div:nth-child(2) strong', 'Brief the crew', 'Briefing kru'],
+  ['.qhse-control-points>div:nth-child(2) p', 'Align field personnel through toolbox talks, risk review, and role clarity.', 'Selaraskan personel lapangan melalui toolbox talk, review risiko, dan kejelasan peran.'],
+  ['.qhse-control-points>div:nth-child(3) strong', 'Verify controls', 'Verifikasi kontrol'],
+  ['.qhse-control-points>div:nth-child(3) p', 'Check equipment, permits, lifting gear, emergency setup, and worksite readiness.', 'Periksa peralatan, izin, lifting gear, kesiapan darurat, dan area kerja.'],
+  ['.qhse-control-points>div:nth-child(4) strong', 'Record the result', 'Catat hasilnya'],
+  ['.qhse-control-points>div:nth-child(4) p', 'Keep reports, observations, and close-out notes ready for project review.', 'Siapkan laporan, observasi, dan catatan close-out untuk review proyek.'],
   ['#projects > .section-label', '<span>04</span> Projects', '<span>04</span> Proyek', 'html'],
   ['.projects-heading .light-text', 'Selected work', 'Pekerjaan pilihan'],
   ['.projects-heading h2', 'Field-proven experience by service discipline.', 'Pengalaman lapangan berdasarkan disiplin layanan.'],
@@ -458,8 +459,8 @@ const companyProfilePageTranslations = {
     ['.profile-experience-head h2', 'Field-proven across geophysical, geotechnical, metocean, hydro-oceanography, and environmental survey work.'],
     ['.profile-fleet>.section-label', '<span>05</span> Operational Support', 'html'],
     ['.profile-fleet .profile-section-head .kicker', 'Assets & Equipment'],
-    ['.profile-fleet .profile-section-head h2', 'Field support matched to the survey scope.'],
-    ['.profile-fleet .profile-section-head>p:not(.kicker)', 'THI selects vessels, nearshore platforms, field equipment, and supporting crews around the technical method, site access, and reporting needs of each project.'],
+    ['.profile-fleet .profile-section-head h2', 'Operational support selected around each survey method.'],
+    ['.profile-fleet .profile-section-head>p:not(.kicker)', 'Vessels, nearshore platforms, drilling systems, geophysical equipment, and field crews are prepared around the site condition and technical requirement of each project.'],
     ['.profile-fleet-card:nth-child(1) span', 'Marine support'],
     ['.profile-fleet-card:nth-child(1) h3', 'AG Geodrill, SS Barakuda & Voyager Explorer'],
     ['.profile-fleet-card:nth-child(1) p', 'Indonesian flag platforms supporting marine geophysical, offshore geotechnical, and nearshore survey scopes.'],
@@ -569,8 +570,8 @@ const companyProfilePageTranslations = {
     ['.profile-experience-head h2', 'Terbukti di pekerjaan geofisika, geoteknik, metocean, hidro-oseanografi, dan survei lingkungan.'],
     ['.profile-fleet>.section-label', '<span>05</span> Dukungan Operasional', 'html'],
     ['.profile-fleet .profile-section-head .kicker', 'Aset & Peralatan'],
-    ['.profile-fleet .profile-section-head h2', 'Dukungan lapangan yang disesuaikan dengan ruang lingkup survei.'],
-    ['.profile-fleet .profile-section-head>p:not(.kicker)', 'THI memilih vessel, platform nearshore, peralatan lapangan, dan kru pendukung berdasarkan metode teknis, akses lokasi, serta kebutuhan pelaporan tiap proyek.'],
+    ['.profile-fleet .profile-section-head h2', 'Dukungan operasional dipilih berdasarkan metode survei.'],
+    ['.profile-fleet .profile-section-head>p:not(.kicker)', 'Vessel, platform nearshore, sistem drilling, peralatan geofisika, dan kru lapangan disiapkan berdasarkan kondisi site dan kebutuhan teknis tiap proyek.'],
     ['.profile-fleet-card:nth-child(1) span', 'Dukungan marine'],
     ['.profile-fleet-card:nth-child(1) h3', 'AG Geodrill, SS Barakuda & Voyager Explorer'],
     ['.profile-fleet-card:nth-child(1) p', 'Platform berbendera Indonesia untuk dukungan geofisika marine, geoteknik offshore, dan survei nearshore.'],
@@ -1139,12 +1140,21 @@ const vesselPageTranslations = {
     ['#ag-geodrill>.section-label', '<span>02</span> AG Geodrill', 'html'],
     ['#ag-geodrill .vessel-detail-copy h2', 'Geotechnical vessel for offshore soil investigation.'],
     ['#ag-geodrill .vessel-detail-copy>p:not(.kicker)', 'AG Geodrill is presented by THI as a dedicated offshore geotechnical vessel. Its configuration is centered on station keeping, heave compensated drilling, moonpool deployment, seabed frame handling, and onboard soil handling for survey campaigns.'],
+    ['#ag-geodrill .vessel-spec-list span:nth-child(1) strong', 'Year'],
+    ['#ag-geodrill .vessel-spec-list span:nth-child(2) strong', 'Engine Power'],
+    ['#ag-geodrill .vessel-spec-list span:nth-child(3) strong', 'Accommodation'],
     ['#ss-barakuda>.section-label', '<span>03</span> SS Barakuda', 'html'],
     ['#ss-barakuda .vessel-detail-copy h2', 'Marine survey vessel for seismic and geophysical campaigns.'],
     ['#ss-barakuda .vessel-detail-copy>p:not(.kicker)', 'SS Barakuda is listed by THI as a research ship for geophysical and high resolution seismic survey work. Its operating profile suits survey lines, geohazard investigation, and exploration-support acquisition using marine geophysical sensors.'],
+    ['#ss-barakuda .vessel-spec-list span:nth-child(1) strong', 'Year'],
+    ['#ss-barakuda .vessel-spec-list span:nth-child(2) strong', 'Engine Power'],
+    ['#ss-barakuda .vessel-spec-list span:nth-child(3) strong', 'Accommodation'],
     ['#voyager-explorer>.section-label', '<span>04</span> Voyager Explorer', 'html'],
     ['#voyager-explorer .vessel-detail-copy h2', 'Seismic and geophysical vessel for subsea mapping.'],
     ['#voyager-explorer .vessel-detail-copy>p:not(.kicker)', 'Voyager Explorer is positioned as a seismic and geophysical survey vessel for subsea mapping, high-quality acquisition, onboard processing, and field support for oil and gas, marine, and subsea infrastructure work.'],
+    ['#voyager-explorer .vessel-spec-list span:nth-child(1) strong', 'Year'],
+    ['#voyager-explorer .vessel-spec-list span:nth-child(2) strong', 'Engine Power'],
+    ['#voyager-explorer .vessel-spec-list span:nth-child(3) strong', 'Accommodation'],
     ['.vessel-gallery-section>.section-label', '<span>05</span> Vessel Gallery', 'html'],
     ['.vessel-gallery-section .vessel-overview-head .kicker', 'Selected documentation'],
     ['.vessel-gallery-section .vessel-overview-head h2', 'Each photograph is assigned to a vessel context.'],
@@ -1152,7 +1162,7 @@ const vesselPageTranslations = {
     ['.vessel-gallery figure:nth-child(2) figcaption', 'AG Geodrill side profile'],
     ['.vessel-gallery figure:nth-child(3) figcaption', 'SS Barakuda survey operation'],
     ['.vessel-gallery figure:nth-child(4) figcaption', 'SS Barakuda aerial documentation'],
-    ['.vessel-gallery figure:nth-child(5) figcaption', 'Survey deck activity'],
+    ['.vessel-gallery figure:nth-child(5) figcaption', 'Deck activity'],
   ],
   id: [
     ['title', 'Platform Operasional | Taka Hydrocore Indonesia'],
@@ -1175,12 +1185,21 @@ const vesselPageTranslations = {
     ['#ag-geodrill>.section-label', '<span>02</span> AG Geodrill', 'html'],
     ['#ag-geodrill .vessel-detail-copy h2', 'Kapal geoteknik untuk investigasi tanah offshore.'],
     ['#ag-geodrill .vessel-detail-copy>p:not(.kicker)', 'AG Geodrill dipresentasikan THI sebagai kapal geoteknik offshore khusus. Konfigurasinya berfokus pada station keeping, heave compensated drilling, deployment melalui moonpool, penanganan seabed frame, dan dukungan soil handling onboard.'],
+    ['#ag-geodrill .vessel-spec-list span:nth-child(1) strong', 'Tahun'],
+    ['#ag-geodrill .vessel-spec-list span:nth-child(2) strong', 'Daya Mesin'],
+    ['#ag-geodrill .vessel-spec-list span:nth-child(3) strong', 'Akomodasi'],
     ['#ss-barakuda>.section-label', '<span>03</span> SS Barakuda', 'html'],
     ['#ss-barakuda .vessel-detail-copy h2', 'Kapal survei marine untuk kampanye seismik dan geofisika.'],
     ['#ss-barakuda .vessel-detail-copy>p:not(.kicker)', 'SS Barakuda dicantumkan THI sebagai research ship untuk survei geofisika dan seismik resolusi tinggi. Profil operasinya cocok untuk lintasan survei, investigasi geohazard, dan akuisisi pendukung eksplorasi dengan sensor geofisika marine.'],
+    ['#ss-barakuda .vessel-spec-list span:nth-child(1) strong', 'Tahun'],
+    ['#ss-barakuda .vessel-spec-list span:nth-child(2) strong', 'Daya Mesin'],
+    ['#ss-barakuda .vessel-spec-list span:nth-child(3) strong', 'Akomodasi'],
     ['#voyager-explorer>.section-label', '<span>04</span> Voyager Explorer', 'html'],
     ['#voyager-explorer .vessel-detail-copy h2', 'Kapal seismik dan geofisika untuk pemetaan bawah laut.'],
     ['#voyager-explorer .vessel-detail-copy>p:not(.kicker)', 'Voyager Explorer diposisikan sebagai kapal survei seismik dan geofisika untuk pemetaan bawah laut, akuisisi berkualitas tinggi, pemrosesan onboard, dan dukungan lapangan bagi minyak dan gas, kelautan, serta infrastruktur bawah laut.'],
+    ['#voyager-explorer .vessel-spec-list span:nth-child(1) strong', 'Tahun'],
+    ['#voyager-explorer .vessel-spec-list span:nth-child(2) strong', 'Daya Mesin'],
+    ['#voyager-explorer .vessel-spec-list span:nth-child(3) strong', 'Akomodasi'],
     ['.vessel-gallery-section>.section-label', '<span>05</span> Galeri Kapal', 'html'],
     ['.vessel-gallery-section .vessel-overview-head .kicker', 'Dokumentasi terpilih'],
     ['.vessel-gallery-section .vessel-overview-head h2', 'Setiap foto ditempatkan sesuai konteks kapalnya.'],
@@ -1188,7 +1207,7 @@ const vesselPageTranslations = {
     ['.vessel-gallery figure:nth-child(2) figcaption', 'Side profile AG Geodrill'],
     ['.vessel-gallery figure:nth-child(3) figcaption', 'Operasi survei SS Barakuda'],
     ['.vessel-gallery figure:nth-child(4) figcaption', 'Dokumentasi aerial SS Barakuda'],
-    ['.vessel-gallery figure:nth-child(5) figcaption', 'Aktivitas deck survei'],
+    ['.vessel-gallery figure:nth-child(5) figcaption', 'Aktivitas deck'],
   ]
 };
 
@@ -1205,22 +1224,23 @@ const qhsePageTranslations = {
     ['.qhse-page .preloader-inner p', 'Preparing QHSE profile'],
     ['.qhse-page-hero .kicker', 'QHSE'],
     ['.qhse-page-hero h1', 'Health, safety, and environment as field discipline.'],
-    ['.qhse-page-hero-copy>p:not(.kicker)', 'THI states HSE as a prime priority, supported by high HSE standards, properly maintained equipment, periodic inspection, and load testing before mobilization.'],
+    ['.qhse-page-hero-copy>p:not(.kicker)', 'For THI, QHSE is field discipline: crews plan the work, check the equipment, brief the risks, control the worksite, and close out records before the result is handed over.'],
     ['.qhse-policy-section>.section-label', '<span>01</span> Health Safety and Environment', 'html'],
     ['.qhse-policy-copy .kicker', 'Operating commitment'],
-    ['.qhse-policy-copy h2', 'Prime priority before mobilization, during execution, and at close-out.'],
+    ['.qhse-policy-copy h2', 'Planned controls before people, equipment, and vessels move.'],
+    ['.qhse-policy-copy>p:not(.kicker)', 'Each scope is prepared with practical controls: competent crews, maintained equipment, valid certificates, load-tested lifting gear, job-risk review, emergency readiness, and clear field records.'],
     ['.qhse-iso-strip a:nth-child(1)', '<span>ISO 45001</span><strong>Occupational Health & Safety</strong>', 'html'],
     ['.qhse-iso-strip a:nth-child(2)', '<span>ISO 14001</span><strong>Environmental Management</strong>', 'html'],
     ['.qhse-iso-strip a:nth-child(3)', '<span>ISO 9001</span><strong>Quality Management</strong>', 'html'],
     ['.qhse-readiness-section>.section-label', '<span>02</span> Readiness Controls', 'html'],
-    ['.qhse-readiness-visual figcaption span', 'Field control'],
-    ['.qhse-readiness-visual figcaption strong', 'Equipment, people, and worksite readiness are checked before mobilization.'],
-    ['.qhse-readiness-head .kicker', 'HSE system experience'],
-    ['.qhse-readiness-head h2', 'Controls that translate policy into field behavior.'],
-    ['.qhse-certification-section>.section-label', '<span>03</span> ISO Certificates', 'html'],
-    ['.qhse-certification-copy .kicker', 'Certified management systems'],
-    ['.qhse-certification-copy h2', 'ISO certificates that support disciplined project execution.'],
-    ['.qhse-certification-copy>p:not(.kicker)', "THI's ISO certificates provide a formal reference for how quality, safety, and environmental controls are managed across office preparation, field operation, and reporting activity."],
+    ['.qhse-readiness-visual figcaption span', 'Readiness control'],
+    ['.qhse-readiness-visual figcaption strong', 'People, equipment, method, and documentation are aligned before the field team starts work.'],
+    ['.qhse-readiness-head .kicker', 'Field preparation'],
+    ['.qhse-readiness-head h2', 'Controls built around what crews actually do on site.'],
+    ['.qhse-certification-section>.section-label', '<span>03</span> General Certificates', 'html'],
+    ['.qhse-certification-copy .kicker', 'Certificates and formal references'],
+    ['.qhse-certification-copy h2', 'Management system certificates and local compliance documents.'],
+    ['.qhse-certification-copy>p:not(.kicker)', 'These documents support how THI manages quality, occupational safety, environmental control, and Indonesian local HSE requirements across office preparation and field execution.'],
     ['.qhse-iso-list article:nth-child(1) h3', 'Occupational Health & Safety Management System'],
     ['.qhse-iso-list article:nth-child(1) p', 'Supports occupational health and safety controls for personnel readiness, worksite discipline, and safer field execution.'],
     ['.qhse-iso-list article:nth-child(1) a', 'Open certificate <span>↗</span>', 'html'],
@@ -1230,9 +1250,12 @@ const qhsePageTranslations = {
     ['.qhse-iso-list article:nth-child(3) h3', 'Quality Management System'],
     ['.qhse-iso-list article:nth-child(3) p', 'Supports consistent service delivery, documentation control, and quality assurance across survey and drilling work.'],
     ['.qhse-iso-list article:nth-child(3) a', 'Open certificate <span>↗</span>', 'html'],
-    ['.qhse-policy-document>.section-label', '<span>04</span> Policy Document', 'html'],
-    ['.qhse-document-copy h2', 'Formal quality, health, safety, and environmental policy reference.'],
-    ['.qhse-document-copy>p:not(.kicker)', "This policy document defines THI's commitment to quality management, occupational health and safety, and environmental protection across company operations and field assignments."],
+    ['.qhse-iso-list article:nth-child(4) h3', 'Indonesian Occupational Safety and Health Certificate'],
+    ['.qhse-iso-list article:nth-child(4) p', 'Local SMK3 recognition for occupational safety and health management implementation in Indonesia.'],
+    ['.qhse-iso-list article:nth-child(4) a', 'Open certificate <span>↗</span>', 'html'],
+    ['.qhse-policy-document>.section-label', '<span>04</span> QHSE Policy 2026', 'html'],
+    ['.qhse-document-copy h2', "Eight commitments that guide THI's QHSE practice."],
+    ['.qhse-document-copy>p:not(.kicker)', 'The 2026 policy sets out practical commitments for management systems, customer service, compliance, improvement, environmental and accident prevention, CSR, employee participation, and policy communication.'],
     ['.qhse-gallery-section>.section-label', '<span>05</span> HSE Documentation', 'html']
   ],
   id: [
@@ -1241,22 +1264,23 @@ const qhsePageTranslations = {
     ['.qhse-page .preloader-inner p', 'Menyiapkan profil QHSE'],
     ['.qhse-page-hero .kicker', 'QHSE'],
     ['.qhse-page-hero h1', 'Kesehatan, keselamatan, dan lingkungan sebagai disiplin lapangan.'],
-    ['.qhse-page-hero-copy>p:not(.kicker)', 'THI menyatakan HSE sebagai prioritas utama, didukung standar HSE tinggi, peralatan yang dirawat baik, inspeksi berkala, dan uji beban sebelum mobilisasi.'],
+    ['.qhse-page-hero-copy>p:not(.kicker)', 'Bagi THI, QHSE adalah disiplin lapangan: kru merencanakan pekerjaan, memeriksa peralatan, membahas risiko, mengendalikan area kerja, dan menutup catatan sebelum hasil pekerjaan diserahkan.'],
     ['.qhse-policy-section>.section-label', '<span>01</span> Kesehatan, Keselamatan, dan Lingkungan', 'html'],
     ['.qhse-policy-copy .kicker', 'Komitmen operasional'],
-    ['.qhse-policy-copy h2', 'Prioritas utama sebelum mobilisasi, selama eksekusi, dan saat close-out.'],
+    ['.qhse-policy-copy h2', 'Kontrol disiapkan sebelum personel, peralatan, dan vessel bergerak.'],
+    ['.qhse-policy-copy>p:not(.kicker)', 'Setiap scope disiapkan dengan kontrol praktis: kru kompeten, peralatan terawat, sertifikat valid, lifting gear yang telah diuji beban, telaah risiko pekerjaan, kesiapan darurat, dan catatan lapangan yang jelas.'],
     ['.qhse-iso-strip a:nth-child(1)', '<span>ISO 45001</span><strong>Kesehatan & Keselamatan Kerja</strong>', 'html'],
     ['.qhse-iso-strip a:nth-child(2)', '<span>ISO 14001</span><strong>Manajemen Lingkungan</strong>', 'html'],
     ['.qhse-iso-strip a:nth-child(3)', '<span>ISO 9001</span><strong>Manajemen Mutu</strong>', 'html'],
     ['.qhse-readiness-section>.section-label', '<span>02</span> Kontrol Kesiapan', 'html'],
-    ['.qhse-readiness-visual figcaption span', 'Kontrol lapangan'],
-    ['.qhse-readiness-visual figcaption strong', 'Kesiapan peralatan, personel, dan area kerja diperiksa sebelum mobilisasi.'],
-    ['.qhse-readiness-head .kicker', 'Pengalaman sistem HSE'],
-    ['.qhse-readiness-head h2', 'Kontrol yang menerjemahkan kebijakan menjadi perilaku lapangan.'],
-    ['.qhse-certification-section>.section-label', '<span>03</span> ISO Certificates', 'html'],
-    ['.qhse-certification-copy .kicker', 'Sistem manajemen tersertifikasi'],
-    ['.qhse-certification-copy h2', 'Sertifikat ISO yang mendukung eksekusi proyek secara disiplin.'],
-    ['.qhse-certification-copy>p:not(.kicker)', 'Sertifikat ISO THI menjadi referensi formal untuk pengelolaan mutu, keselamatan, dan kontrol lingkungan dari persiapan kantor, operasi lapangan, hingga pelaporan.'],
+    ['.qhse-readiness-visual figcaption span', 'Kontrol kesiapan'],
+    ['.qhse-readiness-visual figcaption strong', 'Personel, peralatan, metode, dan dokumentasi diselaraskan sebelum tim lapangan mulai bekerja.'],
+    ['.qhse-readiness-head .kicker', 'Persiapan lapangan'],
+    ['.qhse-readiness-head h2', 'Kontrol yang mengikuti aktivitas nyata kru di site.'],
+    ['.qhse-certification-section>.section-label', '<span>03</span> Sertifikat Umum', 'html'],
+    ['.qhse-certification-copy .kicker', 'Sertifikat dan referensi formal'],
+    ['.qhse-certification-copy h2', 'Sertifikat sistem manajemen dan dokumen kepatuhan lokal.'],
+    ['.qhse-certification-copy>p:not(.kicker)', 'Dokumen ini mendukung cara THI mengelola mutu, keselamatan kerja, kontrol lingkungan, dan persyaratan HSE lokal Indonesia dari persiapan kantor sampai eksekusi lapangan.'],
     ['.qhse-iso-list article:nth-child(1) h3', 'Sistem Manajemen Kesehatan & Keselamatan Kerja'],
     ['.qhse-iso-list article:nth-child(1) p', 'Mendukung kontrol kesehatan dan keselamatan kerja untuk kesiapan personel, disiplin area kerja, dan eksekusi lapangan yang lebih aman.'],
     ['.qhse-iso-list article:nth-child(1) a', 'Buka sertifikat <span>↗</span>', 'html'],
@@ -1266,9 +1290,12 @@ const qhsePageTranslations = {
     ['.qhse-iso-list article:nth-child(3) h3', 'Sistem Manajemen Mutu'],
     ['.qhse-iso-list article:nth-child(3) p', 'Mendukung konsistensi layanan, kontrol dokumentasi, dan jaminan mutu di pekerjaan survei dan pengeboran.'],
     ['.qhse-iso-list article:nth-child(3) a', 'Buka sertifikat <span>↗</span>', 'html'],
-    ['.qhse-policy-document>.section-label', '<span>04</span> Dokumen Kebijakan', 'html'],
-    ['.qhse-document-copy h2', 'Referensi kebijakan mutu, kesehatan, keselamatan, dan lingkungan.'],
-    ['.qhse-document-copy>p:not(.kicker)', 'Dokumen kebijakan ini menjelaskan komitmen THI terhadap manajemen mutu, kesehatan dan keselamatan kerja, serta perlindungan lingkungan dalam operasi perusahaan dan penugasan lapangan.'],
+    ['.qhse-iso-list article:nth-child(4) h3', 'Sertifikat Sistem Manajemen K3 Indonesia'],
+    ['.qhse-iso-list article:nth-child(4) p', 'Pengakuan SMK3 lokal untuk implementasi sistem manajemen keselamatan dan kesehatan kerja di Indonesia.'],
+    ['.qhse-iso-list article:nth-child(4) a', 'Buka sertifikat <span>↗</span>', 'html'],
+    ['.qhse-policy-document>.section-label', '<span>04</span> Kebijakan QHSE 2026', 'html'],
+    ['.qhse-document-copy h2', 'Delapan komitmen yang memandu praktik QHSE THI.'],
+    ['.qhse-document-copy>p:not(.kicker)', 'Kebijakan 2026 memuat komitmen praktis untuk sistem manajemen, layanan pelanggan, kepatuhan, perbaikan, pencegahan lingkungan dan kecelakaan, CSR, partisipasi karyawan, dan komunikasi kebijakan.'],
     ['.qhse-gallery-section>.section-label', '<span>05</span> Dokumentasi HSE', 'html']
   ]
 };
@@ -1293,8 +1320,8 @@ const projectPageTranslations = {
     ['.project-map-card figcaption', 'THI project experience in Indonesia, covering marine, nearshore, and onshore assignments.'],
     ['.project-page-metrics div:nth-child(2) span', 'Service-aligned groups'],
     ['.project-list-section>.section-label', '<span>02</span> Project List', 'html'],
-    ['.project-list-head .kicker', 'Service-aligned references'],
-    ['.project-list-head h2', "Project experience organized around THI's current service lines."],
+    ['.project-list-head .kicker', 'Project list'],
+    ['.project-list-head h2', "Project references grouped by THI service line."],
     ['#marine-seismic-projects .project-service-index', '01 / Marine Geophysical'],
     ['#marine-seismic-projects h3', '2D/3D High Resolution Marine Seismic'],
     ['#marine-seismic-projects .project-service-body>p', 'References covering high-resolution seismic acquisition, geohazard survey, processing, and interpretation for exploration and development planning.'],
@@ -1392,8 +1419,8 @@ const projectPageTranslations = {
     ['.project-map-card figcaption', 'Pengalaman proyek THI di Indonesia, mencakup pekerjaan marine, nearshore, dan onshore.'],
     ['.project-page-metrics div:nth-child(2) span', 'Kelompok sesuai layanan'],
     ['.project-list-section>.section-label', '<span>02</span> Daftar Proyek', 'html'],
-    ['.project-list-head .kicker', 'Referensi sesuai layanan'],
-    ['.project-list-head h2', 'Pengalaman proyek disusun mengikuti lini layanan THI saat ini.'],
+    ['.project-list-head .kicker', 'Daftar proyek'],
+    ['.project-list-head h2', 'Referensi proyek dikelompokkan berdasarkan lini layanan THI.'],
     ['#marine-seismic-projects .project-service-index', '01 / Geofisika Marine'],
     ['#marine-seismic-projects h3', 'Marine Seismic Resolusi Tinggi 2D/3D'],
     ['#marine-seismic-projects .project-service-body>p', 'Referensi pekerjaan akuisisi seismik resolusi tinggi, survei geohazard, pemrosesan, dan interpretasi untuk perencanaan eksplorasi dan pengembangan.'],
@@ -1623,83 +1650,29 @@ const applyContactPageLanguage = (language) => {
 const newsPageTranslations = {
   en: [
     ['title', 'News & Updates | Taka Hydrocore Indonesia'],
-    ['meta[name="description"]', 'News and updates from PT Taka Hydrocore Indonesia covering services, QHSE, project references, operational support, and company website updates.'],
-    ['.news-page .preloader-inner p', 'Preparing updates'],
-    ['.news-page-hero-copy .kicker', 'News & Updates'],
-    ['.news-page-hero h1', 'Field notes, service updates, and company references.'],
-    ['.news-page-hero-copy>p:not(.kicker)', 'A cleaner update hub for THI activity, service capability notes, project references, QHSE material, and operational support updates.'],
-    ['.news-feature-section>.section-label', '<span>01</span> Featured Update', 'html'],
-    ['.news-feature-card div>span', 'Operational support'],
-    ['.news-feature-card h2', 'Oceanic Geodrill planned to strengthen offshore service support.'],
-    ['.news-feature-card p', "Oceanic Geodrill is introduced as an upcoming support platform for geotechnical and geophysical work, strengthening THI Group's offshore survey, drilling, and data acquisition readiness."],
-    ['.news-feature-card a', 'View support platforms <span>→</span>', 'html'],
-    ['.news-list-section>.section-label', '<span>02</span> Latest Updates', 'html'],
-    ['.news-list-head .kicker', 'Company updates'],
-    ['.news-list-head h2', 'Organized references that make the site easier to trust and navigate.'],
-    ['.news-update-card:nth-child(1) div>span', 'QHSE'],
-    ['.news-update-card:nth-child(1) h3', "QHSE page refreshed around THI's no-harm operating goal."],
-    ['.news-update-card:nth-child(1) p', 'The QHSE content now emphasizes HSE as a prime priority, maintained equipment, load testing, field training, and the goal of no accidents, no harm, and no environmental damage.'],
-    ['.news-update-card:nth-child(1) a', 'Read QHSE <span>→</span>', 'html'],
-    ['.news-update-card:nth-child(2) div>span', 'Project'],
-    ['.news-update-card:nth-child(2) h3', 'Project references grouped by real service category.'],
-    ['.news-update-card:nth-child(2) p', 'Marine survey, offshore geotechnical, nearshore, onshore, engineering study, and water-well drilling references are now separated into a clearer project directory.'],
-    ['.news-update-card:nth-child(2) a', 'View projects <span>→</span>', 'html'],
-    ['.news-update-card:nth-child(3) div>span', 'Services'],
-    ['.news-update-card:nth-child(3) h3', 'Six core service lines are now easier to scan.'],
-    ['.news-update-card:nth-child(3) p', "The services page now presents THI's marine geophysical, offshore geotechnical, seabed, nearshore, exploratory, and onshore geotechnical work."],
-    ['.news-update-card:nth-child(3) a', 'Explore services <span>→</span>', 'html'],
-    ['.news-update-card:nth-child(4) div>span', 'Company Profile'],
-    ['.news-update-card:nth-child(4) h3', 'Vision, mission, SIGAP culture, and customer references added.'],
-    ['.news-update-card:nth-child(4) p', "The company profile has been expanded with THI's Indonesian company background, vision, mission, corporate culture, value customers, and operating experience."],
-    ['.news-update-card:nth-child(4) a', 'Open profile <span>→</span>', 'html'],
-    ['.news-update-card:nth-child(5) div>span', 'Support Platforms'],
-    ['.news-update-card:nth-child(5) h3', 'Operational platform page reframed around service support.'],
-    ['.news-update-card:nth-child(5) p', 'AG Geodrill, SS Barakuda, and Voyager Explorer are documented by the geotechnical, geophysical, seismic, and seabed investigation services they support.'],
-    ['.news-update-card:nth-child(5) a', 'View platforms <span>→</span>', 'html'],
-    ['.news-update-card:nth-child(6) div>span', 'Contact'],
-    ['.news-update-card:nth-child(6) h3', 'A dedicated contact desk is now available.'],
-    ['.news-update-card:nth-child(6) p', 'The contact page now focuses on direct enquiry access, office information, and a simple form for project coordination.'],
-    ['.news-update-card:nth-child(6) a', 'Contact THI <span>→</span>', 'html']
+    ['meta[name="description"]', 'PT Taka Hydrocore Indonesia CSR news and company updates.'],
+    ['.news-page .preloader-inner p', 'Preparing news'],
+    ['.news-page-hero-copy .kicker', 'Newsroom'],
+    ['.news-page-hero h1', 'Company updates, written with context.'],
+    ['.news-page-hero-copy>p:not(.kicker)', 'Selected stories from PT Taka Hydrocore Indonesia, including corporate responsibility, field activity, and company milestones.'],
+    ['.news-feature-section>.section-label', '<span>01</span> News Archive', 'html'],
+    ['.newsroom-head .kicker', 'Company updates'],
+    ['.newsroom-head h2', 'Published news from THI.'],
+    ['.news-empty-state span', 'No published news'],
+    ['.news-empty-state p', 'Company news and updates will appear here after content is published from Decap CMS.']
   ],
   id: [
     ['title', 'Berita & Pembaruan | Taka Hydrocore Indonesia'],
-    ['meta[name="description"]', 'Berita dan pembaruan PT Taka Hydrocore Indonesia terkait layanan, QHSE, referensi proyek, dukungan operasional, dan pembaruan website perusahaan.'],
-    ['.news-page .preloader-inner p', 'Menyiapkan pembaruan'],
-    ['.news-page-hero-copy .kicker', 'Berita & Pembaruan'],
-    ['.news-page-hero h1', 'Catatan lapangan, update layanan, dan referensi perusahaan.'],
-    ['.news-page-hero-copy>p:not(.kicker)', 'Hub pembaruan yang lebih rapi untuk aktivitas THI, catatan kapabilitas layanan, referensi proyek, materi QHSE, dan update dukungan operasional.'],
-    ['.news-feature-section>.section-label', '<span>01</span> Update Utama', 'html'],
-    ['.news-feature-card div>span', 'Dukungan operasional'],
-    ['.news-feature-card h2', 'Oceanic Geodrill direncanakan untuk memperkuat dukungan layanan offshore.'],
-    ['.news-feature-card p', 'Oceanic Geodrill diperkenalkan sebagai platform pendukung untuk pekerjaan geoteknik dan geofisika, memperkuat kesiapan offshore survey, drilling, dan akuisisi data THI Group.'],
-    ['.news-feature-card a', 'Lihat platform pendukung <span>→</span>', 'html'],
-    ['.news-list-section>.section-label', '<span>02</span> Update Terbaru', 'html'],
-    ['.news-list-head .kicker', 'Update perusahaan'],
-    ['.news-list-head h2', 'Referensi yang tertata membuat website lebih mudah dipercaya dan dinavigasi.'],
-    ['.news-update-card:nth-child(1) div>span', 'QHSE'],
-    ['.news-update-card:nth-child(1) h3', 'Halaman QHSE diperbarui mengikuti tujuan operasi tanpa dampak buruk.'],
-    ['.news-update-card:nth-child(1) p', 'Konten QHSE kini menekankan HSE sebagai prioritas utama, peralatan terawat, uji beban, pelatihan lapangan, dan tujuan tanpa kecelakaan, tanpa cedera, serta tanpa kerusakan lingkungan.'],
-    ['.news-update-card:nth-child(1) a', 'Baca QHSE <span>→</span>', 'html'],
-    ['.news-update-card:nth-child(2) div>span', 'Proyek'],
-    ['.news-update-card:nth-child(2) h3', 'Referensi proyek dikelompokkan berdasarkan kategori layanan nyata.'],
-    ['.news-update-card:nth-child(2) p', 'Referensi marine survey, geoteknik offshore, nearshore, onshore, engineering study, dan water-well drilling kini dipisahkan ke direktori proyek yang lebih jelas.'],
-    ['.news-update-card:nth-child(2) a', 'Lihat proyek <span>→</span>', 'html'],
-    ['.news-update-card:nth-child(3) div>span', 'Layanan'],
-    ['.news-update-card:nth-child(3) h3', 'Enam lini layanan utama lebih mudah dibaca.'],
-    ['.news-update-card:nth-child(3) p', 'Halaman layanan kini menampilkan geofisika marine, geoteknik offshore, seabed, nearshore, eksplorasi, dan geoteknik onshore THI.'],
-    ['.news-update-card:nth-child(3) a', 'Lihat layanan <span>→</span>', 'html'],
-    ['.news-update-card:nth-child(4) div>span', 'Company Profile'],
-    ['.news-update-card:nth-child(4) h3', 'Visi, misi, budaya SIGAP, dan referensi pelanggan ditambahkan.'],
-    ['.news-update-card:nth-child(4) p', 'Company profile diperluas dengan latar belakang perusahaan lokal Indonesia, visi, misi, budaya perusahaan, value customers, dan pengalaman operasional THI.'],
-    ['.news-update-card:nth-child(4) a', 'Buka profil <span>→</span>', 'html'],
-    ['.news-update-card:nth-child(5) div>span', 'Platform Pendukung'],
-    ['.news-update-card:nth-child(5) h3', 'Halaman platform operasional diarahkan ulang sebagai dukungan layanan.'],
-    ['.news-update-card:nth-child(5) p', 'AG Geodrill, SS Barakuda, dan Voyager Explorer didokumentasikan berdasarkan layanan geoteknik, geofisika, seismik, dan investigasi seabed yang didukung.'],
-    ['.news-update-card:nth-child(5) a', 'Lihat platform <span>→</span>', 'html'],
-    ['.news-update-card:nth-child(6) div>span', 'Kontak'],
-    ['.news-update-card:nth-child(6) h3', 'Contact desk khusus kini tersedia.'],
-    ['.news-update-card:nth-child(6) p', 'Halaman kontak kini berfokus pada akses enquiry langsung, informasi kantor, dan form sederhana untuk koordinasi proyek.'],
-    ['.news-update-card:nth-child(6) a', 'Hubungi THI <span>→</span>', 'html']
+    ['meta[name="description"]', 'Berita CSR dan pembaruan perusahaan PT Taka Hydrocore Indonesia.'],
+    ['.news-page .preloader-inner p', 'Menyiapkan berita'],
+    ['.news-page-hero-copy .kicker', 'Ruang Berita'],
+    ['.news-page-hero h1', 'Pembaruan perusahaan dengan konteks yang jelas.'],
+    ['.news-page-hero-copy>p:not(.kicker)', 'Cerita pilihan dari PT Taka Hydrocore Indonesia, mencakup tanggung jawab sosial, aktivitas lapangan, dan milestone perusahaan.'],
+    ['.news-feature-section>.section-label', '<span>01</span> Arsip Berita', 'html'],
+    ['.newsroom-head .kicker', 'Pembaruan perusahaan'],
+    ['.newsroom-head h2', 'Berita terbit dari THI.'],
+    ['.news-empty-state span', 'Belum ada berita terbit'],
+    ['.news-empty-state p', 'Berita dan pembaruan perusahaan akan tampil di sini setelah dipublikasikan dari Decap CMS.']
   ]
 };
 
@@ -1707,6 +1680,194 @@ const applyNewsPageLanguage = (language) => {
   if (!document.body.classList.contains('news-page')) return;
   const translations = newsPageTranslations[language] || newsPageTranslations.en;
   translations.forEach(([selector, content, mode]) => setElementContent(selector, content, mode));
+};
+
+let cmsNewsItems = [];
+
+const escapeHtml = (value = '') => String(value)
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&#039;');
+
+const normalizeCmsNewsItems = (data) => {
+  const items = Array.isArray(data?.items) ? data.items : [];
+  return items
+    .filter((item) => item && item.published !== false && item.title && item.slug)
+    .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+};
+
+const formatNewsDate = (dateValue) => {
+  if (!dateValue) return '';
+  const date = new Date(dateValue);
+  if (Number.isNaN(date.getTime())) return dateValue;
+  return new Intl.DateTimeFormat(activeLanguage === 'id' ? 'id-ID' : 'en-GB', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric'
+  }).format(date);
+};
+
+const newsDetailHref = (item) => `news-detail.html?slug=${encodeURIComponent(item.slug)}`;
+
+const renderNewsEmpty = (container, scope) => {
+  container.classList.add('is-empty');
+  const title = activeLanguage === 'id' ? 'Belum ada berita terbit' : 'No published news';
+  const copy = activeLanguage === 'id'
+    ? 'Berita dari Decap CMS akan tampil di sini setelah dipublikasikan.'
+    : 'News from Decap CMS will appear here after content is published.';
+  container.innerHTML = `<article class="news-empty-state ${scope === 'home' ? 'news-empty-state-inline' : ''}"><span>${title}</span><p>${copy}</p></article>`;
+};
+
+const renderCmsNewsCards = (items = cmsNewsItems) => {
+  document.querySelectorAll('[data-news-list]').forEach((container) => {
+    const scope = container.dataset.newsList;
+    const sourceItems = scope === 'home'
+      ? (items.filter((item) => item.featured).length ? items.filter((item) => item.featured) : items)
+      : items;
+    const limit = scope === 'home' ? 3 : sourceItems.length;
+    const visibleItems = sourceItems.slice(0, limit);
+    if (!visibleItems.length) {
+      renderNewsEmpty(container, scope);
+      return;
+    }
+
+    container.classList.remove('is-empty');
+    container.innerHTML = visibleItems.map((item) => {
+      const category = escapeHtml(item.category || 'Company Update');
+      const date = escapeHtml(formatNewsDate(item.date));
+      const title = escapeHtml(item.title);
+      const summary = escapeHtml(item.summary || '');
+      const image = item.image ? escapeHtml(item.image) : '';
+      const imageAlt = escapeHtml(item.imageAlt || item.title);
+
+      if (scope === 'home') {
+        return `<a class="news-card news-cms-card" href="${newsDetailHref(item)}">
+          <figure class="news-image">${image ? `<img src="${image}" alt="${imageAlt}" loading="lazy">` : ''}</figure>
+          <div class="news-content">
+            <div class="news-meta"><span>${category}</span><small>${date}</small></div>
+            <h3>${title}</h3>
+            <p>${summary}</p>
+          </div>
+        </a>`;
+      }
+
+      return `<a class="newsroom-story news-cms-story" href="${newsDetailHref(item)}">
+        <figure class="newsroom-story-media">${image ? `<img src="${image}" alt="${imageAlt}" loading="lazy">` : ''}</figure>
+        <div class="newsroom-story-copy">
+          <div class="newsroom-story-meta"><span>${category}</span><small>${date}</small></div>
+          <div><h2>${title}</h2><p>${summary}</p></div>
+          <div class="newsroom-story-footer"><span>${activeLanguage === 'id' ? 'Berita THI' : 'THI News'}</span><span>${activeLanguage === 'id' ? 'Baca berita' : 'Read story'} →</span></div>
+        </div>
+      </a>`;
+    }).join('');
+  });
+};
+
+const markdownToHtml = (markdown = '') => {
+  const lines = String(markdown).replace(/\r\n/g, '\n').split('\n');
+  const blocks = [];
+  let paragraph = [];
+  let list = [];
+  const flushParagraph = () => {
+    if (!paragraph.length) return;
+    blocks.push(`<p>${escapeHtml(paragraph.join(' '))}</p>`);
+    paragraph = [];
+  };
+  const flushList = () => {
+    if (!list.length) return;
+    blocks.push(`<ul>${list.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`);
+    list = [];
+  };
+
+  lines.forEach((line) => {
+    const trimmed = line.trim();
+    if (!trimmed) {
+      flushParagraph();
+      flushList();
+      return;
+    }
+    if (trimmed.startsWith('### ')) {
+      flushParagraph();
+      flushList();
+      blocks.push(`<h3>${escapeHtml(trimmed.slice(4))}</h3>`);
+      return;
+    }
+    if (trimmed.startsWith('## ')) {
+      flushParagraph();
+      flushList();
+      blocks.push(`<h2>${escapeHtml(trimmed.slice(3))}</h2>`);
+      return;
+    }
+    if (/^[-*]\s+/.test(trimmed)) {
+      flushParagraph();
+      list.push(trimmed.replace(/^[-*]\s+/, ''));
+      return;
+    }
+    flushList();
+    paragraph.push(trimmed);
+  });
+
+  flushParagraph();
+  flushList();
+  return blocks.join('') || '<p>Full article content is being prepared.</p>';
+};
+
+const renderCmsNewsDetail = (items = cmsNewsItems) => {
+  if (!document.body.classList.contains('news-detail-page')) return;
+  const slug = new URLSearchParams(window.location.search).get('slug');
+  const item = items.find((entry) => entry.slug === slug);
+  const hero = document.querySelector('[data-news-detail]');
+  const header = hero?.querySelector('.news-article-header');
+  const body = document.querySelector('[data-news-detail-body]');
+  if (!header || !body) return;
+
+  if (!item) {
+    header.querySelector('.kicker').textContent = activeLanguage === 'id' ? 'Berita' : 'News';
+    header.querySelector('h1').textContent = activeLanguage === 'id' ? 'Berita tidak ditemukan.' : 'News item not found.';
+    header.querySelector('p:not(.kicker)').textContent = activeLanguage === 'id'
+      ? 'Pilih berita yang sudah dipublikasikan dari halaman News.'
+      : 'Select a published item from the News page.';
+    body.innerHTML = `<p class="lead">${activeLanguage === 'id' ? 'Belum ada konten yang bisa ditampilkan.' : 'No content is available for this news item.'}</p>`;
+    return;
+  }
+
+  document.title = `${item.title} | Taka Hydrocore Indonesia`;
+  const meta = document.querySelector('meta[name="description"]');
+  meta?.setAttribute('content', item.summary || item.title);
+  header.querySelector('.kicker').textContent = item.category || 'News';
+  header.querySelector('h1').textContent = item.title;
+  header.querySelector('p:not(.kicker)').textContent = item.summary || '';
+  document.querySelector('[data-news-detail-category]').textContent = item.category || 'News';
+  document.querySelector('[data-news-detail-date]').textContent = formatNewsDate(item.date) || '-';
+  if (item.image) {
+    hero.style.setProperty('--news-detail-image', `url('${item.image}')`);
+    hero.classList.add('has-image');
+  }
+  const imageMarkup = item.image
+    ? `<figure class="news-detail-main-image" data-news-detail-image>
+        <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt || item.title)}" loading="eager">
+        <figcaption>${escapeHtml(item.imageAlt || item.category || 'THI documentation')}</figcaption>
+      </figure>`
+    : '';
+  body.innerHTML = `${imageMarkup}<p class="lead">${escapeHtml(item.summary || '')}</p>${markdownToHtml(item.body || '')}`;
+};
+
+const initCmsNews = () => {
+  if (!document.querySelector('[data-news-list]') && !document.body.classList.contains('news-detail-page')) return;
+  fetch('data/news.json', { cache: 'no-store' })
+    .then((response) => (response.ok ? response.json() : { items: [] }))
+    .then((data) => {
+      cmsNewsItems = normalizeCmsNewsItems(data);
+      renderCmsNewsCards(cmsNewsItems);
+      renderCmsNewsDetail(cmsNewsItems);
+    })
+    .catch(() => {
+      cmsNewsItems = [];
+      renderCmsNewsCards(cmsNewsItems);
+      renderCmsNewsDetail(cmsNewsItems);
+    });
 };
 
 const heroSlides = [...document.querySelectorAll('.hero-slide')];
@@ -1718,6 +1879,7 @@ const heroTitle = heroContent?.querySelector('h1');
 const heroCopy = heroContent?.querySelector('.hero-copy');
 const heroPrimaryLink = heroContent?.querySelector('.button.primary');
 const heroPrimaryLabel = heroPrimaryLink?.querySelector('b');
+const heroSecondaryLink = heroContent?.querySelector('.text-link');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let activeHeroSlide = 0;
 let heroTimer;
@@ -1729,22 +1891,28 @@ const heroContentData = {
       eyebrow: 'Geotechnical',
       title: 'Offshore and onshore.<br><em>Ground certainty.</em>',
       copy: 'Taka Hydrocore delivers drilling, CPT, sampling, coring, and soil investigation services configured around site condition, access, and project objectives.',
-      cta: 'Explore services',
-      href: 'services.html#offshore-geotechnical'
+      cta: 'View geotechnical service',
+      href: 'services.html#offshore-geotechnical',
+      secondary: 'Discuss a project <span>→</span>',
+      secondaryHref: 'contact.html'
     },
     {
       eyebrow: 'Geophysical',
       title: 'Marine acquisition.<br><em>Clearer seabed decisions.</em>',
       copy: 'Voyager Explorer supports marine geophysical survey, seabed mapping, seismic acquisition, and offshore data workflows for better technical decisions.',
       cta: 'View geophysical service',
-      href: 'services.html#marine-seismic'
+      href: 'services.html#marine-seismic',
+      secondary: 'Discuss a project <span>→</span>',
+      secondaryHref: 'contact.html'
     },
     {
       eyebrow: 'HSE',
       title: 'Safety discipline.<br><em>Reliable field execution.</em>',
       copy: 'THI prepares people, equipment, and work methods around HSE controls so technical delivery is supported by safer operational behavior.',
       cta: 'View QHSE',
-      href: 'qhse.html'
+      href: 'qhse.html',
+      secondary: '',
+      secondaryHref: ''
     }
   ],
   id: [
@@ -1752,22 +1920,28 @@ const heroContentData = {
       eyebrow: 'Geoteknik',
       title: 'Offshore dan onshore.<br><em>Kepastian kondisi tanah.</em>',
       copy: 'Taka Hydrocore menyediakan drilling, CPT, sampling, coring, dan investigasi tanah yang dikonfigurasi berdasarkan kondisi site, akses, dan tujuan proyek.',
-      cta: 'Lihat layanan',
-      href: 'services.html#offshore-geotechnical'
+      cta: 'Lihat layanan geoteknik',
+      href: 'services.html#offshore-geotechnical',
+      secondary: 'Diskusikan proyek <span>→</span>',
+      secondaryHref: 'contact.html'
     },
     {
       eyebrow: 'Geofisika',
       title: 'Akuisisi marine.<br><em>Keputusan seabed lebih jelas.</em>',
       copy: 'Voyager Explorer mendukung survei geofisika marine, pemetaan seabed, akuisisi seismik, dan workflow data offshore untuk keputusan teknis yang lebih baik.',
       cta: 'Lihat layanan geofisika',
-      href: 'services.html#marine-seismic'
+      href: 'services.html#marine-seismic',
+      secondary: 'Diskusikan proyek <span>→</span>',
+      secondaryHref: 'contact.html'
     },
     {
       eyebrow: 'HSE',
       title: 'Disiplin keselamatan.<br><em>Eksekusi lapangan andal.</em>',
       copy: 'THI menyiapkan personel, peralatan, dan metode kerja berdasarkan kontrol HSE agar delivery teknis didukung perilaku operasi yang lebih aman.',
       cta: 'Lihat QHSE',
-      href: 'qhse.html'
+      href: 'qhse.html',
+      secondary: '',
+      secondaryHref: ''
     }
   ]
 };
@@ -1783,6 +1957,11 @@ const updateHeroContent = (index, immediate = false) => {
     heroCopy.textContent = content.copy;
     heroPrimaryLabel.textContent = content.cta;
     heroPrimaryLink.href = content.href;
+    if (heroSecondaryLink) {
+      heroSecondaryLink.innerHTML = content.secondary || '';
+      heroSecondaryLink.href = content.secondaryHref || '#';
+      heroSecondaryLink.hidden = !content.secondary;
+    }
     heroContent.classList.remove('is-changing');
   }, immediate || reduceMotion.matches ? 0 : 360);
 };
@@ -1796,7 +1975,14 @@ const startHeroSlideshow = () => {
 const showHeroSlide = (index, restart = true) => {
   if (!heroSlides.length) return;
   activeHeroSlide = (index + heroSlides.length) % heroSlides.length;
-  heroSlides.forEach((slide, slideIndex) => slide.classList.toggle('active', slideIndex === activeHeroSlide));
+  heroSlides.forEach((slide, slideIndex) => {
+    const isActive = slideIndex === activeHeroSlide;
+    slide.classList.toggle('active', isActive);
+    const video = slide.querySelector('video');
+    if (!video) return;
+    if (isActive && !reduceMotion.matches) video.play().catch(() => {});
+    else video.pause();
+  });
   heroDots.forEach((dot, dotIndex) => {
     const isActive = dotIndex === activeHeroSlide;
     dot.classList.toggle('active', isActive);
@@ -2286,6 +2472,8 @@ const applyLanguage = (language, persist = true) => {
   applyContactPageLanguage(activeLanguage);
   applyNewsPageLanguage(activeLanguage);
   refreshAboutSlideshowLanguage();
+  renderCmsNewsCards(cmsNewsItems);
+  renderCmsNewsDetail(cmsNewsItems);
 
   document.querySelectorAll('select[name="service"] option').forEach((option, index) => {
     option.textContent = serviceOptionTranslations[activeLanguage][index] || option.textContent;
@@ -2357,3 +2545,4 @@ document.querySelectorAll('[data-feature-gallery]').forEach((gallery) => {
 });
 
 applyLanguage(activeLanguage, false);
+initCmsNews();

@@ -1,0 +1,33 @@
+backend:
+  name: git-gateway
+
+local_backend: true
+publish_mode: editorial_workflow
+media_folder: "assets/news/uploads"
+public_folder: "assets/news/uploads"
+
+collections:
+  - name: "news_data"
+    label: "News"
+    files:
+      - name: "news_items"
+        label: "News Items"
+        file: "data/news.json"
+        format: "json"
+        fields:
+          - label: "News Items"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            collapsed: false
+            fields:
+              - { label: "Published", name: "published", widget: "boolean", default: true }
+              - { label: "Featured on homepage", name: "featured", widget: "boolean", default: false }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Slug", name: "slug", widget: "string", hint: "Use lowercase words separated by hyphens." }
+              - { label: "Category", name: "category", widget: "string", default: "Company Update" }
+              - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+              - { label: "Summary", name: "summary", widget: "text" }
+              - { label: "Hero image", name: "image", widget: "image", required: false }
+              - { label: "Image alt text", name: "imageAlt", widget: "string", required: false }
+              - { label: "Body", name: "body", widget: "markdown", required: false }
