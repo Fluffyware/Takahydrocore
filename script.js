@@ -111,6 +111,8 @@ const staticTranslations = [
   ['[data-i18n-nav="equipment"]', 'Equipment', 'Peralatan'],
   ['[data-i18n-nav="vessel"]', 'Vessel', 'Kapal'],
   ['[data-i18n-nav="qhse"]', 'QHSE', 'QHSE'],
+  ['[data-i18n-nav="quality"]', 'Quality', 'Mutu'],
+  ['[data-i18n-nav="hse"]', 'HSE', 'HSE'],
   ['[data-i18n-nav="projects"]', 'Project', 'Proyek'],
   ['[data-i18n-nav="news"]', 'News', 'Berita'],
   ['[data-i18n-nav="contact"]', 'Contact', 'Kontak'],
@@ -1909,8 +1911,8 @@ const heroContentData = {
       eyebrow: 'HSE',
       title: 'Safety discipline.<br><em>Reliable field execution.</em>',
       copy: 'THI prepares people, equipment, and work methods around HSE controls so technical delivery is supported by safer operational behavior.',
-      cta: 'View QHSE',
-      href: 'qhse.html',
+      cta: 'View HSE',
+      href: 'hse.html',
       secondary: '',
       secondaryHref: ''
     }
@@ -1938,8 +1940,8 @@ const heroContentData = {
       eyebrow: 'HSE',
       title: 'Disiplin keselamatan.<br><em>Eksekusi lapangan andal.</em>',
       copy: 'THI menyiapkan personel, peralatan, dan metode kerja berdasarkan kontrol HSE agar delivery teknis didukung perilaku operasi yang lebih aman.',
-      cta: 'Lihat QHSE',
-      href: 'qhse.html',
+      cta: 'Lihat HSE',
+      href: 'hse.html',
       secondary: '',
       secondaryHref: ''
     }

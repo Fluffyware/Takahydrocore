@@ -1750,8 +1750,53 @@ a.news-card{display:block;color:inherit;text-decoration:none}
 }
 .site-footer>*{position:relative;z-index:1}
 .footer-brand-block .footer-brand{display:inline-flex;margin-bottom:24px}
-.footer-brand-block img{display:block;width:min(260px,56vw);height:auto;filter:brightness(0) invert(1)}
+.footer-brand-block .footer-brand img{display:block;width:min(260px,56vw);height:auto;filter:brightness(0) invert(1)}
 .footer-brand-block p{max-width:430px;margin:0;color:#c3d0d8;font-size:14px;line-height:1.72}
+.footer-cert-logos{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  flex-wrap:wrap;
+  margin-top:28px;
+}
+.footer-cert-logos a{
+  display:flex;
+  width:74px;
+  height:74px;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  border:0;
+  background:transparent;
+  box-shadow:none;
+  transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .25s ease;
+}
+.footer-cert-logos a:hover{
+  transform:translateY(-3px);
+  opacity:.92;
+}
+.footer-cert-logos .footer-cert-iso{
+  padding:8px;
+  border-radius:50%;
+  background:#fff;
+}
+.footer-cert-logos img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  filter:drop-shadow(0 10px 18px rgba(0,0,0,.24));
+}
+.footer-cert-logos .footer-cert-iso img{
+  filter:none;
+}
+.footer-cert-logos .footer-cert-iso-small img{
+  width:67px;
+  height:67px;
+}
+.footer-cert-logos .footer-cert-smk3 img{
+  transform:scale(.94);
+}
 .footer-title{margin:0 0 18px;color:#fff;text-transform:uppercase;font-size:10px;font-weight:900;letter-spacing:1.7px}
 .footer-links{display:grid;align-content:start;gap:10px}
 .footer-links a,.footer-contact-block a{width:max-content;color:#c8d4db;font-size:13px;font-weight:800;line-height:1.25;transition:color .25s ease,transform .32s cubic-bezier(.22,1,.36,1)}
@@ -1902,6 +1947,158 @@ a.news-card{display:block;color:inherit;text-decoration:none}
 .qhse-gallery{grid-template-columns:repeat(4,minmax(0,1fr))}
 .qhse-gallery figure{min-height:300px}
 
+.quality-page,.hse-page{background:#f4f7f8;color:#071c2c}
+.quality-hero:before{
+  background:linear-gradient(90deg,rgba(3,15,23,.95),rgba(3,15,23,.78) 46%,rgba(3,15,23,.32)),
+    linear-gradient(0deg,rgba(3,15,23,.86),rgba(3,15,23,.1) 58%,rgba(3,15,23,.64)),
+    url("assets/qhse/hse-field.jpg") center/cover no-repeat;
+}
+.hse-hero:before{
+  background:linear-gradient(90deg,rgba(3,15,23,.94),rgba(3,15,23,.74) 46%,rgba(3,15,23,.25)),
+    linear-gradient(0deg,rgba(3,15,23,.82),rgba(3,15,23,.08) 58%,rgba(3,15,23,.62)),
+    url("assets/hse/source/ini landscape bagus lingkaran orang diatas kapal.jpeg") center 44%/cover no-repeat;
+}
+.button.dark{margin-top:28px;background:#071c2c;color:#fff}
+.button.dark:hover{background:#332a7a}
+.management-system-section{background:#fff}
+.management-system-head,.hse-kpi-head,.hse-documentation-head{max-width:1120px;margin-top:54px}
+.management-system-head h2,.hse-kpi-head h2,.hse-documentation-head h2{
+  max-width:980px;
+  margin:14px 0 24px;
+  color:#071c2c;
+  font:900 clamp(38px,4.8vw,72px)/1 "Manrope";
+  letter-spacing:-3.8px;
+}
+.management-system-head>p:not(.kicker),.hse-kpi-head>p:not(.kicker){
+  max-width:820px;
+  color:#60717e;
+  font-size:16px;
+  line-height:1.76;
+}
+.management-access-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  margin-top:44px;
+}
+.management-access-card{
+  display:grid;
+  min-height:310px;
+  align-content:space-between;
+  padding:clamp(28px,3.5vw,44px);
+  border:1px solid #d8e1e7;
+  background:#f8fafb;
+  color:#071c2c;
+  box-shadow:0 18px 58px rgba(7,28,44,.055);
+  transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .25s ease,box-shadow .35s ease;
+}
+.management-access-card:hover{
+  transform:translateY(-4px);
+  border-color:#c1ced7;
+  box-shadow:0 24px 72px rgba(7,28,44,.09);
+}
+.management-access-card span{
+  color:#332a7a;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1.6px;
+}
+.management-access-card strong{
+  max-width:660px;
+  color:#071c2c;
+  font:900 clamp(30px,3.2vw,52px)/1.02 "Manrope";
+  letter-spacing:-2.4px;
+}
+.management-access-card p{
+  max-width:620px;
+  margin:0;
+  color:#60717e;
+  font-size:14px;
+  line-height:1.7;
+}
+.quality-policy-section{background:#fff}
+.hse-kpi-section{background:#fff}
+.hse-kpi-table{
+  margin-top:44px;
+  border:1px solid #d8e1e7;
+  background:#fff;
+  box-shadow:0 18px 58px rgba(7,28,44,.055);
+}
+.hse-kpi-row{
+  display:grid;
+  grid-template-columns:.72fr repeat(5,1fr);
+  min-height:76px;
+  align-items:center;
+  border-top:1px solid #e1e9ee;
+}
+.hse-kpi-row:first-child{border-top:0}
+.hse-kpi-row>*{
+  height:100%;
+  display:flex;
+  align-items:center;
+  padding:18px 20px;
+  border-left:1px solid #e1e9ee;
+  color:#324858;
+  font-size:14px;
+  font-weight:800;
+}
+.hse-kpi-row>*:first-child{border-left:0}
+.hse-kpi-row-head{min-height:58px;background:#071c2c}
+.hse-kpi-row-head span{
+  color:#fff;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+}
+.hse-kpi-row strong{
+  color:#332a7a;
+  font:900 22px "Manrope";
+}
+.hse-kpi-note{
+  max-width:780px;
+  margin:18px 0 0;
+  color:#8796a0;
+  font-size:12px;
+  font-weight:800;
+  line-height:1.6;
+}
+.hse-controls-section{background:#f4f7f8}
+.hse-program-list{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin-top:34px;
+}
+.hse-program-list article{
+  min-height:210px;
+  padding:24px;
+  border:1px solid #d8e1e7;
+  background:#fff;
+  box-shadow:0 16px 44px rgba(7,28,44,.055);
+}
+.hse-program-list span{
+  display:block;
+  margin-bottom:40px;
+  color:#332a7a;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1.5px;
+}
+.hse-program-list h3{
+  margin:0;
+  color:#071c2c;
+  font:900 clamp(20px,1.8vw,28px)/1.06 "Manrope";
+  letter-spacing:-1px;
+}
+.hse-program-list p{
+  margin:16px 0 0;
+  color:#60717e;
+  font-size:13px;
+  line-height:1.65;
+}
+.hse-documentation-section{background:#fff}
+
 .project-map-section[hidden]{display:none!important}
 .project-list-section{padding-top:clamp(86px,8vw,118px);color:#071c2c;background:#f4f7f8}
 .project-list-section:before{background:linear-gradient(180deg,#f4f7f8 0%,#fff 100%)}
@@ -1946,6 +2143,10 @@ a.news-card{display:block;color:inherit;text-decoration:none}
   .profile-fleet-grid .profile-fleet-card:not(.profile-vessel-card)>img{height:340px;min-height:340px}
   .project-service-body{grid-template-columns:1fr}
   .project-service-body ul{grid-column:1;grid-row:auto;grid-template-columns:1fr;padding:18px 0 0;border-left:0;border-top:1px solid #d8e1e7}
+  .management-access-grid{grid-template-columns:1fr}
+  .hse-kpi-table{overflow-x:auto}
+  .hse-kpi-row{min-width:900px}
+  .hse-program-list{grid-template-columns:1fr}
 }
 @media(max-width:700px){
   .project-content{padding:26px}
@@ -1954,6 +2155,9 @@ a.news-card{display:block;color:inherit;text-decoration:none}
   .qhse-readiness-grid,.qhse-policy-points,.qhse-gallery{grid-template-columns:1fr}
   .qhse-iso-list article{grid-template-columns:1fr}
   .qhse-iso-list figure{grid-row:auto;width:100%;height:220px}
+  .management-system-head h2,.hse-kpi-head h2,.hse-documentation-head h2{font-size:clamp(34px,10vw,48px);letter-spacing:-2.2px}
+  .management-access-card{min-height:250px}
+  .management-access-card strong{font-size:clamp(28px,9vw,42px);letter-spacing:-1.8px}
   .profile-fleet-card{grid-template-rows:260px 1fr}
   .profile-fleet-card>img,.profile-vessel-slideshow,.profile-vessel-slideshow .vessel-slide img{height:260px;min-height:260px}
   .profile-fleet-grid .profile-vessel-card .profile-vessel-slideshow,
