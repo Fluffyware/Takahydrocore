@@ -2071,13 +2071,10 @@ const renderCmsJobs = (items = cmsJobItems) => {
     const location = escapeHtml(item.location || '');
     const summary = escapeHtml(item.summary || '');
     const overview = escapeHtml(item.overview || item.summary || '');
-    const image = item.image ? escapeHtml(item.image) : '';
-    const imageAlt = escapeHtml(item.imageAlt || item.title);
     const tags = normalizeListField(item.tags).slice(0, 4);
     const cardId = `career-job-detail-${index}`;
 
     return `<article class="career-opportunity-card" data-job-card>
-      <figure>${image ? `<img src="${image}" alt="${imageAlt}" loading="lazy">` : ''}</figure>
       <div class="career-opportunity-copy">
         <div class="career-opportunity-meta"><span>${type}</span><small>${status}</small></div>
         <h3>${title}</h3>
@@ -2092,7 +2089,7 @@ const renderCmsJobs = (items = cmsJobItems) => {
           <button type="button" aria-expanded="false" aria-controls="${cardId}" data-job-toggle>View job detail</button>
           ${renderJobApplyAction(item)}
         </div>
-        <div class="career-opportunity-detail" id="${cardId}" hidden>
+        <div class="career-opportunity-detail" id="${cardId}" aria-hidden="true">
           <div>
             <strong>Overview</strong>
             <p>${overview}</p>
@@ -2170,11 +2167,26 @@ const initCmsJobs = () => {
     const card = toggle.closest('[data-job-card]');
     const detail = card?.querySelector('.career-opportunity-detail');
     if (!detail) return;
-    const isOpen = !detail.hidden;
-    detail.hidden = isOpen;
-    card.classList.toggle('is-open', !isOpen);
-    toggle.setAttribute('aria-expanded', String(!isOpen));
-    toggle.textContent = isOpen ? 'View job detail' : 'Hide job detail';
+    const isOpen = card.classList.contains('is-open');
+    detail.style.setProperty('--job-detail-height', `${detail.scrollHeight}px`);
+
+    if (isOpen) {
+      requestAnimationFrame(() => {
+        card.classList.remove('is-open');
+        detail.setAttribute('aria-hidden', 'true');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = 'View job detail';
+      });
+      return;
+    }
+
+    card.classList.add('is-open');
+    detail.setAttribute('aria-hidden', 'false');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.textContent = 'Hide job detail';
+    requestAnimationFrame(() => {
+      detail.style.setProperty('--job-detail-height', `${detail.scrollHeight}px`);
+    });
   });
 
   fetch('data/jobs.json', { cache: 'no-store' })
