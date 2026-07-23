@@ -1,0 +1,121 @@
+{
+  "items": [
+    {
+      "published": true,
+      "featured": true,
+      "title": "Junior Geotechnical Field Engineer",
+      "slug": "junior-geotechnical-field-engineer",
+      "type": "Full Time",
+      "status": "Open",
+      "level": "Entry Level",
+      "group": "field",
+      "area": "Field Operations",
+      "department": "Geotechnical Operations",
+      "location": "Project Based",
+      "apply_url": "https://docs.google.com/forms/d/e/1FAIpQLSemtOWZA0J07Gu1BlZrzZ46XEG2tbmKOsJn2POS61Qw2xVQAQ/viewform",
+      "summary": "For early-career engineers who want to support offshore, nearshore, and onshore geotechnical field execution.",
+      "image": "assets/serv/Offshore Geotechnical Survey/Geodrill.jpeg",
+      "imageAlt": "Offshore geotechnical operation with AG Geodrill",
+      "tags": [
+        "Entry Level",
+        "Field",
+        "Geotechnical",
+        "Project Based"
+      ],
+      "overview": "This dummy opening represents a project-based technical role supporting drilling, CPT, sampling, field records, and daily coordination under senior supervision.",
+      "responsibilities": [
+        "Assist field engineers during geotechnical investigation activities.",
+        "Maintain clear field notes, sample records, and daily progress updates.",
+        "Follow method statements, QHSE controls, and site communication routines."
+      ],
+      "requirements": [
+        "Diploma or bachelor background in civil, geology, geotechnical, or related engineering.",
+        "Fresh graduate with field exposure or up to two years of relevant experience.",
+        "Willing to work on project sites and follow field safety discipline."
+      ],
+      "documents": [
+        "CV",
+        "Transcript",
+        "Relevant certificates if available"
+      ]
+    },
+    {
+      "published": true,
+      "featured": true,
+      "title": "Survey Data Assistant",
+      "slug": "survey-data-assistant",
+      "type": "Full Time",
+      "status": "Open",
+      "level": "Fresh Graduate",
+      "group": "office",
+      "area": "Survey & Data",
+      "department": "Geophysical Operations",
+      "location": "Office / Onboard",
+      "apply_url": "https://docs.google.com/forms/d/e/1FAIpQLSemtOWZA0J07Gu1BlZrzZ46XEG2tbmKOsJn2POS61Qw2xVQAQ/viewform",
+      "summary": "For fresh graduates interested in survey data checking, positioning records, bathymetry support, and acquisition documentation.",
+      "image": "assets/equipment/data-processing/onboard-monitor-review.jpeg",
+      "imageAlt": "Survey data monitoring workstation",
+      "tags": [
+        "Fresh Graduate",
+        "Survey",
+        "Data",
+        "Geophysical"
+      ],
+      "overview": "This dummy opening is prepared for candidates who enjoy technical software, structured records, and the accuracy required in geophysical survey workflows.",
+      "responsibilities": [
+        "Support survey data organization and quality checking.",
+        "Assist positioning, bathymetry, and acquisition documentation workflows.",
+        "Prepare clean handover notes for processing and reporting teams."
+      ],
+      "requirements": [
+        "Fresh graduate from geophysics, hydrography, oceanography, surveying, or related fields.",
+        "Comfortable using computers, maps, spreadsheets, and technical records.",
+        "Detail-oriented and willing to learn onboard and office workflows."
+      ],
+      "documents": [
+        "CV",
+        "Transcript",
+        "Portfolio or software exposure list"
+      ]
+    },
+    {
+      "published": true,
+      "featured": true,
+      "title": "Internship Program",
+      "slug": "internship-program",
+      "type": "Internship",
+      "status": "Open",
+      "level": "Active Student",
+      "group": "office",
+      "area": "Technical / Corporate Support",
+      "department": "Project Control & Commercial",
+      "location": "Office / Project Support",
+      "apply_url": "https://docs.google.com/forms/d/e/1FAIpQLSemtOWZA0J07Gu1BlZrzZ46XEG2tbmKOsJn2POS61Qw2xVQAQ/viewform",
+      "summary": "For active students who want to learn from THI departments and understand how technical, field, and support work connects.",
+      "image": "assets/company-profile/vision-field-team.jpg",
+      "imageAlt": "THI team at field location",
+      "tags": [
+        "Internship",
+        "Student",
+        "Learning",
+        "Department Support"
+      ],
+      "overview": "Internship placement depends on department readiness and project needs. Profiles may be reviewed for technical, QHSE, commercial, finance, HR, GA, or marketing support.",
+      "responsibilities": [
+        "Support assigned department tasks under supervision.",
+        "Learn documentation, coordination, and project support routines.",
+        "Prepare simple reports or learning outputs as required."
+      ],
+      "requirements": [
+        "Active student from a relevant technical or business support major.",
+        "Able to follow instructions and communicate progress clearly.",
+        "Interested in learning from real project and company operations."
+      ],
+      "documents": [
+        "CV",
+        "Campus letter if required",
+        "Transcript or portfolio"
+      ]
+    }
+  ]
+}

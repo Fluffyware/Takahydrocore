@@ -84,6 +84,32 @@ if (menuButton && nav) {
   });
 }
 
+const careerHeader = document.querySelector('.career-header');
+const careerMenuButton = document.querySelector('.career-menu-toggle');
+const careerNavLinks = [...document.querySelectorAll('.career-nav a, .career-header-actions a')];
+
+const updateCareerHeader = () => {
+  const hasVisualCareerHero = Boolean(document.querySelector('.career-index-hero, .career-hero-video-stage, .career-life-hero, .career-dept-hero, .career-jobs-hero'));
+  const shouldScroll = window.scrollY > 50 || (!hasVisualCareerHero && document.body.classList.contains('career-subpage'));
+  careerHeader?.classList.toggle('scrolled', shouldScroll);
+};
+updateCareerHeader();
+window.addEventListener('scroll', updateCareerHeader, { passive: true });
+
+if (careerHeader && careerMenuButton) {
+  const closeCareerMenu = () => {
+    careerHeader.classList.remove('menu-open');
+    careerMenuButton.setAttribute('aria-expanded', 'false');
+  };
+
+  careerMenuButton.addEventListener('click', () => {
+    const open = careerHeader.classList.toggle('menu-open');
+    careerMenuButton.setAttribute('aria-expanded', String(open));
+  });
+
+  careerNavLinks.forEach((link) => link.addEventListener('click', closeCareerMenu));
+}
+
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.nav-links a').forEach((link) => {
   const href = link.getAttribute('href');
@@ -91,6 +117,11 @@ document.querySelectorAll('.nav-links a').forEach((link) => {
     link.classList.add('active');
     link.closest('.nav-dropdown')?.querySelector('.nav-trigger')?.classList.add('active');
   }
+});
+
+document.querySelectorAll('.career-nav a, .career-header-actions a, .career-footer nav a').forEach((link) => {
+  const href = link.getAttribute('href');
+  if (href === currentPage) link.classList.add('active');
 });
 
 const languageButtons = [...document.querySelectorAll('[data-lang-switch]')];
@@ -111,10 +142,11 @@ const staticTranslations = [
   ['[data-i18n-nav="equipment"]', 'Equipment', 'Peralatan'],
   ['[data-i18n-nav="vessel"]', 'Vessel', 'Kapal'],
   ['[data-i18n-nav="qhse"]', 'QHSE', 'QHSE'],
-  ['[data-i18n-nav="quality"]', 'Quality', 'Mutu'],
+  ['[data-i18n-nav="quality"]', 'Quality Management System', 'Sistem Manajemen Mutu'],
   ['[data-i18n-nav="hse"]', 'HSE', 'HSE'],
   ['[data-i18n-nav="projects"]', 'Project', 'Proyek'],
   ['[data-i18n-nav="news"]', 'News', 'Berita'],
+  ['[data-i18n-nav="career"]', 'Career', 'Karier'],
   ['[data-i18n-nav="contact"]', 'Contact', 'Kontak'],
   ['.hero-actions .text-link', 'Discuss a project <span>→</span>', 'Diskusikan proyek <span>→</span>', 'html'],
   ['.hero-status>div:first-child p', 'Marine geophysical acquisition and interpretation', 'Akuisisi dan interpretasi geofisika marine'],
@@ -1696,7 +1728,7 @@ const escapeHtml = (value = '') => String(value)
 const normalizeCmsNewsItems = (data) => {
   const items = Array.isArray(data?.items) ? data.items : [];
   return items
-    .filter((item) => item && item.published !== false && item.title && item.slug)
+    .filter((item) => item && item.published !== false && item.title && item.slug && !String(item.type || '').toLowerCase().includes('talent'))
     .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
 };
 
@@ -1872,6 +1904,529 @@ const initCmsNews = () => {
     });
 };
 
+let cmsJobItems = [];
+const jobFilterState = {
+  quick: 'all',
+  query: '',
+  department: 'all',
+  level: 'all',
+  type: 'all',
+  group: 'all'
+};
+
+const normalizeListField = (value) => {
+  if (!Array.isArray(value)) return [];
+  return value
+    .map((item) => {
+      if (typeof item === 'string') return item;
+      if (item && typeof item === 'object') return item.tag || item.responsibility || item.requirement || item.document || '';
+      return '';
+    })
+    .filter(Boolean);
+};
+
+const normalizeCmsJobItems = (data) => {
+  const items = Array.isArray(data?.items) ? data.items : [];
+  return items
+    .filter((item) => item && item.published !== false && item.title && item.slug)
+    .map((item) => ({
+      ...item,
+      tags: normalizeListField(item.tags),
+      responsibilities: normalizeListField(item.responsibilities),
+      requirements: normalizeListField(item.requirements),
+      documents: normalizeListField(item.documents)
+    }));
+};
+
+const slugifyJobValue = (value = '') => String(value)
+  .toLowerCase()
+  .replace(/&/g, 'and')
+  .replace(/[^a-z0-9]+/g, '-')
+  .replace(/^-+|-+$/g, '');
+
+const jobSearchText = (item) => [
+  item.title,
+  item.type,
+  item.status,
+  item.level,
+  item.group,
+  item.area,
+  item.department,
+  item.location,
+  item.summary,
+  item.overview,
+  ...(item.tags || []),
+  ...(item.responsibilities || []),
+  ...(item.requirements || [])
+].join(' ').toLowerCase();
+
+const matchesQuickJobFilter = (item, filter) => {
+  if (filter === 'all') return true;
+  const type = String(item.type || '').toLowerCase();
+  const group = String(item.group || '').toLowerCase();
+  const level = String(item.level || '').toLowerCase();
+  const text = jobSearchText(item);
+  if (filter === 'full-time') return type.includes('full');
+  if (filter === 'freelance') return type.includes('freelance');
+  if (filter === 'internship') return type.includes('internship') || group === 'internship';
+  if (filter === 'fresh-graduate') return level.includes('fresh') || text.includes('fresh graduate');
+  if (filter === 'entry-level') return level.includes('entry') || text.includes('junior');
+  if (filter === 'field') return group === 'field' || text.includes('field') || text.includes('offshore') || text.includes('site');
+  if (filter === 'office') return group === 'office' || group === 'support' || text.includes('office') || text.includes('corporate');
+  return true;
+};
+
+const matchesJobSelect = (item, key, value) => {
+  if (!value || value === 'all') return true;
+  const text = jobSearchText(item);
+  if (key === 'level') {
+    if (value === 'fresh-graduate') return text.includes('fresh graduate') || text.includes('fresh');
+    if (value === 'entry-level') return text.includes('entry level') || text.includes('junior');
+    if (value === 'experienced') return text.includes('experienced') || text.includes('senior');
+    if (value === 'internship') return text.includes('internship') || text.includes('active student');
+  }
+  const candidate = slugifyJobValue(item[key] || '');
+  return candidate === value || candidate.includes(value);
+};
+
+const matchesJobFilter = (item) => {
+  const searchText = jobSearchText(item);
+  const queryTerms = jobFilterState.query
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(Boolean);
+  const queryMatches = !queryTerms.length || queryTerms.every((term) => searchText.includes(term));
+  return queryMatches
+    && matchesQuickJobFilter(item, jobFilterState.quick)
+    && matchesJobSelect(item, 'department', jobFilterState.department)
+    && matchesJobSelect(item, 'level', jobFilterState.level)
+    && matchesJobSelect(item, 'type', jobFilterState.type)
+    && matchesJobSelect(item, 'group', jobFilterState.group);
+};
+
+const renderJobList = (items = []) => {
+  if (!items.length) return '';
+  return `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
+};
+
+const getJobApplyUrl = (item = {}) => String(item.apply_url || item.applyUrl || item.apply_link || '').trim();
+const isSafeJobApplyUrl = (url = '') => /^https?:\/\//i.test(url);
+const renderJobApplyAction = (item) => {
+  const applyUrl = getJobApplyUrl(item);
+  if (!isSafeJobApplyUrl(applyUrl)) {
+    return '<span class="career-job-apply-disabled">Apply link not available yet</span>';
+  }
+  return `<a href="${escapeHtml(applyUrl)}" target="_blank" rel="noopener">Apply Now <span aria-hidden="true">&rarr;</span></a>`;
+};
+
+const renderJobsEmpty = (container) => {
+  container.classList.add('is-empty');
+  container.innerHTML = `<article class="career-job-empty">
+    <span>No available job found</span>
+    <p>There is currently no available job for this search or filter selection.</p>
+    <span class="career-job-apply-disabled">No apply form is available for this selection.</span>
+  </article>`;
+};
+
+const renderCmsJobs = (items = cmsJobItems) => {
+  const container = document.querySelector('[data-jobs-list]');
+  if (!container) return;
+  const countLabel = document.querySelector('[data-jobs-count]');
+  const visibleItems = items.filter(matchesJobFilter);
+  if (countLabel) {
+    const countText = visibleItems.length === 0
+      ? 'No openings available'
+      : visibleItems.length === 1
+        ? '1 opening available'
+        : `${visibleItems.length} openings available`;
+    countLabel.textContent = countText;
+  }
+  document.querySelectorAll('[data-job-filter]').forEach((button) => {
+    const active = button.dataset.jobFilter === jobFilterState.quick;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+  document.querySelectorAll('[data-job-select]').forEach((select) => {
+    const key = select.dataset.jobSelect;
+    if (key && Object.prototype.hasOwnProperty.call(jobFilterState, key)) {
+      select.value = jobFilterState[key];
+    }
+  });
+  const searchInput = document.querySelector('[data-job-search]');
+  if (searchInput && searchInput.value !== jobFilterState.query) {
+    searchInput.value = jobFilterState.query;
+  }
+  if (!visibleItems.length) {
+    renderJobsEmpty(container);
+    return;
+  }
+  container.classList.remove('is-empty');
+  container.innerHTML = visibleItems.map((item, index) => {
+    const title = escapeHtml(item.title);
+    const type = escapeHtml(item.type || 'Full Time');
+    const status = escapeHtml(item.status || 'Open');
+    const level = escapeHtml(item.level || '');
+    const area = escapeHtml(item.area || '');
+    const department = escapeHtml(item.department || '');
+    const location = escapeHtml(item.location || '');
+    const summary = escapeHtml(item.summary || '');
+    const overview = escapeHtml(item.overview || item.summary || '');
+    const image = item.image ? escapeHtml(item.image) : '';
+    const imageAlt = escapeHtml(item.imageAlt || item.title);
+    const tags = normalizeListField(item.tags).slice(0, 4);
+    const cardId = `career-job-detail-${index}`;
+
+    return `<article class="career-opportunity-card" data-job-card>
+      <figure>${image ? `<img src="${image}" alt="${imageAlt}" loading="lazy">` : ''}</figure>
+      <div class="career-opportunity-copy">
+        <div class="career-opportunity-meta"><span>${type}</span><small>${status}</small></div>
+        <h3>${title}</h3>
+        <p>${summary}</p>
+        <div class="career-opportunity-facts">
+          ${area ? `<span>${area}</span>` : ''}
+          ${level ? `<span>${level}</span>` : ''}
+          ${location ? `<span>${location}</span>` : ''}
+        </div>
+        <div class="career-opportunity-tags">${tags.map((tag) => `<b>${escapeHtml(tag)}</b>`).join('')}</div>
+        <div class="career-opportunity-actions">
+          <button type="button" aria-expanded="false" aria-controls="${cardId}" data-job-toggle>View job detail</button>
+          ${renderJobApplyAction(item)}
+        </div>
+        <div class="career-opportunity-detail" id="${cardId}" hidden>
+          <div>
+            <strong>Overview</strong>
+            <p>${overview}</p>
+          </div>
+          ${department ? `<div><strong>Department</strong><p>${department}</p></div>` : ''}
+          <div class="career-opportunity-detail-grid">
+            <section>
+              <strong>What you may support</strong>
+              ${renderJobList(item.responsibilities)}
+            </section>
+            <section>
+              <strong>Suitable background</strong>
+              ${renderJobList(item.requirements)}
+            </section>
+            <section>
+              <strong>Prepare documents</strong>
+              ${renderJobList(item.documents)}
+            </section>
+          </div>
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+};
+
+const initCmsJobs = () => {
+  const container = document.querySelector('[data-jobs-list]');
+  if (!container) return;
+
+  document.querySelectorAll('[data-job-filter]').forEach((button) => {
+    button.setAttribute('aria-pressed', String(button.classList.contains('active')));
+    button.addEventListener('click', () => {
+      jobFilterState.quick = button.dataset.jobFilter || 'all';
+      renderCmsJobs(cmsJobItems);
+    });
+  });
+
+  const searchInput = document.querySelector('[data-job-search]');
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      jobFilterState.query = searchInput.value;
+      renderCmsJobs(cmsJobItems);
+    });
+  }
+
+  document.querySelectorAll('[data-job-select]').forEach((select) => {
+    select.addEventListener('change', () => {
+      const key = select.dataset.jobSelect;
+      if (key && Object.prototype.hasOwnProperty.call(jobFilterState, key)) {
+        jobFilterState[key] = select.value || 'all';
+        renderCmsJobs(cmsJobItems);
+      }
+    });
+  });
+
+  const clearButton = document.querySelector('[data-job-clear]');
+  if (clearButton) {
+    clearButton.addEventListener('click', () => {
+      Object.assign(jobFilterState, {
+        quick: 'all',
+        query: '',
+        department: 'all',
+        level: 'all',
+        type: 'all',
+        group: 'all'
+      });
+      renderCmsJobs(cmsJobItems);
+      searchInput?.focus();
+    });
+  }
+
+  container.addEventListener('click', (event) => {
+    const toggle = event.target.closest('[data-job-toggle]');
+    if (!toggle) return;
+    const card = toggle.closest('[data-job-card]');
+    const detail = card?.querySelector('.career-opportunity-detail');
+    if (!detail) return;
+    const isOpen = !detail.hidden;
+    detail.hidden = isOpen;
+    card.classList.toggle('is-open', !isOpen);
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    toggle.textContent = isOpen ? 'View job detail' : 'Hide job detail';
+  });
+
+  fetch('data/jobs.json', { cache: 'no-store' })
+    .then((response) => (response.ok ? response.json() : { items: [] }))
+    .then((data) => {
+      cmsJobItems = normalizeCmsJobItems(data);
+      renderCmsJobs(cmsJobItems);
+    })
+    .catch(() => {
+      cmsJobItems = [];
+      renderCmsJobs(cmsJobItems);
+    });
+};
+
+const initCareerApplyContext = () => {
+  const input = document.querySelector('[data-career-role-input]');
+  if (!input) return;
+  const role = new URLSearchParams(window.location.search).get('role');
+  if (!role) return;
+  const fallbackTitle = role
+    .split('-')
+    .filter(Boolean)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+  input.value = fallbackTitle;
+
+  fetch('data/jobs.json', { cache: 'no-store' })
+    .then((response) => (response.ok ? response.json() : { items: [] }))
+    .then((data) => {
+      const job = normalizeCmsJobItems(data).find((item) => item.slug === role);
+      if (job?.title) input.value = job.title;
+    })
+    .catch(() => {});
+};
+
+const careerDepartments = {
+  geotechnical: {
+    count: '01',
+    kicker: 'Field execution',
+    title: 'Geotechnical Operations',
+    description: 'This department handles geotechnical field execution, including drilling, CPT, sampling, coring, offshore and onshore soil investigation, and coordination with site crews.',
+    focus: [
+      'Drilling, CPT, sampling, and coring activity',
+      'Field crew coordination and site execution',
+      'Offshore, nearshore, and onshore investigation support'
+    ],
+    background: [
+      'Civil or geotechnical engineering',
+      'Geology or earth science',
+      'Field operation and drilling exposure'
+    ]
+  },
+  geophysical: {
+    count: '02',
+    kicker: 'Survey and data',
+    title: 'Geophysical Operations',
+    description: 'This department supports marine and land geophysical survey work, including bathymetry, seismic acquisition, positioning, survey equipment operation, and field data workflow.',
+    focus: [
+      'Bathymetry, seismic, and positioning support',
+      'Survey equipment operation and data acquisition',
+      'Onboard monitoring and geophysical data workflow'
+    ],
+    background: [
+      'Geophysics, oceanography, or marine science',
+      'Surveying, hydrography, or positioning',
+      'Data acquisition and processing interest'
+    ]
+  },
+  engineering: {
+    count: '03',
+    kicker: 'Technical delivery',
+    title: 'Engineering',
+    description: 'This department supports technical planning, method preparation, engineering review, data interpretation, reporting, and deliverable quality for project execution.',
+    focus: [
+      'Method statement and technical planning',
+      'Engineering review and interpretation support',
+      'Report preparation and deliverable control'
+    ],
+    background: [
+      'Civil, geotechnical, or ocean engineering',
+      'Technical reporting and data interpretation',
+      'Project engineering or design coordination'
+    ]
+  },
+  qhse: {
+    count: '04',
+    kicker: 'Compliance and site control',
+    title: 'QHSE',
+    description: 'This department maintains quality, health, safety, and environmental control through risk assessment, inspection, compliance documentation, HSE programs, and worksite readiness.',
+    focus: [
+      'Risk assessment, permits, and inspection',
+      'HSE program, induction, and emergency drill',
+      'Compliance documentation and audit support'
+    ],
+    background: [
+      'Occupational safety and health',
+      'Environmental engineering or compliance',
+      'Field HSE, audit, or safety program exposure'
+    ]
+  },
+  facility: {
+    count: '05',
+    kicker: 'Asset readiness',
+    title: 'Facility & Equipment Support',
+    description: 'This department keeps equipment and facilities ready for field work through workshop preparation, maintenance, asset control, spare parts, logistics, and field support.',
+    focus: [
+      'Workshop readiness and equipment preparation',
+      'Maintenance, inspection, and certification support',
+      'Spare parts, logistics, and field asset availability'
+    ],
+    background: [
+      'Mechanical, electrical, or industrial engineering',
+      'Workshop, maintenance, or equipment support',
+      'Logistics and asset readiness experience'
+    ]
+  },
+  commercial: {
+    count: '06',
+    kicker: 'Project and client control',
+    title: 'Project Control & Commercial',
+    description: 'This department connects client requirements with execution through tender support, project administration, schedule tracking, cost control, contract support, and commercial coordination.',
+    focus: [
+      'Tender, proposal, and commercial documentation',
+      'Project schedule, cost, and administration tracking',
+      'Client requirement and contract coordination'
+    ],
+    background: [
+      'Project management or industrial engineering',
+      'Business administration, finance, or management',
+      'Commercial, tender, or contract administration'
+    ]
+  },
+  procurement: {
+    count: '07',
+    kicker: 'Supply and purchasing',
+    title: 'Procurement',
+    description: 'This department supports project and office needs through vendor coordination, purchasing administration, quotation comparison, material follow-up, and delivery readiness.',
+    focus: [
+      'Purchase request and supplier coordination',
+      'Quotation comparison and purchasing records',
+      'Material follow-up and delivery readiness'
+    ],
+    background: [
+      'Procurement or supply chain',
+      'Business administration or logistics',
+      'Vendor management and purchasing support'
+    ]
+  },
+  marketing: {
+    count: '08',
+    kicker: 'Market visibility',
+    title: 'Marketing & Client Relations',
+    description: 'This department builds THI visibility through company profiles, client communication, proposal support, project references, and business presentation material.',
+    focus: [
+      'Company profile and project reference material',
+      'Client communication and market visibility',
+      'Proposal support and business communication'
+    ],
+    background: [
+      'Marketing, communication, or business',
+      'Proposal writing or client relation support',
+      'Visual documentation and company presentation'
+    ]
+  },
+  finance: {
+    count: '09',
+    kicker: 'Financial discipline',
+    title: 'Finance & Accounting',
+    description: 'This department manages financial control, accounting records, project cost administration, invoicing support, payment tracking, and financial reporting.',
+    focus: [
+      'Accounting records and financial reporting',
+      'Project cost administration and invoicing',
+      'Payment tracking and budget support'
+    ],
+    background: [
+      'Accounting, finance, or tax',
+      'Project finance administration',
+      'Financial reporting and data discipline'
+    ]
+  },
+  hr: {
+    count: '10',
+    kicker: 'People operations',
+    title: 'Human Resources',
+    description: 'This department supports recruitment, employee administration, personnel development, training coordination, and people-related needs across office and field teams.',
+    focus: [
+      'Recruitment and employee data coordination',
+      'Employee administration and personnel data',
+      'Training, development, and people support'
+    ],
+    background: [
+      'Human resources or psychology',
+      'Recruitment and people administration',
+      'Training coordination or HR operations'
+    ]
+  },
+  ga: {
+    count: '11',
+    kicker: 'Company support',
+    title: 'General Affairs',
+    description: 'This department supports daily company operations through office administration, facility needs, internal services, document support, and general office coordination.',
+    focus: [
+      'Office operations and administration',
+      'Facility support and internal services',
+      'Daily company needs and document support'
+    ],
+    background: [
+      'Business administration or management',
+      'Office operations and facility support',
+      'General administration and internal services'
+    ]
+  }
+};
+
+const careerDepartmentPanel = document.querySelector('.career-department-panel');
+const careerDepartmentTabs = [...document.querySelectorAll('[data-career-department]')];
+
+const renderCareerList = (target, items = []) => {
+  if (!target) return;
+  target.replaceChildren(...items.map((item) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = item;
+    return listItem;
+  }));
+};
+
+const updateCareerDepartment = (key) => {
+  const department = careerDepartments[key];
+  if (!department || !careerDepartmentPanel) return;
+
+  careerDepartmentPanel.classList.add('is-changing');
+  window.setTimeout(() => {
+    careerDepartmentPanel.querySelector('[data-career-count]').textContent = department.count;
+    careerDepartmentPanel.querySelector('[data-career-kicker]').textContent = department.kicker;
+    careerDepartmentPanel.querySelector('[data-career-title]').textContent = department.title;
+    careerDepartmentPanel.querySelector('[data-career-description]').textContent = department.description;
+    renderCareerList(careerDepartmentPanel.querySelector('[data-career-focus]'), department.focus);
+    renderCareerList(careerDepartmentPanel.querySelector('[data-career-background]'), department.background);
+    careerDepartmentTabs.forEach((tab) => {
+      const active = tab.dataset.careerDepartment === key;
+      tab.classList.toggle('active', active);
+      tab.setAttribute('aria-selected', String(active));
+    });
+    careerDepartmentPanel.classList.remove('is-changing');
+  }, 140);
+};
+
+careerDepartmentTabs.forEach((tab) => {
+  tab.setAttribute('aria-selected', String(tab.classList.contains('active')));
+  tab.addEventListener('click', () => updateCareerDepartment(tab.dataset.careerDepartment));
+});
+
 const heroSlides = [...document.querySelectorAll('.hero-slide')];
 const heroDots = [...document.querySelectorAll('.hero-pagination button')];
 const heroCount = document.querySelector('.hero-slide-count strong');
@@ -2001,6 +2556,51 @@ heroDots.forEach((dot, index) => dot.addEventListener('click', () => showHeroSli
 document.addEventListener('visibilitychange', startHeroSlideshow);
 reduceMotion.addEventListener('change', startHeroSlideshow);
 startHeroSlideshow();
+
+const careerIndexSlides = [...document.querySelectorAll('.career-index-slide')];
+const careerIndexDots = [...document.querySelectorAll('.career-index-pagination button')];
+const careerIndexCount = document.querySelector('.career-index-slide-count strong');
+let activeCareerIndexSlide = 0;
+let careerIndexTimer;
+
+const startCareerIndexHero = () => {
+  window.clearInterval(careerIndexTimer);
+  if (!careerIndexSlides.length || reduceMotion.matches || document.hidden) return;
+  careerIndexTimer = window.setInterval(() => showCareerIndexSlide(activeCareerIndexSlide + 1, false), 7000);
+};
+
+const showCareerIndexSlide = (index, restart = true) => {
+  if (!careerIndexSlides.length) return;
+  activeCareerIndexSlide = (index + careerIndexSlides.length) % careerIndexSlides.length;
+  careerIndexSlides.forEach((slide, slideIndex) => {
+    const isActive = slideIndex === activeCareerIndexSlide;
+    slide.classList.toggle('active', isActive);
+    const video = slide.querySelector('video');
+    if (!video) return;
+    if (isActive && !reduceMotion.matches) video.play().catch(() => {});
+    else video.pause();
+  });
+  careerIndexDots.forEach((dot, dotIndex) => {
+    const isActive = dotIndex === activeCareerIndexSlide;
+    dot.classList.toggle('active', isActive);
+    dot.setAttribute('aria-selected', String(isActive));
+  });
+  if (careerIndexCount) careerIndexCount.textContent = String(activeCareerIndexSlide + 1).padStart(2, '0');
+  if (restart) startCareerIndexHero();
+};
+
+document.querySelector('.career-index-prev')?.addEventListener('click', () => showCareerIndexSlide(activeCareerIndexSlide - 1));
+document.querySelector('.career-index-next')?.addEventListener('click', () => showCareerIndexSlide(activeCareerIndexSlide + 1));
+careerIndexDots.forEach((dot, index) => dot.addEventListener('click', () => showCareerIndexSlide(index)));
+document.addEventListener('visibilitychange', startCareerIndexHero);
+reduceMotion.addEventListener('change', startCareerIndexHero);
+careerIndexSlides.forEach((slide, index) => {
+  slide.querySelector('video')?.addEventListener('ended', () => {
+    if (index === activeCareerIndexSlide) showCareerIndexSlide(activeCareerIndexSlide + 1);
+  });
+});
+showCareerIndexSlide(0, false);
+startCareerIndexHero();
 
 const initQhseSlideshow = () => {
   const qhseSlides = [...document.querySelectorAll('.qhse-slide')];
@@ -2512,6 +3112,42 @@ document.querySelector('#contact-form')?.addEventListener('submit', (event) => {
   window.location.href = `mailto:frans@thi.co.id?subject=${subject}&body=${body}`;
 });
 
+document.querySelectorAll('.career-form').forEach((form) => {
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const value = (key) => String(data.get(key) || '').trim() || '-';
+    const fullName = value('Full Name');
+    const careerArea = value('Career Area');
+    const subject = encodeURIComponent(`Career Application - ${fullName} - ${careerArea}`);
+    const body = encodeURIComponent([
+      'Dear Taka Hydrocore Recruitment Team,',
+      '',
+      'I would like to submit my profile for career consideration at PT Taka Hydrocore Indonesia.',
+      '',
+      'Applicant Details',
+      '-----------------',
+      `Full Name: ${fullName}`,
+      `Email: ${value('Email')}`,
+      `Phone: ${value('Phone')}`,
+      `Career Area: ${careerArea}`,
+      `Experience Level: ${value('Experience Level')}`,
+      `Current Location: ${value('Current Location')}`,
+      `Opportunity Interest: ${value('Opportunity Interest')}`,
+      `LinkedIn Link: ${value('LinkedIn Link')}`,
+      `CV Link: ${value('CV Link')}`,
+      '',
+      'Message',
+      '-------',
+      value('Message'),
+      '',
+      'Thank you.',
+    ].join('\n'));
+
+    window.location.href = `mailto:frans@thi.co.id?subject=${subject}&body=${body}`;
+  });
+});
+
 document.querySelectorAll('[data-feature-gallery]').forEach((gallery) => {
   const feature = gallery.querySelector('.service-gallery-feature');
   const featureImage = gallery.querySelector('[data-gallery-feature-image]');
@@ -2548,3 +3184,5 @@ document.querySelectorAll('[data-feature-gallery]').forEach((gallery) => {
 
 applyLanguage(activeLanguage, false);
 initCmsNews();
+initCmsJobs();
+initCareerApplyContext();

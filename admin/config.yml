@@ -31,3 +31,69 @@ collections:
               - { label: "Hero image", name: "image", widget: "image", required: false }
               - { label: "Image alt text", name: "imageAlt", widget: "string", required: false }
               - { label: "Body", name: "body", widget: "markdown", required: false }
+  - name: "jobs_data"
+    label: "Jobs / Loker"
+    media_folder: "assets/jobs/uploads"
+    public_folder: "assets/jobs/uploads"
+    files:
+      - name: "job_items"
+        label: "Job Items"
+        file: "data/jobs.json"
+        format: "json"
+        fields:
+          - label: "Job Items"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            collapsed: false
+            fields:
+              - { label: "Published", name: "published", widget: "boolean", default: true }
+              - { label: "Featured", name: "featured", widget: "boolean", default: false }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Slug", name: "slug", widget: "string", hint: "Use lowercase words separated by hyphens." }
+              - label: "Type"
+                name: "type"
+                widget: "select"
+                options: ["Full Time", "Freelance", "Internship"]
+                default: "Full Time"
+              - label: "Status"
+                name: "status"
+                widget: "select"
+                options: ["Open", "Closed", "Draft opportunity"]
+                default: "Open"
+              - { label: "Level", name: "level", widget: "string", default: "Fresh Graduate / Experienced" }
+              - label: "Working Group"
+                name: "group"
+                widget: "select"
+                options:
+                  - { label: "Field", value: "field" }
+                  - { label: "Office", value: "office" }
+                default: "field"
+              - { label: "Area", name: "area", widget: "string" }
+              - { label: "Department", name: "department", widget: "string" }
+              - { label: "Location", name: "location", widget: "string", default: "Office / Site" }
+              - { label: "Google Form Apply URL", name: "apply_url", widget: "string", required: false, hint: "Paste the full Google Form link used by the Apply Now button." }
+              - { label: "Summary", name: "summary", widget: "text" }
+              - { label: "Image", name: "image", widget: "image", required: false }
+              - { label: "Image alt text", name: "imageAlt", widget: "string", required: false }
+              - label: "Tags"
+                name: "tags"
+                widget: "list"
+                field: { label: "Tag", name: "tag", widget: "string" }
+                required: false
+              - { label: "Overview", name: "overview", widget: "text", required: false }
+              - label: "Responsibilities"
+                name: "responsibilities"
+                widget: "list"
+                field: { label: "Responsibility", name: "responsibility", widget: "string" }
+                required: false
+              - label: "Requirements"
+                name: "requirements"
+                widget: "list"
+                field: { label: "Requirement", name: "requirement", widget: "string" }
+                required: false
+              - label: "Documents"
+                name: "documents"
+                widget: "list"
+                field: { label: "Document", name: "document", widget: "string" }
+                required: false
