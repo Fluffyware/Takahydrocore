@@ -1925,6 +1925,36 @@ const normalizeListField = (value) => {
     .filter(Boolean);
 };
 
+const normalizeJobPill = (value = '') => String(value)
+  .toLowerCase()
+  .replace(/&/g, 'and')
+  .replace(/[^a-z0-9]+/g, ' ')
+  .trim();
+
+const isDuplicateJobTag = (tag, facts = []) => {
+  const normalizedTag = normalizeJobPill(tag);
+  if (!normalizedTag) return true;
+  return facts.some((fact) => {
+    const normalizedFact = normalizeJobPill(fact);
+    return normalizedFact
+      && (normalizedTag === normalizedFact
+        || normalizedFact.includes(normalizedTag)
+        || normalizedTag.includes(normalizedFact));
+  });
+};
+
+const filterJobTags = (tags = [], facts = []) => {
+  const seen = new Set();
+  return normalizeListField(tags).filter((tag) => {
+    const normalizedTag = normalizeJobPill(tag);
+    if (!normalizedTag || seen.has(normalizedTag) || isDuplicateJobTag(tag, facts)) {
+      return false;
+    }
+    seen.add(normalizedTag);
+    return true;
+  });
+};
+
 const normalizeCmsJobItems = (data) => {
   const items = Array.isArray(data?.items) ? data.items : [];
   return items
@@ -2011,6 +2041,15 @@ const renderJobList = (items = []) => {
 
 const getJobApplyUrl = (item = {}) => String(item.apply_url || item.applyUrl || item.apply_link || '').trim();
 const isSafeJobApplyUrl = (url = '') => /^https?:\/\//i.test(url);
+const setJobDetailHeight = (detail) => {
+  if (!detail) return;
+  detail.style.setProperty('--job-detail-height', `${detail.scrollHeight + 88}px`);
+};
+const getDefaultJobApplyUrl = () => {
+  const featuredJob = cmsJobItems.find((item) => item.featured && isSafeJobApplyUrl(getJobApplyUrl(item)));
+  const firstJob = cmsJobItems.find((item) => isSafeJobApplyUrl(getJobApplyUrl(item)));
+  return getJobApplyUrl(featuredJob || firstJob || {});
+};
 const renderJobApplyAction = (item) => {
   const applyUrl = getJobApplyUrl(item);
   if (!isSafeJobApplyUrl(applyUrl)) {
@@ -2020,11 +2059,15 @@ const renderJobApplyAction = (item) => {
 };
 
 const renderJobsEmpty = (container) => {
+  const defaultApplyUrl = getDefaultJobApplyUrl();
+  const applyLine = isSafeJobApplyUrl(defaultApplyUrl)
+    ? `<p class="career-job-empty-action">You can still <a class="career-job-empty-apply" href="${escapeHtml(defaultApplyUrl)}" target="_blank" rel="noopener">Apply</a> through the available recruitment form.</p>`
+    : '<p class="career-job-empty-action">Please check back later for an available apply form.</p>';
   container.classList.add('is-empty');
   container.innerHTML = `<article class="career-job-empty">
     <span>No available job found</span>
     <p>There is currently no available job for this search or filter selection.</p>
-    <span class="career-job-apply-disabled">No apply form is available for this selection.</span>
+    ${applyLine}
   </article>`;
 };
 
@@ -2071,7 +2114,11 @@ const renderCmsJobs = (items = cmsJobItems) => {
     const location = escapeHtml(item.location || '');
     const summary = escapeHtml(item.summary || '');
     const overview = escapeHtml(item.overview || item.summary || '');
-    const tags = normalizeListField(item.tags).slice(0, 4);
+    const factItems = [item.area, item.level, item.location].filter(Boolean);
+    const tags = filterJobTags(item.tags, factItems).slice(0, 4);
+    const tagsMarkup = tags.length
+      ? `<div class="career-opportunity-tags">${tags.map((tag) => `<b>${escapeHtml(tag)}</b>`).join('')}</div>`
+      : '';
     const cardId = `career-job-detail-${index}`;
 
     return `<article class="career-opportunity-card" data-job-card>
@@ -2084,7 +2131,7 @@ const renderCmsJobs = (items = cmsJobItems) => {
           ${level ? `<span>${level}</span>` : ''}
           ${location ? `<span>${location}</span>` : ''}
         </div>
-        <div class="career-opportunity-tags">${tags.map((tag) => `<b>${escapeHtml(tag)}</b>`).join('')}</div>
+        ${tagsMarkup}
         <div class="career-opportunity-actions">
           <button type="button" aria-expanded="false" aria-controls="${cardId}" data-job-toggle>View job detail</button>
           ${renderJobApplyAction(item)}
@@ -2168,7 +2215,7 @@ const initCmsJobs = () => {
     const detail = card?.querySelector('.career-opportunity-detail');
     if (!detail) return;
     const isOpen = card.classList.contains('is-open');
-    detail.style.setProperty('--job-detail-height', `${detail.scrollHeight}px`);
+    setJobDetailHeight(detail);
 
     if (isOpen) {
       requestAnimationFrame(() => {
@@ -2185,8 +2232,14 @@ const initCmsJobs = () => {
     toggle.setAttribute('aria-expanded', 'true');
     toggle.textContent = 'Hide job detail';
     requestAnimationFrame(() => {
-      detail.style.setProperty('--job-detail-height', `${detail.scrollHeight}px`);
+      setJobDetailHeight(detail);
     });
+  });
+
+  window.addEventListener('resize', () => {
+    document
+      .querySelectorAll('.career-opportunity-card.is-open .career-opportunity-detail')
+      .forEach(setJobDetailHeight);
   });
 
   fetch('data/jobs.json', { cache: 'no-store' })
