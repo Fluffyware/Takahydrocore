@@ -53,7 +53,7 @@ footer{background:#051722;color:#b0bdc5;padding:70px var(--pad) 30px;display:gri
 @media(max-height:800px) and (min-width:901px){.hero-content{top:47%}}
 
 /* Capabilities visual redesign */
-.capability-showcase{display:grid;grid-template-columns:minmax(360px,.9fr) minmax(0,1.1fr);gap:18px;align-items:stretch}.capability-visual{position:relative;min-height:610px;margin:0;overflow:hidden;background:#071c2c;box-shadow:0 28px 80px rgba(7,28,44,.12)}.capability-visual img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.04);transform:scale(1.02)}.capability-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,18,29,.82),rgba(3,18,29,.08) 62%)}.capability-visual figcaption{position:absolute;z-index:1;right:0;bottom:0;left:0;padding:34px;color:#fff}.capability-visual figcaption span{display:block;margin-bottom:14px;color:var(--accent-light);font-size:9px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase}.capability-visual figcaption strong{display:block;max-width:520px;font:800 clamp(22px,2.4vw,34px)/1.12 "Manrope";letter-spacing:-1.3px}.capabilities .service-list{display:grid;grid-template-columns:1fr 1fr;gap:18px;border:0}.capabilities .service-card{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:296px;padding:28px;border:1px solid rgba(7,28,44,.12);background:#fff;overflow:hidden;isolation:isolate;box-shadow:none}.capabilities .service-card:before{content:"";position:absolute;z-index:-2;inset:0;background:#fff;opacity:1;transform:none}.capabilities .service-card:after{content:"";position:absolute;z-index:-1;inset:0;width:auto;background:linear-gradient(0deg,rgba(7,28,44,.94),rgba(7,28,44,.42)),var(--capability-image);background-size:cover;background-position:center;opacity:0;transform:scale(1.04);transition:opacity .42s ease,transform .7s cubic-bezier(.22,1,.36,1)}.capabilities .service-card:hover,.capabilities .service-card:focus-within{transform:translateY(-5px);border-color:rgba(7,28,44,.16);box-shadow:0 22px 60px rgba(7,28,44,.12)}.capabilities .service-card:hover:after{opacity:1;transform:scale(1)}.capabilities .service-card:hover .service-number,.capabilities .service-card:hover .service-tag,.capabilities .service-card:hover h3,.capabilities .service-card:hover p{color:#fff}.capabilities .service-card>div{display:block}.capabilities .service-number{margin:0;color:#8a98a2;font-size:10px;font-weight:800;letter-spacing:1.6px}.capabilities .service-tag{margin:54px 0 14px;color:var(--red);font-size:10px}.capabilities .service-card h3{max-width:430px;margin:0;color:#071c2c;font:800 clamp(23px,2vw,31px)/1.12 "Manrope";letter-spacing:-1.2px}.capabilities .service-card div>p:last-child{max-width:420px;margin:18px 0 0;color:#657680;font-size:14px;line-height:1.62}.service-marine{--capability-image:url('assets/services terbaru/marine-geophysical-monitoring.jpeg')}.service-offshore{--capability-image:url('assets/equipment/drilling/offshore-drilling-operation.jpeg')}.service-seabed{--capability-image:url('assets/services terbaru/seabed-drilling.jpg')}.service-nearshore{--capability-image:url('assets/nearshore/source/nearshore bagus ni.jpeg')}.service-exploratory{--capability-image:url('assets/Onshore/Rig.jpeg')}.service-onshore{--capability-image:url('assets/Onshore/WhatsApp Image 2026-07-16 at 08.22.48 (2).jpeg')}
+.capability-showcase{display:grid;grid-template-columns:minmax(360px,.9fr) minmax(0,1.1fr);gap:18px;align-items:stretch}.capability-visual{position:relative;min-height:610px;margin:0;overflow:hidden;background:#071c2c;box-shadow:0 28px 80px rgba(7,28,44,.12)}.capability-visual img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.04);transform:scale(1.02)}.capability-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,18,29,.82),rgba(3,18,29,.08) 62%)}.capability-visual figcaption{position:absolute;z-index:1;right:0;bottom:0;left:0;padding:34px;color:#fff}.capability-visual figcaption span{display:block;margin-bottom:14px;color:var(--accent-light);font-size:9px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase}.capability-visual figcaption strong{display:block;max-width:520px;font:800 clamp(22px,2.4vw,34px)/1.12 "Manrope";letter-spacing:-1.3px}.capabilities .service-list{display:grid;grid-template-columns:1fr 1fr;gap:18px;border:0;background:transparent}.capabilities .service-card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:296px;padding:24px;border:0;background:#071c2c;overflow:hidden;isolation:isolate;box-shadow:0 18px 48px rgba(7,28,44,.08);transition:transform .55s cubic-bezier(.22,1,.36,1),box-shadow .55s cubic-bezier(.22,1,.36,1)}.capabilities .service-card:before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(180deg,rgba(7,28,44,.08) 0%,rgba(7,28,44,.18) 42%,rgba(7,28,44,.92) 100%),var(--capability-image);background-size:cover;background-position:var(--capability-position,center);opacity:1;transform:scale(1.015);transition:transform .75s cubic-bezier(.22,1,.36,1),filter .45s ease}.capabilities .service-card:after{content:"";position:absolute;z-index:0;right:22px;bottom:22px;left:22px;height:1px;background:rgba(255,255,255,.22);transform:scaleX(.32);transform-origin:left;transition:transform .55s cubic-bezier(.22,1,.36,1),background .35s ease}.capabilities .service-card:hover,.capabilities .service-card:focus-within{transform:translateY(-5px);box-shadow:0 24px 70px rgba(7,28,44,.16)}.capabilities .service-card:hover:before{transform:scale(1.06);filter:saturate(1.05) contrast(1.03)}.capabilities .service-card:hover:after,.capabilities .service-card:focus-within:after{transform:scaleX(1);background:rgba(141,132,195,.75)}.capabilities .service-card>div,.capabilities .service-number{position:relative;z-index:1}.capabilities .service-number{position:absolute;top:22px;left:24px;margin:0;color:rgba(255,255,255,.7);font-size:10px;font-weight:800;letter-spacing:1.6px}.capabilities .service-tag{margin:0 0 10px;color:var(--accent-light);font-size:9px;font-weight:900;letter-spacing:1.55px;text-shadow:0 1px 14px rgba(0,0,0,.35)}.capabilities .service-card h3{max-width:430px;margin:0;color:#fff;font:800 clamp(22px,1.8vw,30px)/1.08 "Manrope";letter-spacing:-1.15px;text-shadow:0 2px 18px rgba(0,0,0,.34)}.capabilities .service-card div>p:last-child{max-width:420px;margin:14px 0 0;color:#d6e0e7;font-size:13px;line-height:1.55;text-shadow:0 1px 12px rgba(0,0,0,.3)}.service-marine{--capability-image:url('assets/services terbaru/marine-geophysical-monitoring.jpeg')}.service-offshore{--capability-image:url('assets/equipment/drilling/offshore-drilling-operation.jpeg')}.service-seabed{--capability-image:url('assets/manta baru/manta 2.png');--capability-position:center}.service-nearshore{--capability-image:url('assets/Haju/haju.png');--capability-position:center 58%}.service-exploratory{--capability-image:url('assets/Onshore/Rig.jpeg')}.service-onshore{--capability-image:url('assets/Onshore/WhatsApp Image 2026-07-16 at 08.22.48 (2).jpeg')}
 @media(max-width:1050px){.capability-showcase{grid-template-columns:1fr}.capability-visual{min-height:420px}.capabilities .service-list{grid-template-columns:1fr 1fr}.capabilities .service-card{min-height:260px}}
 @media(max-width:700px){.capability-visual{min-height:320px}.capability-visual figcaption{padding:24px}.capability-visual figcaption strong{font-size:22px}.capabilities .service-list{grid-template-columns:1fr}.capabilities .service-card{min-height:240px;padding:24px}.capabilities .service-tag{margin-top:42px}.capabilities .service-card h3{font-size:24px}}
 
@@ -821,7 +821,7 @@ footer{background:#051722;color:#b0bdc5;padding:70px var(--pad) 30px;display:gri
 .services-directory{background:#f4f7f8}
 .services-directory-head{max-width:1040px;margin-top:54px}
 .services-directory-head h2{margin:14px 0 0;color:#071c2c;font:900 clamp(38px,4.8vw,72px)/1 "Manrope";letter-spacing:-3.8px}
-.service-anchor-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:46px;border-top:1px solid #cfd9df;border-left:1px solid #cfd9df}
+.service-anchor-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:46px;border-top:1px solid #cfd9df;border-left:1px solid #cfd9df}
 .service-anchor-list a{display:flex;min-height:82px;align-items:center;gap:14px;padding:18px;border-right:1px solid #cfd9df;border-bottom:1px solid #cfd9df;color:#071c2c;background:rgba(255,255,255,.42);font:900 13px/1.25 "Manrope";letter-spacing:-.2px;transition:background .3s ease,color .3s ease,padding-left .35s cubic-bezier(.22,1,.36,1)}
 .service-anchor-list a:hover{padding-left:26px;color:#332a7a;background:#fff}
 .service-anchor-list span{color:#332a7a;font-size:10px;font-weight:900;letter-spacing:1.4px}
@@ -846,11 +846,23 @@ footer{background:#051722;color:#b0bdc5;padding:70px var(--pad) 30px;display:gri
 .service-gallery-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
 .service-gallery-grid-three{grid-template-columns:repeat(3,minmax(0,1fr))}
 .service-gallery-grid-four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.service-gallery-grid-six,.service-gallery-grid-mixed{grid-template-columns:repeat(3,minmax(0,1fr))}
 .service-gallery-grid img{min-width:0;background:#fff}
 .service-gallery-contain{object-fit:contain!important;object-position:center;padding:10px;filter:saturate(1) contrast(1.02)!important}
 .service-detail-section:hover .service-gallery-contain{transform:none}
 .service-detail-gallery figcaption{position:absolute;z-index:1;right:12px;bottom:12px;left:12px;padding:10px 12px;color:#fff;background:rgba(4,20,31,.72);border-left:3px solid #8d84c3;backdrop-filter:blur(10px);font-size:9px;font-weight:900;letter-spacing:.08em;line-height:1.35;text-transform:uppercase}
 .service-gallery-feature figcaption{right:18px;bottom:18px;left:18px;padding:16px 18px;font-size:12px;line-height:1.5;text-transform:none;letter-spacing:0}
+#nearshore-onshore-geotechnical .service-detail-gallery{display:block;min-height:0;background:transparent;overflow:visible}
+#nearshore-onshore-geotechnical .service-gallery-feature{aspect-ratio:16/10;min-height:0;background:#071c2c;box-shadow:0 22px 70px rgba(7,28,44,.14)}
+#nearshore-onshore-geotechnical .service-gallery-feature img{height:100%;object-fit:cover;object-position:center 62%;filter:saturate(.98) contrast(1.03)}
+#nearshore-onshore-geotechnical .service-gallery-feature figcaption{right:auto;bottom:20px;left:20px;width:min(520px,calc(100% - 40px));padding:15px 18px;background:rgba(4,20,31,.78);font-size:12px;line-height:1.35}
+#nearshore-onshore-geotechnical .service-gallery-grid-mixed{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px}
+#nearshore-onshore-geotechnical .service-gallery-grid-mixed figure{aspect-ratio:16/10;background:#071c2c}
+#nearshore-onshore-geotechnical .service-gallery-grid-mixed img{height:100%;object-fit:cover;object-position:center}
+#nearshore-onshore-geotechnical .service-gallery-grid-mixed figcaption{right:9px;bottom:9px;left:9px;padding:9px 10px;font-size:8px;line-height:1.25;background:rgba(4,20,31,.76)}
+#nearshore-onshore-geotechnical .service-gallery-grid figure.is-selected:before,#nearshore-onshore-geotechnical .service-gallery-grid figure:focus-visible:before{border-width:3px}
+.service-doc-label{display:block;margin-bottom:5px;color:#c7c2ff;font-size:8px;letter-spacing:1.3px}
+.section-anchor{position:relative;top:-120px;display:block;width:1px;height:1px;overflow:hidden}
 .service-detail-media:after{content:"";position:absolute;inset:0;border:0;background:linear-gradient(0deg,rgba(3,15,23,.55),rgba(3,15,23,0) 48%);pointer-events:none}
 .service-detail-media>figcaption{position:absolute;z-index:1;right:18px;bottom:18px;left:18px;padding:16px 18px;color:#fff;background:rgba(4,20,31,.7);border:0;backdrop-filter:blur(10px);font-size:12px;font-weight:800;line-height:1.5}
 .service-detail-copy{max-width:780px}
@@ -1484,6 +1496,8 @@ a.news-card{display:block;color:inherit;text-decoration:none}
 .equipment-hero h1{max-width:1180px;margin:0;color:#fff;font:900 clamp(46px,6vw,96px)/.97 "Manrope";letter-spacing:-5px;text-wrap:balance}
 .equipment-hero-copy>p:not(.kicker){max-width:790px;margin:30px 0 0;color:#d8e2e8;font-size:18px;line-height:1.72}
 .equipment-hero-copy:after{content:"";display:block;width:min(360px,42vw);height:1px;margin-top:34px;background:linear-gradient(90deg,#8d84c3,rgba(255,255,255,.56),rgba(255,255,255,0));animation:heroRuleBreath 4.8s ease-in-out infinite alternate}
+.equipment-geotechnical-page .equipment-hero:before{background:linear-gradient(90deg,rgba(3,16,25,.95) 0%,rgba(5,24,38,.82) 40%,rgba(5,24,38,.24) 72%,rgba(5,24,38,.72) 100%),linear-gradient(0deg,rgba(3,14,22,.78),rgba(3,14,22,.08) 48%,rgba(3,14,22,.82)),url("assets/equipment/geotechnical-equipment.webp") center/cover no-repeat}
+.equipment-geophysical-page .equipment-hero:before{background:linear-gradient(90deg,rgba(3,16,25,.95) 0%,rgba(5,24,38,.82) 42%,rgba(5,24,38,.24) 74%,rgba(5,24,38,.72) 100%),linear-gradient(0deg,rgba(3,14,22,.78),rgba(3,14,22,.08) 48%,rgba(3,14,22,.82)),url("assets/equipment/geophysical-equipment.webp") center/cover no-repeat}
 @media(max-width:700px){
   .equipment-hero{min-height:0;padding-top:118px;padding-bottom:72px}
   .equipment-hero:after{background:linear-gradient(90deg,rgba(3,15,23,.88),rgba(3,15,23,.58)),linear-gradient(0deg,rgba(3,15,23,.78),rgba(3,15,23,.16) 55%,rgba(3,15,23,.5))}
@@ -1507,9 +1521,23 @@ a.news-card{display:block;color:inherit;text-decoration:none}
 .equipment-jump a:nth-child(odd){border-right:1px solid #cfd9df}
 .equipment-jump span{color:#332a7a;font-size:10px;font-weight:900;letter-spacing:1.5px}
 .equipment-jump a:hover{padding-left:26px;color:#332a7a;background:rgba(255,255,255,.48)}
+.equipment-family-jump{display:grid;grid-template-columns:1fr 1fr;gap:18px;border-top:0}
+.equipment-family-card{border:1px solid #cfd9df;background:rgba(255,255,255,.42)}
+.equipment-family-card>p{margin:0;padding:18px 18px 16px;color:#332a7a;border-bottom:1px solid #cfd9df;font-size:10px;font-weight:900;letter-spacing:1.7px;text-transform:uppercase}
+.equipment-family-links{display:grid;grid-template-columns:1fr}
+.equipment-family-jump a{min-height:54px;border-right:0!important;padding-right:16px}
+.equipment-family-jump a:last-child{border-bottom:0}
+.equipment-geotechnical-page .equipment-family-jump,
+.equipment-geophysical-page .equipment-family-jump{grid-template-columns:1fr}
+.equipment-geotechnical-page .equipment-family-card,
+.equipment-geophysical-page .equipment-family-card{background:rgba(255,255,255,.68)}
 .equipment-directory{padding-top:96px}
 .equipment-directory-head{max-width:1120px;margin-top:44px}
 .equipment-detail-stack{margin-top:52px;border-top:1px solid #cfd9df}
+.equipment-family-divider{display:grid;grid-template-columns:minmax(0,.36fr) minmax(0,1fr);gap:clamp(24px,4vw,70px);align-items:end;padding:clamp(42px,5vw,68px) 0 28px;border-bottom:1px solid #cfd9df}
+.equipment-family-divider .kicker{margin:0;color:#332a7a}
+.equipment-family-divider h3{max-width:980px;margin:0;color:#071c2c;font:900 clamp(30px,3.6vw,58px)/1 "Manrope";letter-spacing:-2.8px;text-wrap:balance}
+.equipment-family-divider-geophysical{background:linear-gradient(90deg,rgba(141,132,195,.12),transparent 58%)}
 .equipment-detail{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(430px,.82fr);gap:clamp(32px,5.5vw,88px);align-items:center;padding:clamp(44px,6vw,82px) 0;border-bottom:1px solid #cfd9df}
 .equipment-detail-reverse{grid-template-columns:minmax(430px,.82fr) minmax(0,1.08fr)}
 .equipment-detail-reverse .equipment-detail-media{order:2}
@@ -1561,7 +1589,7 @@ a.news-card{display:block;color:inherit;text-decoration:none}
 .equipment-lab-gallery figcaption{position:absolute;right:12px;bottom:12px;left:12px;padding:13px 14px;color:#fff;background:rgba(4,20,31,.72);border-left:3px solid #8d84c3;backdrop-filter:blur(10px);font-size:10px;font-weight:900;line-height:1.35;text-transform:uppercase;letter-spacing:.07em}
 
 @media(max-width:1100px){
-  .equipment-overview-grid,.equipment-detail,.equipment-detail-reverse,.equipment-lab-head{grid-template-columns:1fr}
+  .equipment-overview-grid,.equipment-detail,.equipment-detail-reverse,.equipment-lab-head,.equipment-family-divider{grid-template-columns:1fr}
   .equipment-detail-reverse .equipment-detail-media,.equipment-detail-reverse .equipment-detail-copy{order:initial}
   .equipment-detail-copy{max-width:820px}
   .equipment-lab-tests{grid-template-columns:1fr}
@@ -1572,8 +1600,9 @@ a.news-card{display:block;color:inherit;text-decoration:none}
 @media(max-width:700px){
   .equipment-overview-grid,.equipment-directory-head{margin-top:34px}
   .equipment-overview-copy h2,.equipment-directory-head h2,.equipment-lab-head h3{font-size:clamp(34px,10vw,48px);letter-spacing:-2.2px}
-  .equipment-jump{grid-template-columns:1fr}
+  .equipment-jump,.equipment-family-jump{grid-template-columns:1fr}
   .equipment-jump a:nth-child(odd){border-right:0}
+  .equipment-family-divider h3{font-size:clamp(30px,9vw,44px);letter-spacing:-1.9px}
   .equipment-detail{gap:26px;padding:40px 0}
   .equipment-detail-media{min-height:300px}
   .equipment-detail-copy h3{font-size:clamp(36px,11vw,52px);letter-spacing:-2.3px}
@@ -5179,6 +5208,10 @@ a.news-card{display:block;color:inherit;text-decoration:none}
   object-position:center;
   filter:saturate(.95) contrast(1.04);
 }
+.career-page .career-dept-hero .career-dept-placeholder{
+  width:100%;
+  height:100%;
+}
 .career-page .career-dept-hero-copy{
   position:relative;
   z-index:2;
@@ -5279,6 +5312,62 @@ a.news-card{display:block;color:inherit;text-decoration:none}
 }
 .career-dept-block:hover img{
   transform:scale(1.035);
+}
+.career-dept-placeholder{
+  position:relative;
+  display:grid;
+  width:100%;
+  height:100%;
+  min-height:inherit;
+  place-items:center;
+  background:
+    radial-gradient(circle at 50% 34%,rgba(255,255,255,.56),transparent 20%),
+    radial-gradient(circle at 50% 31%,rgba(141,132,195,.2),transparent 31%),
+    linear-gradient(145deg,#eef3f7 0%,#dbe5ec 48%,#f7f9fb 100%);
+  overflow:hidden;
+  transition:transform .65s cubic-bezier(.22,1,.36,1),filter .45s ease;
+}
+.career-dept-placeholder:before,
+.career-dept-placeholder:after{
+  content:"";
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  background:linear-gradient(145deg,rgba(48,37,111,.28),rgba(7,28,44,.14));
+}
+.career-dept-placeholder:before{
+  top:24%;
+  width:clamp(88px,8vw,132px);
+  height:clamp(88px,8vw,132px);
+  border-radius:50%;
+}
+.career-dept-placeholder:after{
+  bottom:18%;
+  width:clamp(170px,16vw,260px);
+  height:clamp(112px,10vw,164px);
+  border-radius:999px 999px 38px 38px;
+}
+.career-dept-placeholder span{
+  position:absolute;
+  inset:24px;
+  border:1px solid rgba(48,37,111,.1);
+}
+.career-dept-placeholder-hero{
+  background:
+    radial-gradient(circle at 72% 32%,rgba(141,132,195,.24),transparent 26%),
+    radial-gradient(circle at 50% 38%,rgba(255,255,255,.18),transparent 21%),
+    linear-gradient(135deg,#0b2435 0%,#172c46 47%,#31276e 100%);
+}
+.career-dept-placeholder-hero:before,
+.career-dept-placeholder-hero:after{
+  background:linear-gradient(145deg,rgba(255,255,255,.72),rgba(199,194,255,.26));
+}
+.career-dept-placeholder-hero span{
+  border-color:rgba(255,255,255,.12);
+}
+.career-dept-block:hover .career-dept-placeholder{
+  transform:scale(1.025);
+  filter:saturate(1.04);
 }
 .career-dept-copy{
   display:flex;

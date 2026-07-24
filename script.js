@@ -140,6 +140,8 @@ const staticTranslations = [
   ['[data-i18n-nav="services"]', 'Services', 'Layanan'],
   ['[data-i18n-nav="assets"]', 'Assets', 'Aset'],
   ['[data-i18n-nav="equipment"]', 'Equipment', 'Peralatan'],
+  ['[data-i18n-nav="geotechEquipment"]', 'Geotechnical Equipment', 'Peralatan Geoteknik'],
+  ['[data-i18n-nav="geophysEquipment"]', 'Geophysical Equipment', 'Peralatan Geofisika'],
   ['[data-i18n-nav="vessel"]', 'Vessel', 'Kapal'],
   ['[data-i18n-nav="qhse"]', 'QHSE', 'QHSE'],
   ['[data-i18n-nav="quality"]', 'Quality Management System', 'Sistem Manajemen Mutu'],
@@ -155,8 +157,7 @@ const staticTranslations = [
   ['.intro-head .kicker', 'Company profile', 'Profil perusahaan'],
   ['.intro-head h2', 'Indonesian survey capability for subsurface decisions.', 'Kapabilitas survei Indonesia untuk keputusan bawah permukaan.'],
   ['.trusted-strip>p', 'Trusted by', 'Dipercaya oleh'],
-  ['.trusted-row:nth-of-type(1) .trusted-section-label', 'Local partners', 'Partner lokal'],
-  ['.trusted-row:nth-of-type(2) .trusted-section-label', 'International partners', 'Partner internasional'],
+  ['.trusted-section-label', 'Selected clients', 'Klien terpilih'],
   ['.intro-detail>p', 'Established in 2010, PT Taka Hydrocore Indonesia provides exploratory, geophysical, geotechnical, hydrogeological, environmental, and water-well drilling work for mining, oil and gas, infrastructure, contractor, and consulting clients.', 'Didirikan pada 2010, PT Taka Hydrocore Indonesia menyediakan pekerjaan eksplorasi, geofisika, geoteknik, hidrogeologi, lingkungan, dan pengeboran sumur air untuk klien pertambangan, minyak dan gas, infrastruktur, kontraktor, dan konsultan.'],
   ['.intro-detail .arrow-link', 'View company profile <span>→</span>', 'Lihat profil perusahaan <span>→</span>', 'html'],
   ['.intro-visual figcaption span', 'Offshore investigation', 'Investigasi offshore'],
@@ -186,7 +187,7 @@ const staticTranslations = [
   ['.service-offshore h3', 'Offshore Geotechnical Survey', 'Survei Geoteknik Offshore'],
   ['.service-offshore div>p:last-child', 'Offshore drilling, CPT, sampling, coring, and downhole logging using suitable marine platforms and compensated systems.', 'Pengeboran offshore, CPT, sampling, coring, dan downhole logging menggunakan platform marine dan sistem kompensasi yang sesuai.'],
   ['.service-seabed .service-tag', 'Seabed Geotechnical', 'Geoteknik Seabed'],
-  ['.service-seabed h3', 'Seabed Geotechnical Drilling', 'Pengeboran Geoteknik Seabed'],
+  ['.service-seabed h3', 'Seabed Geotechnical', 'Geoteknik Seabed'],
   ['.service-seabed div>p:last-child', 'Seabed CPT and vibrocore systems for direct seabed investigation and shallow subsurface sampling.', 'Sistem Seabed CPT dan vibrocore untuk investigasi seabed langsung dan sampling bawah permukaan dangkal.'],
   ['.service-nearshore .service-tag', 'Nearshore Geotechnical', 'Geoteknik Nearshore'],
   ['.service-nearshore h3', 'Nearshore Geotechnical Drilling', 'Pengeboran Geoteknik Nearshore'],
@@ -637,7 +638,7 @@ const applyCompanyProfileLanguage = (language) => {
 const servicesPageTranslations = {
   en: [
     ['title', 'Services | Taka Hydrocore Indonesia'],
-    ['meta[name="description"]', 'PT Taka Hydrocore Indonesia services for marine geophysical survey, offshore geotechnical survey, seabed geotechnical drilling, nearshore drilling, exploratory drilling, and onshore geotechnical survey.'],
+    ['meta[name="description"]', 'PT Taka Hydrocore Indonesia services for marine geophysical survey, offshore geotechnical survey, seabed geotechnical survey, nearshore drilling, exploratory drilling, and onshore geotechnical survey.'],
     ['.services-page .preloader-inner p', 'Preparing services'],
     ['.services-hero-copy .kicker', 'Services'],
     ['.services-hero h1', 'Geophysical and geotechnical services for marine and land environments.'],
@@ -658,7 +659,7 @@ const servicesPageTranslations = {
     ['#offshore-geotechnical li:nth-child(2)', 'Undisturbed sampling, coring, CPT, and field testing'],
     ['#offshore-geotechnical li:nth-child(3)', 'Deployable on suitable marine platforms'],
     ['#seabed-drilling span', 'Seabed Geotechnical'],
-    ['#seabed-drilling h3', 'Seabed Geotechnical Drilling'],
+    ['#seabed-drilling h3', 'Seabed Geotechnical'],
     ['#seabed-drilling p', 'Direct seabed investigation for shallow subsurface conditions using seabed CPT and vibrocore systems.'],
     ['#seabed-drilling li:nth-child(1)', 'Seabed CPT system support'],
     ['#seabed-drilling li:nth-child(2)', 'Vibrocore sampling for shallow seabed layers'],
@@ -684,7 +685,7 @@ const servicesPageTranslations = {
   ],
   id: [
     ['title', 'Layanan | Taka Hydrocore Indonesia'],
-    ['meta[name="description"]', 'Layanan PT Taka Hydrocore Indonesia untuk survei geofisika marine, survei geoteknik offshore, pengeboran geoteknik seabed, pengeboran nearshore, pengeboran eksplorasi, dan survei geoteknik onshore.'],
+    ['meta[name="description"]', 'Layanan PT Taka Hydrocore Indonesia untuk survei geofisika marine, survei geoteknik offshore, investigasi geoteknik seabed, pengeboran nearshore, pengeboran eksplorasi, dan survei geoteknik onshore.'],
     ['.services-page .preloader-inner p', 'Menyiapkan layanan'],
     ['.services-hero-copy .kicker', 'Layanan'],
     ['.services-hero h1', 'Layanan geofisika dan geoteknik untuk lingkungan marine dan darat.'],
@@ -705,7 +706,7 @@ const servicesPageTranslations = {
     ['#offshore-geotechnical li:nth-child(2)', 'Undisturbed sampling, coring, CPT, dan pengujian lapangan'],
     ['#offshore-geotechnical li:nth-child(3)', 'Dapat diterapkan pada platform marine yang sesuai'],
     ['#seabed-drilling span', 'Geoteknik Seabed'],
-    ['#seabed-drilling h3', 'Pengeboran Geoteknik Seabed'],
+    ['#seabed-drilling h3', 'Geoteknik Seabed'],
     ['#seabed-drilling p', 'Investigasi seabed langsung untuk kondisi bawah permukaan dangkal menggunakan sistem seabed CPT dan vibrocore.'],
     ['#seabed-drilling li:nth-child(1)', 'Dukungan sistem Seabed CPT'],
     ['#seabed-drilling li:nth-child(2)', 'Sampling vibrocore untuk lapisan seabed dangkal'],
@@ -749,7 +750,7 @@ const servicesPageTranslationsV2 = {
     ['.service-anchor-list a:nth-child(5)', '<span>05</span>Nearshore Geotechnical Drilling', 'html'],
     ['.service-anchor-list a:nth-child(6)', '<span>06</span>Hydrogeology Drilling', 'html'],
     ['.service-anchor-list a:nth-child(7)', '<span>07</span>Marine Geophysical & Other Services', 'html'],
-    ['.service-anchor-list a:nth-child(8)', '<span>08</span>Seabed Geotechnical Drilling', 'html'],
+    ['.service-anchor-list a:nth-child(8)', '<span>08</span>Seabed Geotechnical', 'html'],
     ['#marine-seismic .kicker', 'Marine Geophysical'],
     ['#marine-seismic .service-detail-index', '01 / Geohazard and exploration seismic'],
     ['#marine-seismic h2', '2D/3D High Resolution Marine Seismic'],
@@ -808,7 +809,7 @@ const servicesPageTranslationsV2 = {
     ['#marine-geophysical-other .service-detail-points p:nth-child(3)', '<strong>Engineering</strong><span>Basic geotechnical engineering and soil laboratory testing through association with PT Hydrocore.</span>', 'html'],
     ['#seabed-drilling .kicker', 'Seabed Geotechnical'],
     ['#seabed-drilling .service-detail-index', '08 / Seabed CPT and vibrocore investigation'],
-    ['#seabed-drilling h2', 'Seabed Geotechnical Drilling'],
+    ['#seabed-drilling h2', 'Seabed Geotechnical'],
     ['#seabed-drilling .service-detail-copy>p:nth-of-type(2)', 'THI provides seabed geotechnical survey capability through the development and operation of Seabed CPT and Vibrocore systems. This service supports shallow subsurface investigation where direct seabed data and recovered sediment samples are required before design or construction decisions.'],
     ['#seabed-drilling .service-detail-copy>p:nth-of-type(3)', 'The seabed scope can support marine infrastructure planning, route and site assessment, geohazard screening, near-surface soil interpretation, and laboratory follow-up after sample recovery.'],
     ['#seabed-drilling .service-detail-points p:nth-child(1)', '<strong>Seabed CPT</strong><span>Direct cone penetration testing for near-seabed soil behavior and strength profiling.</span>', 'html'],
@@ -832,7 +833,7 @@ const servicesPageTranslationsV2 = {
     ['.service-anchor-list a:nth-child(5)', '<span>05</span>Pengeboran Geoteknik Nearshore', 'html'],
     ['.service-anchor-list a:nth-child(6)', '<span>06</span>Hydrogeology Drilling', 'html'],
     ['.service-anchor-list a:nth-child(7)', '<span>07</span>Marine Geophysical & Layanan Lainnya', 'html'],
-    ['.service-anchor-list a:nth-child(8)', '<span>08</span>Pengeboran Geoteknik Seabed', 'html'],
+    ['.service-anchor-list a:nth-child(8)', '<span>08</span>Geoteknik Seabed', 'html'],
     ['#marine-seismic .kicker', 'Geofisika Marine'],
     ['#marine-seismic .service-detail-index', '01 / Seismik geohazard dan eksplorasi'],
     ['#marine-seismic h2', 'Marine Seismic Resolusi Tinggi 2D/3D'],
@@ -891,7 +892,7 @@ const servicesPageTranslationsV2 = {
     ['#marine-geophysical-other .service-detail-points p:nth-child(3)', '<strong>Engineering</strong><span>Basic geotechnical engineering dan soil laboratory testing melalui kerja sama dengan PT Hydrocore.</span>', 'html'],
     ['#seabed-drilling .kicker', 'Geoteknik Seabed'],
     ['#seabed-drilling .service-detail-index', '08 / Investigasi Seabed CPT dan vibrocore'],
-    ['#seabed-drilling h2', 'Pengeboran Geoteknik Seabed'],
+    ['#seabed-drilling h2', 'Geoteknik Seabed'],
     ['#seabed-drilling .service-detail-copy>p:nth-of-type(2)', 'THI menyediakan kapabilitas survei geoteknik seabed melalui pengembangan dan pengoperasian sistem Seabed CPT dan Vibrocore. Layanan ini mendukung investigasi bawah permukaan dangkal ketika data seabed langsung dan sampel sedimen diperlukan sebelum keputusan desain atau konstruksi.'],
     ['#seabed-drilling .service-detail-copy>p:nth-of-type(3)', 'Lingkup seabed dapat mendukung perencanaan infrastruktur marine, penilaian rute dan lokasi, screening geohazard, interpretasi tanah dekat permukaan, serta tindak lanjut laboratorium setelah sampel diperoleh.'],
     ['#seabed-drilling .service-detail-points p:nth-child(1)', '<strong>Seabed CPT</strong><span>Cone penetration testing langsung untuk profil perilaku dan kekuatan tanah dekat seabed.</span>', 'html'],
@@ -900,9 +901,80 @@ const servicesPageTranslationsV2 = {
   ]
 };
 
+const servicesPageTranslationsV3 = {
+  en: [
+    ['title', 'Services | Taka Hydrocore Indonesia'],
+    ['meta[name="description"]', 'PT Taka Hydrocore Indonesia services for marine geophysical survey, 2D/3D high resolution marine seismic, offshore geotechnical survey, nearshore and onshore geotechnical survey, exploratory drilling, hydrogeology drilling, and seabed geotechnical survey.'],
+    ['.services-page .preloader-inner p', 'Preparing services'],
+    ['.services-hero-copy .kicker', 'Services'],
+    ['.services-hero h1', 'Geophysical and geotechnical services for marine and land environments.'],
+    ['.services-hero-copy>p:not(.kicker)', 'THI delivers marine geophysical survey, offshore geotechnical investigation, nearshore and onshore geotechnical work, exploratory drilling, hydrogeology drilling, and seabed investigation.'],
+    ['.services-directory>.section-label', '<span>01</span> Service Lines', 'html'],
+    ['.services-directory-head .kicker', 'Technical services'],
+    ['.services-directory-head h2', 'Survey, drilling, sampling, testing, and interpretation services configured around each project environment.'],
+    ['.service-anchor-list a:nth-child(1)', '<span>01</span>Marine Geophysical Survey', 'html'],
+    ['.service-anchor-list a:nth-child(2)', '<span>02</span>Offshore Geotechnical Survey', 'html'],
+    ['.service-anchor-list a:nth-child(3)', '<span>03</span>Nearshore & Onshore Geotechnical', 'html'],
+    ['.service-anchor-list a:nth-child(4)', '<span>04</span>Exploratory Drilling', 'html'],
+    ['.service-anchor-list a:nth-child(5)', '<span>05</span>Hydrogeology Drilling', 'html'],
+    ['.service-anchor-list a:nth-child(6)', '<span>06</span>Seabed Geotechnical', 'html'],
+    ['#marine-seismic .service-detail-index', '01 / Seismic, bathymetry, positioning, and survey support'],
+    ['#marine-seismic h2', 'Marine Geophysical Survey'],
+    ['#marine-seismic .service-detail-copy>p:nth-of-type(2)', 'Marine geophysical work at THI covers 2D/3D High Resolution Marine Seismic, bathymetry, positioning, seabed imaging, geophysical logging, metocean support, and supporting field data services. The scope is selected around the survey objective, water depth, route or site condition, and required deliverables.'],
+    ['#marine-seismic .service-detail-copy>p:nth-of-type(3)', 'THI provides 2D/3D High Resolution Marine Seismic services for geohazard surveys and oil and gas exploration. The work combines high-technology acquisition systems, experienced personnel, efficient offshore operation, and integrated processing and interpretation.'],
+    ['#marine-seismic .service-detail-points p:nth-child(1)', '<strong>Seismic</strong><span>High Resolution and Ultra High Resolution seismic configurations are available.</span>', 'html'],
+    ['#marine-seismic .service-detail-points p:nth-child(3)', '<strong>Support</strong><span>Positioning, topographic survey, bathymetry, metocean, geophysical logging, pumping test, slug test, and field data support.</span>', 'html'],
+    ['#nearshore-onshore-geotechnical .kicker', 'Nearshore & Onshore Geotechnical'],
+    ['#nearshore-onshore-geotechnical .service-detail-index', '03 / Shallow-water and land-based soil investigation'],
+    ['#nearshore-onshore-geotechnical h2', 'Nearshore & Onshore Geotechnical Survey'],
+    ['#nearshore-onshore-geotechnical .service-detail-copy>p:nth-of-type(2)', 'THI combines nearshore and onshore geotechnical capability for projects that move between land, coastal, intertidal, jetty, reclamation, river, and shallow-water environments. The method is selected around site access, water depth, tide, soil condition, platform requirement, and the level of investigation needed.'],
+    ['#nearshore-onshore-geotechnical .service-detail-copy>p:nth-of-type(3)', 'Nearshore work can use wooden staging or wooden platforms in very shallow water, and modular pontoon systems for deeper shallow-water investigation down to approximately 25 m. CPTu on pontoon can be conducted using downhole CPT systems, with development toward jack-up rig applications for deeper and more reliable operation.'],
+    ['#nearshore-onshore-geotechnical .service-detail-copy>p:nth-of-type(4)', 'Onshore geotechnical drilling is commonly supported by SPT, Pressuremeter Test, Field Vane Shear Test, and CPT or CPTu. Sampling tools are selected around soil behavior, including Osterberg fixed piston samplers for very soft to soft soils, Mazier core barrel systems for alternating layers, and triple core barrel systems for rock formations.'],
+    ['#nearshore-onshore-geotechnical .service-detail-points p:nth-child(1)', '<strong>Nearshore</strong><span>Wooden staging, platform, and modular pontoon systems for shallow water drilling and CPTu investigation.</span>', 'html'],
+    ['#nearshore-onshore-geotechnical .service-detail-points p:nth-child(2)', '<strong>Onshore</strong><span>Land-based drilling, SPT, pressuremeter, field vane, CPT, CPTu, and sampling for infrastructure and site investigation.</span>', 'html'],
+    ['#hydrogeology-drilling .service-detail-index', '05 / Groundwater monitoring and water supply'],
+    ['#seabed-drilling h2', 'Seabed Geotechnical'],
+    ['#seabed-drilling .service-detail-index', '06 / Seabed CPT and vibrocore investigation']
+  ],
+  id: [
+    ['title', 'Layanan | Taka Hydrocore Indonesia'],
+    ['meta[name="description"]', 'Layanan PT Taka Hydrocore Indonesia untuk survei geofisika marine, seismik marine resolusi tinggi 2D/3D, survei geoteknik offshore, survei geoteknik nearshore dan onshore, exploratory drilling, hydrogeology drilling, dan investigasi geoteknik seabed.'],
+    ['.services-page .preloader-inner p', 'Menyiapkan layanan'],
+    ['.services-hero-copy .kicker', 'Layanan'],
+    ['.services-hero h1', 'Layanan geofisika dan geoteknik untuk lingkungan marine dan darat.'],
+    ['.services-hero-copy>p:not(.kicker)', 'THI menyediakan survei geofisika marine, investigasi geoteknik offshore, pekerjaan geoteknik nearshore dan onshore, exploratory drilling, hydrogeology drilling, dan investigasi seabed.'],
+    ['.services-directory>.section-label', '<span>01</span> Lini Layanan', 'html'],
+    ['.services-directory-head .kicker', 'Layanan teknis'],
+    ['.services-directory-head h2', 'Layanan survei, pengeboran, sampling, pengujian, dan interpretasi yang dikonfigurasi sesuai lingkungan tiap proyek.'],
+    ['.service-anchor-list a:nth-child(1)', '<span>01</span>Survei Geofisika Marine', 'html'],
+    ['.service-anchor-list a:nth-child(2)', '<span>02</span>Survei Geoteknik Offshore', 'html'],
+    ['.service-anchor-list a:nth-child(3)', '<span>03</span>Geoteknik Nearshore & Onshore', 'html'],
+    ['.service-anchor-list a:nth-child(4)', '<span>04</span>Exploratory Drilling', 'html'],
+    ['.service-anchor-list a:nth-child(5)', '<span>05</span>Hydrogeology Drilling', 'html'],
+    ['.service-anchor-list a:nth-child(6)', '<span>06</span>Geoteknik Seabed', 'html'],
+    ['#marine-seismic .service-detail-index', '01 / Seismik, bathymetry, positioning, dan dukungan survei'],
+    ['#marine-seismic h2', 'Survei Geofisika Marine'],
+    ['#marine-seismic .service-detail-copy>p:nth-of-type(2)', 'Pekerjaan geofisika marine THI mencakup Seismik Marine Resolusi Tinggi 2D/3D, bathymetry, positioning, seabed imaging, geophysical logging, dukungan metocean, dan layanan data lapangan pendukung. Lingkup dipilih berdasarkan tujuan survei, kedalaman air, kondisi rute atau lokasi, dan deliverable yang dibutuhkan.'],
+    ['#marine-seismic .service-detail-copy>p:nth-of-type(3)', 'THI menyediakan layanan Seismik Marine Resolusi Tinggi 2D/3D untuk survei geohazard dan eksplorasi minyak dan gas. Pekerjaan ini menggabungkan sistem akuisisi berteknologi tinggi, personel berpengalaman, operasi offshore yang efisien, serta pemrosesan dan interpretasi terintegrasi.'],
+    ['#marine-seismic .service-detail-points p:nth-child(1)', '<strong>Seismik</strong><span>Konfigurasi High Resolution dan Ultra High Resolution seismic tersedia.</span>', 'html'],
+    ['#marine-seismic .service-detail-points p:nth-child(3)', '<strong>Dukungan</strong><span>Positioning, topographic survey, bathymetry, metocean, geophysical logging, pumping test, slug test, dan dukungan data lapangan.</span>', 'html'],
+    ['#nearshore-onshore-geotechnical .kicker', 'Geoteknik Nearshore & Onshore'],
+    ['#nearshore-onshore-geotechnical .service-detail-index', '03 / Investigasi tanah perairan dangkal dan darat'],
+    ['#nearshore-onshore-geotechnical h2', 'Survei Geoteknik Nearshore & Onshore'],
+    ['#nearshore-onshore-geotechnical .service-detail-copy>p:nth-of-type(2)', 'THI menggabungkan kapabilitas geoteknik nearshore dan onshore untuk proyek yang bergerak antara darat, pesisir, intertidal, jetty, reklamasi, sungai, dan lingkungan perairan dangkal. Metode dipilih berdasarkan akses lokasi, kedalaman air, pasang surut, kondisi tanah, kebutuhan platform, dan tingkat investigasi.'],
+    ['#nearshore-onshore-geotechnical .service-detail-copy>p:nth-of-type(3)', 'Pekerjaan nearshore dapat menggunakan wooden staging atau wooden platform pada perairan sangat dangkal, serta modular pontoon system untuk investigasi perairan dangkal yang lebih dalam hingga sekitar 25 m. CPTu di atas pontoon dapat dilakukan menggunakan downhole CPT system, dengan pengembangan menuju jack-up rig untuk operasi yang lebih dalam dan andal.'],
+    ['#nearshore-onshore-geotechnical .service-detail-copy>p:nth-of-type(4)', 'Pengeboran geoteknik onshore umumnya didukung SPT, Pressuremeter Test, Field Vane Shear Test, dan CPT atau CPTu. Alat sampling dipilih berdasarkan perilaku tanah, termasuk Osterberg fixed piston sampler untuk tanah sangat lunak hingga lunak, Mazier core barrel untuk lapisan bergantian, dan triple core barrel untuk formasi batuan.'],
+    ['#nearshore-onshore-geotechnical .service-detail-points p:nth-child(1)', '<strong>Nearshore</strong><span>Wooden staging, platform, dan modular pontoon system untuk pengeboran perairan dangkal dan investigasi CPTu.</span>', 'html'],
+    ['#nearshore-onshore-geotechnical .service-detail-points p:nth-child(2)', '<strong>Onshore</strong><span>Pengeboran darat, SPT, pressuremeter, field vane, CPT, CPTu, dan sampling untuk investigasi infrastruktur dan site.</span>', 'html'],
+    ['#hydrogeology-drilling .service-detail-index', '05 / Monitoring air tanah dan suplai air'],
+    ['#seabed-drilling h2', 'Geoteknik Seabed'],
+    ['#seabed-drilling .service-detail-index', '06 / Investigasi Seabed CPT dan vibrocore']
+  ]
+};
+
 const applyServicesLanguage = (language) => {
   if (!document.body.classList.contains('services-page')) return;
-  const translations = servicesPageTranslationsV2[language] || servicesPageTranslationsV2.en;
+  const translations = servicesPageTranslationsV3[language] || servicesPageTranslationsV3.en;
   translations.forEach(([selector, content, mode]) => setElementContent(selector, content, mode));
 };
 
@@ -1144,12 +1216,157 @@ const equipmentPageTranslationOverrides = {
   ]
 };
 
+const equipmentPageTranslationOverridesV2 = {
+  en: [
+    ['.equipment-family-card:nth-child(1)>p', 'Geotechnical Equipment'],
+    ['.equipment-family-card:nth-child(2)>p', 'Geophysical Equipment'],
+    ['.equipment-family-card:nth-child(1) a:nth-child(1)', '<span>01</span>CPT Manta 200', 'html'],
+    ['.equipment-family-card:nth-child(1) a:nth-child(2)', '<span>02</span>Vibrocore System', 'html'],
+    ['.equipment-family-card:nth-child(1) a:nth-child(3)', '<span>03</span>FT520 Piston Corer', 'html'],
+    ['.equipment-family-card:nth-child(1) a:nth-child(4)', '<span>04</span>Box Core with T-Bar', 'html'],
+    ['.equipment-family-card:nth-child(1) a:nth-child(5)', '<span>05</span>Grab Sampler', 'html'],
+    ['.equipment-family-card:nth-child(1) a:nth-child(6)', '<span>09</span>Drill Rig TH-25M', 'html'],
+    ['.equipment-family-card:nth-child(1) a:nth-child(7)', '<span>10</span>THI A-Frame 24T', 'html'],
+    ['.equipment-family-card:nth-child(1) a:nth-child(8)', '<span>11</span>Soil & Geotechnical Laboratory', 'html'],
+    ['.equipment-family-card:nth-child(2) a:nth-child(1)', '<span>06</span>MBES Kongsberg EM2040P', 'html'],
+    ['.equipment-family-card:nth-child(2) a:nth-child(2)', '<span>07</span>MBES EM304', 'html'],
+    ['.equipment-family-card:nth-child(2) a:nth-child(3)', '<span>08</span>Sercel 428', 'html'],
+    ['#geotechnical-equipment .kicker', 'Geotechnical Equipment'],
+    ['#geotechnical-equipment h3', 'CPT, coring, seabed sampling, and soil recovery systems for investigation work.'],
+    ['.equipment-family-divider-geophysical .kicker', 'Geophysical Equipment'],
+    ['.equipment-family-divider-geophysical h3', 'Acquisition systems for bathymetry, seabed mapping, seismic, and survey data control.'],
+    ['.equipment-family-divider:not(#geotechnical-equipment):not(#geophysical-equipment) .kicker', 'Geotechnical Support Equipment'],
+    ['.equipment-family-divider:not(#geotechnical-equipment):not(#geophysical-equipment) h3', 'Drilling, deck handling, and laboratory support for sample recovery and testing.']
+  ],
+  id: [
+    ['.equipment-family-card:nth-child(1)>p', 'Peralatan Geoteknik'],
+    ['.equipment-family-card:nth-child(2)>p', 'Peralatan Geofisika'],
+    ['.equipment-family-card:nth-child(1) a:nth-child(1)', '<span>01</span>CPT Manta 200', 'html'],
+    ['.equipment-family-card:nth-child(1) a:nth-child(2)', '<span>02</span>Vibrocore System', 'html'],
+    ['.equipment-family-card:nth-child(1) a:nth-child(3)', '<span>03</span>FT520 Piston Corer', 'html'],
+    ['.equipment-family-card:nth-child(1) a:nth-child(4)', '<span>04</span>Box Core with T-Bar', 'html'],
+    ['.equipment-family-card:nth-child(1) a:nth-child(5)', '<span>05</span>Grab Sampler', 'html'],
+    ['.equipment-family-card:nth-child(1) a:nth-child(6)', '<span>09</span>Drill Rig TH-25M', 'html'],
+    ['.equipment-family-card:nth-child(1) a:nth-child(7)', '<span>10</span>THI A-Frame 24T', 'html'],
+    ['.equipment-family-card:nth-child(1) a:nth-child(8)', '<span>11</span>Laboratorium Tanah & Geoteknik', 'html'],
+    ['.equipment-family-card:nth-child(2) a:nth-child(1)', '<span>06</span>MBES Kongsberg EM2040P', 'html'],
+    ['.equipment-family-card:nth-child(2) a:nth-child(2)', '<span>07</span>MBES EM304', 'html'],
+    ['.equipment-family-card:nth-child(2) a:nth-child(3)', '<span>08</span>Sercel 428', 'html'],
+    ['#geotechnical-equipment .kicker', 'Peralatan Geoteknik'],
+    ['#geotechnical-equipment h3', 'Sistem CPT, coring, sampling seabed, dan recovery tanah untuk pekerjaan investigasi.'],
+    ['.equipment-family-divider-geophysical .kicker', 'Peralatan Geofisika'],
+    ['.equipment-family-divider-geophysical h3', 'Sistem akuisisi untuk bathymetry, pemetaan seabed, seismik, dan kontrol data survei.'],
+    ['.equipment-family-divider:not(#geotechnical-equipment):not(#geophysical-equipment) .kicker', 'Peralatan Pendukung Geoteknik'],
+    ['.equipment-family-divider:not(#geotechnical-equipment):not(#geophysical-equipment) h3', 'Dukungan pengeboran, deck handling, dan laboratorium untuk recovery sampel dan pengujian.']
+  ]
+};
+
+const equipmentSplitPageTranslationOverrides = {
+  en: {
+    geotechnical: [
+      ['title', 'Geotechnical Equipment | Taka Hydrocore Indonesia'],
+      ['meta[name="description"]', 'PT Taka Hydrocore Indonesia geotechnical equipment page covering seabed CPT, vibrocore, piston corer, box core, grab sampler, drill rig, A-frame, and soil laboratory support.'],
+      ['.equipment-page .preloader-inner p', 'Preparing geotechnical equipment'],
+      ['.equipment-hero .kicker', 'Geotechnical Equipment'],
+      ['.equipment-hero h1', 'Geotechnical equipment prepared for soil investigation work.'],
+      ['.equipment-hero-copy>p:not(.kicker)', 'Systems for seabed CPT, sampling, coring, drilling support, deck handling, and laboratory testing are prepared around each site condition and investigation scope.'],
+      ['.equipment-overview-copy h2', 'Equipment selected around soil target, access, sampling method, and handling workflow.'],
+      ['.equipment-overview-copy>p:not(.kicker)', 'Before mobilization, the team reviews water depth, soil target, sampling requirement, rig-up method, lifting arrangement, sample handling, laboratory plan, and reporting workflow.'],
+      ['.equipment-family-card>p', 'Geotechnical Equipment'],
+      ['.equipment-family-card a:nth-child(1)', '<span>01</span>CPT Manta 200', 'html'],
+      ['.equipment-family-card a:nth-child(2)', '<span>02</span>Vibrocore System', 'html'],
+      ['.equipment-family-card a:nth-child(3)', '<span>03</span>FT520 Piston Corer', 'html'],
+      ['.equipment-family-card a:nth-child(4)', '<span>04</span>Box Core with T-Bar', 'html'],
+      ['.equipment-family-card a:nth-child(5)', '<span>05</span>Grab Sampler', 'html'],
+      ['.equipment-family-card a:nth-child(6)', '<span>06</span>Drill Rig TH-25M', 'html'],
+      ['.equipment-family-card a:nth-child(7)', '<span>07</span>THI A-Frame 24T', 'html'],
+      ['.equipment-family-card a:nth-child(8)', '<span>08</span>Soil & Geotechnical Laboratory', 'html'],
+      ['.equipment-directory-head h2', 'Geotechnical systems explained by field role and preparation workflow.'],
+      ['#drill-rig-th25m .equipment-detail-index', '06 / Geotechnical and exploratory support'],
+      ['#a-frame-24t .equipment-detail-index', '07 / Deployment and recovery support'],
+      ['#soil-geotechnical-lab .equipment-detail-index', '08 / Soil testing and documentation']
+    ],
+    geophysical: [
+      ['title', 'Geophysical Equipment | Taka Hydrocore Indonesia'],
+      ['meta[name="description"]', 'PT Taka Hydrocore Indonesia geophysical equipment page covering MBES Kongsberg EM2040P, MBES EM304, and Sercel 428 acquisition support.'],
+      ['.equipment-page .preloader-inner p', 'Preparing geophysical equipment'],
+      ['.equipment-hero .kicker', 'Geophysical Equipment'],
+      ['.equipment-hero h1', 'Geophysical equipment prepared for acquisition and data control.'],
+      ['.equipment-hero-copy>p:not(.kicker)', 'Bathymetry, seabed mapping, seismic acquisition, and onboard QC systems support reliable marine geophysical survey delivery.'],
+      ['.equipment-overview-copy h2', 'Acquisition systems selected around data objective, water depth, and survey workflow.'],
+      ['.equipment-overview-copy>p:not(.kicker)', 'Before mobilization, the team reviews the survey method, sensor configuration, positioning requirement, acquisition monitoring, QC process, and data delivery workflow.'],
+      ['.equipment-family-card>p', 'Geophysical Equipment'],
+      ['.equipment-family-card a:nth-child(1)', '<span>01</span>MBES Kongsberg EM2040P', 'html'],
+      ['.equipment-family-card a:nth-child(2)', '<span>02</span>MBES EM304', 'html'],
+      ['.equipment-family-card a:nth-child(3)', '<span>03</span>Sercel 428', 'html'],
+      ['.equipment-directory-head h2', 'Geophysical systems explained by acquisition role and field control.'],
+      ['#mbes-em2040p .equipment-detail-index', '01 / Ultra-high resolution multibeam'],
+      ['#mbes-em304 .equipment-detail-index', '02 / Bathymetry and seabed mapping'],
+      ['#sercel-428 .equipment-detail-index', '03 / Geophysical acquisition workflow']
+    ]
+  },
+  id: {
+    geotechnical: [
+      ['title', 'Peralatan Geoteknik | Taka Hydrocore Indonesia'],
+      ['meta[name="description"]', 'Halaman peralatan geoteknik PT Taka Hydrocore Indonesia mencakup seabed CPT, vibrocore, piston corer, box core, grab sampler, drill rig, A-frame, dan dukungan laboratorium tanah.'],
+      ['.equipment-page .preloader-inner p', 'Menyiapkan peralatan geoteknik'],
+      ['.equipment-hero .kicker', 'Peralatan Geoteknik'],
+      ['.equipment-hero h1', 'Peralatan geoteknik untuk pekerjaan investigasi tanah.'],
+      ['.equipment-hero-copy>p:not(.kicker)', 'Sistem seabed CPT, sampling, coring, dukungan pengeboran, deck handling, dan pengujian laboratorium disiapkan sesuai kondisi site dan scope investigasi.'],
+      ['.equipment-overview-copy h2', 'Peralatan dipilih berdasarkan target tanah, akses, metode sampling, dan workflow handling.'],
+      ['.equipment-overview-copy>p:not(.kicker)', 'Sebelum mobilisasi, tim meninjau kedalaman air, target tanah, kebutuhan sampling, metode rig-up, rencana lifting, handling sampel, rencana laboratorium, dan workflow pelaporan.'],
+      ['.equipment-family-card>p', 'Peralatan Geoteknik'],
+      ['.equipment-family-card a:nth-child(1)', '<span>01</span>CPT Manta 200', 'html'],
+      ['.equipment-family-card a:nth-child(2)', '<span>02</span>Vibrocore System', 'html'],
+      ['.equipment-family-card a:nth-child(3)', '<span>03</span>FT520 Piston Corer', 'html'],
+      ['.equipment-family-card a:nth-child(4)', '<span>04</span>Box Core with T-Bar', 'html'],
+      ['.equipment-family-card a:nth-child(5)', '<span>05</span>Grab Sampler', 'html'],
+      ['.equipment-family-card a:nth-child(6)', '<span>06</span>Drill Rig TH-25M', 'html'],
+      ['.equipment-family-card a:nth-child(7)', '<span>07</span>THI A-Frame 24T', 'html'],
+      ['.equipment-family-card a:nth-child(8)', '<span>08</span>Laboratorium Tanah & Geoteknik', 'html'],
+      ['.equipment-directory-head h2', 'Sistem geoteknik dijelaskan berdasarkan peran lapangan dan workflow persiapan.'],
+      ['#drill-rig-th25m .equipment-detail-index', '06 / Dukungan geoteknik dan eksplorasi'],
+      ['#a-frame-24t .equipment-detail-index', '07 / Dukungan deployment dan recovery'],
+      ['#soil-geotechnical-lab .equipment-detail-index', '08 / Pengujian tanah dan dokumentasi']
+    ],
+    geophysical: [
+      ['title', 'Peralatan Geofisika | Taka Hydrocore Indonesia'],
+      ['meta[name="description"]', 'Halaman peralatan geofisika PT Taka Hydrocore Indonesia mencakup MBES Kongsberg EM2040P, MBES EM304, dan dukungan akuisisi Sercel 428.'],
+      ['.equipment-page .preloader-inner p', 'Menyiapkan peralatan geofisika'],
+      ['.equipment-hero .kicker', 'Peralatan Geofisika'],
+      ['.equipment-hero h1', 'Peralatan geofisika untuk akuisisi dan kontrol data.'],
+      ['.equipment-hero-copy>p:not(.kicker)', 'Bathymetry, pemetaan seabed, akuisisi seismik, dan sistem QC onboard mendukung delivery survei geofisika marine yang andal.'],
+      ['.equipment-overview-copy h2', 'Sistem akuisisi dipilih berdasarkan objektif data, kedalaman air, dan workflow survei.'],
+      ['.equipment-overview-copy>p:not(.kicker)', 'Sebelum mobilisasi, tim meninjau metode survei, konfigurasi sensor, kebutuhan positioning, monitoring akuisisi, proses QC, dan workflow delivery data.'],
+      ['.equipment-family-card>p', 'Peralatan Geofisika'],
+      ['.equipment-family-card a:nth-child(1)', '<span>01</span>MBES Kongsberg EM2040P', 'html'],
+      ['.equipment-family-card a:nth-child(2)', '<span>02</span>MBES EM304', 'html'],
+      ['.equipment-family-card a:nth-child(3)', '<span>03</span>Sercel 428', 'html'],
+      ['.equipment-directory-head h2', 'Sistem geofisika dijelaskan berdasarkan peran akuisisi dan kontrol lapangan.'],
+      ['#mbes-em2040p .equipment-detail-index', '01 / Multibeam resolusi sangat tinggi'],
+      ['#mbes-em304 .equipment-detail-index', '02 / Bathymetry dan pemetaan seabed'],
+      ['#sercel-428 .equipment-detail-index', '03 / Workflow akuisisi geofisika']
+    ]
+  }
+};
+
 const applyEquipmentPageLanguage = (language) => {
   if (!document.body.classList.contains('equipment-page')) return;
   const translations = equipmentPageTranslations[language] || equipmentPageTranslations.en;
   translations.forEach(([selector, content, mode]) => setElementContent(selector, content, mode));
   const overrides = equipmentPageTranslationOverrides[language] || equipmentPageTranslationOverrides.en;
   overrides.forEach(([selector, content, mode]) => setElementContent(selector, content, mode));
+  const groupOverrides = equipmentPageTranslationOverridesV2[language] || equipmentPageTranslationOverridesV2.en;
+  groupOverrides.forEach(([selector, content, mode]) => setElementContent(selector, content, mode));
+  const splitType = document.body.classList.contains('equipment-geotechnical-page')
+    ? 'geotechnical'
+    : document.body.classList.contains('equipment-geophysical-page')
+      ? 'geophysical'
+      : '';
+  if (splitType) {
+    const splitOverrides = equipmentSplitPageTranslationOverrides[language]?.[splitType] || equipmentSplitPageTranslationOverrides.en[splitType];
+    splitOverrides.forEach(([selector, content, mode]) => setElementContent(selector, content, mode));
+  }
 };
 
 const vesselPageTranslations = {
@@ -1422,7 +1639,7 @@ const projectPageTranslations = {
     ['#marine-geophysical-other-projects li:nth-child(6)', 'Geophysical logging, pumping test, slug test, and basic geotechnical engineering support.'],
     ['#marine-geophysical-other-projects a', 'View service <span>→</span>', 'html'],
     ['#seabed-drilling-projects .project-service-index', '08 / Seabed Geotechnical'],
-    ['#seabed-drilling-projects h3', 'Seabed Geotechnical Drilling'],
+    ['#seabed-drilling-projects h3', 'Seabed Geotechnical'],
     ['#seabed-drilling-projects .project-service-body>p', 'Direct seabed investigation using Seabed CPT and Vibrocore systems where recovered sediment and near-seabed soil behavior are required.'],
     ['#seabed-drilling-projects li:nth-child(1)', '<button class="project-list-trigger" data-modal="karimun-modal">Geophysical and Vibrocore Survey Works at Karimun Besar Island, Riau Islands - 2025</button>', 'html'],
     ['#seabed-drilling-projects li:nth-child(2)', 'Sand sources investigation in Banten - PT Hydrocore for Boskalis International Indonesia, 2025'],
@@ -1521,7 +1738,7 @@ const projectPageTranslations = {
     ['#marine-geophysical-other-projects li:nth-child(6)', 'Dukungan geophysical logging, pumping test, slug test, dan basic geotechnical engineering.'],
     ['#marine-geophysical-other-projects a', 'Lihat layanan <span>→</span>', 'html'],
     ['#seabed-drilling-projects .project-service-index', '08 / Geoteknik Seabed'],
-    ['#seabed-drilling-projects h3', 'Pengeboran Geoteknik Seabed'],
+    ['#seabed-drilling-projects h3', 'Geoteknik Seabed'],
     ['#seabed-drilling-projects .project-service-body>p', 'Investigasi seabed langsung menggunakan sistem Seabed CPT dan Vibrocore ketika recovered sediment dan perilaku tanah dekat seabed diperlukan.'],
     ['#seabed-drilling-projects li:nth-child(1)', '<button class="project-list-trigger" data-modal="karimun-modal">Geophysical and Vibrocore Survey Works di Pulau Karimun Besar, Kepulauan Riau - 2025</button>', 'html'],
     ['#seabed-drilling-projects li:nth-child(2)', 'Sand sources investigation di Banten - PT Hydrocore untuk Boskalis International Indonesia, 2025'],
