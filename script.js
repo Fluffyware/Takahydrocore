@@ -199,29 +199,31 @@ const staticTranslations = [
   ['.service-onshore h3', 'Onshore Geotechnical Survey', 'Survei Geoteknik Onshore'],
   ['.service-onshore div>p:last-child', 'SPT, CPT, pressuremeter, field vane shear, sampling, and laboratory-backed soil investigation for land projects.', 'SPT, CPT, pressuremeter, field vane shear, sampling, dan investigasi tanah berbasis laboratorium untuk proyek darat.'],
   ['#qhse > .section-label', '<span>03</span> QHSE', '<span>03</span> QHSE', 'html'],
-  ['.qhse-dossier-head .kicker', 'Health, Safety and Environment', 'Kesehatan, Keselamatan, dan Lingkungan'],
-  ['.qhse-dossier-head h2', 'Prepared, checked, and controlled before work starts.', 'Disiapkan, diperiksa, dan dikendalikan sebelum pekerjaan dimulai.'],
-  ['.qhse-dossier-head>p', 'QHSE at THI is handled as field discipline: people are briefed, equipment is checked, critical gear is verified, and every scope is documented before execution.', 'QHSE di THI dijalankan sebagai disiplin lapangan: personel di-briefing, peralatan diperiksa, alat kritis diverifikasi, dan setiap scope didokumentasikan sebelum eksekusi.'],
-  ['.qhse-visual figcaption span', 'Field readiness', 'Kesiapan lapangan'],
-  ['.qhse-visual figcaption strong', 'Safe execution starts with practical controls that crews can follow on site.', 'Eksekusi aman dimulai dari kontrol praktis yang bisa dijalankan kru di lapangan.'],
-  ['.qhse-register-title span', 'QHSE controls', 'Kontrol QHSE'],
-  ['.qhse-register-title strong', 'Simple checks, clear responsibility', 'Pemeriksaan sederhana, tanggung jawab jelas'],
-  ['.qhse-checklist article:nth-child(1) strong', 'People readiness', 'Kesiapan personel'],
-  ['.qhse-checklist article:nth-child(1) p', 'Crews are briefed, fit to work, and aligned on the work method before activity begins.', 'Kru di-briefing, fit to work, dan memahami metode kerja sebelum aktivitas dimulai.'],
-  ['.qhse-checklist article:nth-child(2) strong', 'Equipment assurance', 'Jaminan peralatan'],
-  ['.qhse-checklist article:nth-child(2) p', 'Critical equipment is inspected, maintained, and load tested before mobilization.', 'Peralatan kritis diperiksa, dirawat, dan diuji beban sebelum mobilisasi.'],
-  ['.qhse-checklist article:nth-child(3) strong', 'Worksite control', 'Kontrol area kerja'],
-  ['.qhse-checklist article:nth-child(3) p', 'Hazards, access, lifting, marine activity, and emergency response are reviewed with the site team.', 'Bahaya, akses, lifting, aktivitas marine, dan respons darurat ditinjau bersama tim site.'],
-  ['.qhse-checklist article:nth-child(4) strong', 'Documented execution', 'Eksekusi terdokumentasi'],
-  ['.qhse-checklist article:nth-child(4) p', 'Records, certificates, toolbox talks, and reporting are kept visible throughout the job.', 'Catatan, sertifikat, toolbox talk, dan pelaporan dijaga tetap tersedia sepanjang pekerjaan.'],
-  ['.qhse-control-points>div:nth-child(1) strong', 'Plan the work', 'Rencanakan pekerjaan'],
-  ['.qhse-control-points>div:nth-child(1) p', 'Define the scope, method, crew, equipment, and HSE requirements before mobilization.', 'Tentukan scope, metode, kru, peralatan, dan kebutuhan HSE sebelum mobilisasi.'],
-  ['.qhse-control-points>div:nth-child(2) strong', 'Brief the crew', 'Briefing kru'],
-  ['.qhse-control-points>div:nth-child(2) p', 'Align field personnel through toolbox talks, risk review, and role clarity.', 'Selaraskan personel lapangan melalui toolbox talk, review risiko, dan kejelasan peran.'],
-  ['.qhse-control-points>div:nth-child(3) strong', 'Verify controls', 'Verifikasi kontrol'],
-  ['.qhse-control-points>div:nth-child(3) p', 'Check equipment, permits, lifting gear, emergency setup, and worksite readiness.', 'Periksa peralatan, izin, lifting gear, kesiapan darurat, dan area kerja.'],
-  ['.qhse-control-points>div:nth-child(4) strong', 'Record the result', 'Catat hasilnya'],
-  ['.qhse-control-points>div:nth-child(4) p', 'Keep reports, observations, and close-out notes ready for project review.', 'Siapkan laporan, observasi, dan catatan close-out untuk review proyek.'],
+  ['.home-qhse .qhse-dossier-head .kicker', 'Field Discipline', 'Disiplin Lapangan'],
+  ['.home-qhse .qhse-dossier-head h2', 'QHSE is managed where the work happens.', 'QHSE dikelola di tempat pekerjaan berlangsung.'],
+  ['.home-qhse .qhse-dossier-head>p', 'For Taka Hydrocore, QHSE is part of daily field control: method review, toolbox meeting, permit readiness, equipment assurance, emergency response, and close-out records.', 'Bagi Taka Hydrocore, QHSE adalah bagian dari kontrol lapangan harian: peninjauan metode, toolbox meeting, kesiapan izin, jaminan peralatan, respons darurat, dan catatan close-out.'],
+  ['.home-qhse .qhse-visual figcaption span', 'Deck briefing', 'Briefing dek'],
+  ['.home-qhse .qhse-visual figcaption strong', 'Crew, method, tools, and worksite controls are reviewed before execution begins.', 'Kru, metode, alat, dan kontrol area kerja ditinjau sebelum eksekusi dimulai.'],
+  ['.home-qhse .qhse-register-title span', 'Field control board', 'Papan kontrol lapangan'],
+  ['.home-qhse .qhse-register-title strong', 'What gets checked before work starts', 'Hal yang diperiksa sebelum pekerjaan dimulai'],
+  ['.home-qhse .qhse-checklist article:nth-child(1) strong', 'Crew & responsibility', 'Kru & tanggung jawab'],
+  ['.home-qhse .qhse-checklist article:nth-child(1) p', 'Role, task, risk, and communication line are confirmed with the site team.', 'Peran, tugas, risiko, dan jalur komunikasi dikonfirmasi bersama tim site.'],
+  ['.home-qhse .qhse-checklist article:nth-child(2) strong', 'Equipment & certificates', 'Peralatan & sertifikat'],
+  ['.home-qhse .qhse-checklist article:nth-child(2) p', 'Critical tools, lifting gear, and support equipment are checked before use.', 'Alat kritis, lifting gear, dan peralatan pendukung diperiksa sebelum digunakan.'],
+  ['.home-qhse .qhse-checklist article:nth-child(3) strong', 'Permit & work area', 'Izin & area kerja'],
+  ['.home-qhse .qhse-checklist article:nth-child(3) p', 'Access, SIMOPS, lifting activity, weather, and emergency readiness are reviewed on site.', 'Akses, SIMOPS, aktivitas lifting, cuaca, dan kesiapan darurat ditinjau di site.'],
+  ['.home-qhse .qhse-checklist article:nth-child(4) strong', 'Records & close-out', 'Catatan & close-out'],
+  ['.home-qhse .qhse-checklist article:nth-child(4) p', 'Toolbox talks, inspection notes, observations, and handover records stay traceable.', 'Toolbox talk, catatan inspeksi, observasi, dan handover tetap tertelusur.'],
+  ['.home-qhse-links a:nth-child(1)', 'Quality Management System <span>→</span>', 'Sistem Manajemen Mutu <span>→</span>', 'html'],
+  ['.home-qhse-links a:nth-child(2)', 'Health, Safety & Environment <span>→</span>', 'Kesehatan, Keselamatan & Lingkungan <span>→</span>', 'html'],
+  ['.home-qhse .qhse-control-points>div:nth-child(1) strong', 'Management system', 'Sistem manajemen'],
+  ['.home-qhse .qhse-control-points>div:nth-child(1) p', 'Policy, procedure, ISO, SMK3, and project records stay accessible for client review.', 'Policy, prosedur, ISO, SMK3, dan catatan proyek tetap siap untuk review klien.'],
+  ['.home-qhse .qhse-control-points>div:nth-child(2) strong', 'Site preparation', 'Persiapan site'],
+  ['.home-qhse .qhse-control-points>div:nth-child(2) p', 'Toolbox meeting, risk review, permit, emergency response, and communication are aligned.', 'Toolbox meeting, review risiko, izin, respons darurat, dan komunikasi diselaraskan.'],
+  ['.home-qhse .qhse-control-points>div:nth-child(3) strong', 'Equipment assurance', 'Jaminan peralatan'],
+  ['.home-qhse .qhse-control-points>div:nth-child(3) p', 'Lifting gear, survey tools, drilling equipment, and field assets are checked before mobilization.', 'Lifting gear, alat survei, peralatan pengeboran, dan aset lapangan diperiksa sebelum mobilisasi.'],
+  ['.home-qhse .qhse-control-points>div:nth-child(4) strong', 'Continuous improvement', 'Perbaikan berkelanjutan'],
+  ['.home-qhse .qhse-control-points>div:nth-child(4) p', 'Observation, audit note, lesson learned, and close-out are reviewed for the next work.', 'Observasi, catatan audit, lesson learned, dan close-out ditinjau untuk pekerjaan berikutnya.'],
   ['#projects > .section-label', '<span>04</span> Projects', '<span>04</span> Proyek', 'html'],
   ['.projects-heading .light-text', 'Selected work', 'Pekerjaan pilihan'],
   ['.projects-heading h2', 'Field-proven experience by service discipline.', 'Pengalaman lapangan berdasarkan disiplin layanan.'],
@@ -3253,11 +3255,38 @@ vesselDetailButton?.addEventListener('click', (event) => {
 vesselModal?.querySelectorAll('.vessel-modal-close, .vessel-modal-backdrop')
   .forEach((button) => button.addEventListener('click', closeVesselModal));
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-}, { threshold: 0.12 });
+const revealElements = [...document.querySelectorAll('.reveal')];
+const revealElement = (element) => {
+  element.classList.add('visible');
+  observer?.unobserve(element);
+};
+const shouldRevealNow = (element) => {
+  const rect = element.getBoundingClientRect();
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+  return rect.top < viewportHeight * 0.92 && rect.bottom > viewportHeight * -0.18;
+};
+const observer = 'IntersectionObserver' in window
+  ? new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting && entry.intersectionRatio <= 0) return;
+      revealElement(entry.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.01 })
+  : null;
 
-document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+const updateRevealElements = () => {
+  revealElements.forEach((element) => {
+    if (element.classList.contains('visible')) return;
+    if (shouldRevealNow(element)) revealElement(element);
+  });
+};
+
+revealElements.forEach((element) => {
+  if (observer) observer.observe(element);
+});
+updateRevealElements();
+window.addEventListener('scroll', updateRevealElements, { passive: true });
+window.addEventListener('resize', updateRevealElements);
 
 const projectData = {
   angola: {
@@ -3495,6 +3524,45 @@ document.querySelectorAll('[data-feature-gallery]').forEach((gallery) => {
       if (event.key !== 'Enter' && event.key !== ' ') return;
       event.preventDefault();
       selectItem(item);
+    });
+  });
+});
+
+document.querySelectorAll('[data-career-activity-board]').forEach((board) => {
+  const main = board.querySelector('.career-activity-main');
+  const mainImage = board.querySelector('[data-career-activity-image]');
+  const mainLabel = board.querySelector('[data-career-activity-label]');
+  const mainTitle = board.querySelector('[data-career-activity-title]');
+  const items = [...board.querySelectorAll('[data-activity-src]')];
+
+  const selectActivity = (item) => {
+    if (!main || !mainImage || !mainLabel || !mainTitle || item.classList.contains('is-active')) return;
+
+    items.forEach((activity) => {
+      const isActive = activity === item;
+      activity.classList.toggle('is-active', isActive);
+      activity.setAttribute('aria-pressed', String(isActive));
+    });
+
+    main.classList.remove('is-revealing');
+    main.classList.add('is-switching');
+    window.setTimeout(() => {
+      mainImage.src = item.dataset.activitySrc || mainImage.src;
+      mainImage.alt = item.dataset.activityAlt || '';
+      mainLabel.textContent = item.dataset.activityLabel || '';
+      mainTitle.textContent = item.dataset.activityTitle || '';
+      main.classList.remove('is-switching');
+      main.classList.add('is-revealing');
+      window.setTimeout(() => main.classList.remove('is-revealing'), reduceMotion.matches ? 0 : 620);
+    }, reduceMotion.matches ? 0 : 280);
+  };
+
+  items.forEach((item) => {
+    item.addEventListener('click', () => selectActivity(item));
+    item.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      selectActivity(item);
     });
   });
 });

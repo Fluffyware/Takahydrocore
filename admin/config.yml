@@ -70,7 +70,21 @@ collections:
                   - { label: "Office", value: "office" }
                 default: "field"
               - { label: "Area", name: "area", widget: "string" }
-              - { label: "Department", name: "department", widget: "string" }
+              - label: "Department"
+                name: "department"
+                widget: "select"
+                options:
+                  - "Human Resources"
+                  - "General Affair"
+                  - "Geotechnical Operation"
+                  - "Geophysical"
+                  - "Facility"
+                  - "Engineering"
+                  - "Project Control & Commercial"
+                  - "QHSE"
+                  - "Finance & Accounting"
+                  - "Procurement"
+                  - "Marketing & Client Relations"
               - { label: "Location", name: "location", widget: "string", default: "Office / Site" }
               - { label: "Google Form Apply URL", name: "apply_url", widget: "string", required: false, hint: "Paste the full Google Form link used by the Apply Now button." }
               - { label: "Summary", name: "summary", widget: "text" }

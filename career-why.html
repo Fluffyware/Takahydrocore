@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800;900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=career-sigap-icons-v4">
+  <link rel="stylesheet" href="styles.css?v=career-activity-motion-v1">
 </head>
 
 <body class="is-loading career-page career-subpage">
@@ -197,20 +197,35 @@
       <div class="career-section-label reveal">04 / Activities</div>
       <div class="career-section-head reveal">
         <p>Team moments</p>
-        <h2>Shared activities that keep the team connected, prepared, and ready for field work.</h2>
+        <h2>Regular team activities that keep people connected, learning, and ready for the field.</h2>
       </div>
-      <div class="career-activity-board reveal">
+      <div class="career-activity-board reveal" data-career-activity-board>
         <figure class="career-activity-main">
-          <img src="assets/hse/source/ini bagus diatas kapal lagi bikin lingkaran.jpeg"
-            alt="THI team activity on vessel deck" loading="lazy">
+          <img class="career-activity-current" src="assets/career/weekly-sharing-session.png" data-career-activity-image
+            alt="THI weekly sharing session at the office" loading="lazy">
           <figcaption>
-            <span>Culture in practice</span>
-            <strong>Not every moment is about task execution. Some moments are built to align people, build trust, and
-              prepare the team for demanding sites.</strong>
+            <span data-career-activity-label>Weekly sharing session</span>
+            <strong data-career-activity-title>Weekly sharing session for knowledge exchange and team alignment.</strong>
           </figcaption>
         </figure>
         <div class="career-activity-stories">
-          <article>
+          <article class="is-active" role="button" tabindex="0" aria-pressed="true"
+            data-activity-src="assets/career/weekly-sharing-session.png"
+            data-activity-alt="THI weekly sharing session at the office"
+            data-activity-label="Weekly sharing session"
+            data-activity-title="Weekly sharing session for knowledge exchange and team alignment.">
+            <img src="assets/career/weekly-sharing-session.png"
+              alt="THI weekly sharing session at the office" loading="lazy">
+            <div>
+              <span>Weekly sharing</span>
+              <h3>Knowledge exchange and team alignment in a regular office session.</h3>
+            </div>
+          </article>
+          <article role="button" tabindex="0" aria-pressed="false"
+            data-activity-src="assets/field-operations/source/lagi ngumpul kurang hd tapi.jpeg"
+            data-activity-alt="THI team gathering before activity"
+            data-activity-label="Connection"
+            data-activity-title="Creating space for people to know each other beyond their roles.">
             <img src="assets/field-operations/source/lagi ngumpul kurang hd tapi.jpeg"
               alt="THI team gathering before activity" loading="lazy">
             <div>
@@ -218,7 +233,11 @@
               <h3>Creating space for people to know each other beyond their roles.</h3>
             </div>
           </article>
-          <article>
+          <article role="button" tabindex="0" aria-pressed="false"
+            data-activity-src="assets/PDM/WhatsApp Image 2025-12-31 at 10.33.00 AM.jpeg"
+            data-activity-alt="THI team discussion and learning session"
+            data-activity-label="Learning"
+            data-activity-title="Sharing practical knowledge so teams stay familiar with standards and expectations.">
             <img src="assets/PDM/WhatsApp Image 2025-12-31 at 10.33.00 AM.jpeg"
               alt="THI team discussion and learning session" loading="lazy">
             <div>
@@ -226,7 +245,11 @@
               <h3>Sharing practical knowledge so teams stay familiar with standards and expectations.</h3>
             </div>
           </article>
-          <article>
+          <article role="button" tabindex="0" aria-pressed="false"
+            data-activity-src="assets/hse/source/ini bagus nih lagi berbaris di atas kapal.jpeg"
+            data-activity-alt="THI team readiness activity"
+            data-activity-label="Readiness"
+            data-activity-title="Building routines that help teams move with discipline before work begins.">
             <img src="assets/hse/source/ini bagus nih lagi berbaris di atas kapal.jpeg"
               alt="THI team readiness activity" loading="lazy">
             <div>
@@ -273,9 +296,6 @@
           <img src="assets/taka-navbar-logo.png" alt="TAKA Hydrocore Logo" width="500" height="108">
           <span>Career</span>
         </a>
-        <p>Career information for people who want to understand departments, job fields, internship paths, and future
-          opportunities at PT Taka Hydrocore Indonesia.</p>
-        <a class="career-footer-cta" href="career-apply.html">Submit CV <span>-></span></a>
       </div>
       <div class="career-footer-group">
         <h3>Career Pages</h3>
@@ -303,7 +323,7 @@
     </div>
   </footer>
 
-  <script src="script.js?v=career-polish24"></script>
+  <script src="script.js?v=reveal-fix-v1"></script>
 </body>
 
 </html>
