@@ -3567,6 +3567,45 @@ document.querySelectorAll('[data-career-activity-board]').forEach((board) => {
   });
 });
 
+document.querySelectorAll('[data-intern-voice-slider]').forEach((slider) => {
+  const panels = [...slider.querySelectorAll('[data-intern-voice-panel]')];
+  const triggers = [...slider.querySelectorAll('[data-intern-voice-trigger]')];
+  if (!panels.length || !triggers.length) return;
+
+  let activeIndex = Math.max(0, panels.findIndex((panel) => panel.classList.contains('is-active')));
+  let timer;
+
+  const selectVoice = (index) => {
+    activeIndex = (index + panels.length) % panels.length;
+    panels.forEach((panel, panelIndex) => {
+      panel.classList.toggle('is-active', panelIndex === activeIndex);
+    });
+    triggers.forEach((trigger, triggerIndex) => {
+      const isActive = triggerIndex === activeIndex;
+      trigger.classList.toggle('is-active', isActive);
+      trigger.setAttribute('aria-pressed', String(isActive));
+    });
+  };
+
+  const startAuto = () => {
+    if (reduceMotion.matches) return;
+    window.clearInterval(timer);
+    timer = window.setInterval(() => selectVoice(activeIndex + 1), 5200);
+  };
+
+  triggers.forEach((trigger, index) => {
+    trigger.addEventListener('click', () => {
+      selectVoice(index);
+      startAuto();
+    });
+  });
+
+  slider.addEventListener('mouseenter', () => window.clearInterval(timer));
+  slider.addEventListener('mouseleave', startAuto);
+  selectVoice(activeIndex);
+  startAuto();
+});
+
 applyLanguage(activeLanguage, false);
 initCmsNews();
 initCmsJobs();
