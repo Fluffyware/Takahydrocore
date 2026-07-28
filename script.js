@@ -1,28 +1,44 @@
 const preloader = document.querySelector('#site-preloader');
 const preloadStartedAt = performance.now();
-const preloadMinimumMs = 850;
-const preloadMaximumMs = 4200;
+const preloadMinimumMs = 520;
+const preloadMaximumMs = 1600;
+let preloaderFinished = false;
 
-const extractImageUrl = (value) => {
-  const match = value && value.match(/url\((['"]?)(.*?)\1\)/);
-  return match ? match[2] : '';
+const optimizeImageLoading = () => {
+  document.querySelectorAll('img').forEach((image) => {
+    const isCritical = Boolean(image.closest('.site-preloader, .site-header, .hero, .career-index-hero, .career-hero, .career-life-hero, .career-dept-hero, .career-jobs-hero, .qhse-page-hero, .services-hero, .equipment-hero, .vessel-hero, .project-page-hero, .contact-page-hero, .news-page-hero, .board-hero, .profile-hero'));
+    image.decoding = 'async';
+    if (isCritical || image.loading === 'eager') {
+      image.loading = image.loading || 'eager';
+      image.setAttribute('fetchpriority', 'high');
+      return;
+    }
+    image.loading = 'lazy';
+    image.setAttribute('fetchpriority', 'low');
+  });
 };
 
-const mediaUrls = new Set([
-  ...[...document.images].map((image) => image.dataset.fallbackSrc || image.currentSrc || image.src),
-  ...[...document.querySelectorAll('.hero-slide')].map((slide) => extractImageUrl(slide.style.getPropertyValue('--hero-image'))),
-  ...[...document.querySelectorAll('.fleet-image-layer')].map((layer) => extractImageUrl(layer.style.backgroundImage))
-].filter(Boolean));
+const ensureVideoLoaded = (video) => {
+  if (!video) return;
+  if (!video.getAttribute('src') && video.dataset.src) {
+    video.src = video.dataset.src;
+    video.load();
+  }
+};
 
-const preloadImage = (url) => new Promise((resolve) => {
-  const image = new Image();
-  image.onload = resolve;
-  image.onerror = resolve;
-  image.src = url;
-  if (image.decode) image.decode().then(resolve).catch(resolve);
-});
+optimizeImageLoading();
+
+if ('MutationObserver' in window) {
+  new MutationObserver((mutations) => {
+    if (mutations.some((mutation) => [...mutation.addedNodes].some((node) => node.nodeType === 1 && (node.matches?.('img') || node.querySelector?.('img'))))) {
+      optimizeImageLoading();
+    }
+  }).observe(document.documentElement, { childList: true, subtree: true });
+}
 
 const finishPreload = () => {
+  if (preloaderFinished) return;
+  preloaderFinished = true;
   const elapsed = performance.now() - preloadStartedAt;
   const wait = Math.max(0, preloadMinimumMs - elapsed);
   window.setTimeout(() => {
@@ -34,13 +50,12 @@ const finishPreload = () => {
 };
 
 if (preloader) {
-  Promise.race([
-    Promise.allSettled([...mediaUrls].map(preloadImage)),
-    new Promise((resolve) => window.setTimeout(resolve, preloadMaximumMs))
-  ]).then(() => {
-    if (document.readyState === 'complete') finishPreload();
-    else window.addEventListener('load', finishPreload, { once: true });
-  });
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', finishPreload, { once: true });
+  } else {
+    window.requestAnimationFrame(finishPreload);
+  }
+  window.setTimeout(finishPreload, preloadMaximumMs);
 } else {
   document.body.classList.add('is-ready');
 }
@@ -265,6 +280,8 @@ const staticTranslations = [
   ['.contact-info>div:nth-child(3) span', 'Email', 'Email'],
   ['#contact-form > label:nth-of-type(1) span', 'Project location', 'Lokasi proyek'],
   ['#contact-form > label:nth-of-type(2) span', 'Project brief', 'Ringkasan proyek'],
+  ['#contact-form input[name="location"]', 'Example: Java Sea, East Kalimantan, nearshore jetty area', 'Contoh: Laut Jawa, Kalimantan Timur, area jetty nearshore', 'placeholder'],
+  ['#contact-form textarea[name="message"]', 'Tell us the scope, target depth, water depth, schedule, access constraints, and expected deliverables.', 'Ceritakan lingkup pekerjaan, target kedalaman, kedalaman air, jadwal, kendala akses, dan deliverable yang dibutuhkan.', 'placeholder'],
   ['.form-row:nth-child(1) label:nth-child(1) span', 'Name', 'Nama'],
   ['.form-row:nth-child(1) label:nth-child(2) span', 'Email', 'Email'],
   ['.form-row:nth-child(2) label:nth-child(1) span', 'Company', 'Perusahaan'],
@@ -297,6 +314,8 @@ const setElementContent = (selector, content, mode = 'text') => {
   }
   document.querySelectorAll(selector).forEach((element) => {
     if (mode === 'html') element.innerHTML = content;
+    else if (mode === 'placeholder') element.setAttribute('placeholder', content);
+    else if (mode === 'title') element.setAttribute('title', content);
     else element.textContent = content;
   });
 };
@@ -337,7 +356,7 @@ const boardPageTranslations = {
     ['.board-hero-copy h1', 'Dewan Komisaris & Direksi'],
     ['.board-hero-copy>p:last-child', 'Profil tata kelola dan manajemen yang mewakili pengalaman operasional serta kepemimpinan bisnis PT Taka Hydrocore Indonesia.'],
     ['.board-section>.section-label', '<span>01</span> Pimpinan Perusahaan', 'html'],
-    ['.board-section-head .kicker', 'Profil Board'],
+    ['.board-section-head .kicker', 'Profil Pimpinan'],
     ['.board-section-head h2', 'Kepemimpinan dengan disiplin operasional yang jelas.'],
     ['.board-card:nth-child(1) .board-group', 'Dewan Komisaris'],
     ['.board-card:nth-child(1) .board-role', 'Presiden Komisaris'],
@@ -389,9 +408,9 @@ const applyBoardLanguage = (language) => {
       ['.board-hero-copy h1', 'Dewan Komisaris & Direksi'],
       ['.board-hero-copy>p:last-child', 'Profil tata kelola dan manajemen yang mewakili pengalaman operasional serta kepemimpinan bisnis PT Taka Hydrocore Indonesia.'],
       ['.board-section>.section-label', '<span>01</span> Pimpinan Perusahaan', 'html'],
-      ['.board-section-head .kicker', 'Profil Board'],
+      ['.board-section-head .kicker', 'Profil Pimpinan'],
       ['.board-section-head h2', 'Kepemimpinan dengan disiplin operasional yang jelas.'],
-      ['.board-section-head>p:not(.kicker)', 'Setiap anggota board ditampilkan dengan peran tata kelola, tanggung jawab manajemen, dan placeholder biografi ringkas untuk profil perusahaan resmi.'],
+      ['.board-section-head>p:not(.kicker)', 'Setiap anggota pimpinan ditampilkan dengan peran tata kelola, tanggung jawab manajemen, dan biografi ringkas untuk profil perusahaan resmi.'],
       ['.board-profile-group:nth-of-type(1) .board-group-title', 'Direksi'],
       ['.board-profile-group:nth-of-type(2) .board-group-title', 'Komisaris'],
       ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(1) .board-profile-name p', 'Direktur Utama'],
@@ -408,7 +427,7 @@ const applyBoardLanguage = (language) => {
 
 const companyProfilePageTranslations = {
   en: [
-    ['title', 'Company Profile | Taka Hydrocore Indonesia'],
+    ['title', 'Profil Perusahaan | Taka Hydrocore Indonesia'],
     ['meta[name="description"]', 'PT Taka Hydrocore Indonesia company profile for geotechnical and geophysical survey services.'],
     ['.company-profile-page .preloader-inner p', 'Preparing company profile'],
     ['.profile-hero-copy .kicker', 'Company Profile'],
@@ -521,8 +540,8 @@ const companyProfilePageTranslations = {
   id: [
     ['title', 'Company Profile | Taka Hydrocore Indonesia'],
     ['meta[name="description"]', 'Profil perusahaan PT Taka Hydrocore Indonesia untuk layanan survei geoteknik dan geofisika.'],
-    ['.company-profile-page .preloader-inner p', 'Menyiapkan company profile'],
-    ['.profile-hero-copy .kicker', 'Company Profile'],
+    ['.company-profile-page .preloader-inner p', 'Menyiapkan profil perusahaan'],
+    ['.profile-hero-copy .kicker', 'Profil Perusahaan'],
     ['.profile-hero h1', 'Layanan survei geoteknik dan geofisika.'],
     ['.profile-hero-copy>p:not(.kicker)', 'PT Taka Hydrocore Indonesia mengintegrasikan kapabilitas offshore, nearshore, onshore, laboratorium, dan kapal survei untuk dukungan survei bawah permukaan dan engineering.'],
     ['.profile-hero-footprint span', 'Jejak operasional'],
@@ -565,7 +584,7 @@ const companyProfilePageTranslations = {
     ['.profile-compliance-note span', 'Kapabilitas terdaftar'],
     ['.profile-compliance-note p', 'Kredensial CIVD dan SKUP mendukung kapabilitas THI sebagai konsultan serta kontraktor eksplorasi minyak dan gas.'],
     ['.profile-culture>.section-label', '<span>03</span> Budaya Perusahaan', 'html'],
-    ['.profile-culture .profile-section-head .kicker', 'Our Corporate Culture'],
+    ['.profile-culture .profile-section-head .kicker', 'Budaya Perusahaan Kami'],
     ['.profile-culture .profile-section-head h2', 'Nilai sederhana untuk eksekusi lapangan yang dapat diandalkan.'],
     ['.sigap-service h3', 'Service Excellence'],
     ['.sigap-service p', 'Melakukan pekerjaan terbaik setiap saat dan di mana pun.'],
@@ -603,7 +622,7 @@ const companyProfilePageTranslations = {
     ['.profile-service-scope p:nth-child(3)', '<strong>Onshore</strong><span>Pekerjaan geoteknik dan lingkungan berbasis darat yang mengikuti kondisi tanah dan logistik site.</span>', 'html'],
     ['.profile-service-scope p:nth-child(4)', '<strong>Support</strong><span>Kesiapan peralatan, kru lapangan, pengelolaan data, dan alur pelaporan dalam satu rencana eksekusi.</span>', 'html'],
     ['.profile-experience>.section-label', '<span>05</span> Pengalaman', 'html'],
-    ['.profile-experience-head .kicker', 'Extensive Experience'],
+    ['.profile-experience-head .kicker', 'Pengalaman Luas'],
     ['.profile-experience-head h2', 'Terbukti di pekerjaan geofisika, geoteknik, metocean, hidro-oseanografi, dan survei lingkungan.'],
     ['.profile-fleet>.section-label', '<span>05</span> Dukungan Operasional', 'html'],
     ['.profile-fleet .profile-section-head .kicker', 'Aset & Peralatan'],
@@ -625,8 +644,8 @@ const companyProfilePageTranslations = {
     ['.profile-lab-copy .kicker', 'Laboratorium Tanah & Geoteknik'],
     ['.profile-lab-copy h2', 'Kapabilitas laboratorium untuk mendukung interpretasi engineering yang andal.'],
     ['.profile-lab-copy>p:last-child', 'THI merujuk laboratorium tanah dan geoteknik di Ciputat, Tangerang Selatan, yang mendukung workflow pengujian indeks, kekuatan, konsolidasi, shear, dan pengujian geoteknik terkait.'],
-    ['.profile-customers>.section-label', '<span>07</span> Value Customers', 'html'],
-    ['.profile-customers .profile-section-head .kicker', 'Some of Our Value Customers'],
+    ['.profile-customers>.section-label', '<span>07</span> Klien Utama', 'html'],
+    ['.profile-customers .profile-section-head .kicker', 'Sebagian Klien Kami'],
     ['.profile-customers .profile-section-head h2', 'Dipercaya oleh mitra energi, infrastruktur, engineering, dan survei.']
   ]
 };
@@ -1505,6 +1524,210 @@ const applyVesselPageLanguage = (language) => {
   translations.forEach(([selector, content, mode]) => setElementContent(selector, content, mode));
 };
 
+const qualityPageTranslations = {
+  en: [
+    ['title', 'Quality & Management System | Taka Hydrocore Indonesia'],
+    ['meta[name="description"]', 'PT Taka Hydrocore Indonesia Quality and Management System page covering policy, compliance access, ISO certificates, SMK3, and document control.'],
+    ['.quality-page .preloader-inner p', 'Preparing management system'],
+    ['.quality-page .qhse-page-hero .kicker', 'Quality'],
+    ['.quality-page .qhse-page-hero h1', 'Management system access for client compliance review.'],
+    ['.quality-page .qhse-page-hero-copy>p:not(.kicker)', "THI organizes policy, certification, and quality control references so clients can review management system compliance without digging through project documents."],
+    ['.management-system-section>.section-label', '<span>01</span> Management System', 'html'],
+    ['.management-system-head .kicker', 'Compliance structure'],
+    ['.management-system-head h2', 'Policy, certification, and documented controls in one place.'],
+    ['.management-system-head>p', "The management system section is arranged around two access points: Policy / Kebijakan and Certification Management System. It helps project owners, partners, and client representatives quickly check THI's formal compliance references."],
+    ['.management-access-card:nth-child(1) strong', 'Policy / Kebijakan'],
+    ['.management-access-card:nth-child(1) p', 'QHSE Policy 2026, management commitments, and the policy points used as company guidance.'],
+    ['.management-access-card:nth-child(2) strong', 'Certification Management System'],
+    ['.management-access-card:nth-child(2) p', 'ISO and local certificate references supporting quality, safety, environment, and Indonesian compliance.'],
+    ['.quality-policy-section>.section-label', '<span>02</span> Policy / Kebijakan', 'html'],
+    ['.quality-policy-section .qhse-document-copy .kicker', 'QHSE Policy 2026'],
+    ['.quality-policy-section .qhse-document-copy h2', 'Eight commitments that guide the way THI manages work.'],
+    ['.quality-policy-section .qhse-document-copy>p:not(.kicker)', 'The policy connects quality, occupational health and safety, environmental control, compliance, continuous improvement, CSR, employee participation, and policy communication into one operating commitment.'],
+    ['.quality-policy-section .button b', 'Open policy document'],
+    ['.quality-policy-section figcaption a', 'Open full policy <span>↗</span>', 'html'],
+    ['.qhse-policy-points article:nth-child(1) h3', 'Management systems'],
+    ['.qhse-policy-points article:nth-child(1) p', 'Implement quality, occupational health and safety, and environmental systems aligned with ISO 9001, ISO 45001, and ISO 14001.'],
+    ['.qhse-policy-points article:nth-child(2) h3', 'Customer service'],
+    ['.qhse-policy-points article:nth-child(2) p', 'Respond quickly and accurately, pursue quality and reliability, and aim to meet or exceed customer expectations.'],
+    ['.qhse-policy-points article:nth-child(3) h3', 'Compliance'],
+    ['.qhse-policy-points article:nth-child(3) p', 'Comply with legislation and other requirements related to quality and occupational health and safety management.'],
+    ['.qhse-policy-points article:nth-child(4) h3', 'Continuous improvement'],
+    ['.qhse-policy-points article:nth-child(4) p', 'Improve through planning, implementation, reporting, and evaluation across company activities.'],
+    ['.qhse-policy-points article:nth-child(5) h3', 'Prevention'],
+    ['.qhse-policy-points article:nth-child(5) p', 'Prevent environmental pollution, climate impact, occupational accidents, work-related illness, and disease transmission risk.'],
+    ['.qhse-policy-points article:nth-child(6) h3', 'CSR participation'],
+    ['.qhse-policy-points article:nth-child(6) p', 'Support social responsibility through practical work opportunities, scholarships, sponsorship, and social activities.'],
+    ['.qhse-policy-points article:nth-child(7) h3', 'Participation'],
+    ['.qhse-policy-points article:nth-child(7) p', 'Encourage employee participation and consultation to create a safe, comfortable, and healthy workplace.'],
+    ['.qhse-policy-points article:nth-child(8) h3', 'Communication'],
+    ['.qhse-policy-points article:nth-child(8) p', 'Communicate company policy to employees and relevant external parties, with annual review by top management.'],
+    ['.qhse-certification-section>.section-label', '<span>03</span> Certification Management System', 'html'],
+    ['.qhse-certification-copy .kicker', 'Formal references'],
+    ['.qhse-certification-copy h2', 'Certificates prepared for client compliance review.'],
+    ['.qhse-certification-copy>p', 'THI keeps its management system references visible for tender, prequalification, project kick-off, and audit support. Certificate documents can be opened directly from this section.'],
+    ['.quality-page .qhse-iso-list article:nth-child(1) h3', 'Quality Management System'],
+    ['.quality-page .qhse-iso-list article:nth-child(1) p', 'Supports consistent service delivery, document control, quality assurance, and traceable project records.'],
+    ['.quality-page .qhse-iso-list article:nth-child(2) h3', 'Occupational Health & Safety Management System'],
+    ['.quality-page .qhse-iso-list article:nth-child(2) p', 'Supports personnel readiness, worksite discipline, incident prevention, and safer field execution.'],
+    ['.quality-page .qhse-iso-list article:nth-child(3) h3', 'Environmental Management System'],
+    ['.quality-page .qhse-iso-list article:nth-child(3) p', 'Supports environmental management practices, impact prevention, and site-level environmental control.'],
+    ['.quality-page .qhse-iso-list article:nth-child(4) h3', 'Indonesian Occupational Safety and Health Certificate'],
+    ['.quality-page .qhse-iso-list article:nth-child(4) p', 'Local SMK3 recognition for occupational safety and health management implementation in Indonesia.'],
+    ['.quality-page .qhse-iso-list a', 'Open certificate <span>↗</span>', 'html']
+  ],
+  id: [
+    ['title', 'Sistem Manajemen Mutu | Taka Hydrocore Indonesia'],
+    ['meta[name="description"]', 'Halaman Sistem Manajemen Mutu PT Taka Hydrocore Indonesia yang mencakup kebijakan, akses kepatuhan, sertifikat ISO, SMK3, dan kontrol dokumen.'],
+    ['.quality-page .preloader-inner p', 'Menyiapkan sistem manajemen'],
+    ['.quality-page .qhse-page-hero .kicker', 'Mutu'],
+    ['.quality-page .qhse-page-hero h1', 'Akses sistem manajemen untuk review kepatuhan klien.'],
+    ['.quality-page .qhse-page-hero-copy>p:not(.kicker)', 'THI menyusun referensi kebijakan, sertifikasi, dan kontrol mutu agar klien dapat meninjau kepatuhan sistem manajemen tanpa perlu mencari di dokumen proyek.'],
+    ['.management-system-section>.section-label', '<span>01</span> Sistem Manajemen', 'html'],
+    ['.management-system-head .kicker', 'Struktur kepatuhan'],
+    ['.management-system-head h2', 'Kebijakan, sertifikasi, dan kontrol terdokumentasi dalam satu tempat.'],
+    ['.management-system-head>p', 'Bagian sistem manajemen disusun menjadi dua akses utama: Policy / Kebijakan dan Certification Management System. Tujuannya membantu pemilik proyek, partner, dan perwakilan klien meninjau referensi kepatuhan formal THI dengan cepat.'],
+    ['.management-access-card:nth-child(1) strong', 'Policy / Kebijakan'],
+    ['.management-access-card:nth-child(1) p', 'QHSE Policy 2026, komitmen manajemen, dan poin kebijakan yang menjadi panduan perusahaan.'],
+    ['.management-access-card:nth-child(2) strong', 'Certification Management System'],
+    ['.management-access-card:nth-child(2) p', 'Referensi sertifikat ISO dan sertifikat lokal yang mendukung mutu, keselamatan, lingkungan, dan kepatuhan Indonesia.'],
+    ['.quality-policy-section>.section-label', '<span>02</span> Policy / Kebijakan', 'html'],
+    ['.quality-policy-section .qhse-document-copy .kicker', 'QHSE Policy 2026'],
+    ['.quality-policy-section .qhse-document-copy h2', 'Delapan komitmen yang memandu cara kerja THI.'],
+    ['.quality-policy-section .qhse-document-copy>p:not(.kicker)', 'Kebijakan ini menghubungkan mutu, kesehatan dan keselamatan kerja, kontrol lingkungan, kepatuhan, perbaikan berkelanjutan, CSR, partisipasi karyawan, dan komunikasi kebijakan dalam satu komitmen operasional.'],
+    ['.quality-policy-section .button b', 'Buka dokumen kebijakan'],
+    ['.quality-policy-section figcaption a', 'Buka kebijakan lengkap <span>↗</span>', 'html'],
+    ['.qhse-policy-points article:nth-child(1) h3', 'Sistem manajemen'],
+    ['.qhse-policy-points article:nth-child(1) p', 'Menerapkan sistem mutu, kesehatan dan keselamatan kerja, serta lingkungan yang selaras dengan ISO 9001, ISO 45001, dan ISO 14001.'],
+    ['.qhse-policy-points article:nth-child(2) h3', 'Layanan pelanggan'],
+    ['.qhse-policy-points article:nth-child(2) p', 'Merespons dengan cepat dan akurat, menjaga mutu serta keandalan, dan berupaya memenuhi atau melampaui ekspektasi pelanggan.'],
+    ['.qhse-policy-points article:nth-child(3) h3', 'Kepatuhan'],
+    ['.qhse-policy-points article:nth-child(3) p', 'Mematuhi peraturan dan persyaratan lain yang terkait dengan mutu serta manajemen kesehatan dan keselamatan kerja.'],
+    ['.qhse-policy-points article:nth-child(4) h3', 'Perbaikan berkelanjutan'],
+    ['.qhse-policy-points article:nth-child(4) p', 'Melakukan peningkatan melalui perencanaan, pelaksanaan, pelaporan, dan evaluasi di seluruh aktivitas perusahaan.'],
+    ['.qhse-policy-points article:nth-child(5) h3', 'Pencegahan'],
+    ['.qhse-policy-points article:nth-child(5) p', 'Mencegah pencemaran lingkungan, dampak iklim, kecelakaan kerja, penyakit akibat kerja, dan risiko penularan penyakit.'],
+    ['.qhse-policy-points article:nth-child(6) h3', 'Partisipasi CSR'],
+    ['.qhse-policy-points article:nth-child(6) p', 'Mendukung tanggung jawab sosial melalui kesempatan kerja praktik, beasiswa, sponsorship, dan kegiatan sosial.'],
+    ['.qhse-policy-points article:nth-child(7) h3', 'Partisipasi karyawan'],
+    ['.qhse-policy-points article:nth-child(7) p', 'Mendorong partisipasi dan konsultasi karyawan untuk menciptakan tempat kerja yang aman, nyaman, dan sehat.'],
+    ['.qhse-policy-points article:nth-child(8) h3', 'Komunikasi'],
+    ['.qhse-policy-points article:nth-child(8) p', 'Mengomunikasikan kebijakan perusahaan kepada karyawan dan pihak eksternal terkait, dengan tinjauan tahunan oleh manajemen puncak.'],
+    ['.qhse-certification-section>.section-label', '<span>03</span> Certification Management System', 'html'],
+    ['.qhse-certification-copy .kicker', 'Referensi formal'],
+    ['.qhse-certification-copy h2', 'Sertifikat yang disiapkan untuk review kepatuhan klien.'],
+    ['.qhse-certification-copy>p', 'THI menampilkan referensi sistem manajemen untuk kebutuhan tender, prequalification, project kick-off, dan dukungan audit. Dokumen sertifikat dapat dibuka langsung dari bagian ini.'],
+    ['.quality-page .qhse-iso-list article:nth-child(1) h3', 'Sistem Manajemen Mutu'],
+    ['.quality-page .qhse-iso-list article:nth-child(1) p', 'Mendukung konsistensi layanan, kontrol dokumen, jaminan mutu, dan catatan proyek yang tertelusur.'],
+    ['.quality-page .qhse-iso-list article:nth-child(2) h3', 'Sistem Manajemen Kesehatan & Keselamatan Kerja'],
+    ['.quality-page .qhse-iso-list article:nth-child(2) p', 'Mendukung kesiapan personel, disiplin area kerja, pencegahan insiden, dan eksekusi lapangan yang lebih aman.'],
+    ['.quality-page .qhse-iso-list article:nth-child(3) h3', 'Sistem Manajemen Lingkungan'],
+    ['.quality-page .qhse-iso-list article:nth-child(3) p', 'Mendukung praktik pengelolaan lingkungan, pencegahan dampak, dan kontrol lingkungan di tingkat site.'],
+    ['.quality-page .qhse-iso-list article:nth-child(4) h3', 'Sertifikat Sistem Manajemen K3 Indonesia'],
+    ['.quality-page .qhse-iso-list article:nth-child(4) p', 'Pengakuan SMK3 lokal untuk implementasi sistem manajemen keselamatan dan kesehatan kerja di Indonesia.'],
+    ['.quality-page .qhse-iso-list a', 'Buka sertifikat <span>↗</span>', 'html']
+  ]
+};
+
+const applyQualityPageLanguage = (language) => {
+  if (!document.body.classList.contains('quality-page')) return;
+  const translations = qualityPageTranslations[language] || qualityPageTranslations.en;
+  translations.forEach(([selector, content, mode]) => setElementContent(selector, content, mode));
+};
+
+const hsePageTranslations = {
+  en: [
+    ['title', 'HSE | Taka Hydrocore Indonesia'],
+    ['meta[name="description"]', 'PT Taka Hydrocore Indonesia HSE page covering yearly HSE KPI, field readiness controls, HSE programs, and documentation.'],
+    ['.hse-page .preloader-inner p', 'Preparing HSE performance'],
+    ['.hse-page .qhse-page-hero .kicker', 'Health, Safety & Environmental'],
+    ['.hse-page .qhse-page-hero h1', 'HSE performance and field programs, reviewed year by year.'],
+    ['.hse-page .qhse-page-hero-copy>p:not(.kicker)', 'This page separates HSE performance from management system certificates. It gives clients a direct view of yearly KPI references, site programs, and practical field documentation.'],
+    ['.hse-kpi-section>.section-label', '<span>01</span> HSE KPI by Year', 'html'],
+    ['.hse-kpi-head .kicker', 'Performance reference'],
+    ['.hse-kpi-head h2', 'Annual HSE indicators prepared for client review.'],
+    ['.hse-kpi-head>p', 'Figures below are placeholder values for layout and discussion. Replace them with official THI audited yearly HSE data when the final KPI register is available.'],
+    ['.hse-kpi-row-head span:nth-child(1)', 'Year'],
+    ['.hse-kpi-row-head span:nth-child(2)', 'Man-hours'],
+    ['.hse-kpi-row-head span:nth-child(4)', 'Safety induction'],
+    ['.hse-kpi-row-head span:nth-child(5)', 'HSE observation'],
+    ['.hse-kpi-row-head span:nth-child(6)', 'Emergency drill'],
+    ['.hse-kpi-note', 'Placeholder KPI data: prepared only for website structure until official yearly HSE performance records are approved.'],
+    ['.hse-controls-section>.section-label', '<span>02</span> HSE Programs', 'html'],
+    ['.hse-controls-section figcaption span', 'Field program'],
+    ['.hse-controls-section figcaption strong', 'HSE programs are designed to be simple enough for crews to follow and clear enough for clients to audit.'],
+    ['.hse-controls-section .qhse-readiness-head .kicker', 'Program control'],
+    ['.hse-controls-section .qhse-readiness-head h2', 'Practical HSE routines before, during, and after field execution.'],
+    ['.hse-program-list article:nth-child(1) h3', 'Induction & toolbox talk'],
+    ['.hse-program-list article:nth-child(1) p', 'Brief personnel on site rules, work method, emergency response, and day-to-day activity risks.'],
+    ['.hse-program-list article:nth-child(2) h3', 'JSA and permit control'],
+    ['.hse-program-list article:nth-child(2) p', 'Review hazards, define controls, and align permits before critical work begins.'],
+    ['.hse-program-list article:nth-child(3) h3', 'PPE and worksite inspection'],
+    ['.hse-program-list article:nth-child(3) p', 'Check PPE compliance, housekeeping, access control, and safe work conditions on site.'],
+    ['.hse-program-list article:nth-child(4) h3', 'Emergency drill'],
+    ['.hse-program-list article:nth-child(4) p', 'Prepare crews for evacuation, medical response, fire response, man-overboard, and communication drills.'],
+    ['.hse-program-list article:nth-child(5) h3', 'Lifting and equipment assurance'],
+    ['.hse-program-list article:nth-child(5) p', 'Verify lifting gear, certificates, load testing, critical equipment condition, and operator readiness.'],
+    ['.hse-program-list article:nth-child(6) h3', 'Environmental control'],
+    ['.hse-program-list article:nth-child(6) p', 'Manage waste, spill prevention, deck cleanliness, fuel handling, and environmental protection actions.'],
+    ['.hse-documentation-section>.section-label', '<span>03</span> HSE Documentation', 'html'],
+    ['.hse-documentation-head .kicker', 'Field evidence'],
+    ['.hse-documentation-head h2', 'Documentation from briefing, deck activity, inspection, and vessel operation.'],
+    ['.hse-documentation-section figure:nth-child(1) figcaption', 'Field supervision'],
+    ['.hse-documentation-section figure:nth-child(2) figcaption', 'Operational preparation'],
+    ['.hse-documentation-section figure:nth-child(3) figcaption', 'Deck safety coordination'],
+    ['.hse-documentation-section figure:nth-child(4) figcaption', 'Voyager Explorer documentation']
+  ],
+  id: [
+    ['title', 'HSE | Taka Hydrocore Indonesia'],
+    ['meta[name="description"]', 'Halaman HSE PT Taka Hydrocore Indonesia yang mencakup KPI HSE tahunan, kontrol kesiapan lapangan, program HSE, dan dokumentasi.'],
+    ['.hse-page .preloader-inner p', 'Menyiapkan performa HSE'],
+    ['.hse-page .qhse-page-hero .kicker', 'Health, Safety & Environmental'],
+    ['.hse-page .qhse-page-hero h1', 'Performa HSE dan program lapangan yang ditinjau setiap tahun.'],
+    ['.hse-page .qhse-page-hero-copy>p:not(.kicker)', 'Halaman ini memisahkan performa HSE dari sertifikat sistem manajemen. Klien dapat melihat referensi KPI tahunan, program site, dan dokumentasi lapangan secara langsung.'],
+    ['.hse-kpi-section>.section-label', '<span>01</span> KPI HSE per Tahun', 'html'],
+    ['.hse-kpi-head .kicker', 'Referensi performa'],
+    ['.hse-kpi-head h2', 'Indikator HSE tahunan untuk review klien.'],
+    ['.hse-kpi-head>p', 'Angka di bawah ini masih berupa placeholder untuk layout dan diskusi. Ganti dengan data HSE tahunan resmi THI setelah register KPI final tersedia.'],
+    ['.hse-kpi-row-head span:nth-child(1)', 'Tahun'],
+    ['.hse-kpi-row-head span:nth-child(2)', 'Jam kerja'],
+    ['.hse-kpi-row-head span:nth-child(4)', 'Safety induction'],
+    ['.hse-kpi-row-head span:nth-child(5)', 'Observasi HSE'],
+    ['.hse-kpi-row-head span:nth-child(6)', 'Emergency drill'],
+    ['.hse-kpi-note', 'Data KPI placeholder: hanya disiapkan untuk struktur website sampai catatan performa HSE tahunan resmi disetujui.'],
+    ['.hse-controls-section>.section-label', '<span>02</span> Program HSE', 'html'],
+    ['.hse-controls-section figcaption span', 'Program lapangan'],
+    ['.hse-controls-section figcaption strong', 'Program HSE dibuat sederhana untuk dijalankan kru dan jelas untuk diaudit klien.'],
+    ['.hse-controls-section .qhse-readiness-head .kicker', 'Kontrol program'],
+    ['.hse-controls-section .qhse-readiness-head h2', 'Rutinitas HSE praktis sebelum, selama, dan setelah eksekusi lapangan.'],
+    ['.hse-program-list article:nth-child(1) h3', 'Induction & toolbox talk'],
+    ['.hse-program-list article:nth-child(1) p', 'Memberi arahan tentang aturan site, metode kerja, respons darurat, dan risiko aktivitas harian.'],
+    ['.hse-program-list article:nth-child(2) h3', 'Kontrol JSA dan permit'],
+    ['.hse-program-list article:nth-child(2) p', 'Meninjau bahaya, menetapkan kontrol, dan menyelaraskan permit sebelum pekerjaan kritis dimulai.'],
+    ['.hse-program-list article:nth-child(3) h3', 'PPE dan inspeksi area kerja'],
+    ['.hse-program-list article:nth-child(3) p', 'Memeriksa kepatuhan PPE, housekeeping, kontrol akses, dan kondisi kerja aman di site.'],
+    ['.hse-program-list article:nth-child(4) h3', 'Emergency drill'],
+    ['.hse-program-list article:nth-child(4) p', 'Menyiapkan kru untuk evakuasi, respons medis, respons kebakaran, man-overboard, dan latihan komunikasi.'],
+    ['.hse-program-list article:nth-child(5) h3', 'Assurance lifting dan peralatan'],
+    ['.hse-program-list article:nth-child(5) p', 'Memverifikasi lifting gear, sertifikat, load testing, kondisi peralatan kritis, dan kesiapan operator.'],
+    ['.hse-program-list article:nth-child(6) h3', 'Kontrol lingkungan'],
+    ['.hse-program-list article:nth-child(6) p', 'Mengelola limbah, pencegahan tumpahan, kebersihan deck, penanganan bahan bakar, dan tindakan perlindungan lingkungan.'],
+    ['.hse-documentation-section>.section-label', '<span>03</span> Dokumentasi HSE', 'html'],
+    ['.hse-documentation-head .kicker', 'Bukti lapangan'],
+    ['.hse-documentation-head h2', 'Dokumentasi briefing, aktivitas deck, inspeksi, dan operasi vessel.'],
+    ['.hse-documentation-section figure:nth-child(1) figcaption', 'Supervisi lapangan'],
+    ['.hse-documentation-section figure:nth-child(2) figcaption', 'Persiapan operasional'],
+    ['.hse-documentation-section figure:nth-child(3) figcaption', 'Koordinasi keselamatan deck'],
+    ['.hse-documentation-section figure:nth-child(4) figcaption', 'Dokumentasi Voyager Explorer']
+  ]
+};
+
+const applyHsePageLanguage = (language) => {
+  if (!document.body.classList.contains('hse-page')) return;
+  const translations = hsePageTranslations[language] || hsePageTranslations.en;
+  translations.forEach(([selector, content, mode]) => setElementContent(selector, content, mode));
+};
+
 const qhsePageTranslations = {
   en: [
     ['title', 'QHSE | Taka Hydrocore Indonesia'],
@@ -1911,13 +2134,15 @@ const contactPageTranslations = {
     ['.contact-channel-primary p', 'Use this address for project enquiries, survey discussions, and technical service coordination.'],
     ['.contact-channel-primary a', 'Send email <span>→</span>', 'html'],
     ['.contact-channel-stack article:nth-child(2) span', 'Head Office'],
-    ['.contact-channel-stack article:nth-child(3) span', 'Workshop']
+    ['.contact-channel-stack article:nth-child(3) span', 'Workshop'],
+    ['.contact-office-map figcaption span', 'Office location'],
+    ['.contact-office-map figcaption a', 'Open in Google Maps <span>→</span>', 'html']
   ],
   id: [
     ['title', 'Kontak | Taka Hydrocore Indonesia'],
     ['meta[name="description"]', 'Hubungi PT Taka Hydrocore Indonesia untuk enquiry proyek survei, pengeboran, geoteknik, geofisika, QHSE, dan pekerjaan berbasis kapal.'],
     ['.contact-page .preloader-inner p', 'Menyiapkan kontak'],
-    ['.contact-page-hero-copy .kicker', 'Enquiry proyek'],
+    ['.contact-page-hero-copy .kicker', 'Diskusi proyek'],
     ['.contact-page-hero h1', 'Mari selaraskan metode lapangan yang tepat sebelum mobilisasi.'],
     ['.contact-page-hero-copy>p:not(.kicker)', 'Bagikan lokasi proyek, lingkup layanan, jadwal, batasan site, dan deliverable yang dibutuhkan. THI dapat membantu menyusun pendekatan survei, pengeboran, atau akuisisi data yang praktis.'],
     ['.contact-desk>.section-label', '<span>01</span> Kontak', 'html'],
@@ -1925,7 +2150,9 @@ const contactPageTranslations = {
     ['.contact-channel-primary p', 'Gunakan alamat ini untuk enquiry proyek, diskusi survei, dan koordinasi layanan teknis.'],
     ['.contact-channel-primary a', 'Kirim email <span>→</span>', 'html'],
     ['.contact-channel-stack article:nth-child(2) span', 'Kantor Pusat'],
-    ['.contact-channel-stack article:nth-child(3) span', 'Workshop']
+    ['.contact-channel-stack article:nth-child(3) span', 'Workshop'],
+    ['.contact-office-map figcaption span', 'Lokasi kantor'],
+    ['.contact-office-map figcaption a', 'Buka di Google Maps <span>→</span>', 'html']
   ]
 };
 
@@ -1947,7 +2174,7 @@ const newsPageTranslations = {
     ['.newsroom-head .kicker', 'Company updates'],
     ['.newsroom-head h2', 'Published news from THI.'],
     ['.news-empty-state span', 'No published news'],
-    ['.news-empty-state p', 'Company news and updates will appear here after content is published from Decap CMS.']
+    ['.news-empty-state p', 'Company news and updates will appear here after content is published.']
   ],
   id: [
     ['title', 'Berita & Pembaruan | Taka Hydrocore Indonesia'],
@@ -1960,7 +2187,7 @@ const newsPageTranslations = {
     ['.newsroom-head .kicker', 'Pembaruan perusahaan'],
     ['.newsroom-head h2', 'Berita terbit dari THI.'],
     ['.news-empty-state span', 'Belum ada berita terbit'],
-    ['.news-empty-state p', 'Berita dan pembaruan perusahaan akan tampil di sini setelah dipublikasikan dari Decap CMS.']
+    ['.news-empty-state p', 'Berita dan pembaruan perusahaan akan tampil di sini setelah dipublikasikan.']
   ]
 };
 
@@ -2003,8 +2230,8 @@ const renderNewsEmpty = (container, scope) => {
   container.classList.add('is-empty');
   const title = activeLanguage === 'id' ? 'Belum ada berita terbit' : 'No published news';
   const copy = activeLanguage === 'id'
-    ? 'Berita dari Decap CMS akan tampil di sini setelah dipublikasikan.'
-    : 'News from Decap CMS will appear here after content is published.';
+    ? 'Berita akan tampil di sini setelah dipublikasikan.'
+    : 'News will appear here after content is published.';
   container.innerHTML = `<article class="news-empty-state ${scope === 'home' ? 'news-empty-state-inline' : ''}"><span>${title}</span><p>${copy}</p></article>`;
 };
 
@@ -2856,7 +3083,10 @@ const showHeroSlide = (index, restart = true) => {
     slide.classList.toggle('active', isActive);
     const video = slide.querySelector('video');
     if (!video) return;
-    if (isActive && !reduceMotion.matches) video.play().catch(() => {});
+    if (isActive && !reduceMotion.matches) {
+      ensureVideoLoaded(video);
+      video.play().catch(() => {});
+    }
     else video.pause();
   });
   heroDots.forEach((dot, dotIndex) => {
@@ -2896,7 +3126,10 @@ const showCareerIndexSlide = (index, restart = true) => {
     slide.classList.toggle('active', isActive);
     const video = slide.querySelector('video');
     if (!video) return;
-    if (isActive && !reduceMotion.matches) video.play().catch(() => {});
+    if (isActive && !reduceMotion.matches) {
+      ensureVideoLoaded(video);
+      video.play().catch(() => {});
+    }
     else video.pause();
   });
   careerIndexDots.forEach((dot, dotIndex) => {
@@ -3415,6 +3648,8 @@ const applyLanguage = (language, persist = true) => {
   applyEquipmentPageLanguage(activeLanguage);
   refreshEquipmentCarouselLanguage();
   applyVesselPageLanguage(activeLanguage);
+  applyQualityPageLanguage(activeLanguage);
+  applyHsePageLanguage(activeLanguage);
   applyQhsePageLanguage(activeLanguage);
   applyProjectPageLanguage(activeLanguage);
   applyContactPageLanguage(activeLanguage);
