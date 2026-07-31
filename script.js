@@ -82,11 +82,43 @@ updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
 
 if (menuButton && nav) {
+  const navDropdowns = [...nav.querySelectorAll('.nav-dropdown')];
+  const isTouchNavigation = () => window.matchMedia('(hover: none), (pointer: coarse), (max-width: 1100px)').matches;
+  const closeNavDropdowns = (activeDropdown = null) => {
+    navDropdowns.forEach((dropdown) => {
+      if (dropdown === activeDropdown) return;
+      dropdown.classList.remove('is-open');
+      dropdown.querySelector('.nav-trigger')?.setAttribute('aria-expanded', 'false');
+    });
+  };
+
   menuButton.addEventListener('click', () => {
     const open = nav.classList.toggle('open');
     menuButton.setAttribute('aria-expanded', String(open));
     document.body.classList.toggle('menu-open', open);
+    if (!open) closeNavDropdowns();
     setMenuLabels();
+  });
+
+  navDropdowns.forEach((dropdown) => {
+    const trigger = dropdown.querySelector('.nav-trigger');
+    if (!trigger) return;
+
+    trigger.setAttribute('aria-haspopup', 'true');
+    trigger.setAttribute('aria-expanded', 'false');
+
+    trigger.addEventListener('click', (event) => {
+      if (!isTouchNavigation()) return;
+
+      const isOpen = dropdown.classList.contains('is-open');
+      if (!isOpen) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        closeNavDropdowns(dropdown);
+        dropdown.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
   });
 
   nav.querySelectorAll('a').forEach((link) => {
@@ -94,8 +126,13 @@ if (menuButton && nav) {
       nav.classList.remove('open');
       document.body.classList.remove('menu-open');
       menuButton.setAttribute('aria-expanded', 'false');
+      closeNavDropdowns();
       setMenuLabels();
     });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!nav.contains(event.target)) closeNavDropdowns();
   });
 }
 
@@ -390,15 +427,23 @@ const applyBoardLanguage = (language) => {
       ['.board-section>.section-label', '<span>01</span> Company Leadership', 'html'],
       ['.board-section-head .kicker', 'Board Profile'],
       ['.board-section-head h2', 'Leadership with clear operational discipline.'],
-      ['.board-section-head>p:not(.kicker)', 'Board members are presented with their governance role, management responsibility, and a concise biography placeholder for the approved company profile.'],
+      ['.board-section-head>p:not(.kicker)', 'Board members are presented with their governance role, management responsibility, and professional background for the company profile.'],
       ['.board-profile-group:nth-of-type(1) .board-group-title', 'Board of Directors'],
       ['.board-profile-group:nth-of-type(2) .board-group-title', 'Board of Commissioners'],
       ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(1) .board-profile-name p', 'President Director'],
-      ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(2) .board-profile-name p', 'Finance Director'],
+      ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(1) .board-profile-name h3', 'M. Syukri Fitrialdi'],
+      ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(1) .board-bio', 'M. Syukri Fitrialdi was born in Padang in 1968. He earned both his bachelor\'s and master\'s degrees from Institut Teknologi Bandung (ITB). Known for his intelligence, professionalism, and sense of humor, he has built more than two decades of experience in geotechnical and geohydrological work, deep water well drilling, deep exploratory drilling, water well drilling and pumping, and onshore, offshore, and nearshore geotechnical investigation.'],
+      ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(2) .board-profile-name p', 'Finance & Administration Director'],
+      ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(2) .board-bio', 'Denni Andri was born in Padang, West Sumatera, in 1971 and graduated from Bandung Institute of Technology (ITB). His entrepreneurial strength has been evident since the founding of the company and its business group. In 2012, he was selected as a finalist for Ernst & Young Entrepreneur of the Year. His clear vision and passion for developing national industries continue to guide the company\'s long-term growth.'],
       ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(3) .board-profile-name p', 'Commercial Director'],
+      ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(3) .board-bio', 'Frans Eduard Zandstra was born in Jakarta in 1985 and graduated from Bandung Institute of Technology (ITB), majoring in Ocean Engineering. He began his professional career in 2007. With his experience in technical and commercial project work, he was appointed Commercial Director of PT Taka Hydrocore Indonesia.'],
       ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(4) .board-profile-name p', 'Operational Director'],
+      ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(4) .board-bio', 'Novandi Kusuma Prasetya was born in Mataram in 1988 and graduated from Diponegoro University, majoring in Geological Engineering. He has a strong background in engineering and project execution across offshore and onshore environments at PT Taka Hydrocore Indonesia. He is committed to continuous learning and professional growth, and maintains a collaborative approach across engineering and project teams.'],
       ['.board-profile-group:nth-of-type(2) .board-profile:nth-of-type(1) .board-profile-name p', 'President Commissioner'],
-      ['.board-profile-group:nth-of-type(2) .board-profile:nth-of-type(2) .board-profile-name p', 'Commissioner']
+      ['.board-profile-group:nth-of-type(2) .board-profile:nth-of-type(1) .board-bio', 'Rahmad Indrawan was born in Padang in 1971 and graduated from Andalas University, Padang. Known as a humble and charismatic professional, he has developed his expertise through onshore and offshore geotechnical projects and continues to support the company through practical field insight and leadership.'],
+      ['.board-profile-group:nth-of-type(2) .board-profile:nth-of-type(2) .board-profile-name p', 'Commissioner'],
+      ['.board-profile-group:nth-of-type(2) .board-profile:nth-of-type(2) .board-profile-name h3', 'Triana Yuda Agung W.'],
+      ['.board-profile-group:nth-of-type(2) .board-profile:nth-of-type(2) .board-bio', 'Triana Yuda Agung Wibawa was born in Jayapura, Papua, in 1981. A graduate of Maranatha University with a major in electrical engineering, he brings years of professional banking experience to the Taka Group. His financial discipline supports cash flow supervision, financial control, and healthy company management.']
     ],
     id: [
       ['title', 'Dewan Komisaris & Direksi | Taka Hydrocore Indonesia'],
@@ -414,11 +459,19 @@ const applyBoardLanguage = (language) => {
       ['.board-profile-group:nth-of-type(1) .board-group-title', 'Direksi'],
       ['.board-profile-group:nth-of-type(2) .board-group-title', 'Komisaris'],
       ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(1) .board-profile-name p', 'Direktur Utama'],
-      ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(2) .board-profile-name p', 'Direktur Finance'],
-      ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(3) .board-profile-name p', 'Direktur Commercial'],
-      ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(4) .board-profile-name p', 'Direktur Operational'],
+      ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(1) .board-profile-name h3', 'M. Syukri Fitrialdi'],
+      ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(1) .board-bio', 'M. Syukri Fitrialdi lahir di Padang pada 1968. Ia menyelesaikan pendidikan sarjana dan magister di Institut Teknologi Bandung (ITB). Dikenal cerdas, profesional, dan humoris, ia memiliki pengalaman lebih dari dua dekade dalam bidang geotechnical dan geohydrological, deep water well drilling, deep exploratory drilling, water well drilling and pumping, serta investigasi geoteknik onshore, offshore, dan nearshore.'],
+      ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(2) .board-profile-name p', 'Direktur Keuangan & Administrasi'],
+      ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(2) .board-bio', 'Denni Andri lahir di Padang, Sumatera Barat, pada 1971 dan lulus dari Bandung Institute of Technology (ITB). Jiwa entrepreneurship-nya terlihat sejak mendirikan perusahaan dan business group. Pada 2012, ia terpilih sebagai finalis Ernst & Young Entrepreneur of the Year. Visi yang jelas dan semangatnya dalam mengembangkan industri nasional terus menjadi arah pertumbuhan perusahaan.'],
+      ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(3) .board-profile-name p', 'Direktur Komersial'],
+      ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(3) .board-bio', 'Frans Eduard Zandstra lahir di Jakarta pada 1985 dan lulus dari Bandung Institute of Technology (ITB), jurusan Ocean Engineering. Ia memulai karier profesionalnya pada 2007. Dengan pengalamannya dalam pekerjaan teknis dan komersial proyek, ia dipercaya sebagai Direktur Komersial PT Taka Hydrocore Indonesia.'],
+      ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(4) .board-profile-name p', 'Direktur Operasional'],
+      ['.board-profile-group:nth-of-type(1) .board-profile:nth-of-type(4) .board-bio', 'Novandi Kusuma Prasetya lahir di Mataram pada 1988 dan lulus dari Universitas Diponegoro, jurusan Geological Engineering. Ia memiliki latar belakang yang kuat dalam engineering dan project execution di lingkungan offshore maupun onshore di PT Taka Hydrocore Indonesia. Ia berkomitmen pada pembelajaran berkelanjutan, pertumbuhan profesional, dan kerja kolaboratif lintas tim engineering dan proyek.'],
       ['.board-profile-group:nth-of-type(2) .board-profile:nth-of-type(1) .board-profile-name p', 'Komisaris Utama'],
-      ['.board-profile-group:nth-of-type(2) .board-profile:nth-of-type(2) .board-profile-name p', 'Komisaris']
+      ['.board-profile-group:nth-of-type(2) .board-profile:nth-of-type(1) .board-bio', 'Rahmad Indrawan lahir di Padang pada 1971 dan lulus dari Universitas Andalas, Padang. Dikenal rendah hati dan karismatik, ia mengembangkan keahlian profesionalnya melalui proyek geoteknik onshore dan offshore, serta mendukung perusahaan melalui pemahaman lapangan dan kepemimpinan yang praktis.'],
+      ['.board-profile-group:nth-of-type(2) .board-profile:nth-of-type(2) .board-profile-name p', 'Komisaris'],
+      ['.board-profile-group:nth-of-type(2) .board-profile:nth-of-type(2) .board-profile-name h3', 'Triana Yuda Agung W.'],
+      ['.board-profile-group:nth-of-type(2) .board-profile:nth-of-type(2) .board-bio', 'Triana Yuda Agung Wibawa lahir di Jayapura, Papua, pada 1981. Lulusan Universitas Maranatha jurusan teknik elektro ini memiliki pengalaman profesional di sektor perbankan. Disiplin finansialnya mendukung pengawasan cash flow, kontrol keuangan, dan pengelolaan perusahaan yang sehat.']
     ]
   };
   const translations = boardPageTranslationsV2[language] || boardPageTranslationsV2.en;
@@ -1302,20 +1355,18 @@ const equipmentSplitPageTranslationOverrides = {
       ['.equipment-family-card a:nth-child(6)', '<span>06</span>Drill Rig TH-25M', 'html'],
       ['.equipment-family-card a:nth-child(7)', '<span>07</span>Dando Mintec Crawler Rig', 'html'],
       ['.equipment-family-card a:nth-child(8)', '<span>08</span>TH3 Drilling Rig Series', 'html'],
-      ['.equipment-family-card a:nth-child(9)', '<span>09</span>THCP Crawler CPT', 'html'],
-      ['.equipment-family-card a:nth-child(10)', '<span>10</span>THCP3 Eijkelkamp Crawler CPT', 'html'],
-      ['.equipment-family-card a:nth-child(11)', '<span>11</span>CPT Wison APB', 'html'],
-      ['.equipment-family-card a:nth-child(12)', '<span>12</span>THI A-Frame 24T', 'html'],
-      ['.equipment-family-card a:nth-child(13)', '<span>13</span>Soil & Geotechnical Laboratory', 'html'],
+      ['.equipment-family-card a:nth-child(9)', '<span>09</span>THCP3 Eijkelkamp Crawler CPT', 'html'],
+      ['.equipment-family-card a:nth-child(10)', '<span>10</span>CPT Wison APB', 'html'],
+      ['.equipment-family-card a:nth-child(11)', '<span>11</span>THI A-Frame 24T', 'html'],
+      ['.equipment-family-card a:nth-child(12)', '<span>12</span>Soil & Geotechnical Laboratory', 'html'],
       ['.equipment-directory-head h2', 'Geotechnical systems explained by field role and preparation workflow.'],
       ['#drill-rig-th25m .equipment-detail-index', '06 / Geotechnical and exploratory support'],
       ['#dando-mintec-crawler-rig .equipment-detail-index', '07 / Crawler drilling support'],
       ['#th3-drilling-rig-series .equipment-detail-index', '08 / TH3 drilling rig series'],
-      ['#thcp-crawler-cpt .equipment-detail-index', '09 / Crawler CPT support'],
-      ['#thcp3-eijkelkamp-crawler-cpt .equipment-detail-index', '10 / Eijkelkamp crawler CPT support'],
-      ['#cpt-wison-apb .equipment-detail-index', '11 / CPT system support'],
-      ['#a-frame-24t .equipment-detail-index', '12 / Deployment and recovery support'],
-      ['#soil-geotechnical-lab .equipment-detail-index', '13 / Soil testing and documentation']
+      ['#thcp3-eijkelkamp-crawler-cpt .equipment-detail-index', '09 / Eijkelkamp crawler CPT support'],
+      ['#cpt-wison-apb .equipment-detail-index', '10 / CPT system support'],
+      ['#a-frame-24t .equipment-detail-index', '11 / Deployment and recovery support'],
+      ['#soil-geotechnical-lab .equipment-detail-index', '12 / Soil testing and documentation']
     ],
     geophysical: [
       ['title', 'Geophysical Equipment | Taka Hydrocore Indonesia'],
@@ -1350,11 +1401,10 @@ const equipmentSplitPageTranslationOverrides = {
       ['.equipment-family-card a:nth-child(6)', '<span>06</span>Drill Rig TH-25M', 'html'],
       ['.equipment-family-card a:nth-child(7)', '<span>07</span>Dando Mintec Crawler Rig', 'html'],
       ['.equipment-family-card a:nth-child(8)', '<span>08</span>Seri Drill Rig TH3', 'html'],
-      ['.equipment-family-card a:nth-child(9)', '<span>09</span>THCP Crawler CPT', 'html'],
-      ['.equipment-family-card a:nth-child(10)', '<span>10</span>THCP3 Eijkelkamp Crawler CPT', 'html'],
-      ['.equipment-family-card a:nth-child(11)', '<span>11</span>CPT Wison APB', 'html'],
-      ['.equipment-family-card a:nth-child(12)', '<span>12</span>THI A-Frame 24T', 'html'],
-      ['.equipment-family-card a:nth-child(13)', '<span>13</span>Laboratorium Tanah & Geoteknik', 'html'],
+      ['.equipment-family-card a:nth-child(9)', '<span>09</span>THCP3 Eijkelkamp Crawler CPT', 'html'],
+      ['.equipment-family-card a:nth-child(10)', '<span>10</span>CPT Wison APB', 'html'],
+      ['.equipment-family-card a:nth-child(11)', '<span>11</span>THI A-Frame 24T', 'html'],
+      ['.equipment-family-card a:nth-child(12)', '<span>12</span>Laboratorium Tanah & Geoteknik', 'html'],
       ['.equipment-directory-head h2', 'Sistem geoteknik dijelaskan berdasarkan peran lapangan dan workflow persiapan.'],
       ['#drill-rig-th25m .equipment-detail-index', '06 / Dukungan geoteknik dan eksplorasi'],
       ['#dando-mintec-crawler-rig .kicker', 'Crawler Drilling'],
@@ -1369,26 +1419,20 @@ const equipmentSplitPageTranslationOverrides = {
       ['#th3-drilling-rig-series .equipment-detail-copy>p:not(.kicker)', 'TH3#1, TH3#4, dan TH3#5 digabung sebagai platform drilling compact untuk scope investigasi yang membutuhkan rig-up praktis dan recovery sampel yang andal.', 'text'],
       ['#th3-drilling-rig-series .equipment-detail-lines p:nth-child(1)', '<strong>Peran lapangan</strong><span>Mendukung drilling, coring, dan sampling untuk program investigasi darat.</span>', 'html'],
       ['#th3-drilling-rig-series .equipment-detail-lines p:nth-child(2)', '<strong>Disiapkan untuk</strong><span>Beberapa konfigurasi TH3, setup site, kontrol drilling, dan dukungan rutin lapangan.</span>', 'html'],
-      ['#thcp-crawler-cpt .kicker', 'Crawler CPT'],
-      ['#thcp-crawler-cpt .equipment-detail-index', '09 / Dukungan crawler CPT'],
-      ['#thcp-crawler-cpt h3', 'THCP Crawler CPT'],
-      ['#thcp-crawler-cpt .equipment-detail-copy>p:not(.kicker)', 'Unit crawler CPT untuk cone penetration testing pada area kerja yang membutuhkan akses mobile dan kapasitas dorong stabil di site darat.', 'text'],
-      ['#thcp-crawler-cpt .equipment-detail-lines p:nth-child(1)', '<strong>Peran lapangan</strong><span>Mendukung pekerjaan CPT untuk profiling tanah dan interpretasi geoteknik.</span>', 'html'],
-      ['#thcp-crawler-cpt .equipment-detail-lines p:nth-child(2)', '<strong>Disiapkan untuk</strong><span>Pergerakan site, setup pushing, pengecekan alat, dan workflow akuisisi data.</span>', 'html'],
       ['#thcp3-eijkelkamp-crawler-cpt .kicker', 'Crawler CPT'],
-      ['#thcp3-eijkelkamp-crawler-cpt .equipment-detail-index', '10 / Dukungan crawler CPT Eijkelkamp'],
+      ['#thcp3-eijkelkamp-crawler-cpt .equipment-detail-index', '09 / Dukungan crawler CPT Eijkelkamp'],
       ['#thcp3-eijkelkamp-crawler-cpt h3', 'THCP3 Eijkelkamp Crawler CPT'],
       ['#thcp3-eijkelkamp-crawler-cpt .equipment-detail-copy>p:not(.kicker)', 'Sistem crawler CPT untuk cone penetration testing onshore, dengan mobilitas praktis untuk area investigasi yang membutuhkan banyak titik pengujian.', 'text'],
       ['#thcp3-eijkelkamp-crawler-cpt .equipment-detail-lines p:nth-child(1)', '<strong>Peran lapangan</strong><span>Mendukung CPT testing, profiling tanah, dan kontrol data lapangan.</span>', 'html'],
       ['#thcp3-eijkelkamp-crawler-cpt .equipment-detail-lines p:nth-child(2)', '<strong>Disiapkan untuk</strong><span>Kalibrasi alat, perpindahan lapangan, setup titik uji, dan dokumentasi akuisisi.</span>', 'html'],
       ['#cpt-wison-apb .kicker', 'Sistem CPT'],
-      ['#cpt-wison-apb .equipment-detail-index', '11 / Dukungan sistem CPT'],
+      ['#cpt-wison-apb .equipment-detail-index', '10 / Dukungan sistem CPT'],
       ['#cpt-wison-apb h3', 'CPT Wison APB'],
       ['#cpt-wison-apb .equipment-detail-copy>p:not(.kicker)', 'Sistem cone penetration testing untuk mendukung investigasi geoteknik yang membutuhkan pembacaan lapangan konsisten dan setup terkontrol.', 'text'],
       ['#cpt-wison-apb .equipment-detail-lines p:nth-child(1)', '<strong>Peran lapangan</strong><span>Mendukung pengumpulan data CPT untuk penilaian soil behavior dan engineering.</span>', 'html'],
       ['#cpt-wison-apb .equipment-detail-lines p:nth-child(2)', '<strong>Disiapkan untuk</strong><span>Pengecekan sistem, urutan pengujian, kontrol operator, dan workflow laporan lapangan.</span>', 'html'],
-      ['#a-frame-24t .equipment-detail-index', '12 / Dukungan deployment dan recovery'],
-      ['#soil-geotechnical-lab .equipment-detail-index', '13 / Pengujian tanah dan dokumentasi']
+      ['#a-frame-24t .equipment-detail-index', '11 / Dukungan deployment dan recovery'],
+      ['#soil-geotechnical-lab .equipment-detail-index', '12 / Pengujian tanah dan dokumentasi']
     ],
     geophysical: [
       ['title', 'Peralatan Geofisika | Taka Hydrocore Indonesia'],
