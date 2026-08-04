@@ -3268,7 +3268,7 @@ body.is-ready footer {
 }
 
 .service-seabed {
-  --capability-image: url('assets/manta baru/manta 2.png');
+  --capability-image: url('assets/equipment/cpt-manta-medco/WhatsApp Image 2025-08-01 at 09.19.33.jpeg');
   --capability-position: center
 }
 
@@ -12821,15 +12821,15 @@ body.is-ready footer {
 
 .service-detail-section {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(440px, .88fr);
-  gap: clamp(34px, 5vw, 84px);
-  align-items: center;
-  padding: clamp(54px, 7vw, 96px) 0;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .98fr);
+  gap: clamp(42px, 5vw, 86px);
+  align-items: stretch;
+  padding: clamp(58px, 6vw, 86px) 0;
   border-bottom: 1px solid #cfd9df
 }
 
 .service-detail-reverse {
-  grid-template-columns: minmax(440px, .88fr) minmax(0, 1fr)
+  grid-template-columns: minmax(0, .98fr) minmax(0, 1fr)
 }
 
 .service-detail-reverse .service-detail-media {
@@ -12842,10 +12842,12 @@ body.is-ready footer {
 
 .service-detail-media {
   position: relative;
-  min-height: clamp(390px, 48vw, 640px);
+  height: 100%;
+  min-height: clamp(430px, 43vw, 700px);
   margin: 0;
-  background: #dfe8ee;
-  overflow: hidden
+  background: #071c2c;
+  overflow: hidden;
+  box-shadow: 0 30px 90px rgba(7, 28, 44, .11)
 }
 
 .service-detail-media img {
@@ -12871,9 +12873,11 @@ body.is-ready footer {
 
 .service-detail-gallery {
   display: grid;
-  grid-template-rows: minmax(280px, 1fr) 150px;
-  gap: 8px;
-  background: #fff
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 12px;
+  min-height: clamp(600px, 48vw, 760px);
+  background: transparent;
+  box-shadow: none
 }
 
 .service-gallery-feature,
@@ -12886,9 +12890,13 @@ body.is-ready footer {
   position: relative;
   margin: 0;
   overflow: hidden;
-  background: #fff;
+  background: #071c2c;
   outline: 0;
   transition: box-shadow .32s ease, transform .35s cubic-bezier(.22, 1, .36, 1)
+}
+
+.service-gallery-feature {
+  min-height: clamp(430px, 34vw, 580px)
 }
 
 .service-gallery-feature.is-contain img {
@@ -12898,6 +12906,7 @@ body.is-ready footer {
 }
 
 .service-gallery-grid figure {
+  aspect-ratio: 16/8;
   cursor: pointer
 }
 
@@ -12929,8 +12938,8 @@ body.is-ready footer {
 
 .service-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 8px
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px
 }
 
 .service-gallery-grid-three {
@@ -12938,7 +12947,7 @@ body.is-ready footer {
 }
 
 .service-gallery-grid-four {
-  grid-template-columns: repeat(4, minmax(0, 1fr))
+  grid-template-columns: repeat(2, minmax(0, 1fr))
 }
 
 .service-gallery-grid-six,
@@ -12947,8 +12956,13 @@ body.is-ready footer {
 }
 
 .service-gallery-grid img {
+  display: block;
+  width: 100%;
+  height: 100%;
   min-width: 0;
-  background: #fff
+  object-fit: cover;
+  object-position: center;
+  background: #071c2c
 }
 
 .service-gallery-contain {
@@ -12993,6 +13007,7 @@ body.is-ready footer {
 
 #nearshore-onshore-geotechnical .service-detail-gallery {
   display: block;
+  height: 100%;
   min-height: 0;
   background: transparent;
   overflow: visible;
@@ -13000,8 +13015,7 @@ body.is-ready footer {
 }
 
 #nearshore-onshore-geotechnical .service-gallery-feature {
-  aspect-ratio: 16/10;
-  min-height: 0;
+  min-height: clamp(430px, 34vw, 560px);
   background: #071c2c;
   box-shadow: 0 22px 70px rgba(7, 28, 44, .14)
 }
@@ -13116,7 +13130,12 @@ body.is-ready footer {
 }
 
 .service-detail-copy {
-  max-width: 780px
+  align-self: center;
+  max-width: 720px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none
 }
 
 .service-detail-copy .kicker {
@@ -13135,34 +13154,34 @@ body.is-ready footer {
 }
 
 .service-detail-copy h2 {
-  max-width: 760px;
+  max-width: 620px;
   margin: 0;
   color: #071c2c;
-  font: 900 clamp(38px, 4.4vw, 72px)/.98 "Manrope";
-  letter-spacing: -3.6px;
+  font: 900 clamp(40px, 3.9vw, 62px)/.98 "Manrope";
+  letter-spacing: -3.1px;
   text-wrap: balance
 }
 
 .service-detail-copy>p:not(.kicker) {
-  max-width: 740px;
-  margin: 22px 0 0;
+  max-width: 680px;
+  margin: 16px 0 0;
   color: #60717e;
-  font-size: 15.5px;
+  font-size: 14.5px;
   font-weight: 650;
-  line-height: 1.78
+  line-height: 1.68
 }
 
 .service-detail-points {
-  margin-top: 32px;
+  margin-top: 28px;
   border-top: 1px solid #cfd9df
 }
 
 .service-detail-points p {
   display: grid;
-  grid-template-columns: 132px 1fr;
+  grid-template-columns: minmax(112px, .32fr) minmax(0, 1fr);
   gap: 22px;
   margin: 0;
-  padding: 18px 0;
+  padding: 15px 0;
   border-bottom: 1px solid #cfd9df
 }
 
@@ -13183,6 +13202,34 @@ body.is-ready footer {
 
 .service-detail-points-compact p {
   grid-template-columns: 110px 1fr
+}
+
+.service-seabed-detail .service-detail-copy {
+  max-width: 740px
+}
+
+.service-seabed-detail .service-detail-copy h2 {
+  max-width: 650px
+}
+
+.service-seabed-detail .service-detail-copy>p:not(.kicker) {
+  max-width: 700px
+}
+
+.service-seabed-detail .service-detail-points p {
+  grid-template-columns: minmax(118px, .3fr) minmax(0, 1fr)
+}
+
+.service-seabed-detail .service-gallery-feature {
+  min-height: clamp(460px, 36vw, 620px)
+}
+
+.service-seabed-detail .service-gallery-grid-four {
+  grid-template-columns: repeat(2, minmax(0, 1fr))
+}
+
+.service-seabed-detail .service-gallery-grid-four figure {
+  aspect-ratio: 16/8.4
 }
 
 @media(max-width:1100px) {
@@ -23500,6 +23547,293 @@ a.news-card {
   }
 }
 
+/* Life at THI employee voices slideshow */
+.career-page .career-employee-voice-slider {
+  margin-top: clamp(28px, 4vw, 48px);
+}
+
+.career-page .career-employee-voice-stage {
+  position: relative;
+  min-height: clamp(390px, 35vw, 560px);
+  overflow: hidden;
+  border: 1px solid rgba(7, 28, 44, .1);
+  background: #071c2c;
+  box-shadow: 0 26px 80px rgba(7, 28, 44, .1);
+}
+
+.career-page .career-employee-voice-stage:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 83% 16%, rgba(141, 132, 195, .28), transparent 28%),
+    linear-gradient(115deg, rgba(51, 42, 122, .22), transparent 48%);
+}
+
+.career-page .career-employee-voice-stage article {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 58%) minmax(320px, 42%);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(36px) scale(.985);
+  filter: blur(10px);
+  transition:
+    opacity .62s ease,
+    transform .82s cubic-bezier(.2, 1, .25, 1),
+    filter .62s ease;
+}
+
+.career-page .career-employee-voice-stage article.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0) scale(1);
+  filter: blur(0);
+}
+
+.career-page .career-employee-voice-copy {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(38px, 5.2vw, 86px);
+  color: #fff;
+}
+
+.career-page .career-employee-voice-copy:before {
+  content: "“";
+  position: absolute;
+  top: clamp(18px, 2.6vw, 38px);
+  left: clamp(30px, 4.4vw, 72px);
+  color: rgba(255, 255, 255, .11);
+  font: 900 clamp(96px, 11vw, 176px)/.75 "Manrope";
+  letter-spacing: -.08em;
+}
+
+.career-page .career-employee-voice-copy span {
+  position: relative;
+  z-index: 2;
+  width: max-content;
+  margin-bottom: clamp(18px, 2.2vw, 30px);
+  color: #c7c2ff;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+.career-page .career-employee-voice-copy blockquote {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  margin: 0;
+  color: #fff;
+  font: 900 clamp(30px, 3.4vw, 58px)/1.02 "Manrope";
+  letter-spacing: -2.2px;
+  text-wrap: balance;
+}
+
+.career-page .career-employee-voice-copy div {
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(30px, 3.6vw, 48px);
+  padding-left: 18px;
+  border-left: 3px solid #8d84c3;
+}
+
+.career-page .career-employee-voice-copy strong {
+  display: block;
+  color: #fff;
+  font: 900 clamp(18px, 1.35vw, 24px)/1.1 "Manrope";
+  letter-spacing: -.45px;
+}
+
+.career-page .career-employee-voice-copy small {
+  display: block;
+  margin-top: 8px;
+  color: #b8c8d1;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.career-page .career-employee-voice-photo {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  min-height: 100%;
+  margin: 0;
+  place-items: end center;
+  background:
+    radial-gradient(circle at 50% 26%, rgba(255, 255, 255, .88), transparent 34%),
+    linear-gradient(145deg, #edf3f6 0%, #dce6ec 100%);
+  overflow: hidden;
+}
+
+.career-page .career-employee-voice-photo .career-voice-silhouette {
+  width: clamp(220px, 20vw, 330px);
+  height: clamp(280px, 25vw, 410px);
+  opacity: .9;
+  transform: translateY(28px) scale(.96);
+  transition: transform .82s cubic-bezier(.2, 1, .25, 1), opacity .62s ease;
+}
+
+.career-page .career-employee-voice-stage article.is-active .career-voice-silhouette {
+  opacity: 1;
+  transform: translateY(12px) scale(1);
+}
+
+.career-page .career-employee-voice-bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  margin-top: 12px;
+  align-items: stretch;
+}
+
+.career-page .career-employee-voice-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.career-page .career-employee-voice-tabs button,
+.career-page .career-employee-voice-arrows button {
+  position: relative;
+  color: #071c2c;
+  background: #fff;
+  border: 1px solid #d8e1e7;
+  cursor: pointer;
+  transition:
+    transform .35s cubic-bezier(.22, 1, .36, 1),
+    border-color .35s ease,
+    background .35s ease,
+    box-shadow .35s ease;
+}
+
+.career-page .career-employee-voice-tabs button {
+  display: grid;
+  min-height: 78px;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 14px;
+  padding: 16px 18px;
+  text-align: left;
+  overflow: hidden;
+}
+
+.career-page .career-employee-voice-tabs button:before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 3px;
+  background: #332a7a;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .45s cubic-bezier(.22, 1, .36, 1);
+}
+
+.career-page .career-employee-voice-tabs button:hover,
+.career-page .career-employee-voice-tabs button.is-active,
+.career-page .career-employee-voice-arrows button:hover {
+  transform: translateY(-3px);
+  border-color: #8d84c3;
+  background: #f8fafb;
+  box-shadow: 0 18px 48px rgba(51, 42, 122, .1);
+}
+
+.career-page .career-employee-voice-tabs button.is-active:before {
+  transform: scaleX(1);
+}
+
+.career-page .career-employee-voice-tabs span {
+  grid-row: 1/3;
+  color: #332a7a;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.career-page .career-employee-voice-tabs strong {
+  color: #071c2c;
+  font: 900 15px/1.12 "Manrope";
+  letter-spacing: -.35px;
+}
+
+.career-page .career-employee-voice-tabs small {
+  margin-top: 4px;
+  color: #6f8190;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.career-page .career-employee-voice-arrows {
+  display: grid;
+  grid-template-columns: repeat(2, 56px);
+  gap: 10px;
+}
+
+.career-page .career-employee-voice-arrows button {
+  display: grid;
+  min-height: 78px;
+  place-items: center;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+@media(max-width:980px) {
+  .career-page .career-employee-voice-stage {
+    min-height: 660px;
+  }
+
+  .career-page .career-employee-voice-stage article {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) minmax(270px, 38%);
+  }
+
+  .career-page .career-employee-voice-photo {
+    place-items: end center;
+  }
+
+  .career-page .career-employee-voice-copy blockquote {
+    font-size: clamp(26px, 6vw, 44px);
+  }
+
+  .career-page .career-employee-voice-bottom {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width:640px) {
+  .career-page .career-employee-voice-stage {
+    min-height: 680px;
+  }
+
+  .career-page .career-employee-voice-copy {
+    padding: 34px 26px;
+  }
+
+  .career-page .career-employee-voice-copy blockquote {
+    font-size: clamp(23px, 7vw, 34px);
+    letter-spacing: -1.2px;
+  }
+
+  .career-page .career-employee-voice-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .career-page .career-employee-voice-arrows {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 /* Life at THI activity culture board */
 .career-page .career-life-activities {
   background: #f4f6f8;
@@ -28541,27 +28875,27 @@ a.news-card {
 
 /* Services page: marine geophysical section polish */
 .services-page #marine-seismic {
-  grid-template-columns: minmax(0, .92fr) minmax(420px, .68fr);
-  gap: clamp(34px, 4.8vw, 72px);
-  align-items: start;
-  padding-top: clamp(54px, 6vw, 76px);
-  padding-bottom: clamp(54px, 6vw, 76px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, .98fr);
+  gap: clamp(42px, 5vw, 86px);
+  align-items: stretch;
+  padding-top: clamp(58px, 6vw, 86px);
+  padding-bottom: clamp(58px, 6vw, 86px);
 }
 
 .services-page #marine-seismic .service-detail-gallery {
   display: grid;
-  grid-template-rows: auto auto;
-  gap: 14px;
-  min-height: 0;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 12px;
+  height: 100%;
+  min-height: clamp(650px, 50vw, 820px);
   background: transparent;
 }
 
 .services-page #marine-seismic .service-gallery-feature {
-  aspect-ratio: 16/10;
-  min-height: 0;
+  min-height: clamp(460px, 36vw, 640px);
   background: #071c2c;
-  border: 1px solid #d6e0e6;
-  box-shadow: 0 28px 78px rgba(7, 28, 44, .11);
+  border: 0;
+  box-shadow: 0 30px 90px rgba(7, 28, 44, .12);
 }
 
 .services-page #marine-seismic .service-gallery-feature img {
@@ -28569,6 +28903,12 @@ a.news-card {
   object-fit: cover;
   object-position: center;
   filter: saturate(.96) contrast(1.03);
+}
+
+.services-page #marine-seismic .service-gallery-feature.is-contain img {
+  object-fit: contain;
+  padding: clamp(18px, 2vw, 30px);
+  background: #f4f7f8;
 }
 
 .services-page #marine-seismic .service-gallery-feature:after {
@@ -28599,16 +28939,16 @@ a.news-card {
 
 .services-page #marine-seismic .service-gallery-grid-six {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
   padding: 0;
   background: transparent;
 }
 
 .services-page #marine-seismic .service-gallery-grid-six figure {
-  aspect-ratio: 16/10;
+  aspect-ratio: 16/7.4;
   background: #071c2c;
-  border: 1px solid #d8e1e7;
+  border: 0;
   box-shadow: none;
 }
 
@@ -28634,13 +28974,12 @@ a.news-card {
 
 .services-page #marine-seismic .service-gallery-grid-six figure:hover,
 .services-page #marine-seismic .service-gallery-grid-six figure:focus-visible {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   outline: 0;
 }
 
 .services-page #marine-seismic .service-gallery-grid-six figure.is-selected {
-  border-color: #8d84c3;
-  box-shadow: 0 16px 42px rgba(51, 42, 122, .16);
+  box-shadow: 0 0 0 2px #8d84c3, 0 16px 42px rgba(51, 42, 122, .16);
 }
 
 .services-page #marine-seismic .service-gallery-grid-six figure.is-selected:before,
@@ -28687,11 +29026,11 @@ a.news-card {
 }
 
 .services-page #marine-seismic .service-detail-copy {
-  max-width: none;
-  padding: clamp(26px, 2.8vw, 40px);
-  background: #fff;
-  border: 1px solid #d8e1e7;
-  box-shadow: 0 24px 70px rgba(7, 28, 44, .07);
+  max-width: 720px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .services-page #marine-seismic .service-detail-copy .kicker {
@@ -28706,39 +29045,40 @@ a.news-card {
 }
 
 .services-page #marine-seismic .service-detail-copy h2 {
-  max-width: 520px;
-  font-size: clamp(38px, 3.55vw, 56px);
-  letter-spacing: -2.8px;
+  max-width: 620px;
+  font-size: clamp(40px, 3.9vw, 62px);
+  letter-spacing: -3.1px;
 }
 
 .services-page #marine-seismic .service-detail-copy>p:not(.kicker) {
-  max-width: 600px;
-  margin-top: 18px;
+  max-width: 680px;
+  margin-top: 16px;
   color: #5f7280;
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 650;
   line-height: 1.68;
 }
 
 .services-page #marine-seismic .service-detail-points {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 26px;
-  border: 0;
+  display: block;
+  margin-top: 28px;
+  border-top: 1px solid #cfd9df;
 }
 
 .services-page #marine-seismic .service-detail-points p {
-  display: block;
-  min-height: 132px;
-  padding: 18px;
-  border: 1px solid #d8e1e7;
-  background: #f7fafb;
+  display: grid;
+  grid-template-columns: minmax(112px, .32fr) minmax(0, 1fr);
+  gap: 22px;
+  min-height: 0;
+  padding: 15px 0;
+  border: 0;
+  border-bottom: 1px solid #cfd9df;
+  background: transparent;
 }
 
 .services-page #marine-seismic .service-detail-points strong {
   display: block;
-  margin-bottom: 22px;
+  margin-bottom: 0;
   color: #332a7a;
   font-size: 9px;
   letter-spacing: 1.35px;
@@ -28755,10 +29095,11 @@ a.news-card {
 @media(max-width:1200px) {
   .services-page #marine-seismic {
     grid-template-columns: 1fr;
+    align-items: start;
   }
 
   .services-page #marine-seismic .service-detail-copy {
-    max-width: 920px;
+    max-width: 860px;
   }
 }
 
@@ -28781,7 +29122,7 @@ a.news-card {
   }
 
   .services-page #marine-seismic .service-detail-copy {
-    padding: 24px 20px;
+    padding: 0;
   }
 
   .services-page #marine-seismic .service-detail-copy h2 {
@@ -28790,11 +29131,16 @@ a.news-card {
   }
 
   .services-page #marine-seismic .service-detail-points {
-    grid-template-columns: 1fr;
+    display: block;
   }
 
   .services-page #marine-seismic .service-detail-points p {
+    display: block;
     min-height: 0;
+  }
+
+  .services-page #marine-seismic .service-detail-points strong {
+    margin-bottom: 8px;
   }
 }
 
@@ -29716,5 +30062,174 @@ a.news-card {
 
   .career-page .career-internship-quote-controls {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive stability fixes */
+@media(max-width:900px) {
+  .site-header,
+  .site-header.scrolled {
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+
+  .header-tools {
+    flex: 0 0 auto;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .language-toggle {
+    flex: 0 0 auto;
+  }
+
+  .menu-toggle {
+    flex: 0 0 28px;
+  }
+
+  .nav-links {
+    right: 0;
+    transform: translateX(100%);
+    visibility: hidden;
+    pointer-events: none;
+    contain: layout paint;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition:
+      transform .6s cubic-bezier(.22, 1, .36, 1),
+      visibility .6s ease;
+  }
+
+  .nav-links.open {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .nav-links:not(.open) > a,
+  .nav-links:not(.open) .nav-item,
+  .nav-links:not(.open) .language-toggle,
+  .nav-links:not(.open) .nav-dropdown-menu {
+    visibility: hidden;
+  }
+
+  .nav-links.open > a,
+  .nav-links.open .nav-item,
+  .nav-links.open .language-toggle,
+  .nav-links.open .nav-dropdown-menu {
+    visibility: visible;
+  }
+
+  .nav-links:not(.open) .nav-dropdown-menu {
+    display: none;
+  }
+
+  .nav-links.open .nav-dropdown-menu {
+    display: block;
+  }
+}
+
+@media(max-width:700px) {
+  .service-detail-gallery {
+    min-height: 0;
+  }
+
+  .service-gallery-feature {
+    width: 100%;
+    min-height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .service-gallery-feature img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .services-page #marine-seismic .service-gallery-feature {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  .trusted-strip,
+  .trusted-row,
+  .trusted-window {
+    max-width: 100%;
+    overflow: hidden;
+    contain: layout paint;
+  }
+
+  .trusted-window {
+    position: relative;
+    height: auto;
+    contain: layout paint;
+  }
+
+  .trusted-track {
+    position: static;
+    display: grid;
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    animation: none;
+    transform: none !important;
+  }
+
+  .trusted-track .client-logo-card {
+    width: 100%;
+  }
+
+  .trusted-track .client-logo-card:nth-child(n+7) {
+    display: none;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .service-detail-section,
+  .service-detail-media,
+  .service-detail-gallery,
+  .service-gallery-feature,
+  .service-gallery-grid {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .service-gallery-feature figcaption,
+  #nearshore-onshore-geotechnical .service-gallery-feature figcaption {
+    right: 14px;
+    left: 14px;
+    width: auto;
+    max-width: none;
+  }
+
+  #nearshore-onshore-geotechnical .service-detail-gallery {
+    overflow: hidden;
+  }
+
+  #nearshore-onshore-geotechnical .service-gallery-grid-mixed {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hse-kpi-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .hse-kpi-row {
+    min-width: 760px;
   }
 }

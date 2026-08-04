@@ -492,7 +492,7 @@ const companyProfilePageTranslations = {
     ['.profile-group-summary-brand span', 'Indonesian technical services group'],
     ['.profile-group-summary-copy .kicker', 'About Us'],
     ['.profile-group-summary-copy h2', 'Part of a focused Indonesian technical services group.'],
-    ['.profile-group-summary-copy p:nth-of-type(2)', 'Taka Group was founded in 1998, starting with Taka Turbomachinery Indonesia. The group has grown into four subsidiary companies and one sister company with different service focus and capabilities.'],
+    ['.profile-group-summary-copy p:nth-of-type(2)', 'Taka Group was founded in 1999, starting with Taka Turbomachinery Indonesia. The group has grown into four subsidiary companies and one sister company with different service focus and capabilities.'],
     ['.profile-group-summary-copy p:nth-of-type(3)', 'THI supports offshore and onshore geophysical and geotechnical survey work, strengthened by soil laboratory, engineering service, vessel operation, and related technical service capability.'],
     ['.profile-overview-stat:nth-child(1) span', 'Taka Group established'],
     ['.profile-overview-stat:nth-child(2) span', 'Subsidiary companies'],
@@ -603,7 +603,7 @@ const companyProfilePageTranslations = {
     ['.profile-group-summary-brand span', 'Grup layanan teknis Indonesia'],
     ['.profile-group-summary-copy .kicker', 'Tentang Kami'],
     ['.profile-group-summary-copy h2', 'Bagian dari grup layanan teknis Indonesia yang fokus.'],
-    ['.profile-group-summary-copy p:nth-of-type(2)', 'Taka Group berdiri pada 1998, dimulai dari Taka Turbomachinery Indonesia. Grup berkembang menjadi empat anak perusahaan dan satu sister company dengan fokus layanan dan kapabilitas berbeda.'],
+    ['.profile-group-summary-copy p:nth-of-type(2)', 'Taka Group berdiri pada 1999, dimulai dari Taka Turbomachinery Indonesia. Grup berkembang menjadi empat anak perusahaan dan satu sister company dengan fokus layanan dan kapabilitas berbeda.'],
     ['.profile-group-summary-copy p:nth-of-type(3)', 'THI mendukung pekerjaan survei geofisika dan geoteknik offshore maupun onshore, diperkuat oleh laboratorium tanah, layanan engineering, operasi kapal, dan kapabilitas teknis terkait.'],
     ['.profile-overview-stat:nth-child(1) span', 'Taka Group berdiri'],
     ['.profile-overview-stat:nth-child(2) span', 'Anak perusahaan'],
@@ -1126,13 +1126,13 @@ const equipmentPageTranslations = {
     ['#drill-rig-th25m .equipment-detail-lines p:nth-child(1)', '<strong>Field role</strong><span>Supports drilling, sampling, and coring for site investigation programs.</span>', 'html'],
     ['#drill-rig-th25m .equipment-detail-lines p:nth-child(2)', '<strong>Prepared for</strong><span>Rig-up sequence, drilling floor control, maintenance readiness, and safe operation.</span>', 'html'],
     ['#a-frame-24t .kicker', 'Deck Handling'],
-    ['#a-frame-24t .equipment-detail-index', '09 / Deployment and recovery support'],
+    ['#a-frame-24t .equipment-detail-index', '11 / Deployment and recovery support'],
     ['#a-frame-24t h3', 'THI A-Frame 24T'],
     ['#a-frame-24t .equipment-detail-copy>p:not(.kicker)', 'Deck handling and lifting support for controlled deployment and recovery of seabed equipment during marine operations.'],
     ['#a-frame-24t .equipment-detail-lines p:nth-child(1)', '<strong>Field role</strong><span>Supports safe overboarding, lifting, and recovery sequence on deck.</span>', 'html'],
     ['#a-frame-24t .equipment-detail-lines p:nth-child(2)', '<strong>Prepared for</strong><span>Load check, lifting arrangement, deck coordination, and equipment recovery.</span>', 'html'],
     ['#soil-geotechnical-lab .kicker', 'Laboratory'],
-    ['#soil-geotechnical-lab .equipment-detail-index', '10 / Soil testing and documentation'],
+    ['#soil-geotechnical-lab .equipment-detail-index', '12 / Soil testing and documentation'],
     ['#soil-geotechnical-lab h3', 'Soil & Geotechnical Laboratory'],
     ['#soil-geotechnical-lab .equipment-detail-copy>p:not(.kicker)', 'Laboratory support for soil handling, testing workflow, and technical documentation after samples are recovered from field operations.'],
     ['#soil-geotechnical-lab .equipment-detail-lines p:nth-child(1)', '<strong>Field role</strong><span>Connects recovered samples with laboratory review and engineering deliverables.</span>', 'html'],
@@ -1211,13 +1211,13 @@ const equipmentPageTranslations = {
     ['#drill-rig-th25m .equipment-detail-lines p:nth-child(1)', '<strong>Peran lapangan</strong><span>Mendukung drilling, sampling, dan coring untuk program investigasi site.</span>', 'html'],
     ['#drill-rig-th25m .equipment-detail-lines p:nth-child(2)', '<strong>Disiapkan untuk</strong><span>Urutan rig-up, kontrol drilling floor, kesiapan maintenance, dan operasi aman.</span>', 'html'],
     ['#a-frame-24t .kicker', 'Deck Handling'],
-    ['#a-frame-24t .equipment-detail-index', '09 / Dukungan deployment dan recovery'],
+    ['#a-frame-24t .equipment-detail-index', '11 / Dukungan deployment dan recovery'],
     ['#a-frame-24t h3', 'THI A-Frame 24T'],
     ['#a-frame-24t .equipment-detail-copy>p:not(.kicker)', 'Dukungan deck handling dan lifting untuk deployment serta recovery peralatan seabed secara terkontrol dalam operasi marine.'],
     ['#a-frame-24t .equipment-detail-lines p:nth-child(1)', '<strong>Peran lapangan</strong><span>Mendukung overboarding, lifting, dan urutan recovery yang aman di deck.</span>', 'html'],
     ['#a-frame-24t .equipment-detail-lines p:nth-child(2)', '<strong>Disiapkan untuk</strong><span>Load check, pengaturan lifting, koordinasi deck, dan recovery peralatan.</span>', 'html'],
     ['#soil-geotechnical-lab .kicker', 'Laboratorium'],
-    ['#soil-geotechnical-lab .equipment-detail-index', '10 / Pengujian tanah dan dokumentasi'],
+    ['#soil-geotechnical-lab .equipment-detail-index', '12 / Pengujian tanah dan dokumentasi'],
     ['#soil-geotechnical-lab h3', 'Soil & Geotechnical Laboratory'],
     ['#soil-geotechnical-lab .equipment-detail-copy>p:not(.kicker)', 'Dukungan laboratorium untuk penanganan tanah, workflow pengujian, dan dokumentasi teknis setelah sampel diperoleh dari operasi lapangan.'],
     ['#soil-geotechnical-lab .equipment-detail-lines p:nth-child(1)', '<strong>Peran lapangan</strong><span>Menghubungkan sampel lapangan dengan review laboratorium dan deliverable engineering.</span>', 'html'],
@@ -1244,8 +1244,8 @@ const equipmentPageTranslationOverrides = {
     ['#mbes-em304 .equipment-detail-index', '07 / Bathymetry and seabed mapping'],
     ['#sercel-428 .equipment-detail-index', '08 / Geophysical acquisition workflow'],
     ['#drill-rig-th25m .equipment-detail-index', '09 / Geotechnical and exploratory support'],
-    ['#a-frame-24t .equipment-detail-index', '10 / Deployment and recovery support'],
-    ['#soil-geotechnical-lab .equipment-detail-index', '11 / Soil testing and documentation'],
+    ['#a-frame-24t .equipment-detail-index', '11 / Deployment and recovery support'],
+    ['#soil-geotechnical-lab .equipment-detail-index', '12 / Soil testing and documentation'],
     ['#soil-geotechnical-lab .equipment-lab-head>div>p:not(.kicker)', 'The soil and geotechnical laboratory capability is presented in collaboration with PT Hydrocore. It supports sample handling, basic and advanced soil testing, rock testing, controlled storage, and ISO/IEC 17025 accredited laboratory workflow.'],
     ['#soil-geotechnical-lab .equipment-lab-tests article:nth-child(1) h4', 'Basic Lab Test'],
     ['#soil-geotechnical-lab .equipment-lab-tests article:nth-child(1) li:nth-child(1)', 'Soil classification: moisture content, Atterberg limits, sieve and hydrometer, linear shrinkage, specific gravity, and organic content.'],
@@ -1275,8 +1275,8 @@ const equipmentPageTranslationOverrides = {
     ['#mbes-em304 .equipment-detail-index', '07 / Bathymetry dan pemetaan seabed'],
     ['#sercel-428 .equipment-detail-index', '08 / Workflow akuisisi geofisika'],
     ['#drill-rig-th25m .equipment-detail-index', '09 / Dukungan geoteknik dan eksplorasi'],
-    ['#a-frame-24t .equipment-detail-index', '10 / Dukungan deployment dan recovery'],
-    ['#soil-geotechnical-lab .equipment-detail-index', '11 / Pengujian tanah dan dokumentasi'],
+    ['#a-frame-24t .equipment-detail-index', '11 / Dukungan deployment dan recovery'],
+    ['#soil-geotechnical-lab .equipment-detail-index', '12 / Pengujian tanah dan dokumentasi'],
     ['#soil-geotechnical-lab .equipment-lab-head>div>p:not(.kicker)', 'Kapabilitas laboratorium tanah dan geoteknik ditampilkan melalui kolaborasi dengan PT Hydrocore. Laboratorium ini mendukung penanganan sampel, pengujian dasar dan lanjutan, pengujian batuan, penyimpanan terkendali, serta workflow terakreditasi ISO/IEC 17025.'],
     ['#soil-geotechnical-lab .equipment-lab-tests article:nth-child(1) h4', 'Basic Lab Test'],
     ['#soil-geotechnical-lab .equipment-lab-tests article:nth-child(1) li:nth-child(1)', 'Klasifikasi tanah: moisture content, Atterberg limits, sieve dan hydrometer, linear shrinkage, specific gravity, serta organic content.'],
@@ -2250,6 +2250,16 @@ const escapeHtml = (value = '') => String(value)
   .replace(/"/g, '&quot;')
   .replace(/'/g, '&#039;');
 
+const getSafeCmsAssetPath = (value = '') => {
+  const path = String(value || '').trim();
+  if (!path) return '';
+  if (/[\u0000-\u001f"'<>\\]/.test(path)) return '';
+  if (/^(?:https?:|data:|javascript:|vbscript:|file:)/i.test(path)) return '';
+  if (path.includes('..') || path.startsWith('/') || path.startsWith('#')) return '';
+  if (!/\.(?:png|jpe?g|webp|gif)$/i.test(path)) return '';
+  return path.startsWith('assets/') ? path : '';
+};
+
 const normalizeCmsNewsItems = (data) => {
   const items = Array.isArray(data?.items) ? data.items : [];
   return items
@@ -2298,12 +2308,12 @@ const renderCmsNewsCards = (items = cmsNewsItems) => {
       const date = escapeHtml(formatNewsDate(item.date));
       const title = escapeHtml(item.title);
       const summary = escapeHtml(item.summary || '');
-      const image = item.image ? escapeHtml(item.image) : '';
+      const image = getSafeCmsAssetPath(item.image);
       const imageAlt = escapeHtml(item.imageAlt || item.title);
 
       if (scope === 'home') {
         return `<a class="news-card news-cms-card" href="${newsDetailHref(item)}">
-          <figure class="news-image">${image ? `<img src="${image}" alt="${imageAlt}" loading="lazy">` : ''}</figure>
+          <figure class="news-image">${image ? `<img src="${escapeHtml(image)}" alt="${imageAlt}" loading="lazy">` : ''}</figure>
           <div class="news-content">
             <div class="news-meta"><span>${category}</span><small>${date}</small></div>
             <h3>${title}</h3>
@@ -2313,7 +2323,7 @@ const renderCmsNewsCards = (items = cmsNewsItems) => {
       }
 
       return `<a class="newsroom-story news-cms-story" href="${newsDetailHref(item)}">
-        <figure class="newsroom-story-media">${image ? `<img src="${image}" alt="${imageAlt}" loading="lazy">` : ''}</figure>
+        <figure class="newsroom-story-media">${image ? `<img src="${escapeHtml(image)}" alt="${imageAlt}" loading="lazy">` : ''}</figure>
         <div class="newsroom-story-copy">
           <div class="newsroom-story-meta"><span>${category}</span><small>${date}</small></div>
           <div><h2>${title}</h2><p>${summary}</p></div>
@@ -2400,13 +2410,14 @@ const renderCmsNewsDetail = (items = cmsNewsItems) => {
   header.querySelector('p:not(.kicker)').textContent = item.summary || '';
   document.querySelector('[data-news-detail-category]').textContent = item.category || 'News';
   document.querySelector('[data-news-detail-date]').textContent = formatNewsDate(item.date) || '-';
-  if (item.image) {
-    hero.style.setProperty('--news-detail-image', `url('${item.image}')`);
+  const safeImage = getSafeCmsAssetPath(item.image);
+  if (safeImage) {
+    hero.style.setProperty('--news-detail-image', `url("${safeImage.replace(/"/g, '%22')}")`);
     hero.classList.add('has-image');
   }
-  const imageMarkup = item.image
+  const imageMarkup = safeImage
     ? `<figure class="news-detail-main-image" data-news-detail-image>
-        <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt || item.title)}" loading="eager">
+        <img src="${escapeHtml(safeImage)}" alt="${escapeHtml(item.imageAlt || item.title)}" loading="eager">
         <figcaption>${escapeHtml(item.imageAlt || item.category || 'THI documentation')}</figcaption>
       </figure>`
     : '';
@@ -2565,7 +2576,18 @@ const renderJobList = (items = []) => {
 };
 
 const getJobApplyUrl = (item = {}) => String(item.apply_url || item.applyUrl || item.apply_link || '').trim();
-const isSafeJobApplyUrl = (url = '') => /^https?:\/\//i.test(url);
+const isSafeJobApplyUrl = (url = '') => {
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === 'https:'
+      && (
+        (parsed.hostname === 'docs.google.com' && parsed.pathname.startsWith('/forms/'))
+        || parsed.hostname === 'forms.gle'
+      );
+  } catch {
+    return false;
+  }
+};
 const setJobDetailHeight = (detail) => {
   if (!detail) return;
   detail.style.setProperty('--job-detail-height', `${detail.scrollHeight + 88}px`);
@@ -3881,6 +3903,64 @@ document.querySelectorAll('[data-intern-voice-slider]').forEach((slider) => {
 
   slider.addEventListener('mouseenter', () => window.clearInterval(timer));
   slider.addEventListener('mouseleave', startAuto);
+  selectVoice(activeIndex);
+  startAuto();
+});
+
+document.querySelectorAll('[data-employee-voice-slider]').forEach((slider) => {
+  const panels = [...slider.querySelectorAll('[data-employee-voice-panel]')];
+  const triggers = [...slider.querySelectorAll('[data-employee-voice-trigger]')];
+  const prev = slider.querySelector('[data-employee-voice-prev]');
+  const next = slider.querySelector('[data-employee-voice-next]');
+  if (!panels.length || !triggers.length) return;
+
+  let activeIndex = Math.max(0, panels.findIndex((panel) => panel.classList.contains('is-active')));
+  let timer;
+
+  const selectVoice = (index) => {
+    activeIndex = (index + panels.length) % panels.length;
+    panels.forEach((panel, panelIndex) => {
+      const isActive = panelIndex === activeIndex;
+      panel.classList.toggle('is-active', isActive);
+      panel.setAttribute('aria-hidden', String(!isActive));
+    });
+    triggers.forEach((trigger, triggerIndex) => {
+      const isActive = triggerIndex === activeIndex;
+      trigger.classList.toggle('is-active', isActive);
+      trigger.setAttribute('aria-pressed', String(isActive));
+    });
+  };
+
+  const startAuto = () => {
+    if (reduceMotion.matches || document.hidden) return;
+    window.clearInterval(timer);
+    timer = window.setInterval(() => selectVoice(activeIndex + 1), 6400);
+  };
+
+  triggers.forEach((trigger, index) => {
+    trigger.addEventListener('click', () => {
+      selectVoice(index);
+      startAuto();
+    });
+  });
+
+  prev?.addEventListener('click', () => {
+    selectVoice(activeIndex - 1);
+    startAuto();
+  });
+
+  next?.addEventListener('click', () => {
+    selectVoice(activeIndex + 1);
+    startAuto();
+  });
+
+  slider.addEventListener('mouseenter', () => window.clearInterval(timer));
+  slider.addEventListener('mouseleave', startAuto);
+  slider.addEventListener('focusin', () => window.clearInterval(timer));
+  slider.addEventListener('focusout', startAuto);
+  document.addEventListener('visibilitychange', () => (document.hidden ? window.clearInterval(timer) : startAuto()));
+  reduceMotion.addEventListener('change', startAuto);
+
   selectVoice(activeIndex);
   startAuto();
 });

@@ -33,10 +33,8 @@
       aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="career-nav" aria-label="Career navigation">
       <a href="career-why.html">Life at THI</a>
-      <a href="career-departments.html">Departments</a>
       <a href="career-job-fields.html">Job Fields</a>
       <a href="career-internship.html">Internship</a>
-      <a href="career-apply.html">Apply</a>
     </nav>
     <div class="career-header-actions">
       <a href="index.html">Corporate Site</a>
@@ -153,43 +151,71 @@
         <p>People behind the work</p>
         <h2>Short reflections from the teams who connect preparation, safety, and delivery.</h2>
       </div>
-      <div class="career-life-testimonial-grid career-voice-list reveal">
-        <article>
-          <figure class="career-voice-placeholder" aria-label="Employee photo placeholder">
-            <div class="career-voice-silhouette" aria-hidden="true"></div>
-          </figure>
-          <div class="career-voice-copy">
-            <span>Field Operations</span>
-            <blockquote>"The strongest habit here is preparation. Before a job starts, we need to understand the
-              method, the risk, and the expected output."</blockquote>
-            <strong>Rizky Aditya</strong>
-            <small>Field Operations Officer</small>
+      <div class="career-employee-voice-slider reveal" data-employee-voice-slider aria-label="Employee voice slideshow">
+        <div class="career-employee-voice-stage">
+          <article class="is-active" data-employee-voice-panel>
+            <div class="career-employee-voice-copy">
+              <span>01 / Field Operations</span>
+              <blockquote>"The strongest habit here is preparation. Before a job starts, we need to understand the method, the risk, and the expected output."</blockquote>
+              <div>
+                <strong>Rizky Aditya</strong>
+                <small>Field Operations Officer</small>
+              </div>
+            </div>
+            <figure class="career-employee-voice-photo" aria-label="Employee photo placeholder">
+              <div class="career-voice-silhouette" aria-hidden="true"></div>
+            </figure>
+          </article>
+          <article data-employee-voice-panel>
+            <div class="career-employee-voice-copy">
+              <span>02 / Survey &amp; Data</span>
+              <blockquote>"Good data depends on clear communication between the vessel, processing desk, and reporting team."</blockquote>
+              <div>
+                <strong>Nadia Putri</strong>
+                <small>Survey Data Analyst</small>
+              </div>
+            </div>
+            <figure class="career-employee-voice-photo" aria-label="Employee photo placeholder">
+              <div class="career-voice-silhouette" aria-hidden="true"></div>
+            </figure>
+          </article>
+          <article data-employee-voice-panel>
+            <div class="career-employee-voice-copy">
+              <span>03 / QHSE</span>
+              <blockquote>"Safety culture is not only paperwork. It is the routine of checking, reminding, and stopping when something is not right."</blockquote>
+              <div>
+                <strong>Fajar Pratama</strong>
+                <small>QHSE Officer</small>
+              </div>
+            </div>
+            <figure class="career-employee-voice-photo" aria-label="Employee photo placeholder">
+              <div class="career-voice-silhouette" aria-hidden="true"></div>
+            </figure>
+          </article>
+        </div>
+        <div class="career-employee-voice-bottom">
+          <div class="career-employee-voice-tabs" aria-label="Choose employee voice">
+            <button class="is-active" type="button" data-employee-voice-trigger aria-pressed="true">
+              <span>01</span>
+              <strong>Rizky Aditya</strong>
+              <small>Field Operations</small>
+            </button>
+            <button type="button" data-employee-voice-trigger aria-pressed="false">
+              <span>02</span>
+              <strong>Nadia Putri</strong>
+              <small>Survey &amp; Data</small>
+            </button>
+            <button type="button" data-employee-voice-trigger aria-pressed="false">
+              <span>03</span>
+              <strong>Fajar Pratama</strong>
+              <small>QHSE</small>
+            </button>
           </div>
-        </article>
-        <article>
-          <figure class="career-voice-placeholder" aria-label="Employee photo placeholder">
-            <div class="career-voice-silhouette" aria-hidden="true"></div>
-          </figure>
-          <div class="career-voice-copy">
-            <span>Survey &amp; Data</span>
-            <blockquote>"Good data depends on clear communication between the vessel, processing desk, and reporting
-              team."</blockquote>
-            <strong>Nadia Putri</strong>
-            <small>Survey Data Analyst</small>
+          <div class="career-employee-voice-arrows" aria-label="Employee voice navigation">
+            <button type="button" data-employee-voice-prev aria-label="Previous employee voice">&larr;</button>
+            <button type="button" data-employee-voice-next aria-label="Next employee voice">&rarr;</button>
           </div>
-        </article>
-        <article>
-          <figure class="career-voice-placeholder" aria-label="Employee photo placeholder">
-            <div class="career-voice-silhouette" aria-hidden="true"></div>
-          </figure>
-          <div class="career-voice-copy">
-            <span>QHSE</span>
-            <blockquote>"Safety culture is not only paperwork. It is the routine of checking, reminding, and stopping
-              when something is not right."</blockquote>
-            <strong>Fajar Pratama</strong>
-            <small>QHSE Officer</small>
-          </div>
-        </article>
+        </div>
       </div>
     </section>
 
@@ -274,11 +300,6 @@
             <h3>Understanding job fields at THI</h3>
             <p>A quick overview of field, survey, engineering, QHSE, equipment, commercial, and support paths.</p>
           </a>
-          <a href="career-departments.html">
-            <span>Department Insight</span>
-            <h3>How departments support project delivery</h3>
-            <p>See how technical and corporate teams connect before, during, and after field execution.</p>
-          </a>
           <a href="career-internship.html">
             <span>Internship</span>
             <h3>Preparing your internship interest</h3>
@@ -301,7 +322,6 @@
         <h3>Career Pages</h3>
         <nav aria-label="Career footer navigation">
           <a href="career-why.html">Life at THI</a>
-          <a href="career-departments.html">Departments</a>
           <a href="career-job-fields.html">Job Fields</a>
           <a href="career-internship.html">Internship</a>
         </nav>
