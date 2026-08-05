@@ -330,7 +330,7 @@ const staticTranslations = [
   ['.footer-pages-title', 'Pages', 'Halaman'],
   ['.footer-office-title', 'Head Office', 'Kantor pusat'],
   ['.footer-workshop-title', 'Workshop', 'Workshop'],
-  ['.footer-bottom span:last-child', 'Ground knowledge. Better decisions.', 'Pengetahuan tanah. Keputusan lebih baik.']
+  ['.footer-copyright', '© Copyright PT Taka Hydrocore Indonesia 2026. All Rights Reserved.', '© Copyright PT Taka Hydrocore Indonesia 2026. Seluruh Hak Dilindungi.']
 ];
 
 const serviceOptionTranslations = {
