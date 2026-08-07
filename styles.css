@@ -18045,7 +18045,8 @@ a.news-card {
 
 .site-footer>* {
   position: relative;
-  z-index: 1
+  z-index: 1;
+  min-width: 0
 }
 
 .footer-brand-block .footer-brand {
@@ -18144,12 +18145,13 @@ a.news-card {
 
 .footer-links a,
 .footer-contact-block a {
-  width: fit-content;
+  width: auto;
   max-width: 100%;
   color: #c8d4db;
   font-size: 13px;
   font-weight: 800;
   line-height: 1.25;
+  overflow-wrap: anywhere;
   transition: color .25s ease, transform .32s cubic-bezier(.22, 1, .36, 1)
 }
 
@@ -18163,7 +18165,8 @@ a.news-card {
   margin: 0 0 14px;
   color: #b6c4cc;
   font-size: 13px;
-  line-height: 1.68
+  line-height: 1.68;
+  overflow-wrap: anywhere
 }
 
 .site-footer .footer-bottom {
@@ -18422,6 +18425,12 @@ a.news-card {
 
   .footer-brand-block {
     grid-column: 1/-1
+  }
+}
+
+@media(max-width:1400px) {
+  .footer-links {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -31108,5 +31117,28 @@ a.news-card {
   .footer-social {
     width: 21px;
     height: 21px;
+  }
+}
+
+/* Final responsive QA pass */
+@media (max-width: 700px) {
+  .quality-value-chain {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    padding: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-right: 1px solid #d8e1e7;
+    border-left: 1px solid #d8e1e7;
+    contain: layout paint;
+  }
+
+  .quality-value-chain img {
+    width: max(720px, 100%);
+    min-width: 0;
+    max-width: none;
   }
 }
