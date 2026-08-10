@@ -1348,24 +1348,28 @@ const equipmentSplitPageTranslationOverrides = {
       ['.equipment-overview-copy>p:not(.kicker)', 'Before mobilization, the team reviews water depth, soil target, sampling requirement, rig-up method, lifting arrangement, sample handling, laboratory plan, and reporting workflow.'],
       ['.equipment-family-card>p', 'Geotechnical Equipment'],
       ['.equipment-family-card a:nth-child(1)', '<span>01</span>CPT Manta 200', 'html'],
-      ['.equipment-family-card a:nth-child(2)', '<span>02</span>Vibrocore System', 'html'],
-      ['.equipment-family-card a:nth-child(3)', '<span>03</span>FT520 Piston Corer', 'html'],
-      ['.equipment-family-card a:nth-child(4)', '<span>04</span>Box Core with T-Bar', 'html'],
-      ['.equipment-family-card a:nth-child(5)', '<span>05</span>Grab Sampler', 'html'],
-      ['.equipment-family-card a:nth-child(6)', '<span>06</span>Drill Rig TH-25M', 'html'],
-      ['.equipment-family-card a:nth-child(7)', '<span>07</span>Dando Mintec Crawler Rig', 'html'],
-      ['.equipment-family-card a:nth-child(8)', '<span>08</span>TH3 Drilling Rig Series', 'html'],
-      ['.equipment-family-card a:nth-child(9)', '<span>09</span>THCP3 Eijkelkamp Crawler CPT', 'html'],
-      ['.equipment-family-card a:nth-child(10)', '<span>10</span>CPT Wison APB', 'html'],
-      ['.equipment-family-card a:nth-child(11)', '<span>11</span>THI A-Frame 24T', 'html'],
+      ['.equipment-family-card a:nth-child(2)', '<span>02</span>THI A-Frame 24T', 'html'],
+      ['.equipment-family-card a:nth-child(3)', '<span>03</span>CPT Wison APB', 'html'],
+      ['.equipment-family-card a:nth-child(4)', '<span>04</span>Vibrocore System', 'html'],
+      ['.equipment-family-card a:nth-child(5)', '<span>05</span>FT520 Piston Corer', 'html'],
+      ['.equipment-family-card a:nth-child(6)', '<span>06</span>Box Core with T-Bar', 'html'],
+      ['.equipment-family-card a:nth-child(7)', '<span>07</span>Grab Sampler', 'html'],
+      ['.equipment-family-card a:nth-child(8)', '<span>08</span>THCP3 Eijkelkamp Crawler CPT', 'html'],
+      ['.equipment-family-card a:nth-child(9)', '<span>09</span>Drill Rig TH-25M', 'html'],
+      ['.equipment-family-card a:nth-child(10)', '<span>10</span>TH3 Drilling Rig Series', 'html'],
+      ['.equipment-family-card a:nth-child(11)', '<span>11</span>Dando Mintec Crawler Rig', 'html'],
       ['.equipment-family-card a:nth-child(12)', '<span>12</span>Soil & Geotechnical Laboratory', 'html'],
       ['.equipment-directory-head h2', 'Geotechnical systems explained by field role and preparation workflow.'],
-      ['#drill-rig-th25m .equipment-detail-index', '06 / Geotechnical and exploratory support'],
-      ['#dando-mintec-crawler-rig .equipment-detail-index', '07 / Crawler drilling support'],
-      ['#th3-drilling-rig-series .equipment-detail-index', '08 / TH3 drilling rig series'],
-      ['#thcp3-eijkelkamp-crawler-cpt .equipment-detail-index', '09 / Eijkelkamp crawler CPT support'],
-      ['#cpt-wison-apb .equipment-detail-index', '10 / CPT system support'],
-      ['#a-frame-24t .equipment-detail-index', '11 / Deployment and recovery support'],
+      ['#a-frame-24t .equipment-detail-index', '02 / Deployment and recovery support'],
+      ['#cpt-wison-apb .equipment-detail-index', '03 / CPT system support'],
+      ['#vibrocore-system .equipment-detail-index', '04 / Near-surface sediment recovery'],
+      ['#piston-core .equipment-detail-index', '05 / Soft sediment core'],
+      ['#box-core-tbar .equipment-detail-index', '06 / Surface sample and T-Bar support'],
+      ['#grab-sampler .equipment-detail-index', '07 / Seabed material collection'],
+      ['#thcp3-eijkelkamp-crawler-cpt .equipment-detail-index', '08 / Eijkelkamp crawler CPT support'],
+      ['#drill-rig-th25m .equipment-detail-index', '09 / Geotechnical and exploratory support'],
+      ['#th3-drilling-rig-series .equipment-detail-index', '10 / TH3 drilling rig series'],
+      ['#dando-mintec-crawler-rig .equipment-detail-index', '11 / Crawler drilling support'],
       ['#soil-geotechnical-lab .equipment-detail-index', '12 / Soil testing and documentation']
     ],
     geophysical: [
@@ -1394,44 +1398,48 @@ const equipmentSplitPageTranslationOverrides = {
       ['.equipment-overview-copy>p:not(.kicker)', 'Sebelum mobilisasi, tim meninjau kedalaman air, target tanah, kebutuhan sampling, metode rig-up, rencana lifting, handling sampel, rencana laboratorium, dan workflow pelaporan.'],
       ['.equipment-family-card>p', 'Peralatan Geoteknik'],
       ['.equipment-family-card a:nth-child(1)', '<span>01</span>CPT Manta 200', 'html'],
-      ['.equipment-family-card a:nth-child(2)', '<span>02</span>Vibrocore System', 'html'],
-      ['.equipment-family-card a:nth-child(3)', '<span>03</span>FT520 Piston Corer', 'html'],
-      ['.equipment-family-card a:nth-child(4)', '<span>04</span>Box Core with T-Bar', 'html'],
-      ['.equipment-family-card a:nth-child(5)', '<span>05</span>Grab Sampler', 'html'],
-      ['.equipment-family-card a:nth-child(6)', '<span>06</span>Drill Rig TH-25M', 'html'],
-      ['.equipment-family-card a:nth-child(7)', '<span>07</span>Dando Mintec Crawler Rig', 'html'],
-      ['.equipment-family-card a:nth-child(8)', '<span>08</span>Seri Drill Rig TH3', 'html'],
-      ['.equipment-family-card a:nth-child(9)', '<span>09</span>THCP3 Eijkelkamp Crawler CPT', 'html'],
-      ['.equipment-family-card a:nth-child(10)', '<span>10</span>CPT Wison APB', 'html'],
-      ['.equipment-family-card a:nth-child(11)', '<span>11</span>THI A-Frame 24T', 'html'],
+      ['.equipment-family-card a:nth-child(2)', '<span>02</span>THI A-Frame 24T', 'html'],
+      ['.equipment-family-card a:nth-child(3)', '<span>03</span>CPT Wison APB', 'html'],
+      ['.equipment-family-card a:nth-child(4)', '<span>04</span>Vibrocore System', 'html'],
+      ['.equipment-family-card a:nth-child(5)', '<span>05</span>FT520 Piston Corer', 'html'],
+      ['.equipment-family-card a:nth-child(6)', '<span>06</span>Box Core with T-Bar', 'html'],
+      ['.equipment-family-card a:nth-child(7)', '<span>07</span>Grab Sampler', 'html'],
+      ['.equipment-family-card a:nth-child(8)', '<span>08</span>THCP3 Eijkelkamp Crawler CPT', 'html'],
+      ['.equipment-family-card a:nth-child(9)', '<span>09</span>Drill Rig TH-25M', 'html'],
+      ['.equipment-family-card a:nth-child(10)', '<span>10</span>Seri Drill Rig TH3', 'html'],
+      ['.equipment-family-card a:nth-child(11)', '<span>11</span>Dando Mintec Crawler Rig', 'html'],
       ['.equipment-family-card a:nth-child(12)', '<span>12</span>Laboratorium Tanah & Geoteknik', 'html'],
       ['.equipment-directory-head h2', 'Sistem geoteknik dijelaskan berdasarkan peran lapangan dan workflow persiapan.'],
-      ['#drill-rig-th25m .equipment-detail-index', '06 / Dukungan geoteknik dan eksplorasi'],
+      ['#a-frame-24t .equipment-detail-index', '02 / Dukungan deployment dan recovery'],
+      ['#cpt-wison-apb .equipment-detail-index', '03 / Dukungan sistem CPT'],
+      ['#vibrocore-system .equipment-detail-index', '04 / Recovery sedimen near-surface'],
+      ['#piston-core .equipment-detail-index', '05 / Core sedimen lunak'],
+      ['#box-core-tbar .equipment-detail-index', '06 / Dukungan sample permukaan dan T-Bar'],
+      ['#grab-sampler .equipment-detail-index', '07 / Pengambilan material seabed'],
+      ['#thcp3-eijkelkamp-crawler-cpt .equipment-detail-index', '08 / Dukungan crawler CPT Eijkelkamp'],
+      ['#drill-rig-th25m .equipment-detail-index', '09 / Dukungan geoteknik dan eksplorasi'],
       ['#dando-mintec-crawler-rig .kicker', 'Crawler Drilling'],
-      ['#dando-mintec-crawler-rig .equipment-detail-index', '07 / Dukungan crawler drilling'],
+      ['#dando-mintec-crawler-rig .equipment-detail-index', '11 / Dukungan crawler drilling'],
       ['#dando-mintec-crawler-rig h3', 'Dando Mintec Crawler Drilling Rig'],
       ['#dando-mintec-crawler-rig .equipment-detail-copy>p:not(.kicker)', 'Rig pengeboran crawler untuk pekerjaan investigasi darat yang membutuhkan akses mobile, setup stabil, dan kesiapan operasi lapangan.', 'text'],
       ['#dando-mintec-crawler-rig .equipment-detail-lines p:nth-child(1)', '<strong>Peran lapangan</strong><span>Mendukung drilling dan sampling untuk scope geoteknik onshore dan eksplorasi.</span>', 'html'],
       ['#dando-mintec-crawler-rig .equipment-detail-lines p:nth-child(2)', '<strong>Disiapkan untuk</strong><span>Akses site, positioning rig, urutan drilling, dan kesiapan maintenance lapangan.</span>', 'html'],
       ['#th3-drilling-rig-series .kicker', 'Seri Drilling'],
-      ['#th3-drilling-rig-series .equipment-detail-index', '08 / Seri drilling rig TH3'],
+      ['#th3-drilling-rig-series .equipment-detail-index', '10 / Seri drilling rig TH3'],
       ['#th3-drilling-rig-series h3', 'Seri Drill Rig TH3'],
       ['#th3-drilling-rig-series .equipment-detail-copy>p:not(.kicker)', 'TH3#1, TH3#4, dan TH3#5 digabung sebagai platform drilling compact untuk scope investigasi yang membutuhkan rig-up praktis dan recovery sampel yang andal.', 'text'],
       ['#th3-drilling-rig-series .equipment-detail-lines p:nth-child(1)', '<strong>Peran lapangan</strong><span>Mendukung drilling, coring, dan sampling untuk program investigasi darat.</span>', 'html'],
       ['#th3-drilling-rig-series .equipment-detail-lines p:nth-child(2)', '<strong>Disiapkan untuk</strong><span>Beberapa konfigurasi TH3, setup site, kontrol drilling, dan dukungan rutin lapangan.</span>', 'html'],
       ['#thcp3-eijkelkamp-crawler-cpt .kicker', 'Crawler CPT'],
-      ['#thcp3-eijkelkamp-crawler-cpt .equipment-detail-index', '09 / Dukungan crawler CPT Eijkelkamp'],
       ['#thcp3-eijkelkamp-crawler-cpt h3', 'THCP3 Eijkelkamp Crawler CPT'],
       ['#thcp3-eijkelkamp-crawler-cpt .equipment-detail-copy>p:not(.kicker)', 'Sistem crawler CPT untuk cone penetration testing onshore, dengan mobilitas praktis untuk area investigasi yang membutuhkan banyak titik pengujian.', 'text'],
       ['#thcp3-eijkelkamp-crawler-cpt .equipment-detail-lines p:nth-child(1)', '<strong>Peran lapangan</strong><span>Mendukung CPT testing, profiling tanah, dan kontrol data lapangan.</span>', 'html'],
       ['#thcp3-eijkelkamp-crawler-cpt .equipment-detail-lines p:nth-child(2)', '<strong>Disiapkan untuk</strong><span>Kalibrasi alat, perpindahan lapangan, setup titik uji, dan dokumentasi akuisisi.</span>', 'html'],
       ['#cpt-wison-apb .kicker', 'Sistem CPT'],
-      ['#cpt-wison-apb .equipment-detail-index', '10 / Dukungan sistem CPT'],
       ['#cpt-wison-apb h3', 'CPT Wison APB'],
       ['#cpt-wison-apb .equipment-detail-copy>p:not(.kicker)', 'Sistem cone penetration testing untuk mendukung investigasi geoteknik yang membutuhkan pembacaan lapangan konsisten dan setup terkontrol.', 'text'],
       ['#cpt-wison-apb .equipment-detail-lines p:nth-child(1)', '<strong>Peran lapangan</strong><span>Mendukung pengumpulan data CPT untuk penilaian soil behavior dan engineering.</span>', 'html'],
       ['#cpt-wison-apb .equipment-detail-lines p:nth-child(2)', '<strong>Disiapkan untuk</strong><span>Pengecekan sistem, urutan pengujian, kontrol operator, dan workflow laporan lapangan.</span>', 'html'],
-      ['#a-frame-24t .equipment-detail-index', '11 / Dukungan deployment dan recovery'],
       ['#soil-geotechnical-lab .equipment-detail-index', '12 / Pengujian tanah dan dokumentasi']
     ],
     geophysical: [
@@ -1488,24 +1496,33 @@ const vesselPageTranslations = {
     ['.vessel-platform-list a:nth-child(2) p', 'Marine survey vessel for geophysical acquisition, high-resolution seismic, and seabed mapping work.'],
     ['.vessel-platform-list a:nth-child(3) small', 'Seismic and geophysical support'],
     ['.vessel-platform-list a:nth-child(3) p', 'Seismic and geophysical platform for subsea mapping, onboard processing, and offshore support.'],
-    ['#ag-geodrill>.section-label', '<span>02</span> AG Geodrill', 'html'],
+    ['.vessel-platform-list a:nth-child(4) small', 'Coming soon'],
+    ['.vessel-platform-list a:nth-child(4) p', 'New-generation geotechnical platform prepared for offshore drilling, deployment support, and marine site investigation work.'],
+    ['#ag-geodrill>.section-label', '<span>01</span> AG Geodrill', 'html'],
     ['#ag-geodrill .vessel-detail-copy h2', 'Geotechnical vessel for offshore soil investigation.'],
     ['#ag-geodrill .vessel-detail-copy>p:not(.kicker)', 'AG Geodrill is presented by THI as a dedicated offshore geotechnical vessel. Its configuration is centered on station keeping, heave compensated drilling, moonpool deployment, seabed frame handling, and onboard soil handling for survey campaigns.'],
     ['#ag-geodrill .vessel-spec-list span:nth-child(1) strong', 'Year'],
     ['#ag-geodrill .vessel-spec-list span:nth-child(2) strong', 'Engine Power'],
     ['#ag-geodrill .vessel-spec-list span:nth-child(3) strong', 'Accommodation'],
-    ['#ss-barakuda>.section-label', '<span>03</span> SS Barakuda', 'html'],
+    ['#ss-barakuda>.section-label', '<span>02</span> SS Barakuda', 'html'],
     ['#ss-barakuda .vessel-detail-copy h2', 'Marine survey vessel for seismic and geophysical campaigns.'],
     ['#ss-barakuda .vessel-detail-copy>p:not(.kicker)', 'SS Barakuda is listed by THI as a research ship for geophysical and high resolution seismic survey work. Its operating profile suits survey lines, geohazard investigation, and exploration-support acquisition using marine geophysical sensors.'],
     ['#ss-barakuda .vessel-spec-list span:nth-child(1) strong', 'Year'],
     ['#ss-barakuda .vessel-spec-list span:nth-child(2) strong', 'Engine Power'],
     ['#ss-barakuda .vessel-spec-list span:nth-child(3) strong', 'Accommodation'],
-    ['#voyager-explorer>.section-label', '<span>04</span> Voyager Explorer', 'html'],
+    ['#voyager-explorer>.section-label', '<span>03</span> Voyager Explorer', 'html'],
     ['#voyager-explorer .vessel-detail-copy h2', 'Seismic and geophysical vessel for subsea mapping.'],
     ['#voyager-explorer .vessel-detail-copy>p:not(.kicker)', 'Voyager Explorer is positioned as a seismic and geophysical survey vessel for subsea mapping, high-quality acquisition, onboard processing, and field support for oil and gas, marine, and subsea infrastructure work.'],
     ['#voyager-explorer .vessel-spec-list span:nth-child(1) strong', 'Year'],
     ['#voyager-explorer .vessel-spec-list span:nth-child(2) strong', 'Engine Power'],
     ['#voyager-explorer .vessel-spec-list span:nth-child(3) strong', 'Accommodation'],
+    ['#oceanic-geodrill>.section-label', '<span>04</span> Oceanic Geodrill', 'html'],
+    ['#oceanic-geodrill .vessel-status-pill', 'Coming soon'],
+    ['#oceanic-geodrill .vessel-detail-copy h2', 'Offshore geotechnical platform for future field campaigns.'],
+    ['#oceanic-geodrill .vessel-detail-copy>p:not(.kicker)', 'Oceanic Geodrill is prepared as an offshore geotechnical platform to support drilling, seabed equipment deployment, and marine site investigation scopes with larger accommodation and vessel power capacity.'],
+    ['#oceanic-geodrill .vessel-spec-list span:nth-child(1) strong', 'Year'],
+    ['#oceanic-geodrill .vessel-spec-list span:nth-child(2) strong', 'Engine Power'],
+    ['#oceanic-geodrill .vessel-spec-list span:nth-child(3) strong', 'Accommodation'],
     ['.vessel-gallery-section>.section-label', '<span>05</span> Vessel Gallery', 'html'],
     ['.vessel-gallery-section .vessel-overview-head .kicker', 'Selected documentation'],
     ['.vessel-gallery-section .vessel-overview-head h2', 'Each photograph is assigned to a vessel context.'],
@@ -1533,24 +1550,33 @@ const vesselPageTranslations = {
     ['.vessel-platform-list a:nth-child(2) p', 'Kapal survei marine untuk akuisisi geofisika, seismik resolusi tinggi, dan pemetaan seabed.'],
     ['.vessel-platform-list a:nth-child(3) small', 'Dukungan seismik dan geofisika'],
     ['.vessel-platform-list a:nth-child(3) p', 'Platform seismik dan geofisika untuk pemetaan bawah laut, pemrosesan onboard, dan dukungan offshore.'],
-    ['#ag-geodrill>.section-label', '<span>02</span> AG Geodrill', 'html'],
+    ['.vessel-platform-list a:nth-child(4) small', 'Segera hadir'],
+    ['.vessel-platform-list a:nth-child(4) p', 'Platform geoteknik generasi baru yang disiapkan untuk pengeboran offshore, dukungan deployment, dan investigasi site marine.'],
+    ['#ag-geodrill>.section-label', '<span>01</span> AG Geodrill', 'html'],
     ['#ag-geodrill .vessel-detail-copy h2', 'Kapal geoteknik untuk investigasi tanah offshore.'],
     ['#ag-geodrill .vessel-detail-copy>p:not(.kicker)', 'AG Geodrill dipresentasikan THI sebagai kapal geoteknik offshore khusus. Konfigurasinya berfokus pada station keeping, heave compensated drilling, deployment melalui moonpool, penanganan seabed frame, dan dukungan soil handling onboard.'],
     ['#ag-geodrill .vessel-spec-list span:nth-child(1) strong', 'Tahun'],
     ['#ag-geodrill .vessel-spec-list span:nth-child(2) strong', 'Daya Mesin'],
     ['#ag-geodrill .vessel-spec-list span:nth-child(3) strong', 'Akomodasi'],
-    ['#ss-barakuda>.section-label', '<span>03</span> SS Barakuda', 'html'],
+    ['#ss-barakuda>.section-label', '<span>02</span> SS Barakuda', 'html'],
     ['#ss-barakuda .vessel-detail-copy h2', 'Kapal survei marine untuk kampanye seismik dan geofisika.'],
     ['#ss-barakuda .vessel-detail-copy>p:not(.kicker)', 'SS Barakuda dicantumkan THI sebagai research ship untuk survei geofisika dan seismik resolusi tinggi. Profil operasinya cocok untuk lintasan survei, investigasi geohazard, dan akuisisi pendukung eksplorasi dengan sensor geofisika marine.'],
     ['#ss-barakuda .vessel-spec-list span:nth-child(1) strong', 'Tahun'],
     ['#ss-barakuda .vessel-spec-list span:nth-child(2) strong', 'Daya Mesin'],
     ['#ss-barakuda .vessel-spec-list span:nth-child(3) strong', 'Akomodasi'],
-    ['#voyager-explorer>.section-label', '<span>04</span> Voyager Explorer', 'html'],
+    ['#voyager-explorer>.section-label', '<span>03</span> Voyager Explorer', 'html'],
     ['#voyager-explorer .vessel-detail-copy h2', 'Kapal seismik dan geofisika untuk pemetaan bawah laut.'],
     ['#voyager-explorer .vessel-detail-copy>p:not(.kicker)', 'Voyager Explorer diposisikan sebagai kapal survei seismik dan geofisika untuk pemetaan bawah laut, akuisisi berkualitas tinggi, pemrosesan onboard, dan dukungan lapangan bagi minyak dan gas, kelautan, serta infrastruktur bawah laut.'],
     ['#voyager-explorer .vessel-spec-list span:nth-child(1) strong', 'Tahun'],
     ['#voyager-explorer .vessel-spec-list span:nth-child(2) strong', 'Daya Mesin'],
     ['#voyager-explorer .vessel-spec-list span:nth-child(3) strong', 'Akomodasi'],
+    ['#oceanic-geodrill>.section-label', '<span>04</span> Oceanic Geodrill', 'html'],
+    ['#oceanic-geodrill .vessel-status-pill', 'Segera hadir'],
+    ['#oceanic-geodrill .vessel-detail-copy h2', 'Platform geoteknik offshore untuk kampanye lapangan berikutnya.'],
+    ['#oceanic-geodrill .vessel-detail-copy>p:not(.kicker)', 'Oceanic Geodrill disiapkan sebagai platform geoteknik offshore untuk mendukung pengeboran, deployment peralatan seabed, dan lingkup investigasi site marine dengan kapasitas akomodasi dan daya kapal yang lebih besar.'],
+    ['#oceanic-geodrill .vessel-spec-list span:nth-child(1) strong', 'Tahun'],
+    ['#oceanic-geodrill .vessel-spec-list span:nth-child(2) strong', 'Daya Mesin'],
+    ['#oceanic-geodrill .vessel-spec-list span:nth-child(3) strong', 'Akomodasi'],
     ['.vessel-gallery-section>.section-label', '<span>05</span> Galeri Kapal', 'html'],
     ['.vessel-gallery-section .vessel-overview-head .kicker', 'Dokumentasi terpilih'],
     ['.vessel-gallery-section .vessel-overview-head h2', 'Setiap foto ditempatkan sesuai konteks kapalnya.'],
@@ -1571,19 +1597,24 @@ const applyVesselPageLanguage = (language) => {
 const qualityPageTranslations = {
   en: [
     ['title', 'Quality & Management System | Taka Hydrocore Indonesia'],
-    ['meta[name="description"]', 'PT Taka Hydrocore Indonesia Quality and Management System page covering policy, compliance access, ISO certificates, SMK3, and document control.'],
+    ['meta[name="description"]', 'PT Taka Hydrocore Indonesia quality management system references covering policy, business process, ISO certificates, SMK3, and document control.'],
     ['.quality-page .preloader-inner p', 'Preparing management system'],
     ['.quality-page .qhse-page-hero .kicker', 'Quality'],
-    ['.quality-page .qhse-page-hero h1', 'Management system access for client compliance review.'],
-    ['.quality-page .qhse-page-hero-copy>p:not(.kicker)', "THI organizes policy, certification, and quality control references so clients can review management system compliance without digging through project documents."],
+    ['.quality-page .qhse-page-hero h1', 'Quality management references for dependable project delivery.'],
+    ['.quality-page .qhse-page-hero-copy>p:not(.kicker)', "THI keeps policy, certification, process, and quality control records clear so project requirements can be reviewed with proper traceability."],
     ['.management-system-section>.section-label', '<span>01</span> Management System', 'html'],
     ['.management-system-head .kicker', 'Compliance structure'],
     ['.management-system-head h2', 'Policy, certification, and documented controls in one place.'],
-    ['.management-system-head>p', "The management system section is arranged around two access points: Policy / Kebijakan and Certification Management System. It helps project owners, partners, and client representatives quickly check THI's formal compliance references."],
+    ['.management-system-head>p', "Quality references are arranged around the documents most often needed during tender, audit, project kick-off, and management review activities."],
+    ['.management-access-card:nth-child(1) span', 'Policy'],
     ['.management-access-card:nth-child(1) strong', 'Policy / Kebijakan'],
     ['.management-access-card:nth-child(1) p', 'QHSE Policy 2026, management commitments, and the policy points used as company guidance.'],
-    ['.management-access-card:nth-child(2) strong', 'Certification Management System'],
-    ['.management-access-card:nth-child(2) p', 'ISO and local certificate references supporting quality, safety, environment, and Indonesian compliance.'],
+    ['.management-access-card:nth-child(2) span', 'Process'],
+    ['.management-access-card:nth-child(2) strong', 'Business Process Value Chain'],
+    ['.management-access-card:nth-child(2) p', 'Organisation-level process map showing how inputs, core operation, support functions, and outputs connect.'],
+    ['.management-access-card:nth-child(3) span', 'Certificate'],
+    ['.management-access-card:nth-child(3) strong', 'Certification Management System'],
+    ['.management-access-card:nth-child(3) p', 'ISO and local certificate references supporting quality, safety, environment, and Indonesian compliance.'],
     ['.quality-policy-section>.section-label', '<span>02</span> Policy / Kebijakan', 'html'],
     ['.quality-policy-section .qhse-document-copy .kicker', 'QHSE Policy 2026'],
     ['.quality-policy-section .qhse-document-copy h2', 'Eight commitments that guide the way THI manages work.'],
@@ -1606,10 +1637,14 @@ const qualityPageTranslations = {
     ['.qhse-policy-points article:nth-child(7) p', 'Encourage employee participation and consultation to create a safe, comfortable, and healthy workplace.'],
     ['.qhse-policy-points article:nth-child(8) h3', 'Communication'],
     ['.qhse-policy-points article:nth-child(8) p', 'Communicate company policy to employees and relevant external parties, with annual review by top management.'],
-    ['.qhse-certification-section>.section-label', '<span>03</span> Certification Management System', 'html'],
+    ['.quality-value-chain-section>.section-label', '<span>03</span> Business Process', 'html'],
+    ['.quality-value-chain-head .kicker', 'Value chain organisation'],
+    ['.quality-value-chain-head h2', 'How THI connects management, operation, and support processes.'],
+    ['.quality-value-chain-head p:not(.kicker)', 'The value chain gives clients a clear overview of how customer requirements move through tender, contract management, project planning, operation, monitoring, customer relationship, and internal support functions.'],
+    ['.qhse-certification-section>.section-label', '<span>04</span> Certification Management System', 'html'],
     ['.qhse-certification-copy .kicker', 'Formal references'],
-    ['.qhse-certification-copy h2', 'Certificates prepared for client compliance review.'],
-    ['.qhse-certification-copy>p', 'THI keeps its management system references visible for tender, prequalification, project kick-off, and audit support, with certificate documents available for direct review.'],
+    ['.qhse-certification-copy h2', 'Certificate records for quality, safety, environment, and local compliance.'],
+    ['.qhse-certification-copy>p', 'Certificate documents are maintained as formal references for prequalification, project preparation, and audit support.'],
     ['.quality-page .qhse-iso-list article:nth-child(1) h3', 'Quality Management System'],
     ['.quality-page .qhse-iso-list article:nth-child(1) p', 'Supports consistent service delivery, document control, quality assurance, and traceable project records.'],
     ['.quality-page .qhse-iso-list article:nth-child(2) h3', 'Occupational Health & Safety Management System'],
@@ -1622,19 +1657,24 @@ const qualityPageTranslations = {
   ],
   id: [
     ['title', 'Sistem Manajemen Mutu | Taka Hydrocore Indonesia'],
-    ['meta[name="description"]', 'Halaman Sistem Manajemen Mutu PT Taka Hydrocore Indonesia yang mencakup kebijakan, akses kepatuhan, sertifikat ISO, SMK3, dan kontrol dokumen.'],
+    ['meta[name="description"]', 'Referensi sistem manajemen mutu PT Taka Hydrocore Indonesia yang mencakup kebijakan, business process, sertifikat ISO, SMK3, dan kontrol dokumen.'],
     ['.quality-page .preloader-inner p', 'Menyiapkan sistem manajemen'],
     ['.quality-page .qhse-page-hero .kicker', 'Mutu'],
-    ['.quality-page .qhse-page-hero h1', 'Akses sistem manajemen untuk review kepatuhan klien.'],
-    ['.quality-page .qhse-page-hero-copy>p:not(.kicker)', 'THI menyusun referensi kebijakan, sertifikasi, dan kontrol mutu agar klien dapat meninjau kepatuhan sistem manajemen tanpa perlu mencari di dokumen proyek.'],
+    ['.quality-page .qhse-page-hero h1', 'Referensi manajemen mutu untuk delivery proyek yang andal.'],
+    ['.quality-page .qhse-page-hero-copy>p:not(.kicker)', 'THI menjaga catatan kebijakan, sertifikasi, proses, dan kontrol mutu tetap jelas agar kebutuhan proyek dapat ditinjau dengan traceability yang baik.'],
     ['.management-system-section>.section-label', '<span>01</span> Sistem Manajemen', 'html'],
     ['.management-system-head .kicker', 'Struktur kepatuhan'],
     ['.management-system-head h2', 'Kebijakan, sertifikasi, dan kontrol terdokumentasi dalam satu tempat.'],
-    ['.management-system-head>p', 'Bagian sistem manajemen disusun menjadi dua akses utama: Policy / Kebijakan dan Certification Management System. Tujuannya membantu pemilik proyek, partner, dan perwakilan klien meninjau referensi kepatuhan formal THI dengan cepat.'],
+    ['.management-system-head>p', 'Referensi mutu disusun berdasarkan dokumen yang paling sering dibutuhkan saat tender, audit, project kick-off, dan management review.'],
+    ['.management-access-card:nth-child(1) span', 'Policy'],
     ['.management-access-card:nth-child(1) strong', 'Policy / Kebijakan'],
     ['.management-access-card:nth-child(1) p', 'QHSE Policy 2026, komitmen manajemen, dan poin kebijakan yang menjadi panduan perusahaan.'],
-    ['.management-access-card:nth-child(2) strong', 'Certification Management System'],
-    ['.management-access-card:nth-child(2) p', 'Referensi sertifikat ISO dan sertifikat lokal yang mendukung mutu, keselamatan, lingkungan, dan kepatuhan Indonesia.'],
+    ['.management-access-card:nth-child(2) span', 'Process'],
+    ['.management-access-card:nth-child(2) strong', 'Business Process Value Chain'],
+    ['.management-access-card:nth-child(2) p', 'Peta proses organisasi yang menunjukkan hubungan input, operasi inti, fungsi pendukung, dan output.'],
+    ['.management-access-card:nth-child(3) span', 'Certificate'],
+    ['.management-access-card:nth-child(3) strong', 'Certification Management System'],
+    ['.management-access-card:nth-child(3) p', 'Referensi sertifikat ISO dan sertifikat lokal yang mendukung mutu, keselamatan, lingkungan, dan kepatuhan Indonesia.'],
     ['.quality-policy-section>.section-label', '<span>02</span> Policy / Kebijakan', 'html'],
     ['.quality-policy-section .qhse-document-copy .kicker', 'QHSE Policy 2026'],
     ['.quality-policy-section .qhse-document-copy h2', 'Delapan komitmen yang memandu cara kerja THI.'],
@@ -1657,10 +1697,14 @@ const qualityPageTranslations = {
     ['.qhse-policy-points article:nth-child(7) p', 'Mendorong partisipasi dan konsultasi karyawan untuk menciptakan tempat kerja yang aman, nyaman, dan sehat.'],
     ['.qhse-policy-points article:nth-child(8) h3', 'Komunikasi'],
     ['.qhse-policy-points article:nth-child(8) p', 'Mengomunikasikan kebijakan perusahaan kepada karyawan dan pihak eksternal terkait, dengan tinjauan tahunan oleh manajemen puncak.'],
-    ['.qhse-certification-section>.section-label', '<span>03</span> Certification Management System', 'html'],
+    ['.quality-value-chain-section>.section-label', '<span>03</span> Business Process', 'html'],
+    ['.quality-value-chain-head .kicker', 'Value chain organisasi'],
+    ['.quality-value-chain-head h2', 'Cara THI menghubungkan proses manajemen, operasional, dan pendukung.'],
+    ['.quality-value-chain-head p:not(.kicker)', 'Value chain memberi gambaran bagaimana kebutuhan pelanggan berjalan melalui tender, manajemen kontrak, perencanaan proyek, operasi, monitoring, hubungan pelanggan, dan fungsi pendukung internal.'],
+    ['.qhse-certification-section>.section-label', '<span>04</span> Certification Management System', 'html'],
     ['.qhse-certification-copy .kicker', 'Referensi formal'],
-    ['.qhse-certification-copy h2', 'Sertifikat yang disiapkan untuk review kepatuhan klien.'],
-    ['.qhse-certification-copy>p', 'THI menampilkan referensi sistem manajemen untuk kebutuhan tender, prequalification, project kick-off, dan dukungan audit. Dokumen sertifikat dapat dibuka langsung dari bagian ini.'],
+    ['.qhse-certification-copy h2', 'Catatan sertifikat untuk mutu, keselamatan, lingkungan, dan kepatuhan lokal.'],
+    ['.qhse-certification-copy>p', 'Dokumen sertifikat dikelola sebagai referensi formal untuk prequalification, persiapan proyek, dan dukungan audit.'],
     ['.quality-page .qhse-iso-list article:nth-child(1) h3', 'Sistem Manajemen Mutu'],
     ['.quality-page .qhse-iso-list article:nth-child(1) p', 'Mendukung konsistensi layanan, kontrol dokumen, jaminan mutu, dan catatan proyek yang tertelusur.'],
     ['.quality-page .qhse-iso-list article:nth-child(2) h3', 'Sistem Manajemen Kesehatan & Keselamatan Kerja'],
@@ -1689,14 +1733,14 @@ const hsePageTranslations = {
     ['.hse-page .qhse-page-hero-copy>p:not(.kicker)', 'HSE performance reflects how THI maintains safe field execution, environmental responsibility, and disciplined operational control across office and project activities.'],
     ['.hse-kpi-section>.section-label', '<span>01</span> HSE Performance', 'html'],
     ['.hse-kpi-head .kicker', 'January - June 2026'],
-    ['.hse-kpi-head h2', 'Focused HSE indicators from the 2026 performance report.'],
-    ['.hse-kpi-head>p', 'For January to June 2026, THI recorded 384,561 safety hours with zero LTI and zero environmental damage, supported by controlled office and project man-hours.'],
+    ['.hse-kpi-head h2', 'Zero LTI and zero environmental damage.'],
+    ['.hse-kpi-head>p', 'January to June 2026 closed with 384,561 safety hours across controlled office and project man-hours.'],
     ['.hse-metric-card:nth-child(1) span', 'Safety hours'],
-    ['.hse-metric-card:nth-child(1) p', 'Total man-hours without LTI recorded up to June 2026.'],
+    ['.hse-metric-card:nth-child(1) p', 'Recorded across office and project man-hours up to June 2026.'],
     ['.hse-metric-card:nth-child(2) span', 'LTI'],
-    ['.hse-metric-card:nth-child(2) p', 'Lost Time Incident case recorded during the reporting period.'],
+    ['.hse-metric-card:nth-child(2) p', 'No lost-time incident recorded during the reporting period.'],
     ['.hse-metric-card:nth-child(3) span', 'Environmental damage'],
-    ['.hse-metric-card:nth-child(3) p', 'Environmental accident or material loss/damage case recorded.'],
+    ['.hse-metric-card:nth-child(3) p', 'No environmental damage case recorded during the reporting period.'],
     ['.hse-hour-panel>div span', 'Monthly man-hours'],
     ['.hse-report-context>span', 'Report context'],
     ['.hse-report-context p', 'Office man-hours: <strong>86,688</strong>. Project man-hours: <strong>297,874</strong>. Performance: <strong>100%</strong>.', 'html'],
@@ -1725,7 +1769,7 @@ const hsePageTranslations = {
     ['.hse-documentation-section figure:nth-child(1) figcaption', 'Field supervision'],
     ['.hse-documentation-section figure:nth-child(2) figcaption', 'Operational preparation'],
     ['.hse-documentation-section figure:nth-child(3) figcaption', 'Deck safety coordination'],
-    ['.hse-documentation-section figure:nth-child(4) figcaption', 'Voyager Explorer documentation']
+    ['.hse-documentation-section figure:nth-child(4) figcaption', 'Crew readiness briefing']
   ],
   id: [
     ['title', 'HSE | Taka Hydrocore Indonesia'],
@@ -1736,14 +1780,14 @@ const hsePageTranslations = {
     ['.hse-page .qhse-page-hero-copy>p:not(.kicker)', 'Performa HSE menunjukkan bagaimana THI menjaga eksekusi lapangan yang aman, tanggung jawab lingkungan, dan kontrol operasional yang disiplin di aktivitas kantor maupun proyek.'],
     ['.hse-kpi-section>.section-label', '<span>01</span> Performa HSE', 'html'],
     ['.hse-kpi-head .kicker', 'Januari - Juni 2026'],
-    ['.hse-kpi-head h2', 'Indikator HSE utama dari laporan performa 2026.'],
-    ['.hse-kpi-head>p', 'Untuk periode Januari sampai Juni 2026, THI mencatat 384,561 safety hours dengan zero LTI dan zero environmental damage, didukung kontrol man-hours kantor dan proyek.'],
+    ['.hse-kpi-head h2', 'Zero LTI dan zero environmental damage.'],
+    ['.hse-kpi-head>p', 'Periode Januari sampai Juni 2026 ditutup dengan 384,561 safety hours dari man-hours kantor dan proyek yang terkontrol.'],
     ['.hse-metric-card:nth-child(1) span', 'Safety hours'],
-    ['.hse-metric-card:nth-child(1) p', 'Total man-hours tanpa LTI yang tercatat sampai Juni 2026.'],
+    ['.hse-metric-card:nth-child(1) p', 'Tercatat dari man-hours kantor dan proyek sampai Juni 2026.'],
     ['.hse-metric-card:nth-child(2) span', 'LTI'],
-    ['.hse-metric-card:nth-child(2) p', 'Kasus Lost Time Incident yang tercatat selama periode laporan.'],
+    ['.hse-metric-card:nth-child(2) p', 'Tidak ada lost-time incident selama periode laporan.'],
     ['.hse-metric-card:nth-child(3) span', 'Environmental damage'],
-    ['.hse-metric-card:nth-child(3) p', 'Kasus environmental accident atau material loss/damage yang tercatat.'],
+    ['.hse-metric-card:nth-child(3) p', 'Tidak ada kasus environmental damage selama periode laporan.'],
     ['.hse-hour-panel>div span', 'Man-hours bulanan'],
     ['.hse-report-context>span', 'Konteks laporan'],
     ['.hse-report-context p', 'Office man-hours: <strong>86,688</strong>. Project man-hours: <strong>297,874</strong>. Performance: <strong>100%</strong>.', 'html'],
@@ -1772,7 +1816,7 @@ const hsePageTranslations = {
     ['.hse-documentation-section figure:nth-child(1) figcaption', 'Supervisi lapangan'],
     ['.hse-documentation-section figure:nth-child(2) figcaption', 'Persiapan operasional'],
     ['.hse-documentation-section figure:nth-child(3) figcaption', 'Koordinasi keselamatan deck'],
-    ['.hse-documentation-section figure:nth-child(4) figcaption', 'Dokumentasi Voyager Explorer']
+    ['.hse-documentation-section figure:nth-child(4) figcaption', 'Briefing kesiapan kru']
   ]
 };
 
@@ -3757,16 +3801,58 @@ languageButtons.forEach((button) => {
   button.addEventListener('click', () => applyLanguage(button.dataset.langSwitch));
 });
 
-document.querySelector('#contact-form')?.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const data = new FormData(event.currentTarget);
-  const subject = encodeURIComponent(`${activeLanguage === 'id' ? 'Enquiry Proyek' : 'Project Enquiry'} - ${data.get('company') || data.get('name')}`);
-  const body = encodeURIComponent(
-    activeLanguage === 'id'
-      ? `Nama: ${data.get('name')}\nEmail: ${data.get('email')}\nPerusahaan: ${data.get('company') || '-'}\nLayanan: ${data.get('service')}\nLokasi: ${data.get('location') || '-'}\n\nRingkasan Proyek:\n${data.get('message')}`
-      : `Name: ${data.get('name')}\nEmail: ${data.get('email')}\nCompany: ${data.get('company') || '-'}\nService: ${data.get('service')}\nLocation: ${data.get('location') || '-'}\n\nProject Message:\n${data.get('message')}`
-  );
-  window.location.href = `mailto:frans@thi.co.id?subject=${subject}&body=${body}`;
+const contactFormCooldownMs = 15000;
+
+document.querySelectorAll('.contact-form').forEach((form) => {
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const honeypotValue = String(data.get('website') || '').trim();
+    const submitButton = form.querySelector('button[type="submit"]');
+    const helper = form.querySelector('.form-submit p');
+    const now = Date.now();
+    const lastSubmit = Number(form.dataset.lastSubmit || 0);
+    const remaining = contactFormCooldownMs - (now - lastSubmit);
+
+    if (honeypotValue) {
+      return;
+    }
+
+    if (remaining > 0) {
+      if (helper) {
+        helper.textContent = activeLanguage === 'id'
+          ? `Mohon tunggu ${Math.ceil(remaining / 1000)} detik sebelum mengirim enquiry lagi.`
+          : `Please wait ${Math.ceil(remaining / 1000)} seconds before sending another enquiry.`;
+      }
+      return;
+    }
+
+    form.dataset.lastSubmit = String(now);
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.classList.add('is-cooling-down');
+    }
+
+    window.setTimeout(() => {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.classList.remove('is-cooling-down');
+      }
+      if (helper) {
+        helper.textContent = activeLanguage === 'id'
+          ? 'Email client Anda akan terbuka dengan enquiry yang sudah disiapkan.'
+          : 'Your email client will open with a prepared enquiry.';
+      }
+    }, contactFormCooldownMs);
+
+    const subject = encodeURIComponent(`${activeLanguage === 'id' ? 'Enquiry Proyek' : 'Project Enquiry'} - ${data.get('company') || data.get('name')}`);
+    const body = encodeURIComponent(
+      activeLanguage === 'id'
+        ? `Nama: ${data.get('name')}\nEmail: ${data.get('email')}\nPerusahaan: ${data.get('company') || '-'}\nLayanan: ${data.get('service')}\nLokasi: ${data.get('location') || '-'}\n\nRingkasan Proyek:\n${data.get('message')}`
+        : `Name: ${data.get('name')}\nEmail: ${data.get('email')}\nCompany: ${data.get('company') || '-'}\nService: ${data.get('service')}\nLocation: ${data.get('location') || '-'}\n\nProject Message:\n${data.get('message')}`
+    );
+    window.location.href = `mailto:frans@thi.co.id?subject=${subject}&body=${body}`;
+  });
 });
 
 document.querySelectorAll('.career-form').forEach((form) => {
@@ -3810,14 +3896,18 @@ document.querySelectorAll('[data-feature-gallery]').forEach((gallery) => {
   const featureImage = gallery.querySelector('[data-gallery-feature-image]');
   const featureCaption = gallery.querySelector('[data-gallery-feature-caption]');
   const items = [...gallery.querySelectorAll('.service-gallery-grid figure')];
+  let activeServiceSlide = Math.max(0, items.findIndex((item) => item.classList.contains('is-selected')));
 
-  const selectItem = (selectedItem) => {
+  const selectItem = (selectedItem, animate = true) => {
     const selectedImage = selectedItem.querySelector('img');
     const selectedCaption = selectedItem.querySelector('figcaption');
+    activeServiceSlide = Math.max(0, items.indexOf(selectedItem));
     if (feature && featureImage && selectedImage) {
+      if (animate) feature.classList.add('is-switching');
       featureImage.src = selectedImage.currentSrc || selectedImage.src;
       featureImage.alt = selectedImage.alt;
       feature.classList.toggle('is-contain', selectedImage.classList.contains('service-gallery-contain'));
+      window.setTimeout(() => feature.classList.remove('is-switching'), 420);
     }
     if (featureCaption && selectedCaption) {
       featureCaption.textContent = selectedCaption.textContent;
@@ -3837,6 +3927,10 @@ document.querySelectorAll('[data-feature-gallery]').forEach((gallery) => {
       selectItem(item);
     });
   });
+
+  if (items.length > 0 && feature) {
+    selectItem(items[activeServiceSlide] || items[0], false);
+  }
 });
 
 document.querySelectorAll('[data-career-activity-board]').forEach((board) => {
