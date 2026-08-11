@@ -4081,15 +4081,31 @@ document.querySelectorAll('[data-feature-gallery]').forEach((gallery) => {
   const items = [...gallery.querySelectorAll('.service-gallery-grid figure')];
   let activeServiceSlide = Math.max(0, items.findIndex((item) => item.classList.contains('is-selected')));
 
+  const syncFeatureImage = (selectedImage) => {
+    if (!featureImage || !selectedImage) return;
+
+    const source = selectedImage.currentSrc || selectedImage.getAttribute('src') || selectedImage.src;
+    const sourceSet = selectedImage.getAttribute('srcset');
+    const sizes = selectedImage.getAttribute('sizes');
+
+    if (sourceSet) featureImage.setAttribute('srcset', sourceSet);
+    else featureImage.removeAttribute('srcset');
+
+    if (sizes) featureImage.setAttribute('sizes', sizes);
+    else featureImage.removeAttribute('sizes');
+
+    if (source) featureImage.src = source;
+    featureImage.alt = selectedImage.alt || '';
+    feature.classList.toggle('is-contain', selectedImage.classList.contains('service-gallery-contain'));
+  };
+
   const selectItem = (selectedItem, animate = true) => {
     const selectedImage = selectedItem.querySelector('img');
     const selectedCaption = selectedItem.querySelector('figcaption');
     activeServiceSlide = Math.max(0, items.indexOf(selectedItem));
     if (feature && featureImage && selectedImage) {
       if (animate) feature.classList.add('is-switching');
-      featureImage.src = selectedImage.currentSrc || selectedImage.src;
-      featureImage.alt = selectedImage.alt;
-      feature.classList.toggle('is-contain', selectedImage.classList.contains('service-gallery-contain'));
+      syncFeatureImage(selectedImage);
       window.setTimeout(() => feature.classList.remove('is-switching'), 420);
     }
     if (featureCaption && selectedCaption) {
@@ -4103,7 +4119,15 @@ document.querySelectorAll('[data-feature-gallery]').forEach((gallery) => {
   };
 
   items.forEach((item) => {
-    item.addEventListener('click', () => selectItem(item));
+    item.addEventListener('click', (event) => {
+      event.preventDefault();
+      selectItem(item);
+    });
+    item.addEventListener('pointerup', (event) => {
+      if (event.pointerType !== 'touch') return;
+      event.preventDefault();
+      selectItem(item);
+    });
     item.addEventListener('keydown', (event) => {
       if (event.key !== 'Enter' && event.key !== ' ') return;
       event.preventDefault();

@@ -31792,7 +31792,10 @@ a.news-card {
   height: auto !important;
   background: #071c2a;
   border: 0;
-  box-shadow: none
+  box-shadow: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent
 }
 
 .services-page .service-gallery-grid img,
@@ -32491,6 +32494,45 @@ a.news-card {
     grid-template-columns: 1fr
   }
 
+  .equipment-seismic-page .seismic-detail-text-only .seismic-component-stack p,
+  .equipment-seismic-page .seismic-component-stack p {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    padding: 16px 0 !important;
+  }
+
+  .equipment-seismic-page .seismic-component-stack strong {
+    font-size: 11px !important;
+    letter-spacing: .08em !important;
+  }
+
+  .equipment-seismic-page .seismic-component-stack span {
+    display: block !important;
+    max-width: 100% !important;
+    color: #5f707d !important;
+    font-size: 13px !important;
+    line-height: 1.58 !important;
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+    hyphens: auto !important;
+  }
+
+  .equipment-seismic-page .seismic-detail-text-only .seismic-detail-copy {
+    padding: 24px 20px !important;
+  }
+
+  .equipment-seismic-page .seismic-detail-copy h4,
+  .equipment-seismic-page .seismic-detail-text-only .seismic-detail-copy h4 {
+    font-size: clamp(26px, 9vw, 38px) !important;
+    letter-spacing: -.045em !important;
+  }
+
+  .equipment-seismic-page .seismic-detail-copy>p:not(.kicker) {
+    font-size: 13px !important;
+    line-height: 1.62 !important;
+    margin: 14px 0 18px !important;
+  }
+
   .seismic-detail,
   .seismic-detail-reverse {
     min-height: 0
@@ -32681,12 +32723,87 @@ a.news-card {
 
   .site-footer .footer-cert-logo,
   .site-footer .footer-cert-logo img,
+  .qhse-iso-list figure,
+  .qhse-iso-list figure img,
   .credential-card img,
   .iso-metric-card img,
   .certificate-card img,
   .certificate-general-card img {
     opacity: 1 !important;
     visibility: visible !important;
+  }
+
+  .qhse-certification-section {
+    overflow: visible !important;
+  }
+
+  .qhse-certification-layout {
+    display: block !important;
+    margin-top: 28px !important;
+  }
+
+  .qhse-certification-copy {
+    position: relative !important;
+    top: auto !important;
+    max-width: none !important;
+    margin-bottom: 24px !important;
+  }
+
+  .qhse-iso-list {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    border: 0 !important;
+  }
+
+  .qhse-iso-list article {
+    display: grid !important;
+    grid-template-columns: 92px minmax(0, 1fr) !important;
+    gap: 16px !important;
+    align-items: start !important;
+    padding: 14px !important;
+    background: #fff !important;
+    border: 1px solid #d8e1e7 !important;
+  }
+
+  .qhse-iso-list figure {
+    grid-row: 1 / span 3 !important;
+    grid-column: 1 !important;
+    display: block !important;
+    width: 92px !important;
+    height: 128px !important;
+    min-height: 128px !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    background: #eef3f6 !important;
+  }
+
+  .qhse-iso-list figure img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+  }
+
+  .qhse-iso-list article>span,
+  .qhse-iso-list article>div,
+  .qhse-iso-list article>a {
+    grid-column: 2 !important;
+  }
+
+  .qhse-iso-list article>span {
+    margin-top: 2px !important;
+  }
+
+  .qhse-iso-list h3 {
+    font-size: 20px !important;
+    letter-spacing: -.6px !important;
+  }
+
+  .qhse-iso-list p {
+    font-size: 12px !important;
+    line-height: 1.55 !important;
   }
 
   .career-page .career-header.menu-open .career-nav,
