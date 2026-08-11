@@ -1,2 +1,11 @@
 .DS_Store
 **/.DS_Store
+
+# Keep heavy raw working files out of the website repo.
+assets/raw/
+*.mov
+*.heic
+*.psd
+*.ai
+*.zip
+*.rar

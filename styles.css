@@ -1477,7 +1477,10 @@ footer {
 
 .hero-slide-video {
   overflow: hidden;
-  background: #071c2c
+  background-color: #071c2c;
+  background-image: var(--hero-image);
+  background-position: center;
+  background-size: cover
 }
 
 .hero-video {
@@ -2299,11 +2302,11 @@ footer {
 }
 
 .project-image-geodrill {
-  background: linear-gradient(0deg, rgba(3, 18, 29, .96), rgba(3, 18, 29, .14) 70%), url('assets/vessels/source/kapal geodrill lagi.jpeg') center/cover
+  background: linear-gradient(0deg, rgba(3, 18, 29, .96), rgba(3, 18, 29, .14) 70%), url('assets/optimized/images/assets-vessels-source-kapal-geodrill-lagi-4c39f6c4-1400.webp') center/cover
 }
 
 .project-image-barakuda {
-  background: linear-gradient(0deg, rgba(3, 18, 29, .96), rgba(3, 18, 29, .14) 70%), url('assets/SS Barakuda/DJI_0133.JPG') center/cover
+  background: linear-gradient(0deg, rgba(3, 18, 29, .96), rgba(3, 18, 29, .14) 70%), url('assets/optimized/images/assets-ss-barakuda-dji-0133-21afbfba-1400.webp') center/cover
 }
 
 .project-image-karimun {
@@ -2315,7 +2318,7 @@ footer {
 }
 
 .project-image-keppel {
-  background: linear-gradient(0deg, rgba(3, 18, 29, .96), rgba(3, 18, 29, .14) 70%), url('assets/Keppel/IMG_4535.JPEG') center/cover
+  background: linear-gradient(0deg, rgba(3, 18, 29, .96), rgba(3, 18, 29, .14) 70%), url('assets/optimized/images/assets-keppel-img-4535-93af2e9a-1400.webp') center/cover
 }
 
 .project-card:not(.project-featured) .project-content h3 {
@@ -2353,15 +2356,15 @@ footer {
 }
 
 .news-image-barakuda {
-  background-image: linear-gradient(0deg, rgba(7, 28, 44, .12), rgba(7, 28, 44, .02)), url('assets/SS Barakuda/DJI_0147.JPG')
+  background-image: linear-gradient(0deg, rgba(7, 28, 44, .12), rgba(7, 28, 44, .02)), url('assets/optimized/images/assets-ss-barakuda-dji-0147-7fc15baa-1400.webp')
 }
 
 .news-image-geodrill {
-  background-image: linear-gradient(0deg, rgba(7, 28, 44, .12), rgba(7, 28, 44, .02)), url('assets/vessels/source/kapal geodrlll.jpeg')
+  background-image: linear-gradient(0deg, rgba(7, 28, 44, .12), rgba(7, 28, 44, .02)), url('assets/optimized/images/assets-vessels-source-kapal-geodrlll-1ef9430e-1400.webp')
 }
 
 .news-image-offshore {
-  background-image: linear-gradient(0deg, rgba(7, 28, 44, .12), rgba(7, 28, 44, .02)), url('assets/hse/source/ini bagus juga lingkaran diatas kapal.jpeg')
+  background-image: linear-gradient(0deg, rgba(7, 28, 44, .12), rgba(7, 28, 44, .02)), url('assets/optimized/images/assets-hse-source-ini-bagus-juga-lingkaran-diatas-kapal-5c44e9ae-1400.webp')
 }
 
 .news-content {
@@ -3290,7 +3293,7 @@ body.is-ready footer {
 }
 
 .service-nearshore {
-  --capability-image: url('assets/Haju/haju.png');
+  --capability-image: url('assets/optimized/images/assets-haju-haju-4411bcf0-1400.webp');
   --capability-position: center 58%
 }
 
@@ -3299,7 +3302,7 @@ body.is-ready footer {
 }
 
 .service-onshore {
-  --capability-image: url('assets/Onshore/WhatsApp Image 2026-07-16 at 08.22.49 (4).jpeg')
+  --capability-image: url('assets/optimized/images/assets-onshore-whatsapp-image-2026-07-16-at-08-22-49-4-8e6db438-1400.webp')
 }
 
 @media(max-width:1050px) {
@@ -12698,7 +12701,7 @@ body.is-ready footer {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(3, 15, 23, .94) 0%, rgba(3, 15, 23, .78) 44%, rgba(3, 15, 23, .42) 100%), linear-gradient(0deg, rgba(3, 15, 23, .88), rgba(3, 15, 23, .14) 56%, rgba(3, 15, 23, .74)), url("assets/SS Barakuda/DJI_0219.JPG") center/cover no-repeat;
+  background: linear-gradient(90deg, rgba(3, 15, 23, .94) 0%, rgba(3, 15, 23, .78) 44%, rgba(3, 15, 23, .42) 100%), linear-gradient(0deg, rgba(3, 15, 23, .88), rgba(3, 15, 23, .14) 56%, rgba(3, 15, 23, .74)), url("assets/optimized/images/assets-ss-barakuda-dji-0219-b4bc2fea-1400.webp") center/cover no-repeat;
   filter: saturate(.9) contrast(1.05);
   transform: scale(1.015)
 }
@@ -14065,7 +14068,7 @@ body.is-ready footer {
 }
 
 .project-page-hero:before {
-  background: linear-gradient(90deg, rgba(3, 15, 23, .95), rgba(3, 15, 23, .74) 44%, rgba(3, 15, 23, .32)), linear-gradient(0deg, rgba(3, 15, 23, .9), rgba(3, 15, 23, .1) 58%, rgba(3, 15, 23, .66)), url("assets/vessels/source/ss-barakuda-marine.jpg") center/cover no-repeat
+  background: linear-gradient(90deg, rgba(3, 15, 23, .95), rgba(3, 15, 23, .74) 44%, rgba(3, 15, 23, .32)), linear-gradient(0deg, rgba(3, 15, 23, .9), rgba(3, 15, 23, .1) 58%, rgba(3, 15, 23, .66)), url("assets/optimized/images/assets-vessels-source-ss-barakuda-marine-c04a6b27-1400.webp") center/cover no-repeat
 }
 
 .qhse-page-hero:after,
@@ -15516,7 +15519,7 @@ body.is-ready footer {
 }
 
 .news-page-hero:before {
-  background: linear-gradient(90deg, rgba(3, 15, 23, .95), rgba(3, 15, 23, .74) 45%, rgba(3, 15, 23, .3)), linear-gradient(0deg, rgba(3, 15, 23, .9), rgba(3, 15, 23, .08) 58%, rgba(3, 15, 23, .68)), url("assets/SS Barakuda/DJI_0230.JPG") center/cover no-repeat
+  background: linear-gradient(90deg, rgba(3, 15, 23, .95), rgba(3, 15, 23, .74) 45%, rgba(3, 15, 23, .3)), linear-gradient(0deg, rgba(3, 15, 23, .9), rgba(3, 15, 23, .08) 58%, rgba(3, 15, 23, .68)), url("assets/optimized/images/assets-ss-barakuda-dji-0230-5e370981-1400.webp") center/cover no-repeat
 }
 
 .contact-page-hero:after,
@@ -15819,7 +15822,7 @@ body.is-ready footer {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(3, 15, 23, .94), rgba(3, 15, 23, .72)), url("assets/field-operations/source/ini dia berkupul tengah malem bahas kerjaan diatas kapal.jpeg") center/cover no-repeat;
+  background: linear-gradient(90deg, rgba(3, 15, 23, .94), rgba(3, 15, 23, .72)), url("assets/optimized/images/assets-field-operations-source-ini-dia-berkupul-tengah-malem-bahas-kerjaan-diatas-kapal-f9e6e346-1400.webp") center/cover no-repeat;
   filter: saturate(.85) contrast(1.05)
 }
 
@@ -16151,7 +16154,7 @@ body.is-ready footer {
 }
 
 .news-detail-page .news-detail-hero:before {
-  background: url("assets/news/csr-idul-adha-2026/csr-report-page-4.png") center 28%/cover no-repeat
+  background: url("assets/optimized/images/assets-news-csr-idul-adha-2026-csr-report-page-4-20d4487d-900.webp") center 28%/cover no-repeat
 }
 
 .news-detail-page .news-detail-hero:after {
@@ -16616,7 +16619,7 @@ body.is-ready footer {
 }
 
 .services-hero:before {
-  background: url("assets/SS Barakuda/DJI_0219.JPG") center/cover no-repeat
+  background: url("assets/optimized/images/assets-ss-barakuda-dji-0219-b4bc2fea-1400.webp") center/cover no-repeat
 }
 
 .vessel-hero:before {
@@ -16628,7 +16631,7 @@ body.is-ready footer {
 }
 
 .project-page-hero:before {
-  background: url("assets/vessels/source/ss-barakuda-marine.jpg") center/cover no-repeat
+  background: url("assets/optimized/images/assets-vessels-source-ss-barakuda-marine-c04a6b27-1400.webp") center/cover no-repeat
 }
 
 .contact-page-hero:before {
@@ -16636,7 +16639,7 @@ body.is-ready footer {
 }
 
 .news-page-hero:before {
-  background: url("assets/SS Barakuda/DJI_0230.JPG") center/cover no-repeat
+  background: url("assets/optimized/images/assets-ss-barakuda-dji-0230-5e370981-1400.webp") center/cover no-repeat
 }
 
 .board-hero:after,
@@ -19076,7 +19079,7 @@ a.news-card {
 .hse-hero:before {
   background: linear-gradient(90deg, rgba(3, 15, 23, .94), rgba(3, 15, 23, .74) 46%, rgba(3, 15, 23, .25)),
     linear-gradient(0deg, rgba(3, 15, 23, .82), rgba(3, 15, 23, .08) 58%, rgba(3, 15, 23, .62)),
-    url("assets/hse/source/ini landscape bagus lingkaran orang diatas kapal.jpeg") center 44%/cover no-repeat;
+    url("assets/optimized/images/assets-hse-source-ini-landscape-bagus-lingkaran-orang-diatas-kapal-f36e5a03-1400.webp") center 44%/cover no-repeat;
 }
 
 .button.dark {
@@ -28879,6 +28882,13 @@ a.news-card {
   object-fit: cover;
   object-position: center 56%;
   filter: saturate(.92) contrast(1.05);
+}
+
+@media (max-width: 760px), (hover: none) and (pointer: coarse) {
+  .hero-video,
+  .career-index-video {
+    display: none;
+  }
 }
 
 .career-index-hero-shade {
