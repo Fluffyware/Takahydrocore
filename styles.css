@@ -30,7 +30,8 @@ body {
 body.menu-open,
 body.modal-open,
 body.is-loading {
-  overflow: hidden
+  overflow-x: hidden;
+  overflow-y: auto
 }
 
 a {
@@ -2405,7 +2406,8 @@ footer {
   background: #fff;
   color: var(--navy);
   transition: opacity .65s cubic-bezier(.22, 1, .36, 1), visibility .65s cubic-bezier(.22, 1, .36, 1);
-  will-change: opacity
+  will-change: opacity;
+  animation: preloader-auto-release .24s ease 1.25s forwards
 }
 
 .site-preloader.is-hidden {
@@ -2456,6 +2458,20 @@ footer {
 
   100% {
     transform: translateX(230%)
+  }
+}
+
+@keyframes preloader-auto-release {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none
+  }
+}
+
+@media(max-width:760px) {
+  .site-preloader {
+    animation-delay: .85s
   }
 }
 
@@ -32497,5 +32513,789 @@ a.news-card {
 
   .seismic-module-card {
     grid-template-rows: minmax(220px, 54vw) 1fr
+  }
+}
+
+/* Final responsive/performance polish */
+.home-qhse .qhse-visual figcaption,
+.hse-page .qhse-readiness-visual figcaption,
+.hse-page .qhse-gallery figcaption {
+  display: none !important;
+}
+
+.profile-services-showcase .profile-service-card:after {
+  content: none !important;
+}
+
+.profile-services-showcase .profile-service-card img {
+  transform: none !important;
+}
+
+.sigap-integrity .sigap-icon,
+.career-value-grid article:nth-child(2) b,
+.career-sigap-showcase article:nth-child(2) .career-sigap-icon {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.career-page .career-sigap-recognition-slider .career-employee-voice-tabs button,
+.career-page .career-sigap-recognition-slider .career-employee-voice-arrows button {
+  transform: none !important;
+}
+
+@media (max-width: 900px) {
+  .header-tools {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  .menu-toggle {
+    position: relative !important;
+    z-index: 5002 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    border: 1px solid rgba(255, 255, 255, .32) !important;
+    border-radius: 999px !important;
+    background: rgba(7, 28, 44, .18) !important;
+    backdrop-filter: blur(10px);
+  }
+
+  .menu-toggle span,
+  .site-header.scrolled .menu-toggle span,
+  .menu-toggle[aria-expanded="true"] span {
+    position: absolute !important;
+    left: 12px !important;
+    display: block !important;
+    width: 22px !important;
+    height: 2px !important;
+    border-radius: 999px !important;
+    background: #fff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .menu-toggle span:first-child {
+    top: 15px !important;
+  }
+
+  .menu-toggle span:nth-child(2) {
+    top: 22px !important;
+  }
+
+  .menu-toggle span:last-child {
+    top: 29px !important;
+  }
+
+  .menu-toggle[aria-expanded="true"] span:first-child {
+    top: 22px !important;
+    transform: rotate(45deg) !important;
+  }
+
+  .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0 !important;
+  }
+
+  .menu-toggle[aria-expanded="true"] span:last-child {
+    top: 22px !important;
+    transform: rotate(-45deg) !important;
+  }
+
+  .nav-links {
+    top: 74px !important;
+    height: calc(100dvh - 74px) !important;
+    max-height: calc(100dvh - 74px) !important;
+    padding: 22px 28px 40px !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    gap: 18px !important;
+  }
+
+  .nav-links.open {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-links.open > a,
+  .nav-links.open .nav-item,
+  .nav-links.open .language-toggle {
+    width: 100%;
+  }
+
+  .nav-links.open .nav-dropdown-menu {
+    position: static !important;
+    width: 100% !important;
+    max-height: none !important;
+    margin-top: 10px !important;
+    padding: 10px 0 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 1180px) {
+  .career-page .career-header.scrolled:not(.menu-open) .career-menu-toggle,
+  .career-subpage .career-header:not(.menu-open) .career-menu-toggle,
+  .career-page .career-menu-toggle {
+    border-color: rgba(255, 255, 255, .38) !important;
+    background: rgba(7, 28, 44, .28) !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .14) !important;
+    backdrop-filter: blur(10px);
+  }
+
+  .career-page .career-menu-toggle span,
+  .career-page .career-header.scrolled:not(.menu-open) .career-menu-toggle span,
+  .career-subpage .career-header:not(.menu-open) .career-menu-toggle span,
+  .career-page .career-header.menu-open .career-menu-toggle span {
+    background: #fff !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .home-qhse .qhse-visual figcaption,
+  .hse-page .hse-program-visual figcaption,
+  .hse-page .hse-program-media figcaption,
+  .hse-page .hse-program-list figcaption,
+  .hse-page .qhse-gallery figcaption,
+  .hse-page .qhse-readiness-visual figcaption {
+    display: none !important;
+  }
+
+  .profile-services-showcase .profile-service-card,
+  .profile-services-showcase .profile-service-card figure,
+  .profile-services-showcase .profile-service-card img {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .site-footer .footer-cert-logo,
+  .site-footer .footer-cert-logo img,
+  .credential-card img,
+  .iso-metric-card img,
+  .certificate-card img,
+  .certificate-general-card img {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .career-page .career-header.menu-open .career-nav,
+  .career-page .career-header.menu-open .career-header-actions {
+    padding-top: 18px !important;
+    max-height: calc(100dvh - 78px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start !important;
+  }
+
+  .career-page .career-header.menu-open {
+    background: rgba(7, 28, 44, .96) !important;
+  }
+
+  .site-footer .footer-cert-logos {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .site-footer .footer-cert-logos a {
+    width: 58px;
+    height: 58px;
+    flex: 0 0 58px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .site-footer .footer-cert-logos .footer-cert-iso {
+    padding: 6px;
+  }
+
+  .site-footer .footer-cert-logos .footer-cert-iso-small img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .site-footer .footer-cert-logos .footer-cert-smk3 img {
+    max-width: 58px;
+    max-height: 58px;
+  }
+
+  .site-footer {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 34px !important;
+    padding: 46px 24px 26px !important;
+  }
+
+  .site-footer:before {
+    width: 90vw !important;
+    height: 90vw !important;
+    right: -50vw !important;
+    top: -18vw !important;
+  }
+
+  .footer-brand-block p {
+    max-width: none !important;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 18px !important;
+    row-gap: 10px !important;
+  }
+
+  .footer-links .footer-title {
+    grid-column: 1 / -1 !important;
+  }
+
+  .footer-column {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .footer-column p,
+  .footer-column a {
+    max-width: 100% !important;
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .vessel-profile-section {
+    padding: 42px 0 54px !important;
+  }
+
+  .vessel-profile-section .vessel-detail-card {
+    margin-top: 22px !important;
+  }
+
+  .vessel-detail-media {
+    min-height: 0 !important;
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .vessel-slide img {
+    min-height: 0 !important;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .vessel-detail-copy,
+  .vessel-profile-section.is-reversed .vessel-detail-copy {
+    margin: 0 18px !important;
+    padding: 22px 18px !important;
+    transform: none !important;
+  }
+
+  .vessel-detail-copy h2 {
+    font-size: clamp(28px, 8.5vw, 38px) !important;
+    letter-spacing: -1.8px;
+  }
+
+  .vessel-spec-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px;
+  }
+
+  .vessel-spec-list span {
+    padding: 10px;
+    font-size: 10.5px;
+    min-width: 0 !important;
+    word-break: keep-all;
+  }
+
+  .vessel-detail-card {
+    display: block !important;
+    overflow: hidden !important;
+  }
+
+  .vessel-profile-section.is-reversed .vessel-detail-card {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .vessel-detail-copy {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .career-life-values-head {
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
+
+  .career-life-values-head>strong {
+    justify-self: start;
+    font-size: clamp(58px, 18vw, 92px) !important;
+    letter-spacing: -4px;
+  }
+
+  .career-sigap-showcase,
+  .career-value-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .career-page .career-sigap-recognition-slider .career-employee-voice-stage {
+    min-height: 0 !important;
+  }
+
+  .career-page .career-sigap-recognition-slider .career-employee-voice-stage article {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    min-height: 0 !important;
+    transform: none !important;
+    transition: opacity .32s ease, visibility .32s ease !important;
+  }
+
+  .career-page .career-sigap-recognition-slider .career-employee-voice-photo {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0 !important;
+    background: #fff !important;
+  }
+
+  .career-page .career-sigap-recognition-slider .career-employee-voice-photo img {
+    height: auto !important;
+    max-height: 320px;
+    object-fit: contain !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .career-page .career-sigap-recognition-slider .career-employee-voice-copy {
+    padding: 24px 20px !important;
+  }
+
+  .career-page .career-sigap-recognition-slider .career-employee-voice-copy blockquote {
+    font-size: clamp(18px, 5.8vw, 26px) !important;
+    line-height: 1.16;
+  }
+
+  .career-page .career-employee-voice-bottom,
+  .career-page .career-employee-voice-tabs {
+    gap: 10px;
+  }
+
+  .career-page .career-employee-voice-tabs button {
+    min-height: 0;
+    padding: 14px 16px;
+  }
+
+  .career-page .career-activity-board {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  .career-activity-main img {
+    aspect-ratio: 4 / 3 !important;
+  }
+
+  .career-activity-stories {
+    grid-template-rows: none !important;
+  }
+
+  .career-activity-stories article {
+    grid-template-columns: 92px 1fr !important;
+    min-height: 96px !important;
+  }
+
+  .career-activity-stories img {
+    height: 100% !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .vessel-spec-list {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Mobile hardening pass: keep navigation, heroes, and stacked cards inside the viewport. */
+@media (max-width: 900px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  .site-header {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 16px 14px !important;
+    gap: 8px !important;
+  }
+
+  .brand,
+  .career-brand {
+    min-width: 0 !important;
+  }
+
+  .brand img {
+    width: min(158px, 42vw) !important;
+    height: auto !important;
+  }
+
+  .header-tools {
+    position: absolute !important;
+    top: 16px !important;
+    right: 14px !important;
+    justify-self: end !important;
+    flex: 0 0 auto !important;
+    min-width: 0 !important;
+    z-index: 5003 !important;
+    gap: 6px !important;
+  }
+
+  .language-toggle {
+    display: none !important;
+  }
+
+  .language-toggle button {
+    min-width: 22px !important;
+    padding-inline: 0 !important;
+    font-size: 9px !important;
+  }
+
+  .menu-toggle {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    flex: 0 0 40px !important;
+  }
+
+  .menu-toggle span,
+  .site-header.scrolled .menu-toggle span,
+  .menu-toggle[aria-expanded="true"] span {
+    left: 10px !important;
+    width: 20px !important;
+  }
+
+  .menu-toggle span:first-child {
+    top: 13px !important;
+  }
+
+  .menu-toggle span:nth-child(2) {
+    top: 19px !important;
+  }
+
+  .menu-toggle span:last-child {
+    top: 25px !important;
+  }
+
+  .nav-links {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero,
+  .vessel-hero,
+  .career-page-hero,
+  .career-index-hero {
+    overflow: hidden !important;
+  }
+
+  .hero-content,
+  .vessel-hero-copy,
+  .career-page-hero-copy,
+  .career-index-hero-content {
+    left: 24px !important;
+    right: 24px !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin-inline: 0 !important;
+    padding-inline: 0 !important;
+  }
+
+  .hero-content h1,
+  .vessel-hero h1,
+  .career-page-hero h1,
+  .career-index-hero h1,
+  .section-heading h2,
+  .split-heading h2 {
+    max-width: 100% !important;
+    font-size: clamp(31px, 8.9vw, 40px) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.8px !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+
+  .hero-content p,
+  .vessel-hero p,
+  .career-page-hero p,
+  .career-index-hero p {
+    max-width: 100% !important;
+    font-size: clamp(14px, 3.85vw, 17px) !important;
+    line-height: 1.58 !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+  }
+
+  .hero-title,
+  .hero-title span,
+  .career-page-hero-copy h1,
+  .career-index-hero-content h1 {
+    white-space: normal !important;
+  }
+
+  .hero-actions,
+  .career-hero-actions {
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .hero-actions a,
+  .career-hero-actions a {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .vessel-detail-card,
+  .profile-service-card,
+  .career-activity-board,
+  .career-sigap-recognition-slider,
+  .career-life-hero,
+  .home-qhse .qhse-editorial,
+  .home-qhse .qhse-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+}
+
+/* Final mobile guard: prevent older desktop rules from pushing controls/content off screen. */
+@media (max-width: 900px) {
+  .site-header,
+  .site-header.scrolled {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    padding: 14px 16px !important;
+    overflow: visible !important;
+  }
+
+  .site-header .header-tools {
+    display: flex !important;
+    position: fixed !important;
+    top: 16px !important;
+    right: 16px !important;
+    width: 42px !important;
+    height: 42px !important;
+    z-index: 7000 !important;
+  }
+
+  .site-header .menu-toggle {
+    display: inline-flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    border-color: rgba(255, 255, 255, .42) !important;
+    background: rgba(5, 22, 34, .34) !important;
+  }
+
+  .site-header .menu-toggle span,
+  .site-header.scrolled .menu-toggle span,
+  .site-header .menu-toggle[aria-expanded="true"] span {
+    background: #fff !important;
+  }
+
+  .site-header .nav-links {
+    top: 72px !important;
+    height: calc(100dvh - 72px) !important;
+    min-height: 0 !important;
+    padding: 26px 24px 42px !important;
+  }
+
+  .site-header .nav-links a,
+  .site-header.scrolled .nav-links a {
+    font-size: clamp(18px, 5.4vw, 22px) !important;
+  }
+
+  .career-page .career-header,
+  .career-page .career-header.scrolled,
+  .career-subpage .career-header {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    padding: 14px 16px !important;
+    overflow: visible !important;
+  }
+
+  .career-page .career-brand img,
+  .career-subpage .career-brand img {
+    width: min(166px, 44vw) !important;
+    height: auto !important;
+  }
+
+  .career-page .career-menu-toggle,
+  .career-page .career-header.scrolled:not(.menu-open) .career-menu-toggle,
+  .career-subpage .career-header:not(.menu-open) .career-menu-toggle {
+    display: inline-flex !important;
+    position: fixed !important;
+    top: 16px !important;
+    right: 16px !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    border-color: rgba(255, 255, 255, .42) !important;
+    background: rgba(5, 22, 34, .34) !important;
+    z-index: 7000 !important;
+  }
+
+  .career-page .career-menu-toggle span,
+  .career-page .career-header.scrolled:not(.menu-open) .career-menu-toggle span,
+  .career-subpage .career-header:not(.menu-open) .career-menu-toggle span,
+  .career-page .career-header.menu-open .career-menu-toggle span {
+    background: #fff !important;
+  }
+
+  .career-page .career-header .career-nav,
+  .career-page .career-header .career-header-actions,
+  .career-subpage .career-header .career-nav,
+  .career-subpage .career-header .career-header-actions {
+    top: 72px !important;
+    height: auto !important;
+    max-height: calc(100dvh - 72px) !important;
+    padding-top: 24px !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .career-page .career-header.menu-open .career-nav,
+  .career-page .career-header.menu-open .career-header-actions,
+  .career-subpage .career-header.menu-open .career-nav,
+  .career-subpage .career-header.menu-open .career-header-actions {
+    top: 72px !important;
+    max-height: calc(100dvh - 72px) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-content,
+  .career-index-hero-content {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .hero-content h1,
+  .hero-title,
+  .hero-title span {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(28px, 8.2vw, 34px) !important;
+    line-height: .98 !important;
+    letter-spacing: -1px !important;
+  }
+
+  .hero-content .eyebrow,
+  .hero-content p {
+    max-width: 100% !important;
+  }
+
+  .hero-content p {
+    font-size: 14.5px !important;
+  }
+
+  .hero-actions a {
+    min-height: 54px !important;
+    padding: 0 18px !important;
+    font-size: 14px !important;
+  }
+
+  .career-index-hero-content {
+    left: 24px !important;
+    right: 24px !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  .career-index-hero-content h1 {
+    font-size: clamp(36px, 12vw, 52px) !important;
+    line-height: .95 !important;
+    letter-spacing: -2px !important;
+  }
+
+  .career-index-hero-copy {
+    max-width: 32rem !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+
+  .career-index-hero-actions {
+    display: none !important;
+  }
+
+  .career-index-scroll {
+    display: none !important;
+  }
+
+  .career-page .career-activity-board {
+    grid-template-columns: 1fr !important;
+  }
+
+  .career-activity-main img,
+  .career-activity-stories img {
+    aspect-ratio: 4 / 3 !important;
+    object-fit: cover !important;
+  }
+
+  .career-activity-main figcaption {
+    left: 14px !important;
+    right: 14px !important;
+    bottom: 14px !important;
+    max-width: calc(100% - 28px) !important;
+    padding: 14px !important;
+  }
+
+  .career-activity-main strong {
+    font-size: clamp(20px, 6vw, 28px) !important;
+    line-height: 1.06 !important;
+  }
+
+  .career-activity-stories {
+    gap: 10px !important;
+  }
+
+  .career-activity-stories article {
+    grid-template-columns: 104px 1fr !important;
+    min-height: 104px !important;
+  }
+
+  .career-activity-stories h3 {
+    font-size: clamp(16px, 4.8vw, 20px) !important;
+    line-height: 1.08 !important;
   }
 }

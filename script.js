@@ -1,7 +1,8 @@
 const preloader = document.querySelector('#site-preloader');
 const preloadStartedAt = performance.now();
-const preloadMinimumMs = 520;
-const preloadMaximumMs = 1600;
+const preloadIsMobile = window.matchMedia('(max-width: 760px), (hover: none) and (pointer: coarse)').matches;
+const preloadMinimumMs = preloadIsMobile ? 260 : 420;
+const preloadMaximumMs = preloadIsMobile ? 900 : 1200;
 let preloaderFinished = false;
 
 const optimizeImageLoading = () => {
@@ -9,7 +10,7 @@ const optimizeImageLoading = () => {
     const isCritical = Boolean(image.closest('.site-preloader, .site-header, .hero, .career-index-hero, .career-hero, .career-life-hero, .career-dept-hero, .career-jobs-hero, .qhse-page-hero, .services-hero, .equipment-hero, .vessel-hero, .project-page-hero, .contact-page-hero, .news-page-hero, .board-hero, .profile-hero'));
     image.decoding = 'async';
     if (isCritical || image.loading === 'eager') {
-      image.loading = image.loading || 'eager';
+      image.loading = 'eager';
       image.setAttribute('fetchpriority', 'high');
       return;
     }
@@ -33,6 +34,28 @@ const ensureVideoLoaded = (video) => {
     video.src = video.dataset.src;
     video.load();
   }
+};
+
+const scheduleHeroVideoLoad = (video) => {
+  if (!video || !shouldLoadVideo(video)) return;
+
+  const isHeroVideo = video.matches('.hero-video, .career-index-video');
+  if (!isHeroVideo) {
+    ensureVideoLoaded(video);
+    return;
+  }
+
+  if (video.dataset.videoLoadScheduled === 'true' || video.getAttribute('src')) return;
+  video.dataset.videoLoadScheduled = 'true';
+
+  const loadVideo = () => ensureVideoLoaded(video);
+  const loadWhenIdle = () => {
+    if ('requestIdleCallback' in window) window.requestIdleCallback(loadVideo, { timeout: 1800 });
+    else window.setTimeout(loadVideo, 900);
+  };
+
+  if (document.readyState === 'complete') loadWhenIdle();
+  else window.addEventListener('load', loadWhenIdle, { once: true });
 };
 
 optimizeImageLoading();
@@ -3362,8 +3385,9 @@ const showHeroSlide = (index, restart = true) => {
     const video = slide.querySelector('video');
     if (!video) return;
     if (isActive && !reduceMotion.matches && shouldLoadVideo(video)) {
-      ensureVideoLoaded(video);
-      video.play().catch(() => {});
+      scheduleHeroVideoLoad(video);
+      if (video.getAttribute('src')) video.play().catch(() => {});
+      else video.addEventListener('loadeddata', () => video.play().catch(() => {}), { once: true });
     }
     else video.pause();
   });
@@ -3405,8 +3429,9 @@ const showCareerIndexSlide = (index, restart = true) => {
     const video = slide.querySelector('video');
     if (!video) return;
     if (isActive && !reduceMotion.matches && shouldLoadVideo(video)) {
-      ensureVideoLoaded(video);
-      video.play().catch(() => {});
+      scheduleHeroVideoLoad(video);
+      if (video.getAttribute('src')) video.play().catch(() => {});
+      else video.addEventListener('loadeddata', () => video.play().catch(() => {}), { once: true });
     }
     else video.pause();
   });
@@ -4009,7 +4034,7 @@ document.querySelectorAll('.contact-form').forEach((form) => {
         ? `Nama: ${data.get('name')}\nEmail: ${data.get('email')}\nPerusahaan: ${data.get('company') || '-'}\nLayanan: ${data.get('service')}\nLokasi: ${data.get('location') || '-'}\n\nRingkasan Proyek:\n${data.get('message')}`
         : `Name: ${data.get('name')}\nEmail: ${data.get('email')}\nCompany: ${data.get('company') || '-'}\nService: ${data.get('service')}\nLocation: ${data.get('location') || '-'}\n\nProject Message:\n${data.get('message')}`
     );
-    window.location.href = `mailto:frans@thi.co.id?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:marketing@thi.co.id?subject=${subject}&body=${body}`;
   });
 });
 
@@ -4045,7 +4070,7 @@ document.querySelectorAll('.career-form').forEach((form) => {
       'Thank you.',
     ].join('\n'));
 
-    window.location.href = `mailto:frans@thi.co.id?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:marketing@thi.co.id?subject=${subject}&body=${body}`;
   });
 });
 
@@ -4178,9 +4203,15 @@ document.querySelectorAll('[data-employee-voice-slider]').forEach((slider) => {
 
   let activeIndex = Math.max(0, panels.findIndex((panel) => panel.classList.contains('is-active')));
   let timer;
+  let isSwitching = false;
+  let hasInitialized = false;
 
   const selectVoice = (index) => {
-    activeIndex = (index + panels.length) % panels.length;
+    const nextIndex = (index + panels.length) % panels.length;
+    if (hasInitialized && (isSwitching || nextIndex === activeIndex)) return;
+
+    isSwitching = true;
+    activeIndex = nextIndex;
     panels.forEach((panel, panelIndex) => {
       const isActive = panelIndex === activeIndex;
       panel.classList.toggle('is-active', isActive);
@@ -4191,6 +4222,10 @@ document.querySelectorAll('[data-employee-voice-slider]').forEach((slider) => {
       trigger.classList.toggle('is-active', isActive);
       trigger.setAttribute('aria-pressed', String(isActive));
     });
+    hasInitialized = true;
+    window.setTimeout(() => {
+      isSwitching = false;
+    }, reduceMotion.matches ? 0 : 420);
   };
 
   const startAuto = () => {
@@ -4200,18 +4235,21 @@ document.querySelectorAll('[data-employee-voice-slider]').forEach((slider) => {
   };
 
   triggers.forEach((trigger, index) => {
-    trigger.addEventListener('click', () => {
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
       selectVoice(index);
       startAuto();
     });
   });
 
-  prev?.addEventListener('click', () => {
+  prev?.addEventListener('click', (event) => {
+    event.preventDefault();
     selectVoice(activeIndex - 1);
     startAuto();
   });
 
-  next?.addEventListener('click', () => {
+  next?.addEventListener('click', (event) => {
+    event.preventDefault();
     selectVoice(activeIndex + 1);
     startAuto();
   });
