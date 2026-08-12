@@ -33416,3 +33416,184 @@ a.news-card {
     line-height: 1.08 !important;
   }
 }
+
+/* Career mobile nav final alignment with corporate header */
+@media (max-width: 900px) {
+  body.career-page {
+    --career-mobile-header: 72px;
+  }
+
+  body.career-page .career-header,
+  body.career-page .career-header.scrolled,
+  body.career-page.career-subpage .career-header {
+    position: fixed !important;
+    inset: 0 0 auto 0 !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 42px !important;
+    align-items: center !important;
+    gap: 14px !important;
+    width: 100% !important;
+    height: var(--career-mobile-header) !important;
+    min-height: var(--career-mobile-header) !important;
+    padding: 12px 16px !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, .12) !important;
+    border-radius: 0 !important;
+    background: rgba(5, 22, 34, .96) !important;
+    box-shadow: 0 16px 36px rgba(4, 16, 26, .18) !important;
+    backdrop-filter: blur(16px) !important;
+    overflow: visible !important;
+    z-index: 7000 !important;
+  }
+
+  body.career-page .career-brand {
+    position: relative !important;
+    z-index: 7002 !important;
+    min-width: 0 !important;
+    height: 48px !important;
+    gap: 10px !important;
+    color: #fff !important;
+  }
+
+  body.career-page .career-brand img,
+  body.career-page.career-subpage .career-brand img {
+    width: min(174px, 48vw) !important;
+    height: auto !important;
+    max-height: 42px !important;
+    object-fit: contain !important;
+    filter: brightness(0) invert(1) !important;
+  }
+
+  body.career-page .career-brand span {
+    display: none !important;
+  }
+
+  body.career-page .career-menu-toggle,
+  body.career-page .career-header.scrolled:not(.menu-open) .career-menu-toggle,
+  body.career-page.career-subpage .career-header:not(.menu-open) .career-menu-toggle,
+  body.career-page .career-header.menu-open .career-menu-toggle {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    z-index: 7003 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    justify-self: end !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    padding: 0 !important;
+    border: 1px solid rgba(255, 255, 255, .36) !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, .04) !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  body.career-page .career-menu-toggle span,
+  body.career-page .career-header.scrolled:not(.menu-open) .career-menu-toggle span,
+  body.career-page.career-subpage .career-header:not(.menu-open) .career-menu-toggle span,
+  body.career-page .career-header.menu-open .career-menu-toggle span {
+    position: absolute !important;
+    left: 11px !important;
+    width: 20px !important;
+    height: 2px !important;
+    border-radius: 999px !important;
+    background: #fff !important;
+    transform-origin: center !important;
+  }
+
+  body.career-page .career-menu-toggle span:first-child {
+    top: 14px !important;
+  }
+
+  body.career-page .career-menu-toggle span:nth-child(2) {
+    top: 20px !important;
+  }
+
+  body.career-page .career-menu-toggle span:last-child {
+    top: 26px !important;
+  }
+
+  body.career-page .career-header.menu-open .career-menu-toggle span:first-child {
+    top: 20px !important;
+    transform: rotate(45deg) !important;
+  }
+
+  body.career-page .career-header.menu-open .career-menu-toggle span:nth-child(2) {
+    opacity: 0 !important;
+  }
+
+  body.career-page .career-header.menu-open .career-menu-toggle span:last-child {
+    top: 20px !important;
+    transform: rotate(-45deg) !important;
+  }
+
+  body.career-page .career-header .career-nav,
+  body.career-page .career-header .career-header-actions,
+  body.career-page.career-subpage .career-header .career-nav,
+  body.career-page.career-subpage .career-header .career-header-actions {
+    position: static !important;
+    grid-column: 1 / -1 !important;
+    display: none !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: transparent !important;
+  }
+
+  body.career-page .career-header.menu-open {
+    grid-template-rows: var(--career-mobile-header) auto auto !important;
+    align-items: start !important;
+    height: auto !important;
+    min-height: var(--career-mobile-header) !important;
+    max-height: 100dvh !important;
+    padding-bottom: 18px !important;
+    overflow-y: auto !important;
+  }
+
+  body.career-page .career-header.menu-open .career-nav,
+  body.career-page .career-header.menu-open .career-header-actions,
+  body.career-page.career-subpage .career-header.menu-open .career-nav,
+  body.career-page.career-subpage .career-header.menu-open .career-header-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+  }
+
+  body.career-page .career-header.menu-open .career-nav {
+    padding-top: 10px !important;
+  }
+
+  body.career-page .career-header.menu-open .career-nav a,
+  body.career-page .career-header.menu-open .career-header-actions a:not(.career-submit),
+  body.career-page.career-subpage .career-header.menu-open .career-nav a,
+  body.career-page.career-subpage .career-header.menu-open .career-header-actions a:not(.career-submit) {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-height: 52px !important;
+    padding: 13px 0 !important;
+    border-top: 1px solid rgba(255, 255, 255, .13) !important;
+    color: #fff !important;
+    font-size: clamp(18px, 5.2vw, 22px) !important;
+    line-height: 1.15 !important;
+    font-weight: 800 !important;
+    transform: none !important;
+  }
+
+  body.career-page .career-header.menu-open .career-nav a:after,
+  body.career-page .career-header.menu-open .career-header-actions a:not(.career-submit):after {
+    display: none !important;
+  }
+
+  body.career-page .career-header.menu-open .career-header-actions {
+    padding-bottom: 4px !important;
+  }
+}
