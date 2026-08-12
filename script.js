@@ -226,7 +226,7 @@ const staticTranslations = [
   ['[data-i18n-nav="equipment"]', 'Equipment', 'Peralatan'],
   ['[data-i18n-nav="geotechEquipment"]', 'Geotechnical Equipment', 'Peralatan Geoteknik'],
   ['[data-i18n-nav="geophysEquipment"]', 'Hydrographic / Geophysical Equipment', 'Peralatan Hidrografi / Geofisika'],
-  ['[data-i18n-nav="seismicEquipment"]', '2D HR Seismic Equipment', 'Peralatan 2D HR Seismic'],
+  ['[data-i18n-nav="seismicEquipment"]', '2D/3D HR Seismic Equipment', 'Peralatan 2D/3D HR Seismic'],
   ['[data-i18n-nav="vessel"]', 'Vessel', 'Kapal'],
   ['[data-i18n-nav="qhse"]', 'QHSE', 'QHSE'],
   ['[data-i18n-nav="quality"]', 'Quality Management System', 'Sistem Manajemen Mutu'],
@@ -1419,10 +1419,10 @@ const equipmentSplitPageTranslationOverrides = {
       ['.geophys-showcase-head .kicker', 'Hydrographic / Geophysical Equipment']
     ],
     seismic: [
-      ['title', '2D HR Seismic Equipment | Taka Hydrocore Indonesia'],
+      ['title', '2D/3D HR Seismic Equipment | Taka Hydrocore Indonesia'],
       ['meta[name="description"]', '2D HR seismic equipment overview for PT Taka Hydrocore Indonesia marine geophysical acquisition, source control, streamer, QC, and processing support.'],
       ['.equipment-page .preloader-inner p', 'Preparing 2D HR seismic equipment'],
-      ['.equipment-hero .kicker', '2D HR Seismic Equipment'],
+      ['.equipment-hero .kicker', '2D/3D HR Seismic Equipment'],
       ['.equipment-hero h1', '2D HR seismic equipment for marine acquisition.'],
       ['.equipment-hero-copy>p:not(.kicker)', 'Equipment spread for high-resolution seismic recording, streamer operation, source control, field QC, processing, and interpretation support.'],
       ['.seismic-equipment-intro>.section-label', '<span>01</span> Acquisition Equipment', 'html'],
@@ -1563,10 +1563,10 @@ const equipmentSplitPageTranslationOverrides = {
       ['.geophys-showcase-head .kicker', 'Peralatan Hidrografi / Geofisika']
     ],
     seismic: [
-      ['title', 'Peralatan 2D HR Seismic | Taka Hydrocore Indonesia'],
+      ['title', 'Peralatan 2D/3D HR Seismic | Taka Hydrocore Indonesia'],
       ['meta[name="description"]', 'Ringkasan peralatan 2D HR seismic PT Taka Hydrocore Indonesia untuk akuisisi geofisika marine, source control, streamer, QC, dan dukungan processing.'],
       ['.equipment-page .preloader-inner p', 'Menyiapkan peralatan 2D HR seismic'],
-      ['.equipment-hero .kicker', 'Peralatan 2D HR Seismic'],
+      ['.equipment-hero .kicker', 'Peralatan 2D/3D HR Seismic'],
       ['.equipment-hero h1', 'Peralatan 2D HR seismic untuk akuisisi marine.'],
       ['.equipment-hero-copy>p:not(.kicker)', 'Equipment spread untuk high-resolution seismic recording, operasi streamer, source control, field QC, processing, dan dukungan interpretasi.'],
       ['.seismic-equipment-intro>.section-label', '<span>01</span> Peralatan Akuisisi', 'html'],

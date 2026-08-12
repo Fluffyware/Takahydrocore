@@ -31893,6 +31893,9 @@ a.news-card {
 .equipment-seismic-page .seismic-equipment-hero {
   min-height: 100svh;
   height: 100svh;
+  align-items: center;
+  padding-top: clamp(96px, 9vh, 132px);
+  padding-bottom: clamp(72px, 8vh, 108px);
   background-image:
     linear-gradient(90deg, rgba(3, 16, 25, .86) 0%, rgba(3, 16, 25, .68) 42%, rgba(3, 16, 25, .22) 100%),
     url("assets/serv/2D:3D HIGH RESOLUTION MARINE SEISMIC/DJI_0165-1536x1152.jpg");
@@ -31901,7 +31904,8 @@ a.news-card {
 }
 
 .equipment-seismic-page .seismic-equipment-hero .equipment-hero-copy {
-  max-width: 790px
+  max-width: 790px;
+  transform: translateY(-2vh)
 }
 
 .equipment-seismic-page .seismic-equipment-hero h1 {
@@ -32381,6 +32385,19 @@ a.news-card {
   grid-template-columns: minmax(210px, .28fr) minmax(0, 1fr);
 }
 
+.seismic-inline-media {
+  width: min(100%, 920px);
+  margin: clamp(18px, 2.6vw, 30px) 0 clamp(18px, 2.6vw, 30px);
+  overflow: hidden;
+  background: #071c2c
+}
+
+.seismic-inline-media img {
+  display: block;
+  width: 100%;
+  height: auto
+}
+
 .seismic-detail-copy {
   display: flex;
   flex-direction: column;
@@ -32531,6 +32548,23 @@ a.news-card {
     font-size: 13px !important;
     line-height: 1.62 !important;
     margin: 14px 0 18px !important;
+  }
+
+  .equipment-seismic-page .seismic-equipment-hero {
+    height: auto;
+    min-height: 100svh;
+    padding-top: 132px;
+    padding-bottom: 72px;
+    align-items: center
+  }
+
+  .equipment-seismic-page .seismic-equipment-hero .equipment-hero-copy {
+    transform: none
+  }
+
+  .seismic-inline-media {
+    width: 100%;
+    margin: 16px 0 18px
   }
 
   .seismic-detail,
