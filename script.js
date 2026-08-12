@@ -2485,6 +2485,11 @@ const escapeHtml = (value = '') => String(value)
   .replace(/"/g, '&quot;')
   .replace(/'/g, '&#039;');
 
+const markdownInlineToHtml = (value = '') => escapeHtml(value)
+  .replace(/\*\*([\s\S]+?)\*\*/g, '<strong>$1</strong>')
+  .replace(/__([\s\S]+?)__/g, '<strong>$1</strong>')
+  .replace(/\*([^*\n]+?)\*/g, '<em>$1</em>');
+
 const getSafeCmsAssetPath = (value = '') => {
   const path = String(value || '').trim();
   if (!path) return '';
@@ -2576,12 +2581,12 @@ const markdownToHtml = (markdown = '') => {
   let list = [];
   const flushParagraph = () => {
     if (!paragraph.length) return;
-    blocks.push(`<p>${escapeHtml(paragraph.join(' '))}</p>`);
+    blocks.push(`<p>${markdownInlineToHtml(paragraph.join(' '))}</p>`);
     paragraph = [];
   };
   const flushList = () => {
     if (!list.length) return;
-    blocks.push(`<ul>${list.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`);
+    blocks.push(`<ul>${list.map((item) => `<li>${markdownInlineToHtml(item)}</li>`).join('')}</ul>`);
     list = [];
   };
 
@@ -2595,13 +2600,13 @@ const markdownToHtml = (markdown = '') => {
     if (trimmed.startsWith('### ')) {
       flushParagraph();
       flushList();
-      blocks.push(`<h3>${escapeHtml(trimmed.slice(4))}</h3>`);
+      blocks.push(`<h3>${markdownInlineToHtml(trimmed.slice(4))}</h3>`);
       return;
     }
     if (trimmed.startsWith('## ')) {
       flushParagraph();
       flushList();
-      blocks.push(`<h2>${escapeHtml(trimmed.slice(3))}</h2>`);
+      blocks.push(`<h2>${markdownInlineToHtml(trimmed.slice(3))}</h2>`);
       return;
     }
     if (/^[-*]\s+/.test(trimmed)) {
