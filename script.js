@@ -4230,10 +4230,22 @@ document.querySelectorAll('[data-employee-voice-slider]').forEach((slider) => {
   let isSwitching = false;
   let hasInitialized = false;
 
+  const warmImage = (panel) => {
+    const image = panel?.querySelector('img');
+    if (!image) return;
+    if (image.dataset.src && !image.getAttribute('src')) {
+      image.setAttribute('src', image.dataset.src);
+    }
+    image.loading = 'eager';
+    image.decoding = 'async';
+  };
+
   const selectVoice = (index) => {
     const nextIndex = (index + panels.length) % panels.length;
     if (hasInitialized && (isSwitching || nextIndex === activeIndex)) return;
 
+    warmImage(panels[nextIndex]);
+    warmImage(panels[(nextIndex + 1) % panels.length]);
     isSwitching = true;
     activeIndex = nextIndex;
     panels.forEach((panel, panelIndex) => {

@@ -33597,3 +33597,123 @@ a.news-card {
     padding-bottom: 4px !important;
   }
 }
+
+/* Mobile SIGAP recognition: keep slides stable and photos visible. */
+@media (max-width: 760px) {
+  body.career-page .career-sigap-recognition-slider {
+    overflow: visible !important;
+  }
+
+  body.career-page .career-sigap-recognition-slider .career-employee-voice-stage {
+    display: block !important;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: hidden !important;
+    background: #fff !important;
+    border-color: rgba(7, 28, 44, .12) !important;
+    box-shadow: 0 18px 44px rgba(7, 28, 44, .08) !important;
+  }
+
+  body.career-page .career-sigap-recognition-slider .career-employee-voice-stage article {
+    position: absolute !important;
+    inset: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: minmax(0, auto) minmax(0, auto) !important;
+    min-height: 0 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: none !important;
+    filter: none !important;
+    transition: opacity .24s ease, visibility .24s ease !important;
+  }
+
+  body.career-page .career-sigap-recognition-slider .career-employee-voice-stage article.is-active {
+    position: relative !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  body.career-page .career-sigap-recognition-slider .career-employee-voice-photo {
+    display: grid !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    place-items: center !important;
+    aspect-ratio: 16 / 10 !important;
+    background: #f5f8fa !important;
+    overflow: hidden !important;
+  }
+
+  body.career-page .career-sigap-recognition-slider .career-employee-voice-photo img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  body.career-page .career-sigap-recognition-slider .career-employee-voice-copy {
+    display: flex !important;
+    min-height: 330px !important;
+    padding: 22px 18px 24px !important;
+    background: #fff !important;
+    color: #071c2c !important;
+    justify-content: center !important;
+  }
+
+  body.career-page .career-sigap-recognition-slider .career-employee-voice-copy:before {
+    content: none !important;
+  }
+
+  body.career-page .career-sigap-recognition-slider .career-employee-voice-copy blockquote {
+    max-width: none !important;
+    font-size: clamp(18px, 5vw, 24px) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -.7px !important;
+    text-wrap: auto !important;
+  }
+
+  body.career-page .career-sigap-recognition-slider .career-employee-voice-copy div:not(.career-employee-voice-values) {
+    margin-top: 18px !important;
+  }
+
+  body.career-page .career-sigap-recognition-slider .career-employee-voice-values {
+    gap: 6px !important;
+    margin-top: 16px !important;
+  }
+
+  body.career-page .career-sigap-recognition-slider .career-employee-voice-values em {
+    min-height: 26px !important;
+    padding: 0 9px !important;
+    font-size: 9px !important;
+  }
+
+  body.career-page .career-sigap-recognition-slider .career-employee-voice-tabs button,
+  body.career-page .career-sigap-recognition-slider .career-employee-voice-arrows button {
+    transform: none !important;
+    transition: border-color .2s ease, background .2s ease !important;
+  }
+}
+
+@media (max-width: 420px) {
+  body.career-page .career-sigap-recognition-slider .career-employee-voice-photo {
+    aspect-ratio: 4 / 3 !important;
+  }
+
+  body.career-page .career-sigap-recognition-slider .career-employee-voice-copy {
+    min-height: 360px !important;
+  }
+}
