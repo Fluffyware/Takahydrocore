@@ -32386,7 +32386,7 @@ a.news-card {
 }
 
 .seismic-inline-media {
-  width: min(100%, 920px);
+  width: min(100%, 680px);
   margin: clamp(18px, 2.6vw, 30px) 0 clamp(18px, 2.6vw, 30px);
   overflow: hidden;
   background: #071c2c
@@ -32395,7 +32395,9 @@ a.news-card {
 .seismic-inline-media img {
   display: block;
   width: 100%;
-  height: auto
+  height: auto;
+  max-height: 360px;
+  object-fit: contain
 }
 
 .seismic-detail-copy {
@@ -32565,6 +32567,10 @@ a.news-card {
   .seismic-inline-media {
     width: 100%;
     margin: 16px 0 18px
+  }
+
+  .seismic-inline-media img {
+    max-height: 260px
   }
 
   .seismic-detail,
