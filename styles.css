@@ -32389,7 +32389,7 @@ a.news-card {
   width: min(100%, 680px);
   margin: clamp(18px, 2.6vw, 30px) 0 clamp(18px, 2.6vw, 30px);
   overflow: hidden;
-  background: #071c2c
+  background: transparent
 }
 
 .seismic-inline-media img {
