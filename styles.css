@@ -32308,9 +32308,8 @@ a.news-card {
   display: grid;
   grid-template-columns: minmax(320px, .95fr) minmax(0, 1.05fr);
   min-height: clamp(460px, 42vw, 680px);
-  border: 1px solid rgba(7, 28, 44, .12);
   background: #fff;
-  box-shadow: 0 22px 70px rgba(7, 28, 44, .06)
+  box-shadow: none
 }
 
 .seismic-detail-reverse {
@@ -32351,8 +32350,8 @@ a.news-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
-  padding: clamp(16px, 2.5vw, 32px);
+  background: transparent;
+  padding: 0;
 }
 
 .seismic-detail-media.seismic-detail-fit img {
@@ -32426,8 +32425,7 @@ a.news-card {
 }
 
 .seismic-component-stack {
-  display: grid;
-  border-top: 1px solid rgba(7, 28, 44, .12)
+  display: grid
 }
 
 .seismic-component-stack p {
@@ -32435,8 +32433,7 @@ a.news-card {
   grid-template-columns: minmax(170px, .42fr) minmax(0, 1fr);
   gap: clamp(16px, 2vw, 28px);
   margin: 0;
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(7, 28, 44, .1)
+  padding: 18px 0
 }
 
 .seismic-component-stack p:last-child {
