@@ -85,10 +85,10 @@
       "category": "Life at THI"
     },
     {
-      "body": "Taka Hydrocore Indonesia (THI), through AG Geodrill, has successfully completed the Provision of Geotechnical Survey Services for South Natuna Sea Block B for Medco E&P Natuna Ltd. This achievement reflects THI’s commitment to delivering reliable offshore geotechnical survey services through strong teamwork, operational excellence, safety, and quality.",
-      "summary": "Taka Hydrocore Indonesia, through AG Geodrill, has completed offshore geotechnical survey activities in the South Natuna Sea Block B, supporting Medco E&P Natuna Ltd. with critical subsurface data for offshore operations.",
+      "body": "Taka Hydrocore Indonesia (THI), through AG Geodrill, has successfully completed the Provision of Geotechnical Survey Services for South Natuna Sea for Medco E&P Natuna Ltd. This achievement reflects THI’s commitment to delivering reliable offshore geotechnical survey services through strong teamwork, operational excellence, safety, and quality.",
+      "summary": "Taka Hydrocore Indonesia, through AG Geodrill, has completed offshore geotechnical survey activities in the South Natuna Sea, supporting Medco E&P Natuna Ltd. with critical subsurface data for offshore operations.",
       "slug": "ag-geodrill-completes-medco-natuna-offshore-geotechnical-survey",
-      "featured": false,
+      "featured": true,
       "published": true,
       "imageAlt": "AG Geodrill conducting offshore geotechnical survey operations at West Belut-H04 for Medco E&P Natuna Ltd.",
       "date": "2026-07-25",
@@ -97,13 +97,52 @@
       "category": "Project"
     },
     {
-      "published": true,
+      "body": "Taka Hydrocore Indonesia (THI), through Barakuda, has successfully completed the geophysical survey activities for the Ronggolawe and Tunggadewi Project for Saka Indonesia Pangkah Ltd. This achievement marks another successful offshore survey campaign and reflects THI’s continued commitment to delivering reliable geophysical services with a strong focus on safety, quality, and operational excellence.",
+      "summary": "Taka Hydrocore Indonesia, through Barakuda, has successfully completed the geophysical survey activities for the Ronggolawe and Tunggadewi Project for Saka Indonesia Pangkah Ltd.",
+      "slug": "barakuda-completes-saka-geophysical-survey-project",
       "featured": false,
-      "category": "Project",
-      "title": "Barakuda Completes SAKA Energi Sepinggan Debris Survey Project",
-      "slug": "barakuda-completes-saka-energi-sepinggan-debris-survey-project",
+      "published": true,
+      "imageAlt": "Barakuda conducting offshore geophysical survey activities for Saka Indonesia Pangkah Ltd.",
       "date": "2026-07-27",
-      "summary": "Taka Hydrocore Indonesia, through Barakuda, has completed G&G debris survey activities at the Proposed SM-1 Well in the Offshore Pekawai Block, East Kalimantan, supporting SAKA Energi Sepinggan area operations with reliable offshore survey services."
+      "title": "Barakuda Completes SAKA Geophysical Survey Project for the Ronggolawe and Tunggadewi Project for Saka Indonesia Pangkah",
+      "image": "assets/news/uploads/whatsapp-image-2026-08-12-at-09.33.50.jpeg",
+      "category": "Project"
+    },
+    {
+      "body": "Taka Hydrocore Indonesia (THI), through AG Geodrill, is preparing for the geotechnical survey phase of the Ronggolawe and Tunggadewi Project for Saka Indonesia Pangkah Ltd. The mobilization includes the preparation of personnel, equipment, and operational resources to support the upcoming offshore geotechnical activities, reflecting THI’s commitment to safe, efficient, and reliable project execution.",
+      "summary": "Taka Hydrocore Indonesia, through AG Geodrill, is preparing for the geotechnical survey phase of the Ronggolawe and Tunggadewi Project for Saka Indonesia Pangkah Ltd.",
+      "slug": "ag-geodrill-mobilizes-ronggolawe-tunggadewi-geotechnical-survey",
+      "featured": false,
+      "published": true,
+      "imageAlt": "AG Geodrill preparing for the Ronggolawe and Tunggadewi offshore geotechnical survey",
+      "date": "2026-08-09",
+      "title": "AG Geodrill Mobilizes for Ronggolawe and Tunggadewi Geotechnical Survey",
+      "image": "assets/news/uploads/whatsapp-image-2026-08-12-at-09.37.59.jpeg",
+      "category": "Project"
+    },
+    {
+      "body": "Taka Hydrocore Indonesia (THI) supports the Boskalis project in Lumut, Malaysia, through the provision of specialized equipment and personnel to support project activities. This involvement reflects THI’s capability to provide reliable operational resources and expertise for international projects, while strengthening its commitment to delivering professional and dependable project support.",
+      "summary": "Taka Hydrocore Indonesia supports the Boskalis project in Lumut, Malaysia, through the provision of specialized equipment and personnel to support project operations.",
+      "slug": "thi-supports-boskalis-project-in-lumut-malaysia",
+      "featured": false,
+      "published": true,
+      "imageAlt": "THI equipment and personnel supporting project operations in Lumut, Malaysia.",
+      "date": "2026-08-11",
+      "title": "Taka Hydrocore Indonesia Supports Boskalis Project in Lumut, Malaysia",
+      "image": "assets/news/uploads/whatsapp-image-2026-08-12-at-09.40.15.jpeg",
+      "category": "Project"
+    },
+    {
+      "body": "Taka Hydrocore Indonesia (THI) conducted a close-out meeting for the INPEX Masela Geotechnical Enhancement Project, marking an important milestone following the Onshore & Intertidal Geophysical and Geotechnical Survey activities in West Saumlaki, Tanimbar Island. The meeting reflects the successful collaboration and commitment of all parties involved throughout the project, reinforcing THI’s dedication to delivering reliable geophysical and geotechnical survey services.",
+      "summary": "Taka Hydrocore Indonesia conducted a close-out meeting for the INPEX Masela Geotechnical Enhancement Project, marking an important milestone following the completion of project activities in West Saumlaki, Tanimbar Island.",
+      "slug": "close-out-meeting-inpex-masela-geotechnical-enhancement-project",
+      "featured": false,
+      "published": true,
+      "imageAlt": "Close-out meeting for the INPEX Masela Geotechnical Enhancement Project.",
+      "date": "2026-08-10",
+      "title": "Close-Out Meeting for INPEX Masela Geotechnical Enhancement Project",
+      "image": "assets/news/uploads/whatsapp-image-2026-08-12-at-07.59.40.jpeg",
+      "category": "Project"
     }
   ]
 }
