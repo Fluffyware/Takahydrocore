@@ -2547,7 +2547,7 @@ const renderCmsNewsCards = (items = cmsNewsItems) => {
       const category = escapeHtml(item.category || 'Company Update');
       const date = escapeHtml(formatNewsDate(item.date));
       const title = escapeHtml(item.title);
-      const summary = escapeHtml(item.summary || '');
+      const summary = markdownInlineToHtml(item.summary || '');
       const image = getSafeCmsAssetPath(item.image);
       const imageAlt = escapeHtml(item.imageAlt || item.title);
 
@@ -2647,7 +2647,7 @@ const renderCmsNewsDetail = (items = cmsNewsItems) => {
   meta?.setAttribute('content', item.summary || item.title);
   header.querySelector('.kicker').textContent = item.category || 'News';
   header.querySelector('h1').textContent = item.title;
-  header.querySelector('p:not(.kicker)').textContent = item.summary || '';
+  header.querySelector('p:not(.kicker)').innerHTML = markdownInlineToHtml(item.summary || '');
   document.querySelector('[data-news-detail-category]').textContent = item.category || 'News';
   document.querySelector('[data-news-detail-date]').textContent = formatNewsDate(item.date) || '-';
   const safeImage = getSafeCmsAssetPath(item.image);
@@ -2661,7 +2661,7 @@ const renderCmsNewsDetail = (items = cmsNewsItems) => {
         <figcaption>${escapeHtml(item.imageAlt || item.category || 'THI documentation')}</figcaption>
       </figure>`
     : '';
-  body.innerHTML = `${imageMarkup}<p class="lead">${escapeHtml(item.summary || '')}</p>${markdownToHtml(item.body || '')}`;
+  body.innerHTML = `${imageMarkup}<p class="lead">${markdownInlineToHtml(item.summary || '')}</p>${markdownToHtml(item.body || '')}`;
 };
 
 const initCmsNews = () => {
@@ -2812,7 +2812,7 @@ const matchesJobFilter = (item) => {
 
 const renderJobList = (items = []) => {
   if (!items.length) return '';
-  return `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
+  return `<ul>${items.map((item) => `<li>${markdownInlineToHtml(item)}</li>`).join('')}</ul>`;
 };
 
 const getJobApplyUrl = (item = {}) => String(item.apply_url || item.applyUrl || item.apply_link || '').trim();
@@ -2899,8 +2899,8 @@ const renderCmsJobs = (items = cmsJobItems) => {
     const area = escapeHtml(item.area || '');
     const department = escapeHtml(item.department || '');
     const location = escapeHtml(item.location || '');
-    const summary = escapeHtml(item.summary || '');
-    const overview = escapeHtml(item.overview || item.summary || '');
+    const summary = markdownInlineToHtml(item.summary || '');
+    const overview = markdownInlineToHtml(item.overview || item.summary || '');
     const factItems = [item.area, item.level, item.location].filter(Boolean);
     const tags = filterJobTags(item.tags, factItems).slice(0, 4);
     const tagsMarkup = tags.length
