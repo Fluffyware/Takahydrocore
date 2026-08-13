@@ -2452,10 +2452,10 @@ const newsPageTranslations = {
     ['.news-feature-section>.section-label', '<span>01</span> Newsroom', 'html'],
     ['.newsroom-head .kicker', 'Latest News'],
     ['.newsroom-head h2', 'Highlighted company update.'],
-    ['.newsroom-head>p:not(.kicker)', 'The most recent story is featured first so visitors can catch the latest update before browsing the full news list.'],
+    ['.newsroom-head>p:not(.kicker)', 'The latest update is presented up front, followed by the full collection of company stories and project notes.'],
     ['.news-list-head .kicker', 'All Updates'],
-    ['.news-list-head h2', 'Explore stories from Taka Hydrocore.'],
-    ['.news-list-head>p', 'Filter by topic, year, or keyword to find project notes, company activities, and selected announcements.'],
+    ['.news-list-head h2', 'More updates from Taka Hydrocore.'],
+    ['.news-list-head>p', 'Use topic, year, or keyword filters to browse project notes, company activities, and selected announcements.'],
     ['[data-news-search-label]', 'Search news'],
     ['[data-news-topic-label]', 'Topic'],
     ['[data-news-year-label]', 'Year'],
@@ -2473,10 +2473,10 @@ const newsPageTranslations = {
     ['.news-feature-section>.section-label', '<span>01</span> Ruang Berita', 'html'],
     ['.newsroom-head .kicker', 'Berita Terbaru'],
     ['.newsroom-head h2', 'Sorotan pembaruan perusahaan.'],
-    ['.newsroom-head>p:not(.kicker)', 'Berita terbaru ditampilkan lebih dulu agar pengunjung bisa langsung melihat pembaruan utama sebelum menelusuri daftar berita.'],
+    ['.newsroom-head>p:not(.kicker)', 'Pembaruan terbaru ditampilkan di awal, lalu diikuti kumpulan cerita perusahaan dan catatan proyek lainnya.'],
     ['.news-list-head .kicker', 'Semua Pembaruan'],
-    ['.news-list-head h2', 'Telusuri cerita dari Taka Hydrocore.'],
-    ['.news-list-head>p', 'Saring berdasarkan topik, tahun, atau kata kunci untuk menemukan catatan proyek, kegiatan perusahaan, dan pengumuman pilihan.'],
+    ['.news-list-head h2', 'Pembaruan lainnya dari Taka Hydrocore.'],
+    ['.news-list-head>p', 'Gunakan filter topik, tahun, atau kata kunci untuk menelusuri catatan proyek, kegiatan perusahaan, dan pengumuman pilihan.'],
     ['[data-news-search-label]', 'Cari berita'],
     ['[data-news-topic-label]', 'Topik'],
     ['[data-news-year-label]', 'Tahun'],
@@ -2641,7 +2641,7 @@ const renderNewsSearchTools = (items = cmsNewsItems, visibleItems = items) => {
       const read = activeLanguage === 'id' ? 'Baca berita' : 'Read story';
       overview.hidden = false;
       featured.innerHTML = `<a class="newsroom-featured-card" href="${newsDetailHref(item)}">
-        <figure>${image ? `<img src="${escapeHtml(image)}" alt="${imageAlt}" loading="lazy">` : ''}</figure>
+        <figure${image ? ` style="--news-feature-bg: url('${escapeHtml(image)}')"` : ''}>${image ? `<img src="${escapeHtml(image)}" alt="${imageAlt}" loading="lazy">` : ''}</figure>
         <div>
           <span>${label}</span>
           <small>${category} · ${date}</small>
