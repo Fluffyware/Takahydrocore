@@ -18764,8 +18764,7 @@ a.news-card {
 
 .news-search-box span,
 .news-filter-select span,
-.news-filter-group>span,
-.newsroom-topic-panel>span {
+.news-filter-group>span {
   color: var(--brand);
   font-size: 9px;
   font-weight: 900;
@@ -18802,8 +18801,7 @@ a.news-card {
 }
 
 .news-filter-chips button,
-.news-results-bar button,
-.newsroom-topic-panel button {
+.news-results-bar button {
   appearance: none;
   border-radius: 0;
   font-family: "Manrope";
@@ -18836,9 +18834,7 @@ a.news-card {
 }
 
 .newsroom-overview {
-  display: grid;
-  grid-template-columns: minmax(0, .68fr) minmax(280px, .32fr);
-  gap: 18px;
+  display: block;
   margin-top: 22px
 }
 
@@ -18848,8 +18844,8 @@ a.news-card {
 
 .newsroom-featured-card {
   display: grid;
-  grid-template-columns: minmax(280px, .44fr) minmax(0, 1fr);
-  min-height: 320px;
+  grid-template-columns: minmax(360px, .44fr) minmax(0, 1fr);
+  min-height: 380px;
   background: #071c2c;
   color: #fff;
   overflow: hidden;
@@ -18859,14 +18855,14 @@ a.news-card {
 .newsroom-featured-card figure {
   min-height: 100%;
   margin: 0;
-  background: linear-gradient(135deg, #071c2c, #123a55)
+  background: #061c2b
 }
 
 .newsroom-featured-card img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center
 }
 
@@ -18918,56 +18914,6 @@ a.news-card {
   padding-bottom: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, .55);
   color: #fff
-}
-
-.newsroom-topic-panel {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(22px, 2.8vw, 34px);
-  border: 1px solid #d8e1e7;
-  background: #fff
-}
-
-.newsroom-topic-panel [data-news-topic-summary] {
-  display: grid;
-  gap: 10px;
-  margin-top: 20px
-}
-
-.newsroom-topic-panel button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  width: 100%;
-  border: 1px solid #d8e1e7;
-  background: #f7fafb;
-  color: #071c2c;
-  padding: 15px 16px;
-  text-align: left;
-  transition: border-color .22s ease, background .22s ease, transform .22s ease
-}
-
-.newsroom-topic-panel button:hover {
-  transform: translateX(3px);
-  border-color: rgba(49, 37, 118, .38);
-  background: #fff
-}
-
-.newsroom-topic-panel strong {
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: -.2px
-}
-
-.newsroom-topic-panel button span {
-  color: #8c9aa4;
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  white-space: nowrap
 }
 
 .news-results-bar {
@@ -19157,16 +19103,6 @@ a.news-card {
     margin: 18px 0 12px;
     font-size: clamp(26px, 9vw, 38px);
     letter-spacing: -1.8px
-  }
-
-  .newsroom-topic-panel {
-    padding: 18px
-  }
-
-  .newsroom-topic-panel button {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 8px
   }
 
   .news-results-bar {

@@ -571,11 +571,11 @@ const companyProfilePageTranslations = {
     ['.sigap-awareness p', 'Respect, trust, and care for each other and the community.'],
     ['.sigap-professionalism h3', 'Professionalism'],
     ['.sigap-professionalism p', 'Professional delivery of work and service.'],
-    ['.sigap-notes article:nth-child(1)', '<span>S / Service Excellence</span><ul><li>Act ahead of client needs</li><li>Deliver beyond expectations</li></ul>', 'html'],
-    ['.sigap-notes article:nth-child(2)', '<span>I / Integrity</span><ul><li>Be dependable and accountable</li><li>Honor every commitment</li></ul>', 'html'],
-    ['.sigap-notes article:nth-child(3)', '<span>G / Grow</span><ul><li>Keep learning and adapting</li><li>Improve the quality of every output</li></ul>', 'html'],
-    ['.sigap-notes article:nth-child(4)', '<span>A / Awareness</span><ul><li>Respect people and diversity</li><li>Protect reputation and recognize contribution</li></ul>', 'html'],
-    ['.sigap-notes article:nth-child(5)', '<span>P / Professionalism</span><ul><li>Work ethically and collaboratively</li><li>Lead by example in every assignment</li></ul>', 'html'],
+    ['.sigap-notes article:nth-child(1)', '<span>S / Service Excellence</span><ul><li>Proactive</li><li>Exceed customer expectations</li></ul>', 'html'],
+    ['.sigap-notes article:nth-child(2)', '<span>I / Integrity</span><ul><li>Trustworthy</li><li>Committed</li><li>Responsible</li><li>Keep your word</li></ul>', 'html'],
+    ['.sigap-notes article:nth-child(3)', '<span>G / Grow</span><ul><li>Continual learning</li><li>Adaptive</li><li>Innovative</li><li>Deliver better output</li></ul>', 'html'],
+    ['.sigap-notes article:nth-child(4)', '<span>A / Awareness</span><ul><li>Respect diversity</li><li>Protect company reputation</li><li>Give recognition</li></ul>', 'html'],
+    ['.sigap-notes article:nth-child(5)', '<span>P / Professionalism</span><ul><li>Work ethic compliance</li><li>Do the best</li><li>Teamwork</li><li>Lead by example</li></ul>', 'html'],
     ['.profile-services>.section-label', '<span>04</span> Services', 'html'],
     ['.profile-services-head .kicker', 'Offshore, Nearshore & Onshore'],
     ['.profile-services-head h2', 'Survey services built around real field conditions.'],
@@ -682,11 +682,11 @@ const companyProfilePageTranslations = {
     ['.sigap-awareness p', 'Menghargai, percaya, dan peduli pada sesama serta komunitas.'],
     ['.sigap-professionalism h3', 'Professionalism'],
     ['.sigap-professionalism p', 'Bekerja dan memberikan layanan secara profesional.'],
-    ['.sigap-notes article:nth-child(1)', '<span>S / Service Excellence</span><ul><li>Sigap membaca kebutuhan klien</li><li>Memberikan hasil di atas ekspektasi</li></ul>', 'html'],
-    ['.sigap-notes article:nth-child(2)', '<span>I / Integrity</span><ul><li>Dapat dipercaya dan bertanggung jawab</li><li>Menjaga setiap komitmen</li></ul>', 'html'],
-    ['.sigap-notes article:nth-child(3)', '<span>G / Grow</span><ul><li>Terus belajar dan beradaptasi</li><li>Meningkatkan kualitas setiap output</li></ul>', 'html'],
-    ['.sigap-notes article:nth-child(4)', '<span>A / Awareness</span><ul><li>Menghargai manusia dan keberagaman</li><li>Menjaga reputasi dan mengapresiasi kontribusi</li></ul>', 'html'],
-    ['.sigap-notes article:nth-child(5)', '<span>P / Professionalism</span><ul><li>Bekerja etis dan kolaboratif</li><li>Memberi teladan dalam setiap pekerjaan</li></ul>', 'html'],
+    ['.sigap-notes article:nth-child(1)', '<span>S / Service Excellence</span><ul><li>Proaktif</li><li>Melebihi ekspektasi pelanggan</li></ul>', 'html'],
+    ['.sigap-notes article:nth-child(2)', '<span>I / Integrity</span><ul><li>Dapat dipercaya</li><li>Berkomitmen</li><li>Bertanggung jawab</li><li>Menepati janji</li></ul>', 'html'],
+    ['.sigap-notes article:nth-child(3)', '<span>G / Grow</span><ul><li>Terus belajar</li><li>Adaptif</li><li>Inovatif</li><li>Memberikan output yang lebih baik</li></ul>', 'html'],
+    ['.sigap-notes article:nth-child(4)', '<span>A / Awareness</span><ul><li>Menghargai keberagaman</li><li>Menjaga reputasi perusahaan</li><li>Memberi apresiasi</li></ul>', 'html'],
+    ['.sigap-notes article:nth-child(5)', '<span>P / Professionalism</span><ul><li>Patuh pada etika kerja</li><li>Melakukan yang terbaik</li><li>Kerja sama tim</li><li>Memimpin dengan teladan</li></ul>', 'html'],
     ['.profile-services>.section-label', '<span>04</span> Layanan', 'html'],
     ['.profile-services-head .kicker', 'Offshore, Nearshore & Onshore'],
     ['.profile-services-head h2', 'Layanan survei untuk kondisi lapangan nyata.'],
@@ -2453,13 +2453,12 @@ const newsPageTranslations = {
     ['.newsroom-head .kicker', 'Latest News'],
     ['.newsroom-head h2', 'Highlighted company update.'],
     ['.newsroom-head>p:not(.kicker)', 'The most recent story is featured first so visitors can catch the latest update before browsing the full news list.'],
-    ['.news-list-head .kicker', 'News List'],
-    ['.news-list-head h2', 'Browse all published updates.'],
-    ['.news-list-head>p', 'Use the filters when you want to narrow updates by topic, year, or keyword.'],
+    ['.news-list-head .kicker', 'All Updates'],
+    ['.news-list-head h2', 'Explore stories from Taka Hydrocore.'],
+    ['.news-list-head>p', 'Filter by topic, year, or keyword to find project notes, company activities, and selected announcements.'],
     ['[data-news-search-label]', 'Search news'],
     ['[data-news-topic-label]', 'Topic'],
     ['[data-news-year-label]', 'Year'],
-    ['[data-news-browse-label]', 'Browse by topic'],
     ['[data-news-reset]', 'Clear filters'],
     ['.news-empty-state span', 'No published news'],
     ['.news-empty-state p', 'Company news and updates will appear here after content is published.']
@@ -2475,13 +2474,12 @@ const newsPageTranslations = {
     ['.newsroom-head .kicker', 'Berita Terbaru'],
     ['.newsroom-head h2', 'Sorotan pembaruan perusahaan.'],
     ['.newsroom-head>p:not(.kicker)', 'Berita terbaru ditampilkan lebih dulu agar pengunjung bisa langsung melihat pembaruan utama sebelum menelusuri daftar berita.'],
-    ['.news-list-head .kicker', 'Daftar Berita'],
-    ['.news-list-head h2', 'Telusuri semua pembaruan yang sudah terbit.'],
-    ['.news-list-head>p', 'Gunakan filter jika ingin menyaring berita berdasarkan topik, tahun, atau kata kunci.'],
+    ['.news-list-head .kicker', 'Semua Pembaruan'],
+    ['.news-list-head h2', 'Telusuri cerita dari Taka Hydrocore.'],
+    ['.news-list-head>p', 'Saring berdasarkan topik, tahun, atau kata kunci untuk menemukan catatan proyek, kegiatan perusahaan, dan pengumuman pilihan.'],
     ['[data-news-search-label]', 'Cari berita'],
     ['[data-news-topic-label]', 'Topik'],
     ['[data-news-year-label]', 'Tahun'],
-    ['[data-news-browse-label]', 'Telusuri topik'],
     ['[data-news-reset]', 'Hapus filter'],
     ['.news-empty-state span', 'Belum ada berita terbit'],
     ['.news-empty-state p', 'Berita dan pembaruan perusahaan akan tampil di sini setelah dipublikasikan.']
@@ -2596,7 +2594,6 @@ const renderNewsSearchTools = (items = cmsNewsItems, visibleItems = items) => {
   const resetButton = document.querySelector('[data-news-reset]');
   const overview = document.querySelector('[data-news-overview]');
   const featured = document.querySelector('[data-news-featured]');
-  const topicSummary = document.querySelector('[data-news-topic-summary]');
 
   if (categoryWrap) {
     const categories = Array.from(getNewsCategoryCounts(items).keys()).sort((a, b) => a.localeCompare(b));
@@ -2656,13 +2653,6 @@ const renderNewsSearchTools = (items = cmsNewsItems, visibleItems = items) => {
     }
   }
 
-  if (topicSummary) {
-    const counts = Array.from(getNewsCategoryCounts(items).entries()).sort((a, b) => b[1] - a[1]);
-    topicSummary.innerHTML = counts.map(([category, count]) => `<button type="button" data-news-topic-jump="${escapeHtml(category)}">
-      <strong>${escapeHtml(category)}</strong>
-      <span>${getNewsCountLabel(count)}</span>
-    </button>`).join('');
-  }
 };
 
 const initNewsFilterEvents = () => {
@@ -2685,18 +2675,11 @@ const initNewsFilterEvents = () => {
 
   page.addEventListener('click', (event) => {
     const categoryButton = event.target.closest('[data-news-category]');
-    const topicButton = event.target.closest('[data-news-topic-jump]');
     const resetButton = event.target.closest('[data-news-reset]');
 
     if (categoryButton) {
       newsFilterState.category = categoryButton.dataset.newsCategory || 'all';
       renderCmsNewsCards(cmsNewsItems);
-    }
-
-    if (topicButton) {
-      newsFilterState.category = topicButton.dataset.newsTopicJump || 'all';
-      renderCmsNewsCards(cmsNewsItems);
-      document.querySelector('[data-news-controls]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     if (resetButton) {
