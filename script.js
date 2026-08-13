@@ -2447,11 +2447,20 @@ const newsPageTranslations = {
     ['meta[name="description"]', 'PT Taka Hydrocore Indonesia CSR news and company updates.'],
     ['.news-page .preloader-inner p', 'Preparing news'],
     ['.news-page-hero-copy .kicker', 'Newsroom'],
-    ['.news-page-hero h1', 'Company updates, written with context.'],
-    ['.news-page-hero-copy>p:not(.kicker)', 'Selected stories from PT Taka Hydrocore Indonesia, including corporate responsibility, field activity, and company milestones.'],
-    ['.news-feature-section>.section-label', '<span>01</span> News Archive', 'html'],
-    ['.newsroom-head .kicker', 'Company updates'],
-    ['.newsroom-head h2', 'Published news from THI.'],
+    ['.news-page-hero h1', 'Find company news faster.'],
+    ['.news-page-hero-copy>p:not(.kicker)', 'Browse project updates, company visits, CSR activity, and internal stories from PT Taka Hydrocore Indonesia.'],
+    ['.news-feature-section>.section-label', '<span>01</span> Newsroom', 'html'],
+    ['.newsroom-head .kicker', 'Latest News'],
+    ['.newsroom-head h2', 'Highlighted company update.'],
+    ['.newsroom-head>p:not(.kicker)', 'The most recent story is featured first so visitors can catch the latest update before browsing the full news list.'],
+    ['.news-list-head .kicker', 'News List'],
+    ['.news-list-head h2', 'Browse all published updates.'],
+    ['.news-list-head>p', 'Use the filters when you want to narrow updates by topic, year, or keyword.'],
+    ['[data-news-search-label]', 'Search news'],
+    ['[data-news-topic-label]', 'Topic'],
+    ['[data-news-year-label]', 'Year'],
+    ['[data-news-browse-label]', 'Browse by topic'],
+    ['[data-news-reset]', 'Clear filters'],
     ['.news-empty-state span', 'No published news'],
     ['.news-empty-state p', 'Company news and updates will appear here after content is published.']
   ],
@@ -2460,11 +2469,20 @@ const newsPageTranslations = {
     ['meta[name="description"]', 'Berita CSR dan pembaruan perusahaan PT Taka Hydrocore Indonesia.'],
     ['.news-page .preloader-inner p', 'Menyiapkan berita'],
     ['.news-page-hero-copy .kicker', 'Ruang Berita'],
-    ['.news-page-hero h1', 'Pembaruan perusahaan dengan konteks yang jelas.'],
-    ['.news-page-hero-copy>p:not(.kicker)', 'Cerita pilihan dari PT Taka Hydrocore Indonesia, mencakup tanggung jawab sosial, aktivitas lapangan, dan milestone perusahaan.'],
-    ['.news-feature-section>.section-label', '<span>01</span> Arsip Berita', 'html'],
-    ['.newsroom-head .kicker', 'Pembaruan perusahaan'],
-    ['.newsroom-head h2', 'Berita terbit dari THI.'],
+    ['.news-page-hero h1', 'Temukan berita perusahaan lebih cepat.'],
+    ['.news-page-hero-copy>p:not(.kicker)', 'Telusuri pembaruan proyek, kunjungan perusahaan, kegiatan CSR, dan cerita internal dari PT Taka Hydrocore Indonesia.'],
+    ['.news-feature-section>.section-label', '<span>01</span> Ruang Berita', 'html'],
+    ['.newsroom-head .kicker', 'Berita Terbaru'],
+    ['.newsroom-head h2', 'Sorotan pembaruan perusahaan.'],
+    ['.newsroom-head>p:not(.kicker)', 'Berita terbaru ditampilkan lebih dulu agar pengunjung bisa langsung melihat pembaruan utama sebelum menelusuri daftar berita.'],
+    ['.news-list-head .kicker', 'Daftar Berita'],
+    ['.news-list-head h2', 'Telusuri semua pembaruan yang sudah terbit.'],
+    ['.news-list-head>p', 'Gunakan filter jika ingin menyaring berita berdasarkan topik, tahun, atau kata kunci.'],
+    ['[data-news-search-label]', 'Cari berita'],
+    ['[data-news-topic-label]', 'Topik'],
+    ['[data-news-year-label]', 'Tahun'],
+    ['[data-news-browse-label]', 'Telusuri topik'],
+    ['[data-news-reset]', 'Hapus filter'],
     ['.news-empty-state span', 'Belum ada berita terbit'],
     ['.news-empty-state p', 'Berita dan pembaruan perusahaan akan tampil di sini setelah dipublikasikan.']
   ]
@@ -2474,9 +2492,20 @@ const applyNewsPageLanguage = (language) => {
   if (!document.body.classList.contains('news-page')) return;
   const translations = newsPageTranslations[language] || newsPageTranslations.en;
   translations.forEach(([selector, content, mode]) => setElementContent(selector, content, mode));
+  const search = document.querySelector('[data-news-search]');
+  if (search) {
+    search.placeholder = language === 'id'
+      ? 'Cari project, CSR, SIGAP, geophysical...'
+      : 'Search project, CSR, SIGAP, geophysical...';
+  }
 };
 
 let cmsNewsItems = [];
+const newsFilterState = {
+  query: '',
+  category: 'all',
+  year: 'all'
+};
 
 const escapeHtml = (value = '') => String(value)
   .replace(/&/g, '&amp;')
@@ -2520,21 +2549,190 @@ const formatNewsDate = (dateValue) => {
 
 const newsDetailHref = (item) => `news-detail.html?slug=${encodeURIComponent(item.slug)}`;
 
+const getNewsYear = (item) => {
+  const date = new Date(item.date || 0);
+  return Number.isNaN(date.getTime()) ? '' : String(date.getFullYear());
+};
+
+const hasActiveNewsFilters = () => Boolean(
+  newsFilterState.query ||
+  newsFilterState.category !== 'all' ||
+  newsFilterState.year !== 'all'
+);
+
+const matchesNewsFilters = (item) => {
+  const query = newsFilterState.query.trim().toLowerCase();
+  const category = String(item.category || 'Company Update');
+  const year = getNewsYear(item);
+  const searchable = [
+    item.title,
+    item.summary,
+    item.category,
+    item.body
+  ].join(' ').toLowerCase();
+
+  return (!query || searchable.includes(query)) &&
+    (newsFilterState.category === 'all' || category === newsFilterState.category) &&
+    (newsFilterState.year === 'all' || year === newsFilterState.year);
+};
+
+const getNewsCategoryCounts = (items = cmsNewsItems) => items.reduce((map, item) => {
+  const category = String(item.category || 'Company Update').trim() || 'Company Update';
+  map.set(category, (map.get(category) || 0) + 1);
+  return map;
+}, new Map());
+
+const getNewsCountLabel = (count) => {
+  if (activeLanguage === 'id') return `${count} berita`;
+  return `${count} ${count === 1 ? 'update' : 'updates'}`;
+};
+
+const renderNewsSearchTools = (items = cmsNewsItems, visibleItems = items) => {
+  if (!document.body.classList.contains('news-page')) return;
+
+  const categoryWrap = document.querySelector('[data-news-categories]');
+  const yearSelect = document.querySelector('[data-news-year]');
+  const resultCount = document.querySelector('[data-news-result-count]');
+  const resetButton = document.querySelector('[data-news-reset]');
+  const overview = document.querySelector('[data-news-overview]');
+  const featured = document.querySelector('[data-news-featured]');
+  const topicSummary = document.querySelector('[data-news-topic-summary]');
+
+  if (categoryWrap) {
+    const categories = Array.from(getNewsCategoryCounts(items).keys()).sort((a, b) => a.localeCompare(b));
+    const allLabel = activeLanguage === 'id' ? 'Semua berita' : 'All updates';
+    categoryWrap.innerHTML = [
+      `<button type="button" class="${newsFilterState.category === 'all' ? 'active' : ''}" data-news-category="all">${allLabel}</button>`,
+      ...categories.map((category) => `<button type="button" class="${newsFilterState.category === category ? 'active' : ''}" data-news-category="${escapeHtml(category)}">${escapeHtml(category)}</button>`)
+    ].join('');
+  }
+
+  if (yearSelect) {
+    const current = newsFilterState.year;
+    const years = Array.from(new Set(items.map(getNewsYear).filter(Boolean))).sort((a, b) => Number(b) - Number(a));
+    const allYears = activeLanguage === 'id' ? 'Semua tahun' : 'All years';
+    yearSelect.innerHTML = [
+      `<option value="all">${allYears}</option>`,
+      ...years.map((year) => `<option value="${escapeHtml(year)}">${escapeHtml(year)}</option>`)
+    ].join('');
+    yearSelect.value = years.includes(current) ? current : 'all';
+    newsFilterState.year = yearSelect.value;
+  }
+
+  if (resultCount) {
+    resultCount.textContent = activeLanguage === 'id'
+      ? `${getNewsCountLabel(visibleItems.length)} ditemukan`
+      : `${getNewsCountLabel(visibleItems.length)} found`;
+  }
+
+  if (resetButton) {
+    resetButton.disabled = !hasActiveNewsFilters();
+  }
+
+  if (overview && featured) {
+    const item = visibleItems[0];
+    if (!item) {
+      overview.hidden = true;
+    } else {
+      const category = escapeHtml(item.category || 'Company Update');
+      const date = escapeHtml(formatNewsDate(item.date));
+      const title = escapeHtml(item.title);
+      const summary = markdownInlineToHtml(item.summary || '');
+      const image = getSafeCmsAssetPath(item.image);
+      const imageAlt = escapeHtml(item.imageAlt || item.title);
+      const label = activeLanguage === 'id' ? 'Sorotan terbaru' : 'Latest highlight';
+      const read = activeLanguage === 'id' ? 'Baca berita' : 'Read story';
+      overview.hidden = false;
+      featured.innerHTML = `<a class="newsroom-featured-card" href="${newsDetailHref(item)}">
+        <figure>${image ? `<img src="${escapeHtml(image)}" alt="${imageAlt}" loading="lazy">` : ''}</figure>
+        <div>
+          <span>${label}</span>
+          <small>${category} · ${date}</small>
+          <h3>${title}</h3>
+          <p>${summary}</p>
+          <strong>${read} →</strong>
+        </div>
+      </a>`;
+    }
+  }
+
+  if (topicSummary) {
+    const counts = Array.from(getNewsCategoryCounts(items).entries()).sort((a, b) => b[1] - a[1]);
+    topicSummary.innerHTML = counts.map(([category, count]) => `<button type="button" data-news-topic-jump="${escapeHtml(category)}">
+      <strong>${escapeHtml(category)}</strong>
+      <span>${getNewsCountLabel(count)}</span>
+    </button>`).join('');
+  }
+};
+
+const initNewsFilterEvents = () => {
+  const page = document.querySelector('.news-page');
+  if (!page || page.dataset.newsFiltersReady) return;
+  page.dataset.newsFiltersReady = 'true';
+
+  const search = page.querySelector('[data-news-search]');
+  const yearSelect = page.querySelector('[data-news-year]');
+
+  search?.addEventListener('input', (event) => {
+    newsFilterState.query = event.target.value || '';
+    renderCmsNewsCards(cmsNewsItems);
+  });
+
+  yearSelect?.addEventListener('change', (event) => {
+    newsFilterState.year = event.target.value || 'all';
+    renderCmsNewsCards(cmsNewsItems);
+  });
+
+  page.addEventListener('click', (event) => {
+    const categoryButton = event.target.closest('[data-news-category]');
+    const topicButton = event.target.closest('[data-news-topic-jump]');
+    const resetButton = event.target.closest('[data-news-reset]');
+
+    if (categoryButton) {
+      newsFilterState.category = categoryButton.dataset.newsCategory || 'all';
+      renderCmsNewsCards(cmsNewsItems);
+    }
+
+    if (topicButton) {
+      newsFilterState.category = topicButton.dataset.newsTopicJump || 'all';
+      renderCmsNewsCards(cmsNewsItems);
+      document.querySelector('[data-news-controls]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    if (resetButton) {
+      newsFilterState.query = '';
+      newsFilterState.category = 'all';
+      newsFilterState.year = 'all';
+      if (search) search.value = '';
+      renderCmsNewsCards(cmsNewsItems);
+    }
+  });
+};
+
 const renderNewsEmpty = (container, scope) => {
   container.classList.add('is-empty');
-  const title = activeLanguage === 'id' ? 'Belum ada berita terbit' : 'No published news';
+  const noMatch = scope === 'archive' && document.body.classList.contains('news-page') && hasActiveNewsFilters();
+  const title = activeLanguage === 'id'
+    ? (noMatch ? 'Tidak ada berita yang cocok' : 'Belum ada berita terbit')
+    : (noMatch ? 'No matching updates' : 'No published news');
   const copy = activeLanguage === 'id'
-    ? 'Berita akan tampil di sini setelah dipublikasikan.'
-    : 'News will appear here after content is published.';
+    ? (noMatch ? 'Coba kata kunci, topik, atau tahun yang berbeda.' : 'Berita akan tampil di sini setelah dipublikasikan.')
+    : (noMatch ? 'Try another keyword, topic, or year.' : 'News will appear here after content is published.');
   container.innerHTML = `<article class="news-empty-state ${scope === 'home' ? 'news-empty-state-inline' : ''}"><span>${title}</span><p>${copy}</p></article>`;
 };
 
 const renderCmsNewsCards = (items = cmsNewsItems) => {
+  const filteredNewsItems = items.filter(matchesNewsFilters);
+  renderNewsSearchTools(items, filteredNewsItems);
+
   document.querySelectorAll('[data-news-list]').forEach((container) => {
     const scope = container.dataset.newsList;
+    const newsPageArchiveItems = document.body.classList.contains('news-page') && !hasActiveNewsFilters()
+      ? filteredNewsItems.slice(1)
+      : filteredNewsItems;
     const sourceItems = scope === 'home'
       ? (items.filter((item) => item.featured).length ? items.filter((item) => item.featured) : items)
-      : items;
+      : (document.body.classList.contains('news-page') ? newsPageArchiveItems : items);
     const limit = scope === 'home' ? 3 : sourceItems.length;
     const visibleItems = sourceItems.slice(0, limit);
     if (!visibleItems.length) {
@@ -2562,7 +2760,7 @@ const renderCmsNewsCards = (items = cmsNewsItems) => {
         </a>`;
       }
 
-      return `<a class="newsroom-story news-cms-story" href="${newsDetailHref(item)}">
+      return `<a class="newsroom-story news-cms-story news-directory-card" href="${newsDetailHref(item)}">
         <figure class="newsroom-story-media">${image ? `<img src="${escapeHtml(image)}" alt="${imageAlt}" loading="lazy">` : ''}</figure>
         <div class="newsroom-story-copy">
           <div class="newsroom-story-meta"><span>${category}</span><small>${date}</small></div>
@@ -2666,6 +2864,7 @@ const renderCmsNewsDetail = (items = cmsNewsItems) => {
 
 const initCmsNews = () => {
   if (!document.querySelector('[data-news-list]') && !document.body.classList.contains('news-detail-page')) return;
+  initNewsFilterEvents();
   fetch('data/news.json', { cache: 'no-store' })
     .then((response) => (response.ok ? response.json() : { items: [] }))
     .then((data) => {

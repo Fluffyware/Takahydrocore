@@ -3,20 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2e2564">
   <meta name="description" content="Company news, CSR updates, and selected announcements from PT Taka Hydrocore Indonesia.">
   <title>News &amp; Updates | PT Taka Hydrocore Indonesia</title>
   <!-- SEO -->
-  <link rel="canonical" href="https://www.takahydrocore.com/news.html">
+  <link rel="canonical" href="https://thi.co.id/news.html">
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="News &amp; Updates | PT Taka Hydrocore Indonesia">
   <meta property="og:description" content="Company news, CSR updates, and selected announcements from PT Taka Hydrocore Indonesia.">
-  <meta property="og:url" content="https://www.takahydrocore.com/news.html">
+  <meta property="og:url" content="https://thi.co.id/news.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PT Taka Hydrocore Indonesia">
-  <meta property="og:image" content="https://www.takahydrocore.com/assets/taka-navbar-logo.png">
+  <meta property="og:image" content="https://thi.co.id/assets/taka-navbar-logo.png">
+  <meta property="og:image:alt" content="PT Taka Hydrocore Indonesia logo">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="News &amp; Updates | PT Taka Hydrocore Indonesia">
   <meta name="twitter:description" content="Company news, CSR updates, and selected announcements from PT Taka Hydrocore Indonesia.">
+  <meta name="twitter:image" content="https://thi.co.id/assets/taka-navbar-logo.png">
+  <meta name="twitter:image:alt" content="PT Taka Hydrocore Indonesia logo">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -26,13 +30,13 @@
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://www.takahydrocore.com"
+      "item": "https://thi.co.id"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "News & Updates",
-      "item": "https://www.takahydrocore.com/news.html"
+      "item": "https://thi.co.id/news.html"
     }
   ]
 }
@@ -100,16 +104,53 @@
     <section class="news-page-hero">
       <div class="news-page-hero-copy reveal">
         <p class="kicker">Newsroom</p>
-        <h1>Company updates, written with context.</h1>
-        <p>Selected stories from PT Taka Hydrocore Indonesia, including corporate responsibility, field activity, and company milestones.</p>
+        <h1>Find company news faster.</h1>
+        <p>Browse project updates, company visits, CSR activity, and internal stories from PT Taka Hydrocore Indonesia.</p>
       </div>
     </section>
 
     <section class="section news-feature-section">
-      <div class="section-label reveal"><span>01</span> News Archive</div>
+      <div class="section-label reveal"><span>01</span> Newsroom</div>
       <div class="newsroom-head reveal">
-        <p class="kicker">Company updates</p>
-        <h2>Published news from THI.</h2>
+        <p class="kicker">Latest News</p>
+        <h2>Highlighted company update.</h2>
+        <p>The most recent story is featured first so visitors can catch the latest update before browsing the full news list.</p>
+      </div>
+      <div class="newsroom-overview reveal" data-news-overview hidden>
+        <article class="newsroom-featured" data-news-featured></article>
+        <aside class="newsroom-topic-panel">
+          <span data-news-browse-label>Browse by topic</span>
+          <div data-news-topic-summary></div>
+        </aside>
+      </div>
+      <div class="news-list-head reveal">
+        <div>
+          <p class="kicker">News List</p>
+          <h2>Browse all published updates.</h2>
+        </div>
+        <p>Use the filters when you want to narrow updates by topic, year, or keyword.</p>
+      </div>
+      <div class="newsroom-controls reveal" data-news-controls>
+        <label class="news-search-box">
+          <span data-news-search-label>Search news</span>
+          <input type="search" data-news-search placeholder="Search project, CSR, SIGAP, geophysical...">
+        </label>
+        <div class="news-filter-group">
+          <span data-news-topic-label>Topic</span>
+          <div class="news-filter-chips" data-news-categories>
+            <button type="button" class="active" data-news-category="all">All updates</button>
+          </div>
+        </div>
+        <label class="news-filter-select">
+          <span data-news-year-label>Year</span>
+          <select data-news-year>
+            <option value="all">All years</option>
+          </select>
+        </label>
+      </div>
+      <div class="news-results-bar reveal">
+        <span data-news-result-count>Loading news...</span>
+        <button type="button" data-news-reset>Clear filters</button>
       </div>
       <div class="newsroom-list reveal" data-news-list="archive">
         <article class="news-empty-state">

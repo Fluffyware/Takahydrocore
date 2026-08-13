@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /tmp/
 
-Sitemap: https://www.takahydrocore.com/sitemap.xml
+Sitemap: https://thi.co.id/sitemap.xml
